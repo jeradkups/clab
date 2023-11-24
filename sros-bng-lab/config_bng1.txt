@@ -1,0 +1,916 @@
+# TiMOS-B-22.7.R1 both/x86_64 Nokia 7750 SR Copyright (c) 2000-2022 Nokia.
+# All rights reserved. All use subject to applicable license agreements.
+# Built on Tue Aug 2 14:18:47 PDT 2022 by builder in /builds/c/227B/R1/panos/main/sros
+# Configuration format version 22.7 revision 0
+
+# Generated 2023-01-21T22:35:12.2+00:00 by admin from 172.31.255.29
+# Commit ID 29
+#   Committed 2023-01-21T22:17:45.6+00:00 by admin (MD-CLI) from Console
+# Commit ID 28
+#   Committed 2023-01-21T22:12:03.8+00:00 by admin (MD-CLI) from Console
+# Commit ID 27
+#   Committed 2023-01-21T22:06:55.0+00:00 by admin (MD-CLI) from Console
+# Commit ID 26
+#   Committed 2023-01-16T03:22:40.7+00:00 by admin (MD-CLI) from Console
+# Commit ID 25
+#   Committed 2023-01-16T03:20:23.5+00:00 by admin (MD-CLI) from Console
+# Commit ID 24
+#   Committed 2023-01-16T02:58:03.3+00:00 by admin (MD-CLI) from Console
+# Commit ID 23
+#   Committed 2023-01-16T02:57:14.2+00:00 by admin (MD-CLI) from Console
+# Commit ID 22
+#   Committed 2023-01-16T02:09:01.0+00:00 by admin (MD-CLI) from Console
+# Commit ID 21
+#   Committed 2023-01-16T01:59:17.0+00:00 by admin (MD-CLI) from Console
+# Commit ID 20
+#   Committed 2023-01-16T01:50:41.9+00:00 by admin (MD-CLI) from Console
+# Commit ID 19
+#   Committed 2023-01-16T01:44:21.2+00:00 by admin (MD-CLI) from Console
+# Commit ID 18
+#   Committed 2023-01-16T00:39:07.8+00:00 by admin (MD-CLI) from Console
+# Commit ID 17
+#   Committed 2023-01-16T00:37:17.4+00:00 by admin (MD-CLI) from Console
+# Commit ID 16
+#   Committed 2023-01-16T00:28:08.2+00:00 by admin (MD-CLI) from Console
+# Commit ID 15
+#   Committed 2023-01-16T00:21:38.9+00:00 by admin (MD-CLI) from Console
+# Commit ID 14
+#   Committed 2023-01-16T00:11:53.0+00:00 by admin (MD-CLI) from Console
+# Commit ID 13
+#   Committed 2023-01-15T23:17:05.9+00:00 by admin (MD-CLI) from Console
+# Commit ID 12
+#   Committed 2023-01-15T23:15:50.5+00:00 by admin (MD-CLI) from Console
+# Commit ID 11
+#   Committed 2023-01-15T23:14:18.8+00:00 by admin (MD-CLI) from Console
+# Commit ID 10
+#   Committed 2023-01-15T23:11:58.2+00:00 by admin (MD-CLI) from Console
+# Commit ID 9
+#   Committed 2023-01-15T23:10:58.5+00:00 by admin (MD-CLI) from Console
+# Commit ID 8
+#   Committed 2023-01-15T23:10:03.8+00:00 by admin (MD-CLI) from Console
+# Commit ID 7
+#   Committed 2023-01-15T23:09:54.0+00:00 by admin (MD-CLI) from Console
+# Commit ID 6
+#   Committed 2023-01-15T23:07:25.5+00:00 by admin (MD-CLI) from Console
+# Commit ID 5
+#   Committed 2023-01-15T22:32:01.8+00:00 by admin (MD-CLI) from 1.1.1.3
+# Commit ID 4
+#   Committed 2023-01-15T22:28:02.1+00:00 by admin (MD-CLI) from 1.1.1.3
+# Commit ID 3
+#   Committed 2023-01-15T21:36:28.6+00:00 by admin (MD-CLI) from Console
+# Commit ID 2
+#   Committed 2023-01-15T21:34:30.8+00:00 by admin (MD-CLI) from Console
+# Commit ID 1
+#   Committed 2023-01-15T21:13:39.2+00:00 by system (MD-CLI) from Console
+#   Log       "System booted version B-22.7.R1."
+
+configure {
+    aaa {
+        radius {
+            server-policy "Radius-server-policy" {
+            }
+        }
+    }
+    card 1 {
+        card-type iom-1
+        mda 1 {
+            mda-type me12-100gb-qsfp28
+        }
+        mda 2 {
+        }
+        fp 1 {
+        }
+    }
+    lag "lag-1" {
+        admin-state enable
+        encap-type qinq
+        mode hybrid
+        max-ports 64
+        lacp {
+            mode active
+            administrative-key 1
+        }
+        port 1/1/c2/1 {
+        }
+    }
+    log {
+        filter "1001" {
+            named-entry "10" {
+                description "Collect only events of major severity or higher"
+                action forward
+                match {
+                    severity {
+                        gte major
+                    }
+                }
+            }
+        }
+        log-id "100" {
+            description "Default Serious Errors Log"
+            filter "1001"
+            source {
+                main true
+            }
+            destination {
+                memory {
+                    max-entries 500
+                }
+            }
+        }
+        log-id "99" {
+            description "Default System Log"
+            source {
+                main true
+            }
+            destination {
+                memory {
+                    max-entries 500
+                }
+            }
+        }
+    }
+    port 1/1/c1 {
+        admin-state enable
+        description "To bng2"
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c1/1 {
+        admin-state enable
+        ethernet {
+            mode network
+        }
+    }
+    port 1/1/c2 {
+        admin-state enable
+        description "To agg1"
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c2/1 {
+        admin-state enable
+        ethernet {
+            mode hybrid
+            encap-type qinq
+        }
+    }
+    port 1/1/c3 {
+        admin-state enable
+        connector {
+            breakout c4-10g
+        }
+    }
+    port 1/1/c3/1 {
+        admin-state enable
+        ethernet {
+            mode access
+            encap-type dot1q
+            mtu 9212
+        }
+    }
+    port 1/1/c4 {
+    }
+    port 1/1/c5 {
+    }
+    port 1/1/c6 {
+    }
+    port 1/1/c7 {
+    }
+    port 1/1/c8 {
+    }
+    port 1/1/c9 {
+    }
+    port 1/1/c10 {
+    }
+    port 1/1/c11 {
+    }
+    port 1/1/c12 {
+    }
+    pw-port 1001 {
+        encap-type qinq
+        sdp 12 {
+            admin-state enable
+            vc-id 301
+            vc-type ether
+        }
+    }
+    qos {
+        sap-ingress "internet" {
+            policy-id 20
+            queue 1 {
+            }
+            queue 11 {
+                multipoint true
+            }
+        }
+    }
+    redundancy {
+        multi-chassis {
+            peer 1.1.1.2 {
+                admin-state enable
+                source-address 1.1.1.1
+                sync {
+                    igmp true
+                    local-dhcp-server true
+                    srrp true
+                    sub-mgmt {
+                        ipoe true
+                    }
+                    tags {
+                        pw-port 1001 {
+                            sync-tag "301"
+                        }
+                    }
+                }
+            }
+        }
+    }
+    router "Base" {
+        autonomous-system 64512
+        router-id 1.1.1.1
+        interface "system" {
+            admin-state enable
+            ipv4 {
+                primary {
+                    address 1.1.1.1
+                    prefix-length 32
+                }
+            }
+        }
+        interface "to_agg1" {
+            admin-state enable
+            port lag-1:0.*
+            ipv4 {
+                bfd {
+                    admin-state enable
+                    transmit-interval 100000
+                    receive 100000
+                    multiplier 3
+                }
+                primary {
+                    address 2.1.1.1
+                    prefix-length 30
+                }
+            }
+        }
+        interface "to_bng2" {
+            admin-state enable
+            port 1/1/c1/1
+            ipv4 {
+                primary {
+                    address 2.1.1.5
+                    prefix-length 30
+                }
+            }
+        }
+        bgp {
+            admin-state enable
+            group "iBGP" {
+                admin-state enable
+                peer-as 64512
+                local-address "system"
+                family {
+                    ipv4 true
+                }
+                dynamic-neighbor {
+                    match {
+                        prefix 1.1.1.2/32 {
+                        }
+                        prefix 1.1.1.3/32 {
+                        }
+                    }
+                }
+            }
+        }
+        ldp {
+            admin-state enable
+        }
+        mpls {
+            admin-state enable
+            lsp-self-ping {
+                rsvp-te true
+            }
+            interface "system" {
+                admin-state enable
+            }
+            interface "to_agg1" {
+                admin-state enable
+            }
+            interface "to_bng2" {
+                admin-state enable
+            }
+            path "Strict-to-agg2" {
+                admin-state enable
+                hop 10 {
+                    ip-address 2.1.1.1
+                    type strict
+                }
+            }
+            path "loose" {
+                admin-state enable
+            }
+            lsp "to_agg2" {
+                admin-state enable
+                type p2p-rsvp
+                to 1.1.1.4
+                path-computation-method local-cspf
+                primary "Strict-to-agg2" {
+                    admin-state enable
+                }
+            }
+            lsp "to_bng2" {
+                admin-state enable
+                type p2p-rsvp
+                to 1.1.1.2
+                path-computation-method local-cspf
+                primary "loose" {
+                    admin-state enable
+                }
+            }
+        }
+        ospf 0 {
+            admin-state enable
+            traffic-engineering true
+            asbr {
+            }
+            area 0.0.0.0 {
+                interface "system" {
+                    admin-state enable
+                }
+                interface "to_agg1" {
+                    admin-state enable
+                    interface-type point-to-point
+                    bfd-liveness {
+                    }
+                }
+                interface "to_bng2" {
+                    admin-state enable
+                    interface-type point-to-point
+                    bfd-liveness {
+                    }
+                }
+            }
+        }
+        rsvp {
+            admin-state enable
+            interface "system" {
+                admin-state enable
+            }
+            interface "to_agg1" {
+                admin-state enable
+            }
+            interface "to_bng2" {
+                admin-state enable
+            }
+        }
+    }
+    service {
+        ies "301" {
+            admin-state enable
+            service-id 301
+            customer "1"
+            vpn-id 301
+            redundant-interface "redundant-to-bng2" {
+                admin-state enable
+                spoke-sdp 2:301 {
+                }
+                ipv4 {
+                    primary {
+                        address 20.2.3.0
+                        prefix-length 31
+                    }
+                }
+            }
+            subscriber-interface "Sub1" {
+                ipv4 {
+                    address 172.100.0.2 {
+                        prefix-length 16
+                        gateway 172.100.0.1
+                        track-srrp 301
+                    }
+                }
+                group-interface "GI-1" {
+                    radius-auth-policy "IPOE Auth"
+                    oper-up-while-empty true
+                    redundant-interface "redundant-to-bng2"
+                    dynamic-routes-track-srrp {
+                    }
+                    ipoe-session {
+                        admin-state enable
+                        ipoe-session-policy "default"
+                        user-db "IPOE User DB"
+                    }
+                    srrp 301 {
+                        admin-state enable
+                        keep-alive-interval 1
+                        message-path pw-1001:301.301
+                    }
+                    sap pw-1001:100.0 {
+                        admin-state enable
+                        sub-sla-mgmt {
+                            admin-state enable
+                            defaults {
+                                sub-profile "Internet"
+                                sla-profile "Internet"
+                            }
+                        }
+                    }
+                    sap pw-1001:301.301 {
+                        admin-state enable
+                    }
+                }
+            }
+        }
+        sdp 2 {
+            admin-state enable
+            delivery-type mpls
+            keep-alive {
+                admin-state enable
+            }
+            far-end {
+                ip-address 1.1.1.2
+            }
+            lsp "to_bng2" { }
+        }
+        sdp 12 {
+            admin-state enable
+            delivery-type mpls
+            keep-alive {
+                admin-state enable
+            }
+            far-end {
+                ip-address 1.1.1.4
+            }
+            pw-port {
+                binding-port lag-1
+            }
+            lsp "to_agg2" { }
+        }
+        vpls "200" {
+            admin-state enable
+            customer "1"
+            service-mtu 9100
+            stp {
+                admin-state disable
+            }
+            spoke-sdp 12:200 {
+                admin-state enable
+            }
+            sap 1/1/c3/1:0 {
+                admin-state enable
+            }
+        }
+        vpls "201" {
+            admin-state enable
+            service-id 201
+            customer "1"
+            vpn-id 201
+            stp {
+                admin-state disable
+            }
+            capture-sap pw-1001:*.* {
+                admin-state enable
+                radius-auth-policy "IPOE Auth"
+                trigger-packet {
+                    dhcp true
+                    dhcp6 true
+                }
+                msap-defaults {
+                    policy "Dynamic MSAPs"
+                    service-name "301"
+                    group-interface "GI-1"
+                }
+                ipoe-session {
+                    admin-state enable
+                    ipoe-session-policy "default"
+                }
+            }
+        }
+    }
+    subscriber-mgmt {
+        ipoe-session-policy "IPOE Auth" {
+            circuit-id-from-auth true
+            session-key {
+                cid true
+            }
+        }
+        ipoe-session-policy "default" {
+        }
+        sub-profile "Internet" {
+            sla-profile-map {
+                use-direct-map-as-default true
+                entry "Internet" {
+                    sla-profile "Internet"
+                }
+            }
+        }
+        sla-profile "Internet" {
+            description "Default Internet SLA"
+            ingress {
+                qos {
+                    sap-ingress {
+                        policy-name "internet"
+                    }
+                }
+            }
+        }
+        radius-authentication-policy "IPOE Auth" {
+            radius-server-policy "Radius-server-policy"
+            fallback {
+                action {
+                    user-db "IPOE User DB"
+                }
+            }
+            include-radius-attribute {
+                circuit-id true
+                mac-address true
+                nas-identifier true
+                remote-id true
+                nas-port-id {
+                }
+                nas-port-type {
+                }
+            }
+        }
+        msap-policy "Dynamic MSAPs" {
+            sub-sla-mgmt {
+                defaults {
+                    sla-profile "Internet"
+                    sub-profile "Internet"
+                    subscriber-id {
+                        sap-id
+                    }
+                }
+                single-sub-parameters {
+                    profiled-traffic-only true
+                }
+            }
+        }
+        local-user-db "IPOE User DB" {
+            admin-state enable
+        }
+    }
+    system {
+        name "bng1"
+        dns {
+            address-pref ipv4-only
+        }
+        grpc {
+            admin-state enable
+            allow-unsecure-connection
+            gnmi {
+                auto-config-save true
+            }
+            rib-api {
+                admin-state enable
+            }
+        }
+        management-interface {
+            configuration-mode model-driven
+            netconf {
+                admin-state enable
+                auto-config-save true
+            }
+            snmp {
+                packet-size 9216
+                streaming {
+                    admin-state enable
+                }
+            }
+        }
+        bluetooth {
+            advertising-timeout 30
+        }
+        login-control {
+            ssh {
+                inbound-max-sessions 30
+            }
+        }
+        security {
+            aaa {
+                local-profiles {
+                    profile "administrative" {
+                        default-action permit-all
+                        entry 10 {
+                            match "configure system security"
+                            action permit
+                        }
+                        entry 20 {
+                            match "show system security"
+                            action permit
+                        }
+                        entry 30 {
+                            match "tools perform security"
+                            action permit
+                        }
+                        entry 40 {
+                            match "tools dump security"
+                            action permit
+                        }
+                        entry 50 {
+                            match "admin system security"
+                            action permit
+                        }
+                        entry 100 {
+                            match "configure li"
+                            action deny
+                        }
+                        entry 110 {
+                            match "show li"
+                            action deny
+                        }
+                        entry 111 {
+                            match "clear li"
+                            action deny
+                        }
+                        entry 112 {
+                            match "tools dump li"
+                            action deny
+                        }
+                        netconf {
+                            base-op-authorization {
+                                action true
+                                cancel-commit true
+                                close-session true
+                                commit true
+                                copy-config true
+                                create-subscription true
+                                delete-config true
+                                discard-changes true
+                                edit-config true
+                                get true
+                                get-config true
+                                get-data true
+                                get-schema true
+                                kill-session true
+                                lock true
+                                validate true
+                            }
+                        }
+                    }
+                    profile "default" {
+                        entry 10 {
+                            match "exec"
+                            action permit
+                        }
+                        entry 20 {
+                            match "exit"
+                            action permit
+                        }
+                        entry 30 {
+                            match "help"
+                            action permit
+                        }
+                        entry 40 {
+                            match "logout"
+                            action permit
+                        }
+                        entry 50 {
+                            match "password"
+                            action permit
+                        }
+                        entry 60 {
+                            match "show config"
+                            action deny
+                        }
+                        entry 65 {
+                            match "show li"
+                            action deny
+                        }
+                        entry 66 {
+                            match "clear li"
+                            action deny
+                        }
+                        entry 67 {
+                            match "tools dump li"
+                            action deny
+                        }
+                        entry 68 {
+                            match "state li"
+                            action deny
+                        }
+                        entry 70 {
+                            match "show"
+                            action permit
+                        }
+                        entry 75 {
+                            match "state"
+                            action permit
+                        }
+                        entry 80 {
+                            match "enable-admin"
+                            action permit
+                        }
+                        entry 90 {
+                            match "enable"
+                            action permit
+                        }
+                        entry 100 {
+                            match "configure li"
+                            action deny
+                        }
+                    }
+                }
+            }
+            ssh {
+                server-cipher-list-v1 {
+                    cipher 200 {
+                        name 3des
+                    }
+                    cipher 205 {
+                        name blowfish
+                    }
+                }
+                server-cipher-list-v2 {
+                    cipher 190 {
+                        name aes256-ctr
+                    }
+                    cipher 192 {
+                        name aes192-ctr
+                    }
+                    cipher 194 {
+                        name aes128-ctr
+                    }
+                    cipher 200 {
+                        name aes128-cbc
+                    }
+                    cipher 205 {
+                        name 3des-cbc
+                    }
+                    cipher 210 {
+                        name blowfish-cbc
+                    }
+                    cipher 215 {
+                        name cast128-cbc
+                    }
+                    cipher 220 {
+                        name arcfour
+                    }
+                    cipher 225 {
+                        name aes192-cbc
+                    }
+                    cipher 230 {
+                        name aes256-cbc
+                    }
+                    cipher 235 {
+                        name rijndael-cbc
+                    }
+                }
+                client-cipher-list-v1 {
+                    cipher 200 {
+                        name 3des
+                    }
+                    cipher 205 {
+                        name blowfish
+                    }
+                    cipher 210 {
+                        name des
+                    }
+                }
+                client-cipher-list-v2 {
+                    cipher 190 {
+                        name aes256-ctr
+                    }
+                    cipher 192 {
+                        name aes192-ctr
+                    }
+                    cipher 194 {
+                        name aes128-ctr
+                    }
+                    cipher 200 {
+                        name aes128-cbc
+                    }
+                    cipher 205 {
+                        name 3des-cbc
+                    }
+                    cipher 210 {
+                        name blowfish-cbc
+                    }
+                    cipher 215 {
+                        name cast128-cbc
+                    }
+                    cipher 220 {
+                        name arcfour
+                    }
+                    cipher 225 {
+                        name aes192-cbc
+                    }
+                    cipher 230 {
+                        name aes256-cbc
+                    }
+                    cipher 235 {
+                        name rijndael-cbc
+                    }
+                }
+                server-mac-list-v2 {
+                    mac 200 {
+                        name hmac-sha2-512
+                    }
+                    mac 210 {
+                        name hmac-sha2-256
+                    }
+                    mac 215 {
+                        name hmac-sha1
+                    }
+                    mac 220 {
+                        name hmac-sha1-96
+                    }
+                    mac 225 {
+                        name hmac-md5
+                    }
+                    mac 230 {
+                        name hmac-ripemd160
+                    }
+                    mac 235 {
+                        name hmac-ripemd160-openssh-com
+                    }
+                    mac 240 {
+                        name hmac-md5-96
+                    }
+                }
+                client-mac-list-v2 {
+                    mac 200 {
+                        name hmac-sha2-512
+                    }
+                    mac 210 {
+                        name hmac-sha2-256
+                    }
+                    mac 215 {
+                        name hmac-sha1
+                    }
+                    mac 220 {
+                        name hmac-sha1-96
+                    }
+                    mac 225 {
+                        name hmac-md5
+                    }
+                    mac 230 {
+                        name hmac-ripemd160
+                    }
+                    mac 235 {
+                        name hmac-ripemd160-openssh-com
+                    }
+                    mac 240 {
+                        name hmac-md5-96
+                    }
+                }
+            }
+            user-params {
+                local-user {
+                    user "admin" {
+                        password "$2y$10$TQrZlpBDra86.qoexZUzQeBXDY1FcdDhGWdD9lLxMuFyPVSm0OGy6"
+                        access {
+                            console true
+                            ftp true
+                            snmp true
+                            netconf true
+                            grpc true
+                        }
+                        console {
+                            member ["administrative"]
+                        }
+                    }
+                    user "vrnetlab" {
+                        password "$2y$10$34SbD05ksLprVA4AidmLg.hSE7Q0dB5IFnaA8ICYC/PLwxiFvJHSG"
+                        access {
+                            console true
+                            netconf true
+                        }
+                        console {
+                            member ["administrative" "default"]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+persistent-indices {
+    description "Persistent indices are maintained by the system and must not be modified."
+    vrtr-if-id {
+        router-name "301" interface-name "GI-1" vrtr-id 1 if-index 6
+        router-name "301" interface-name "Sub1" vrtr-id 1 if-index 5
+        router-name "301" interface-name "redundant-to-bng2" vrtr-id 1 if-index 4
+        router-name "Base" interface-name "to_agg1" vrtr-id 1 if-index 2
+        router-name "Base" interface-name "to_bng2" vrtr-id 1 if-index 3
+    }
+    mpls-lsp-index {
+        lsp-name "to_agg2" type 2 lsp-index 1
+        lsp-name "to_bng2" type 2 lsp-index 2
+    }
+    mpls-path-index {
+        router-id 1 path-name "Strict-to-agg2" path-index 1
+        router-id 1 path-name "loose" path-index 2
+    }
+    msap-policy-id {
+        name "Dynamic MSAPs" id 1
+    }
+    chassis-mac {
+        client lag index 1 pool 1 offset 321
+    }
+}
+
+# Finished 2023-01-21T22:35:12.3+00:00

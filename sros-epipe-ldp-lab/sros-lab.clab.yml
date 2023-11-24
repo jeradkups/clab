@@ -1,0 +1,57 @@
+name: sros-lab01
+
+mgmt:
+  network: mgmt
+  ipv4_subnet: 172.80.80.0/24
+
+topology:
+  kinds:
+    vr-sros:
+      image: jeradkups/vr-sros:23.07.R2
+      license: license-sros.txt
+  nodes:
+    pe1:
+      kind: vr-sros
+      type: ixr-e-big
+      mgmt_ipv4: 172.80.80.51
+      startup-config: config_pe1.txt 
+
+    p1:
+      kind: vr-sros
+      type: ixr-e-big
+      mgmt_ipv4: 172.80.80.52
+      startup-config: config_p1.txt
+
+    pe2:
+      kind: vr-sros
+      type: ixr-e-big
+      mgmt_ipv4: 172.80.80.53
+      startup-config: config_pe2.txt
+
+    ### CLIENTS ###
+    client1:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool
+      mgmt_ipv4: 172.80.80.31
+      exec:
+        - apk add vlan
+        - ip link add link eth1 name eth1.10 type vlan id 10
+        - ip address add 192.168.10.1/24 dev eth1.10
+        - ip link set dev eth1.10 up
+
+    client2:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool
+      mgmt_ipv4: 172.80.80.32
+      exec:
+        - apk add vlan
+        - ip link add link eth1 name eth1.10 type vlan id 10
+        - ip address add 192.168.10.2/24 dev eth1.10
+        - ip link set dev eth1.10 up
+
+  links:
+    - endpoints: ["pe1:eth1", "p1:eth1"]
+    - endpoints: ["pe2:eth1", "p1:eth2"]
+    - endpoints: ["pe1:eth2", "client1:eth1"]
+    - endpoints: ["pe2:eth2", "client2:eth1"]
+

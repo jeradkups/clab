@@ -3,7 +3,9 @@
 # Built on Tue Aug 29 13:26:59 PDT 2023 by builder in /builds/237B/R2/panos/main/sros
 # Configuration format version 23.7 revision 0
 
-# Generated 2023-11-26T05:22:35.1+00:00 by admin from 172.31.255.29
+# Generated 2023-11-26T19:11:39.3+00:00 by admin from 172.31.255.29
+# Commit ID 3
+#   Committed 2023-11-26T19:06:05.4+00:00 by admin (MD-CLI) from Console
 
 configure {
     log {
@@ -145,6 +147,40 @@ configure {
                 end 524000
             }
         }
+        isis 0 {
+            admin-state enable
+            advertise-router-capability area
+            level-capability 2
+            traffic-engineering true
+            area-address [49.01]
+            loopfree-alternate {
+            }
+            segment-routing {
+                admin-state enable
+                prefix-sid-range {
+                    start-label 519000
+                    max-index 5000
+                }
+            }
+            interface "system" {
+                admin-state enable
+                passive true
+                ipv4-node-sid {
+                    index 2
+                }
+            }
+            interface "to_PE1" {
+                admin-state enable
+                interface-type point-to-point
+            }
+            interface "to_PE2" {
+                admin-state enable
+                interface-type point-to-point
+            }
+            level 2 {
+                wide-metrics-only true
+            }
+        }
         ldp {
             interface-parameters {
                 interface "to_PE1" {
@@ -164,32 +200,6 @@ configure {
             interface "to_PE1" {
             }
             interface "to_PE2" {
-            }
-        }
-        ospf 0 {
-            admin-state enable
-            router-id 10.1.1.2
-            advertise-router-capability area
-            traffic-engineering true
-            segment-routing {
-                admin-state enable
-                prefix-sid-range {
-                    start-label 519000
-                    max-index 5000
-                }
-            }
-            area 0.0.0.0 {
-                interface "system" {
-                    node-sid {
-                        index 2
-                    }
-                }
-                interface "to_PE1" {
-                    interface-type point-to-point
-                }
-                interface "to_PE2" {
-                    interface-type point-to-point
-                }
             }
         }
         rsvp {
@@ -465,4 +475,4 @@ persistent-indices {
     }
 }
 
-# Finished 2023-11-26T05:22:35.1+00:00
+# Finished 2023-11-26T19:11:39.3+00:00

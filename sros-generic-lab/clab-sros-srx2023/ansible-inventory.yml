@@ -1,0 +1,45 @@
+all:
+  vars:
+    # The generated inventory is assumed to be used from the clab host.
+    # Hence no http proxy should be used. Therefore we make sure the http
+    # module does not attempt using any global http proxy.
+    ansible_httpapi_use_proxy: false
+  children:
+    linux:
+      hosts:
+        clab-sros-srx2023-consul-agent:
+          ansible_host: 172.20.20.13
+        clab-sros-srx2023-gnmic:
+          ansible_host: 172.20.20.2
+        clab-sros-srx2023-grafana:
+          ansible_host: 172.20.20.9
+        clab-sros-srx2023-prometheus:
+          ansible_host: 172.20.20.12
+        clab-sros-srx2023-rs1:
+          ansible_host: 172.20.20.16
+        clab-sros-srx2023-tg1:
+          ansible_host: 172.20.20.4
+        clab-sros-srx2023-tg2:
+          ansible_host: 172.20.20.10
+    vr-nokia_sros:
+      vars:
+        # ansible_connection: set ansible_connection variable if required
+        ansible_user: admin
+        ansible_password: admin
+      hosts:
+        clab-sros-srx2023-ce1:
+          ansible_host: 172.20.20.7
+        clab-sros-srx2023-ce2:
+          ansible_host: 172.20.20.6
+        clab-sros-srx2023-ce3:
+          ansible_host: 172.20.20.5
+        clab-sros-srx2023-ce4:
+          ansible_host: 172.20.20.15
+        clab-sros-srx2023-pe1:
+          ansible_host: 172.20.20.11
+        clab-sros-srx2023-pe2:
+          ansible_host: 172.20.20.14
+        clab-sros-srx2023-pe3:
+          ansible_host: 172.20.20.3
+        clab-sros-srx2023-pe4:
+          ansible_host: 172.20.20.8

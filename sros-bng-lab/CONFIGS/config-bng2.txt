@@ -1,45 +1,11 @@
-# TiMOS-B-22.7.R1 both/x86_64 Nokia 7750 SR Copyright (c) 2000-2022 Nokia.
+# TiMOS-B-23.7.R2 both/x86_64 Nokia 7750 SR Copyright (c) 2000-2023 Nokia.
 # All rights reserved. All use subject to applicable license agreements.
-# Built on Tue Aug 2 14:18:47 PDT 2022 by builder in /builds/c/227B/R1/panos/main/sros
-# Configuration format version 22.7 revision 0
+# Built on Tue Aug 29 13:26:59 PDT 2023 by builder in /builds/237B/R2/panos/main/sros
+# Configuration format version 23.7 revision 0
 
-# Generated 2023-01-21T22:35:12.0+00:00 by admin from 172.31.255.29
-# Commit ID 29
-#   Committed 2023-01-16T05:13:55.0+00:00 by admin (MD-CLI) from Console
-# Commit ID 28
-#   Committed 2023-01-16T03:28:56.4+00:00 by admin (MD-CLI) from Console
-# Commit ID 27
-#   Committed 2023-01-16T03:25:14.7+00:00 by admin (MD-CLI) from Console
-# Commit ID 26
-#   Committed 2023-01-16T02:18:57.0+00:00 by admin (MD-CLI) from Console
-# Commit ID 25
-#   Committed 2023-01-16T02:08:35.8+00:00 by admin (MD-CLI) from Console
-# Commit ID 24
-#   Committed 2023-01-16T01:58:38.1+00:00 by admin (MD-CLI) from Console
-# Commit ID 23
-#   Committed 2023-01-16T01:51:58.2+00:00 by admin (MD-CLI) from Console
-# Commit ID 22
-#   Committed 2023-01-16T01:48:43.5+00:00 by admin (MD-CLI) from Console
-# Commit ID 21
-#   Committed 2023-01-16T00:39:10.6+00:00 by admin (MD-CLI) from Console
-# Commit ID 20
-#   Committed 2023-01-16T00:38:39.5+00:00 by admin (MD-CLI) from Console
-# Commit ID 19
-#   Committed 2023-01-16T00:32:33.2+00:00 by admin (MD-CLI) from Console
-# Commit ID 18
-#   Committed 2023-01-16T00:30:25.2+00:00 by admin (MD-CLI) from Console
-# Commit ID 17
-#   Committed 2023-01-16T00:26:12.3+00:00 by admin (MD-CLI) from Console
-# Commit ID 16
-#   Committed 2023-01-15T22:49:15.1+00:00 by admin (MD-CLI) from 1.1.1.3
-# Commit ID 15
-#   Committed 2023-01-15T22:48:49.2+00:00 by admin (MD-CLI) from 1.1.1.3
-# Commit ID 14
-#   Committed 2023-01-15T22:48:24.2+00:00 by admin (MD-CLI) from 1.1.1.3
-# Commit ID 13
-#   Committed 2023-01-15T22:47:42.5+00:00 by admin (MD-CLI) from 1.1.1.3
-# Commit ID 12
-#   Committed 2023-01-15T22:46:46.1+00:00 by admin (MD-CLI) from 1.1.1.3
+# Generated 2024-03-18T03:54:52.4Z by admin from Console
+# Commit ID 8
+#   Committed 2024-03-18T03:51:05.4Z by admin (MD-CLI) from Console
 
 configure {
     aaa {
@@ -62,7 +28,6 @@ configure {
         admin-state enable
         encap-type qinq
         mode hybrid
-        max-ports 64
         lacp {
             mode active
             administrative-key 2
@@ -94,6 +59,11 @@ configure {
                 }
             }
         }
+        log-id "9" {
+            source {
+                debug true
+            }
+        }
         log-id "99" {
             description "Default System Log"
             source {
@@ -102,6 +72,39 @@ configure {
             destination {
                 memory {
                     max-entries 500
+                }
+            }
+        }
+    }
+    policy-options {
+        community "ESM_Customers_301" {
+            member "64512:301" { }
+        }
+        prefix-list "ESM_Customers" {
+            prefix 172.100.0.0/16 type exact {
+            }
+        }
+        policy-statement "Customer_nets" {
+            entry 5 {
+                from {
+                    state srrp-master
+                    protocol {
+                        name [direct]
+                    }
+                }
+                action {
+                    action-type next-entry
+                }
+            }
+            entry 10 {
+                from {
+                    prefix-list ["ESM_Customers"]
+                }
+                action {
+                    action-type accept
+                    community {
+                        add ["ESM_Customers_301"]
+                    }
                 }
             }
         }
@@ -115,9 +118,6 @@ configure {
     }
     port 1/1/c1/1 {
         admin-state enable
-        ethernet {
-            mode network
-        }
     }
     port 1/1/c2 {
         admin-state enable
@@ -134,6 +134,19 @@ configure {
         }
     }
     port 1/1/c3 {
+        admin-state enable
+        connector {
+            breakout c4-10g
+        }
+    }
+    port 1/1/c3/1 {
+        admin-state enable
+    }
+    port 1/1/c3/2 {
+    }
+    port 1/1/c3/3 {
+    }
+    port 1/1/c3/4 {
     }
     port 1/1/c4 {
     }
@@ -154,21 +167,20 @@ configure {
     port 1/1/c12 {
     }
     pw-port 1001 {
-        encap-type qinq
         sdp 13 {
             admin-state enable
             vc-id 301
-            vc-type ether
+        }
+    }
+    pw-port 1002 {
+        sdp 13 {
+            admin-state enable
+            vc-id 302
         }
     }
     qos {
         sap-ingress "internet" {
             policy-id 20
-            queue 1 {
-            }
-            queue 11 {
-                multipoint true
-            }
         }
     }
     redundancy {
@@ -177,6 +189,7 @@ configure {
                 admin-state enable
                 source-address 1.1.1.2
                 sync {
+                    admin-state enable
                     igmp true
                     local-dhcp-server true
                     srrp true
@@ -196,8 +209,8 @@ configure {
         autonomous-system 64512
         router-id 1.1.1.2
         interface "system" {
-            admin-state enable
             ipv4 {
+                local-dhcp-server "bng_dhcp_1"
                 primary {
                     address 1.1.1.2
                     prefix-length 32
@@ -209,8 +222,8 @@ configure {
             ipv4 {
                 bfd {
                     admin-state enable
-                    transmit-interval 100000
-                    receive 100000
+                    transmit-interval 1000
+                    receive 1000
                     multiplier 3
                 }
                 primary {
@@ -219,29 +232,134 @@ configure {
                 }
             }
         }
+        interface "to_agg3" {
+            port 1/1/c3/1
+            ipv4 {
+                primary {
+                    address 2.2.1.9
+                    prefix-length 30
+                }
+            }
+        }
         interface "to_bng1" {
-            admin-state enable
             port 1/1/c1/1
             ipv4 {
+                bfd {
+                    admin-state enable
+                    transmit-interval 1000
+                    receive 1000
+                    multiplier 3
+                }
                 primary {
                     address 2.1.1.6
                     prefix-length 30
                 }
             }
         }
+        mpls-labels {
+            sr-labels {
+                start 519000
+                end 524000
+            }
+        }
+        bgp {
+            min-route-advertisement 1
+            vpn-apply-export true
+            vpn-apply-import true
+            asn-4-byte true
+            rapid-withdrawal true
+            peer-ip-tracking true
+            split-horizon true
+            ebgp-default-reject-policy {
+                import false
+                export false
+            }
+            local-as {
+                as-number 64512
+            }
+            rapid-update {
+                evpn true
+            }
+            export {
+                policy ["Customer_nets"]
+            }
+            group "iBGP" {
+                next-hop-self true
+                type internal
+                peer-as 64512
+                local-address 1.1.1.2
+                family {
+                    ipv4 true
+                    evpn true
+                }
+                local-as {
+                    as-number 64512
+                }
+            }
+            neighbor "1.1.1.1" {
+                group "iBGP"
+            }
+            neighbor "1.1.1.5" {
+                group "iBGP"
+            }
+        }
+        dhcp-server {
+            dhcpv4 "bng_dhcp_1" {
+                admin-state enable
+                description "DHCP server for BNG testing"
+                pool-selection {
+                    use-gi-address {
+                    }
+                    use-pool-from-client {
+                    }
+                }
+                failover {
+                    admin-state enable
+                    peer 1.1.1.1 {
+                        sync-tag "301"
+                    }
+                }
+                pool "pool1" {
+                    max-lease-time 900
+                    options {
+                        option lease-time {
+                            duration 900
+                        }
+                    }
+                    subnet 172.100.0.0/16 {
+                        options {
+                            option subnet-mask {
+                                hex-string 0xffff0000
+                            }
+                            option default-router {
+                                hex-string 0xac640001
+                            }
+                        }
+                        address-range 172.100.255.1 end 172.100.255.255 {
+                        }
+                    }
+                }
+            }
+        }
         ldp {
-            admin-state enable
+            targeted-session {
+                auto-tx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+                auto-rx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+            }
         }
         mpls {
             admin-state enable
-            interface "system" {
-                admin-state enable
-            }
             interface "to_agg1" {
-                admin-state enable
             }
             interface "to_bng1" {
-                admin-state enable
             }
             path "Strict-to-agg2" {
                 admin-state enable
@@ -263,7 +381,6 @@ configure {
                 to 1.1.1.4
                 path-computation-method local-cspf
                 primary "Strict-to-agg2" {
-                    admin-state enable
                 }
             }
             lsp "to_bng1" {
@@ -272,27 +389,37 @@ configure {
                 to 1.1.1.1
                 path-computation-method local-cspf
                 primary "loose" {
-                    admin-state enable
                 }
             }
         }
         ospf 0 {
             admin-state enable
+            advertise-router-capability area
             traffic-engineering true
             asbr {
             }
+            segment-routing {
+                admin-state enable
+                prefix-sid-range {
+                    start-label 519000
+                    max-index 5000
+                }
+            }
             area 0.0.0.0 {
                 interface "system" {
-                    admin-state enable
+                    node-sid {
+                        index 2
+                    }
                 }
                 interface "to_agg1" {
-                    admin-state enable
                     interface-type point-to-point
                     bfd-liveness {
                     }
                 }
+                interface "to_agg3" {
+                    interface-type point-to-point
+                }
                 interface "to_bng1" {
-                    admin-state enable
                     interface-type point-to-point
                     bfd-liveness {
                     }
@@ -301,26 +428,21 @@ configure {
         }
         rsvp {
             admin-state enable
-            interface "system" {
-                admin-state enable
-            }
             interface "to_agg1" {
-                admin-state enable
             }
             interface "to_bng1" {
-                admin-state enable
             }
         }
     }
     service {
         ies "301" {
             admin-state enable
-            service-id 301
             customer "1"
             vpn-id 301
             redundant-interface "redundant-to-bng1" {
                 admin-state enable
                 spoke-sdp 2:301 {
+                    admin-state enable
                 }
                 ipv4 {
                     primary {
@@ -331,10 +453,14 @@ configure {
             }
             subscriber-interface "Sub1" {
                 ipv4 {
+                    allow-unmatching-subnets true
                     address 172.100.0.3 {
                         prefix-length 16
                         gateway 172.100.0.1
                         track-srrp 301
+                    }
+                    dhcp {
+                        gi-address 172.100.0.1
                     }
                 }
                 group-interface "GI-1" {
@@ -342,18 +468,71 @@ configure {
                     oper-up-while-empty true
                     redundant-interface "redundant-to-bng1"
                     dynamic-routes-track-srrp {
+                        hold-time 10
+                    }
+                    ipv4 {
+                        neighbor-discovery {
+                            local-proxy-arp true
+                            populate true
+                        }
+                        dhcp {
+                            admin-state enable
+                            server [1.1.1.2]
+                            trusted true
+                            gi-address 172.100.0.1
+                            src-ip-addr gi-address
+                            lease-populate {
+                                max-leases 1000
+                            }
+                        }
                     }
                     ipoe-session {
                         admin-state enable
-                        ipoe-session-policy "default"
+                        ipoe-session-policy "IPOE Auth"
+                        user-db "IPOE User DB"
+                        sap-session-limit 1000
+                    }
+                    local-address-assignment {
+                        admin-state enable
+                        ipv4 {
+                            server "bng_dhcp_1"
+                        }
                     }
                     srrp 301 {
                         admin-state enable
-                        keep-alive-interval 1
-                        message-path pw-1001:301.301
+                        gw-mac 00:00:5e:00:00:01
+                        keep-alive-interval 100
+                        message-path pw-1001:301
+                        priority 10
+                        one-garp-per-sap true
                     }
-                    sap pw-1001:301.301 {
-                        admin-state enable
+                    sap pw-1001:200 {
+                        sub-sla-mgmt {
+                            admin-state enable
+                            subscriber-limit 1000
+                            defaults {
+                                sub-profile "Internet"
+                                sla-profile "Internet"
+                                subscriber-id {
+                                    auto-id
+                                }
+                            }
+                        }
+                    }
+                    sap pw-1001:201 {
+                        sub-sla-mgmt {
+                            admin-state enable
+                            subscriber-limit 1000
+                            defaults {
+                                sub-profile "Internet"
+                                sla-profile "Internet"
+                                subscriber-id {
+                                    auto-id
+                                }
+                            }
+                        }
+                    }
+                    sap pw-1001:301 {
                     }
                 }
             }
@@ -385,14 +564,9 @@ configure {
         }
         vpls "201" {
             admin-state enable
-            service-id 201
             customer "1"
             vpn-id 201
-            stp {
-                admin-state disable
-            }
-            capture-sap pw-1001:*.* {
-                admin-state enable
+            capture-sap pw-1001:* {
                 radius-auth-policy "IPOE Auth"
                 trigger-packet {
                     dhcp true
@@ -413,6 +587,9 @@ configure {
     subscriber-mgmt {
         ipoe-session-policy "IPOE Auth" {
             circuit-id-from-auth true
+            session-key {
+                cid true
+            }
         }
         sub-profile "Internet" {
             sla-profile-map {
@@ -434,6 +611,11 @@ configure {
         }
         radius-authentication-policy "IPOE Auth" {
             radius-server-policy "Radius-server-policy"
+            fallback {
+                action {
+                    user-db "IPOE User DB"
+                }
+            }
             include-radius-attribute {
                 circuit-id true
                 mac-address true
@@ -461,28 +643,117 @@ configure {
         }
         local-user-db "IPOE User DB" {
             admin-state enable
+            ipoe {
+                match-list [circuit-id remote-id sap-id mac]
+                host "host1" {
+                    admin-state enable
+                    host-identification {
+                        remote-id {
+                            ascii-string "BNG.DEMO.1"
+                        }
+                    }
+                }
+                host "host10" {
+                    admin-state enable
+                    host-identification {
+                        remote-id {
+                            ascii-string "BNG.DEMO.10"
+                        }
+                    }
+                }
+                host "host2" {
+                    admin-state enable
+                    host-identification {
+                        remote-id {
+                            ascii-string "BNG.DEMO.2"
+                        }
+                    }
+                }
+                host "host3" {
+                    admin-state enable
+                    host-identification {
+                        remote-id {
+                            ascii-string "BNG.DEMO.3"
+                        }
+                    }
+                }
+                host "host4" {
+                    admin-state enable
+                    host-identification {
+                        remote-id {
+                            ascii-string "BNG.DEMO.4"
+                        }
+                    }
+                }
+                host "host5" {
+                    admin-state enable
+                    host-identification {
+                        remote-id {
+                            ascii-string "BNG.DEMO.5"
+                        }
+                    }
+                }
+                host "host6" {
+                    admin-state enable
+                    host-identification {
+                        remote-id {
+                            ascii-string "BNG.DEMO.6"
+                        }
+                    }
+                }
+                host "host7" {
+                    admin-state enable
+                    host-identification {
+                        remote-id {
+                            ascii-string "BNG.DEMO.7"
+                        }
+                    }
+                }
+                host "host8" {
+                    admin-state enable
+                    host-identification {
+                        remote-id {
+                            ascii-string "BNG.DEMO.8"
+                        }
+                    }
+                }
+                host "host9" {
+                    admin-state enable
+                    host-identification {
+                        remote-id {
+                            ascii-string "BNG.DEMO.9"
+                        }
+                    }
+                }
+            }
         }
     }
     system {
         name "bng2"
-        dns {
-            address-pref ipv4-only
-        }
         grpc {
             admin-state enable
             allow-unsecure-connection
-            gnmi {
-                auto-config-save true
-            }
             rib-api {
                 admin-state enable
             }
         }
         management-interface {
-            configuration-mode model-driven
+            cli {
+                md-cli {
+                    environment {
+                        console {
+                            length 512
+                        }
+                        info-output {
+                            always-display {
+                                admin-state true
+                            }
+                        }
+                    }
+                }
+            }
             netconf {
                 admin-state enable
-                auto-config-save true
             }
             snmp {
                 packet-size 9216
@@ -626,14 +897,6 @@ configure {
                 }
             }
             ssh {
-                server-cipher-list-v1 {
-                    cipher 200 {
-                        name 3des
-                    }
-                    cipher 205 {
-                        name blowfish
-                    }
-                }
                 server-cipher-list-v2 {
                     cipher 190 {
                         name aes256-ctr
@@ -650,34 +913,11 @@ configure {
                     cipher 205 {
                         name 3des-cbc
                     }
-                    cipher 210 {
-                        name blowfish-cbc
-                    }
-                    cipher 215 {
-                        name cast128-cbc
-                    }
-                    cipher 220 {
-                        name arcfour
-                    }
                     cipher 225 {
                         name aes192-cbc
                     }
                     cipher 230 {
                         name aes256-cbc
-                    }
-                    cipher 235 {
-                        name rijndael-cbc
-                    }
-                }
-                client-cipher-list-v1 {
-                    cipher 200 {
-                        name 3des
-                    }
-                    cipher 205 {
-                        name blowfish
-                    }
-                    cipher 210 {
-                        name des
                     }
                 }
                 client-cipher-list-v2 {
@@ -696,23 +936,11 @@ configure {
                     cipher 205 {
                         name 3des-cbc
                     }
-                    cipher 210 {
-                        name blowfish-cbc
-                    }
-                    cipher 215 {
-                        name cast128-cbc
-                    }
-                    cipher 220 {
-                        name arcfour
-                    }
                     cipher 225 {
                         name aes192-cbc
                     }
                     cipher 230 {
                         name aes256-cbc
-                    }
-                    cipher 235 {
-                        name rijndael-cbc
                     }
                 }
                 server-mac-list-v2 {
@@ -730,12 +958,6 @@ configure {
                     }
                     mac 225 {
                         name hmac-md5
-                    }
-                    mac 230 {
-                        name hmac-ripemd160
-                    }
-                    mac 235 {
-                        name hmac-ripemd160-openssh-com
                     }
                     mac 240 {
                         name hmac-md5-96
@@ -757,18 +979,15 @@ configure {
                     mac 225 {
                         name hmac-md5
                     }
-                    mac 230 {
-                        name hmac-ripemd160
-                    }
-                    mac 235 {
-                        name hmac-ripemd160-openssh-com
-                    }
                     mac 240 {
                         name hmac-md5-96
                     }
                 }
             }
             user-params {
+                attempts {
+                    count 64
+                }
                 local-user {
                     user "admin" {
                         password "$2y$10$TQrZlpBDra86.qoexZUzQeBXDY1FcdDhGWdD9lLxMuFyPVSm0OGy6"
@@ -781,6 +1000,13 @@ configure {
                         }
                         console {
                             member ["administrative"]
+                        }
+                        public-keys {
+                            rsa {
+                                rsa-key 32 {
+                                    key-value "AAAAB3NzaC1yc2EAAAADAQABAAACAQCi7ZX+JGFqblwNpSho6J+0W/Dls5dIBiU92JaoyTsKzGy69qExyxM0RaQp49G7m8X30fzuz4MxsLkdna9+AroW9pnZ2MiGgTa5u9oO/URitJRAm9BzI+QKhhs8V8riueOy0lHVapfAuswDEB9gxq4t4PnClY4ZIfL+Msr50fnv7wp6s2IF8q3uq22gSZ4w7sVLZ8iwuRSWVshrhYSN/ZNb+mbf+PbozCjCxXpP+b1Y85UjHwVioieMkLMyJHT8JPEMgwsfr9DwVdZcVVELDRo/Rxt+XOkiJZWng7lE61uKx/lD5GHolirYb1HPdmnbnM9se4Lvvv5iOkSb2aA5kMbNGfcTA1INb+JQfoBwqI86cCYMS31IKDhD6AE/1BFxw87D6T3/WzhQsOCwLxiq+z8uSYYcwWVVmqEwVwvFHutNL7jnPjnz6FepSyyl6unpYRjmRo0ybwk1FN7WihjqPRdN5AcUvpaPrX7vlCArPkAdDUS1924iLXDZCnELa0ehK3E6XXeUF0vHdZFw+znijE0e7zw0DbEWVVhcVp0o4AIFzCmGF3da5BUcOsUmz6AvRhyagRAOY5y5Sw1nKyQmWQ/5VpY+x1p2ELraPGNO5Fi0ZrtpnE4mXPqoA78gjNJNn1Lt3sTOM1SQRvmixab7Uz4EpS4ex/hn6qpV0ceHvEfonQ=="
+                                }
+                            }
                         }
                     }
                     user "vrnetlab" {
@@ -802,11 +1028,12 @@ configure {
 persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
     vrtr-if-id {
-        router-name "301" interface-name "GI-1" vrtr-id 1 if-index 6
-        router-name "301" interface-name "Sub1" vrtr-id 1 if-index 5
-        router-name "301" interface-name "redundant-to-bng1" vrtr-id 1 if-index 4
+        router-name "301" interface-name "GI-1" vrtr-id 1 if-index 7
+        router-name "301" interface-name "Sub1" vrtr-id 1 if-index 6
+        router-name "301" interface-name "redundant-to-bng1" vrtr-id 1 if-index 5
         router-name "Base" interface-name "to_agg1" vrtr-id 1 if-index 2
-        router-name "Base" interface-name "to_bng1" vrtr-id 1 if-index 3
+        router-name "Base" interface-name "to_agg3" vrtr-id 1 if-index 3
+        router-name "Base" interface-name "to_bng1" vrtr-id 1 if-index 4
     }
     mpls-lsp-index {
         lsp-name "to_agg2" type 2 lsp-index 1
@@ -822,6 +1049,9 @@ persistent-indices {
     chassis-mac {
         client lag index 1 pool 1 offset 321
     }
+    log-name-id {
+        log-name "9" log-id 9 context 1 vrtr-id 1
+    }
 }
 
-# Finished 2023-01-21T22:35:12.1+00:00
+# Finished 2024-03-18T03:54:52.4Z

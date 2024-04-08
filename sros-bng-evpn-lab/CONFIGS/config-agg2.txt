@@ -3,9 +3,10 @@
 # Built on Tue Aug 29 13:26:59 PDT 2023 by builder in /builds/237B/R2/panos/main/sros
 # Configuration format version 23.7 revision 0
 
-# Generated 2024-03-17T00:27:04.3+00:00 by admin from 172.31.255.29
-# Commit ID 9
-#   Committed 2024-03-11T01:15:53.0+00:00 by admin (MD-CLI) from Console
+# Generated 2024-04-08T01:24:52.5+00:00 by admin from 172.31.255.29
+# Commit ID 1
+#   Committed 2024-04-08T00:54:12.0+00:00 by system (MD-CLI) from Console
+#   Log       "System booted version B-23.7.R2."
 
 configure {
     card 1 {
@@ -192,18 +193,38 @@ configure {
             }
             lsp "to_bng1" {
                 admin-state enable
+                type p2p-rsvp
+                to 1.1.1.1
+                path-computation-method local-cspf
+                primary "Strict-to-bng1" {
+                    admin-state enable
+                }
+            }
+            lsp "to_bng1_sr" {
+                admin-state disable
                 type p2p-sr-te
                 to 1.1.1.1
                 path-computation-method local-cspf
                 primary "Strict-to-bng1" {
+                    admin-state enable
                 }
             }
             lsp "to_bng2" {
                 admin-state enable
+                type p2p-rsvp
+                to 1.1.1.2
+                path-computation-method local-cspf
+                primary "Strict-to-bng2" {
+                    admin-state enable
+                }
+            }
+            lsp "to_bng2_sr" {
+                admin-state disable
                 type p2p-sr-te
                 to 1.1.1.2
                 path-computation-method local-cspf
                 primary "Strict-to-bng2" {
+                    admin-state enable
                 }
             }
         }
@@ -247,7 +268,7 @@ configure {
                 }
             }
         }
-        epipe "303" {
+        epipe "hubsite1" {
             admin-state enable
             service-id 303
             customer "1"
@@ -285,33 +306,12 @@ configure {
                     auto-bind-tunnel {
                         resolution filter
                         resolution-filter {
+                            rsvp true
                             sr-te true
                         }
                     }
                 }
             }
-        }
-        sdp 12 {
-            admin-state enable
-            delivery-type mpls
-            keep-alive {
-                admin-state enable
-            }
-            far-end {
-                ip-address 1.1.1.1
-            }
-            lsp "to_bng1" { }
-        }
-        sdp 13 {
-            admin-state enable
-            delivery-type mpls
-            keep-alive {
-                admin-state enable
-            }
-            far-end {
-                ip-address 1.1.1.2
-            }
-            lsp "to_bng2" { }
         }
     }
     system {
@@ -612,8 +612,10 @@ persistent-indices {
         router-name "Base" interface-name "to_agg1" vrtr-id 1 if-index 2
     }
     mpls-lsp-index {
-        lsp-name "to_bng1" type 10 lsp-index 65539
-        lsp-name "to_bng2" type 10 lsp-index 65538
+        lsp-name "to_bng1" type 2 lsp-index 3
+        lsp-name "to_bng1_sr" type 10 lsp-index 65536
+        lsp-name "to_bng2" type 2 lsp-index 4
+        lsp-name "to_bng2_sr" type 10 lsp-index 65537
     }
     mpls-path-index {
         router-id 1 path-name "Strict-to-bng1" path-index 1
@@ -621,4 +623,4 @@ persistent-indices {
     }
 }
 
-# Finished 2024-03-17T00:27:04.3+00:00
+# Finished 2024-04-08T01:24:52.5+00:00

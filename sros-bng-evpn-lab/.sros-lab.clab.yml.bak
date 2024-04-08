@@ -12,31 +12,31 @@ topology:
   nodes:
     bng1:
       kind: nokia_sros
-        #startup-config: config-bng1.partial.txt
+      startup-config: CONFIGS/config-bng1.txt
       type: sr-1
       mgmt-ipv4: 172.80.80.51
 
     bng2:
       kind: nokia_sros
-        #startup-config: config-bng2.partial.txt
+      startup-config: CONFIGS/config-bng2.txt
       type: sr-1
       mgmt-ipv4: 172.80.80.52
 
     agg1:
       kind: nokia_sros
-        #startup-config: config-agg1.partial.txt
+      startup-config: CONFIGS/config-agg1.txt
       type: sr-1
       mgmt-ipv4: 172.80.80.21
 
     agg2:
       kind: nokia_sros
-        #startup-config: config-agg2.partial.txt
+      startup-config: CONFIGS/config-agg2.txt
       type: ixr-r6
       mgmt-ipv4: 172.80.80.22
 
     agg3:
       kind: nokia_sros
-        #startup-config: config-agg3.partial.txt
+      startup-config: CONFIGS/config-agg3.txt
       type: ixr-r6
       mgmt-ipv4: 172.80.80.23
 
@@ -80,12 +80,17 @@ topology:
         #- ip link add link eth1 name eth1.10 type vlan id 10
 
   links:
+    #bng crosslinks
     - endpoints: ["bng1:eth1", "bng2:eth1"]
+    #aggregation links:
     - endpoints: ["bng1:eth2", "agg1:eth1"]
     - endpoints: ["bng2:eth2", "agg1:eth2"]
     - endpoints: ["agg1:eth3", "agg2:eth1"]
+    #core links
     - endpoints: ["bng1:eth3", "agg3:eth2"]
     - endpoints: ["bng2:eth3", "agg3:eth3"]
+    #radius server
     - endpoints: ["client1:eth1", "agg3:eth1"]
+    #bng-tester
     - endpoints: ["client2:eth1", "agg2:eth2"]
     - endpoints: ["client2:eth2", "agg3:eth4"]

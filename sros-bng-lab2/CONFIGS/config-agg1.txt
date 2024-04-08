@@ -3,10 +3,9 @@
 # Built on Tue Aug 29 13:26:59 PDT 2023 by builder in /builds/237B/R2/panos/main/sros
 # Configuration format version 23.7 revision 0
 
-# Generated 2024-03-17T21:34:09.5Z by admin from 172.31.255.29
-# Commit ID 1
-#   Committed 2024-03-17T21:34:05.2Z by system (MD-CLI) from Console
-#   Log       "System booted version B-23.7.R2."
+# Generated 2024-04-08T03:02:05.2+00:00 by admin from 172.31.255.29
+# Commit ID 5
+#   Committed 2024-04-08T03:01:51.3+00:00 by admin (MD-CLI) from Console
 
 configure {
     card 1 {
@@ -28,8 +27,6 @@ configure {
             mode active
             administrative-key 1
         }
-        port 1/1/c1/1 {
-        }
     }
     lag "lag-2" {
         admin-state enable
@@ -39,8 +36,6 @@ configure {
         lacp {
             mode active
             administrative-key 2
-        }
-        port 1/1/c2/1 {
         }
     }
     log {
@@ -160,12 +155,12 @@ configure {
             }
         }
         interface "to_bng1" {
-            port lag-1:0.*
+            port 1/1/c1/1:0.*
             ipv4 {
                 bfd {
                     admin-state enable
-                    transmit-interval 100000
-                    receive 100000
+                    transmit-interval 1000
+                    receive 1000
                     multiplier 3
                 }
                 primary {
@@ -175,12 +170,12 @@ configure {
             }
         }
         interface "to_bng2" {
-            port lag-2:0.*
+            port 1/1/c2/1:0.*
             ipv4 {
                 bfd {
                     admin-state enable
-                    transmit-interval 100000
-                    receive 100000
+                    transmit-interval 1000
+                    receive 1000
                     multiplier 3
                 }
                 primary {
@@ -306,23 +301,33 @@ configure {
             configuration-mode model-driven
             cli {
                 md-cli {
-                    auto-config-save false
+                    auto-config-save true
                     environment {
+                        more true
                         console {
                             length 512
+                        }
+                        info-output {
+                            always-display {
+                                admin-state true
+                            }
+                        }
+                        progress-indicator {
+                            admin-state enable
                         }
                     }
                 }
             }
             configuration-save {
-                configuration-backups 5
-                incremental-saves false
+                configuration-backups 50
+                incremental-saves true
             }
             netconf {
                 admin-state enable
                 auto-config-save true
             }
             snmp {
+                admin-state enable
                 packet-size 9216
                 streaming {
                     admin-state enable
@@ -464,6 +469,7 @@ configure {
                 }
             }
             ssh {
+                server-admin-state enable
                 server-cipher-list-v2 {
                     cipher 190 {
                         name aes256-ctr
@@ -560,6 +566,10 @@ configure {
                         password "$2y$10$TQrZlpBDra86.qoexZUzQeBXDY1FcdDhGWdD9lLxMuFyPVSm0OGy6"
                         access {
                             console true
+                            ftp true
+                            snmp true
+                            netconf true
+                            grpc true
                         }
                         console {
                             member ["administrative"]
@@ -591,4 +601,4 @@ persistent-indices {
     }
 }
 
-# Finished 2024-03-17T21:34:09.5Z
+# Finished 2024-04-08T03:02:05.2+00:00

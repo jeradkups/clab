@@ -25,7 +25,7 @@
                 "type": "ipoe",
 		"vlan-mode": "N:1",
                 "ipv6": false,
-                "outer-vlan": 1000,
+                "outer-vlan": 200,
                 "stream-group-id": 1
             }
         ]

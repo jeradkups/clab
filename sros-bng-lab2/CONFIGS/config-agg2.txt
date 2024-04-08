@@ -3,9 +3,9 @@
 # Built on Tue Aug 29 13:26:59 PDT 2023 by builder in /builds/237B/R2/panos/main/sros
 # Configuration format version 23.7 revision 0
 
-# Generated 2024-03-18T03:53:58.4Z by admin from Console
-# Commit ID 4
-#   Committed 2024-03-18T03:53:54.3Z by admin (MD-CLI) from Console
+# Generated 2024-04-08T03:02:04.5+00:00 by admin from 172.31.255.29
+# Commit ID 2
+#   Committed 2024-04-08T02:51:59.0+00:00 by admin (MD-CLI) from Console
 
 configure {
     card 1 {
@@ -120,6 +120,7 @@ configure {
             }
         }
         bgp {
+            admin-state disable
             min-route-advertisement 1
             vpn-apply-export true
             vpn-apply-import true
@@ -278,39 +279,6 @@ configure {
             spoke-sdp 13:301 {
             }
             sap 1/1/2:200 {
-                ingress {
-                    vlan-manipulation {
-                        action preserve
-                    }
-                }
-                egress {
-                    vlan-manipulation {
-                        action preserve
-                    }
-                }
-            }
-        }
-        vpls "302" {
-            admin-state enable
-            service-id 302
-            customer "1"
-            service-mtu 9182
-            bgp 1 {
-            }
-            bgp-evpn {
-                evi 302
-                mpls 1 {
-                    admin-state enable
-                    auto-bind-tunnel {
-                        resolution filter
-                        resolution-filter {
-                            sr-te true
-                        }
-                    }
-                }
-            }
-            sap 1/1/2:201 {
-                admin-state enable
                 ingress {
                     vlan-manipulation {
                         action preserve
@@ -633,4 +601,4 @@ persistent-indices {
     }
 }
 
-# Finished 2024-03-18T03:53:58.4Z
+# Finished 2024-04-08T03:02:04.6+00:00

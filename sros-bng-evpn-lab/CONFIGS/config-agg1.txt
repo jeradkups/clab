@@ -3,9 +3,10 @@
 # Built on Tue Aug 29 13:26:59 PDT 2023 by builder in /builds/237B/R2/panos/main/sros
 # Configuration format version 23.7 revision 0
 
-# Generated 2024-03-10T00:07:23.7Z by admin from Console
-# Commit ID 3
-#   Committed 2024-03-09T23:57:14.1Z by admin (MD-CLI) from Console
+# Generated 2024-04-08T00:53:27.2Z by admin from 172.31.255.29
+# Commit ID 1
+#   Committed 2024-04-08T00:53:25.2Z by system (MD-CLI) from Console
+#   Log       "System booted version B-23.7.R2."
 
 configure {
     card 1 {
@@ -535,6 +536,10 @@ configure {
                         password "$2y$10$TQrZlpBDra86.qoexZUzQeBXDY1FcdDhGWdD9lLxMuFyPVSm0OGy6"
                         access {
                             console true
+                            ftp true
+                            snmp true
+                            netconf true
+                            grpc true
                         }
                         console {
                             member ["administrative"]
@@ -562,4 +567,4 @@ persistent-indices {
     }
 }
 
-# Finished 2024-03-10T00:07:23.7Z
+# Finished 2024-04-08T00:53:27.2Z

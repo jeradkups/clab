@@ -3,9 +3,9 @@
 # Built on Tue Aug 29 13:26:59 PDT 2023 by builder in /builds/237B/R2/panos/main/sros
 # Configuration format version 23.7 revision 0
 
-# Generated 2024-03-17T21:34:09.5Z by admin from 172.31.255.29
+# Generated 2024-04-08T01:59:39.1Z by admin from Console
 # Commit ID 1
-#   Committed 2024-03-17T21:34:05.2Z by system (MD-CLI) from Console
+#   Committed 2024-04-08T01:54:59.5Z by system (MD-CLI) from Console
 #   Log       "System booted version B-23.7.R2."
 
 configure {
@@ -28,8 +28,6 @@ configure {
             mode active
             administrative-key 1
         }
-        port 1/1/c1/1 {
-        }
     }
     lag "lag-2" {
         admin-state enable
@@ -39,8 +37,6 @@ configure {
         lacp {
             mode active
             administrative-key 2
-        }
-        port 1/1/c2/1 {
         }
     }
     log {
@@ -160,12 +156,12 @@ configure {
             }
         }
         interface "to_bng1" {
-            port lag-1:0.*
+            port 1/1/c1/1:0.*
             ipv4 {
                 bfd {
                     admin-state enable
-                    transmit-interval 100000
-                    receive 100000
+                    transmit-interval 1000
+                    receive 1000
                     multiplier 3
                 }
                 primary {
@@ -175,12 +171,12 @@ configure {
             }
         }
         interface "to_bng2" {
-            port lag-2:0.*
+            port 1/1/c2/1:0.*
             ipv4 {
                 bfd {
                     admin-state enable
-                    transmit-interval 100000
-                    receive 100000
+                    transmit-interval 1000
+                    receive 1000
                     multiplier 3
                 }
                 primary {
@@ -214,6 +210,35 @@ configure {
         }
         ldp {
             admin-state enable
+            interface-parameters {
+                interface "to_agg2" {
+                    admin-state enable
+                    bfd-liveness {
+                        ipv4 true
+                    }
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+                interface "to_bng1" {
+                    admin-state enable
+                    bfd-liveness {
+                        ipv4 true
+                    }
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+                interface "to_bng2" {
+                    admin-state enable
+                    bfd-liveness {
+                        ipv4 true
+                    }
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+            }
         }
         mpls {
             admin-state enable
@@ -272,7 +297,7 @@ configure {
             }
         }
         rsvp {
-            admin-state enable
+            admin-state disable
             interface "system" {
                 admin-state enable
             }
@@ -560,6 +585,10 @@ configure {
                         password "$2y$10$TQrZlpBDra86.qoexZUzQeBXDY1FcdDhGWdD9lLxMuFyPVSm0OGy6"
                         access {
                             console true
+                            ftp true
+                            snmp true
+                            netconf true
+                            grpc true
                         }
                         console {
                             member ["administrative"]
@@ -591,4 +620,4 @@ persistent-indices {
     }
 }
 
-# Finished 2024-03-17T21:34:09.5Z
+# Finished 2024-04-08T01:59:39.2Z

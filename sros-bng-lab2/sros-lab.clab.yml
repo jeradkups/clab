@@ -12,31 +12,31 @@ topology:
   nodes:
     bng1:
       kind: nokia_sros
-        #startup-config: config-bng1.partial.txt
+      startup-config: CONFIGS/config-bng1.txt
       type: sr-1
       mgmt-ipv4: 172.80.80.51
 
     bng2:
       kind: nokia_sros
-        #startup-config: config-bng2.partial.txt
+      startup-config: CONFIGS/config-bng2.txt        
       type: sr-1
       mgmt-ipv4: 172.80.80.52
 
     agg1:
       kind: nokia_sros
-        #startup-config: config-agg1.partial.txt
+      startup-config: CONFIGS/config-agg1.txt        
       type: sr-1
       mgmt-ipv4: 172.80.80.21
 
     agg2:
       kind: nokia_sros
-        #startup-config: config-agg2.partial.txt
+      startup-config: CONFIGS/config-agg2.txt      
       type: ixr-r6
       mgmt-ipv4: 172.80.80.22
 
     agg3:
       kind: nokia_sros
-        #startup-config: config-agg3.partial.txt
+      startup-config: CONFIGS/config-agg3.txt        
       type: ixr-r6
       mgmt-ipv4: 172.80.80.23
 

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#run the clab inspect command to capture the IP addresses of the nodes
+output=$(clab inspect)
+kind_match="nokia_sros"
+
+#parse the Name and IP address from the 2nd and 7th columns
+name_and_ips=$(echo "$output" | awk -F '|' '$2 ~ /[0-9]/ {gsub(/\/24/, "", $8); print $3 "|" $6 "|" $8}')
+echo "$name_and_ips"
+
+#loop through each
+while IFS='|' read -r name kinds ip_address; do
+	#Trim leading and trailing spaces from name
+	name=$(echo "$name" | awk '{$1=$1};1')
+	kinds=$(echo "$kinds" | awk '{$1=$1};1')
+
+	echo "Connecting to tmux session for $name"
+	tmux new -d -s "$name"
+
+	if [[ "$kinds" == "nokia_sros" ]]; then
+		echo "...opening telnet for nokia_sros"
+		tmux send-keys -t "$name" "telnet "$ip_address" 5000" ENTER
+	fi
+done <<<"$name_and_ips"

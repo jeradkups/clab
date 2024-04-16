@@ -79,6 +79,40 @@ topology:
         - apt install vlan
         #- ip link add link eth1 name eth1.10 type vlan id 10
 
+    ### TELEMETRY STACK ###
+    gnmic:
+      kind: linux
+      mgmt-ipv4: 172.80.80.41
+      image: ghcr.io/openconfig/gnmic:latest
+      binds:
+        - gnmic-config.yml:/gnmic-config.yml:ro
+      cmd: --config /gnmic-config.yml --log subscribe
+      group: "10" # group 10 is assigned to the nodes of a telemetry stack
+
+    prometheus:
+      kind: linux
+      mgmt-ipv4: 172.80.80.42
+      image: prom/prometheus:latest
+      binds:
+        - TELEMETRY_CONFIGS/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      cmd: --config.file=/etc/prometheus/prometheus.yml
+      ports:
+        - 9090:9090
+      group: "10"
+
+    grafana:
+      kind: linux
+      mgmt-ipv4: 172.80.80.43
+      image: grafana/grafana:latest
+      binds:
+        - TELEMETRY_CONFIGS/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yaml:ro
+        - TELEMETRY_CONFIGS/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
+        - TELEMETRY_CONFIGS/grafana/dashboards:/var/lib/grafana/dashboards
+        - TELEMETRY_CONFIGS/grafana/grafana-flowcharting:/var/lib/grafana/plugins/grafana-flowcharting
+      ports:
+        - 3000:3000
+      group: "10"
+
   links:
     #bng crosslinks
     - endpoints: ["bng1:eth1", "bng2:eth1"]

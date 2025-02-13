@@ -3,9 +3,10 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-01-24T02:38:47.5Z by admin from 172.31.255.29
-# Commit ID 6
-#   Committed 2025-01-23T22:43:18.0Z by admin (MD-CLI) from Console
+# Generated 2025-02-10T20:47:09.4Z by admin from 172.31.255.29
+# Commit ID 1
+#   Committed 2025-02-10T20:47:00.6Z by system (MD-CLI) from Console
+#   Log       "System booted version C-24.10.R2."
 
 configure {
     log {
@@ -170,6 +171,12 @@ configure {
                 unnumbered {
                     system
                 }
+                bfd {
+                    admin-state enable
+                    transmit-interval 1000
+                    receive 1000
+                    multiplier 3
+                }
             }
         }
         interface "To_leaf1" {
@@ -178,6 +185,12 @@ configure {
             ipv4 {
                 unnumbered {
                     system
+                }
+                bfd {
+                    admin-state enable
+                    transmit-interval 1000
+                    receive 1000
+                    multiplier 3
                 }
             }
         }
@@ -196,6 +209,23 @@ configure {
             ipv4 {
                 unnumbered {
                     system
+                }
+                bfd {
+                    admin-state enable
+                    transmit-interval 1000
+                    receive 1000
+                    multiplier 3
+                }
+            }
+        }
+        interface "anycast" {
+            admin-state enable
+            description "anycast loopback"
+            loopback
+            ipv4 {
+                primary {
+                    address 10.99.2.2
+                    prefix-length 32
                 }
             }
         }
@@ -270,10 +300,20 @@ configure {
             interface "To_bng2" {
                 admin-state enable
                 interface-type point-to-point
+                bfd-liveness {
+                    ipv4 {
+                        include-bfd-tlv true
+                    }
+                }
             }
             interface "To_leaf1" {
                 admin-state enable
                 interface-type point-to-point
+                bfd-liveness {
+                    ipv4 {
+                        include-bfd-tlv true
+                    }
+                }
             }
             interface "To_rr2" {
                 admin-state enable
@@ -282,6 +322,16 @@ configure {
             interface "To_spine1" {
                 admin-state enable
                 interface-type point-to-point
+                bfd-liveness {
+                    ipv4 {
+                        include-bfd-tlv true
+                    }
+                }
+            }
+            interface "anycast" {
+                ipv4-node-sid {
+                    index 102
+                }
             }
             interface "system" {
                 admin-state enable
@@ -292,34 +342,6 @@ configure {
             }
             level 2 {
                 wide-metrics-only true
-            }
-        }
-        ldp {
-            interface-parameters {
-                interface "To_bng2" {
-                    admin-state enable
-                    ipv4 {
-                        fec-type-capability {
-                            p2mp-ipv4 true
-                        }
-                    }
-                }
-                interface "To_leaf1" {
-                    admin-state enable
-                    ipv4 {
-                        fec-type-capability {
-                            p2mp-ipv4 true
-                        }
-                    }
-                }
-                interface "To_spine1" {
-                    admin-state enable
-                    ipv4 {
-                        fec-type-capability {
-                            p2mp-ipv4 true
-                        }
-                    }
-                }
             }
         }
         mpls {
@@ -350,143 +372,6 @@ configure {
             }
             interface "system" {
                 admin-state disable
-            }
-        }
-    }
-    service {
-        vpls "iptv-vpls-bd202" {
-            admin-state disable
-            service-id 202
-            customer "1"
-            routed-vpls {
-                multicast {
-                    ipv4 {
-                        forward-to-ip-interface true
-                    }
-                }
-            }
-            bgp 1 {
-            }
-            igmp-snooping {
-                admin-state enable
-            }
-            bgp-evpn {
-                evi 202
-                routes {
-                    mac-ip {
-                        advertise false
-                    }
-                    ip-prefix {
-                        advertise true
-                    }
-                    sel-mcast {
-                        advertise true
-                    }
-                }
-                mpls 1 {
-                    admin-state enable
-                    auto-bind-tunnel {
-                        resolution filter
-                        resolution-filter {
-                            sr-isis true
-                        }
-                    }
-                }
-            }
-        }
-        vprn "iptv" {
-            admin-state disable
-            service-id 200
-            customer "1"
-            igmp {
-                admin-state enable
-                query-interval 125
-                query-last-member-interval 1
-                query-response-interval 10
-                robust-count 2
-            }
-            pim {
-                admin-state enable
-                apply-to all
-                interface "bd-202" {
-                    multicast-senders always
-                }
-            }
-            bgp {
-                admin-state enable
-            }
-            interface "Default" {
-                admin-state enable
-                loopback true
-                ipv4 {
-                    primary {
-                        address 1.1.2.1
-                        prefix-length 32
-                    }
-                }
-            }
-            interface "bd-202" {
-                admin-state enable
-                vpls "iptv-vpls-bd202" {
-                    evpn-tunnel {
-                        supplementary-broadcast-domain true
-                    }
-                }
-            }
-        }
-        vprn "iptv_mvpn" {
-            admin-state disable
-            service-id 2000
-            customer "1"
-            pim {
-                admin-state enable
-                apply-to all
-                ssm-groups {
-                    group-range 239.10.0.0/16 { }
-                }
-            }
-            mvpn {
-                c-mcast-signaling bgp
-                mdt-type sender-receiver
-                auto-discovery {
-                    type bgp
-                    source-address 1.1.2.2
-                }
-                vrf-target {
-                    unicast true
-                }
-                provider-tunnel {
-                    inclusive {
-                        mldp {
-                            admin-state enable
-                        }
-                    }
-                }
-            }
-            bgp-ipvpn {
-                mpls {
-                    admin-state enable
-                    route-distinguisher "1.1.2.2:2000"
-                    vrf-target {
-                        community "target:65100:2000"
-                    }
-                    auto-bind-tunnel {
-                        resolution any
-                    }
-                }
-            }
-            bgp {
-                admin-state enable
-            }
-            interface "Default" {
-                admin-state enable
-                loopback true
-                ipv4 {
-                    primary {
-                        address 1.1.2.2
-                        prefix-length 32
-                    }
-                }
             }
         }
     }
@@ -745,19 +630,13 @@ configure {
 
 persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
-    vrtr-id {
-        router-name "iptv" vrtr-id 2
-        router-name "iptv_mvpn" vrtr-id 3
-    }
     vrtr-if-id {
         router-name "Base" interface-name "To_bng2" vrtr-id 1 if-index 2
         router-name "Base" interface-name "To_leaf1" vrtr-id 1 if-index 3
         router-name "Base" interface-name "To_rr2" vrtr-id 1 if-index 4
         router-name "Base" interface-name "To_spine1" vrtr-id 1 if-index 5
-        router-name "iptv" interface-name "Default" vrtr-id 2 if-index 6
-        router-name "iptv" interface-name "bd-202" vrtr-id 2 if-index 7
-        router-name "iptv_mvpn" interface-name "Default" vrtr-id 3 if-index 8
+        router-name "Base" interface-name "anycast" vrtr-id 1 if-index 6
     }
 }
 
-# Finished 2025-01-24T02:38:47.6Z
+# Finished 2025-02-10T20:47:09.5Z

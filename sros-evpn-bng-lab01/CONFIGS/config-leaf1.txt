@@ -3,9 +3,10 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-01-24T02:38:47.6Z by admin from 172.31.255.29
-# Commit ID 12
-#   Committed 2025-01-24T02:09:13.3Z by admin (MD-CLI) from Console
+# Generated 2025-02-10T20:52:39.3Z by admin from 172.31.255.29
+# Commit ID 1
+#   Committed 2025-02-10T20:52:35.5Z by system (MD-CLI) from Console
+#   Log       "System booted version C-24.10.R2."
 
 configure {
     log {
@@ -178,6 +179,12 @@ configure {
                 unnumbered {
                     system
                 }
+                bfd {
+                    admin-state enable
+                    transmit-interval 1000
+                    receive 1000
+                    multiplier 3
+                }
             }
         }
         interface "To_spine2" {
@@ -186,6 +193,12 @@ configure {
             ipv4 {
                 unnumbered {
                     system
+                }
+                bfd {
+                    admin-state enable
+                    transmit-interval 1000
+                    receive 1000
+                    multiplier 3
                 }
             }
         }
@@ -201,6 +214,10 @@ configure {
             sr-labels {
                 start 519000
                 end 524000
+            }
+            reserved-label-block "IR-BUM" {
+                start-label 550000
+                end-label 551000
             }
         }
         bgp {
@@ -264,10 +281,20 @@ configure {
             interface "To_spine1" {
                 admin-state enable
                 interface-type point-to-point
+                bfd-liveness {
+                    ipv4 {
+                        include-bfd-tlv true
+                    }
+                }
             }
             interface "To_spine2" {
                 admin-state enable
                 interface-type point-to-point
+                bfd-liveness {
+                    ipv4 {
+                        include-bfd-tlv true
+                    }
+                }
             }
             interface "system" {
                 admin-state enable
@@ -281,7 +308,7 @@ configure {
             }
         }
         ldp {
-            admin-state enable
+            admin-state disable
             interface-parameters {
                 interface "To_spine1" {
                     admin-state enable
@@ -330,6 +357,13 @@ configure {
         }
     }
     service {
+        system {
+            bgp {
+                evpn {
+                    ingress-replication-bum-label-block "IR-BUM"
+                }
+            }
+        }
         epipe "bng-epipe" {
             admin-state enable
             description "flexible cross connect epipe"
@@ -337,6 +371,15 @@ configure {
             customer "1"
             flexible-cross-connect true
             bgp 1 {
+            }
+            sap 1/1/c4/1:100 {
+                admin-state enable
+                qtag-normalization {
+                    double-tag {
+                        c-tag 110
+                        s-tag 75
+                    }
+                }
             }
             sap 1/1/c5/1:100 {
                 admin-state enable
@@ -459,6 +502,11 @@ configure {
                     ipv4 {
                         forward-to-ip-interface true
                     }
+                    evpn-gateway {
+                        admin-state enable
+                        advertise pim-only
+                        non-dr-attract-traffic none
+                    }
                 }
             }
             bgp 1 {
@@ -501,14 +549,18 @@ configure {
                     }
                 }
             }
-            bgp 1 {
-            }
             igmp-snooping {
                 admin-state enable
+                query-interval 60
                 query-source-address 0.0.0.0
             }
             bgp-evpn {
                 evi 203
+                routes {
+                    mac-ip {
+                        advertise false
+                    }
+                }
                 mpls 1 {
                     admin-state enable
                     auto-bind-tunnel {
@@ -519,29 +571,34 @@ configure {
                     }
                 }
             }
-            sap 1/1/c5/1:85 {
-                admin-state enable
-                collect-stats true
-            }
-        }
-        vpls "iptv-vpls-bd2003" {
-            admin-state enable
-            description "mvpn local vpls"
-            service-id 2003
-            customer "1"
-            routed-vpls {
-                multicast {
-                    ipv4 {
-                        forward-to-ip-interface true
+            split-horizon-group "IPTV" {
+                fdb {
+                    saps {
+                        auto-learn-mac-protect true
                     }
                 }
             }
-            igmp-snooping {
-                admin-state enable
-            }
-            sap 1/1/c5/1:2003 {
+            sap 1/1/c4/1:85 {
                 admin-state enable
                 collect-stats true
+                split-horizon-group "IPTV"
+                igmp-snooping {
+                    query-interval 60
+                    query-response-interval 10
+                    fast-leave true
+                    send-queries true
+                }
+            }
+            sap 1/1/c5/1:85 {
+                admin-state enable
+                collect-stats true
+                split-horizon-group "IPTV"
+                igmp-snooping {
+                    query-interval 60
+                    query-response-interval 10
+                    fast-leave true
+                    send-queries true
+                }
             }
         }
         vprn "iptv" {
@@ -554,7 +611,7 @@ configure {
                 query-last-member-interval 1
                 query-response-interval 10
                 robust-count 2
-                interface "bd-202" {
+                interface "Default" {
                     admin-state enable
                 }
                 interface "bd-203" {
@@ -565,6 +622,10 @@ configure {
                 admin-state enable
                 apply-to all
                 interface "bd-202" {
+                    multicast-senders always
+                }
+                interface "bd-203" {
+                    admin-state enable
                     multicast-senders always
                 }
             }
@@ -596,85 +657,15 @@ configure {
                         address 10.203.0.1
                         prefix-length 24
                     }
+                    dhcp {
+                        admin-state enable
+                        server [1.1.10.1 1.1.10.3]
+                        trusted true
+                        gi-address 10.203.0.1
+                        src-ip-addr gi-address
+                    }
                 }
                 vpls "iptv-vpls-bd203" {
-                }
-            }
-        }
-        vprn "iptv_mvpn" {
-            admin-state disable
-            service-id 2000
-            customer "1"
-            igmp {
-                admin-state enable
-                ssm-translate {
-                    group-range start 239.10.0.0 end 239.10.255.255 {
-                        source 10.200.0.10 { }
-                    }
-                }
-                interface "bd-2003" {
-                    admin-state enable
-                    static {
-                        group 239.10.10.10 {
-                            starg
-                        }
-                    }
-                }
-            }
-            pim {
-            }
-            mvpn {
-                c-mcast-signaling bgp
-                mdt-type receiver-only
-                auto-discovery {
-                    type bgp
-                    source-address 1.1.3.1
-                }
-                vrf-target {
-                    unicast true
-                }
-                provider-tunnel {
-                    inclusive {
-                        mldp {
-                            admin-state enable
-                        }
-                    }
-                }
-            }
-            bgp-ipvpn {
-                mpls {
-                    admin-state enable
-                    route-distinguisher "1.1.3.1:2000"
-                    vrf-target {
-                        community "target:65100:2000"
-                    }
-                    auto-bind-tunnel {
-                        resolution any
-                    }
-                }
-            }
-            bgp {
-                admin-state enable
-            }
-            interface "Default" {
-                admin-state enable
-                loopback true
-                ipv4 {
-                    primary {
-                        address 1.1.3.1
-                        prefix-length 32
-                    }
-                }
-            }
-            interface "bd-2003" {
-                admin-state enable
-                ipv4 {
-                    primary {
-                        address 10.203.0.1
-                        prefix-length 24
-                    }
-                }
-                vpls "iptv-vpls-bd2003" {
                 }
             }
         }
@@ -936,7 +927,6 @@ persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
     vrtr-id {
         router-name "iptv" vrtr-id 2
-        router-name "iptv_mvpn" vrtr-id 3
     }
     vrtr-if-id {
         router-name "Base" interface-name "To_spine1" vrtr-id 1 if-index 2
@@ -944,9 +934,7 @@ persistent-indices {
         router-name "iptv" interface-name "Default" vrtr-id 2 if-index 5
         router-name "iptv" interface-name "bd-202" vrtr-id 2 if-index 6
         router-name "iptv" interface-name "bd-203" vrtr-id 2 if-index 7
-        router-name "iptv_mvpn" interface-name "Default" vrtr-id 3 if-index 8
-        router-name "iptv_mvpn" interface-name "bd-2003" vrtr-id 3 if-index 9
     }
 }
 
-# Finished 2025-01-24T02:38:47.6Z
+# Finished 2025-02-10T20:52:39.4Z

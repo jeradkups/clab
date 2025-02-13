@@ -1,0 +1,59 @@
+name: sros-oob_mgmt_lab01
+
+mgmt:
+  network: mgmt
+  ipv4-subnet: 172.80.80.0/24
+
+topology:
+  kinds:
+    vr-sros:
+      image: jeradkups/vr-sros:24.03.R2
+      license: license-sros.txt
+  nodes:
+    pe1:
+      kind: vr-sros
+      type: sr-1
+      mgmt-ipv4: 172.80.80.21
+
+    pe2:
+      kind: vr-sros
+      type: sr-1
+      mgmt-ipv4: 172.80.80.22
+
+    agg1:
+      kind: vr-sros
+      type: ixr-e2
+      mgmt-ipv4: 172.80.80.23
+
+    agg2:
+      kind: vr-sros
+      type: ixr-e2
+      mgmt-ipv4: 172.80.80.24
+
+    ce1:
+      kind: vr-sros
+      type: ixr-ec
+      mgmt-ipv4: 172.80.80.25
+
+    ce2:
+      kind: vr-sros
+      type: ixr-ec
+      mgmt-ipv4: 172.80.80.26
+        
+    ### CLIENTS ###
+    client1:
+      kind: linux
+      image: jeradkups/bng-host:1.0
+      mgmt-ipv4: 172.80.80.30
+      exec:
+        - apt install vlan
+        - ip address add 100.1.1.100/24 dev eth1
+
+  links:
+    - endpoints: ["agg1:eth1", "pe1:eth1"]
+    - endpoints: ["agg2:eth1", "pe2:eth1"]
+    - endpoints: ["agg1:eth2", "ce1:eth2"]
+    - endpoints: ["agg2:eth2", "ce2:eth2"]
+    - endpoints: ["ce1:eth1", "ce2:eth1"]
+    - endpoints: ["pe1:eth2", "pe2:eth2"]
+    - endpoints: ["client1:eth1", "ce2:eth3"]

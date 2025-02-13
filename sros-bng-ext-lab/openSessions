@@ -1,0 +1,90 @@
+#!/bin/bash
+
+# Check if clab, jq, tmux, and telnet are installed
+if ! command -v clab &>/dev/null; then
+  echo "clab is not installed. Please install it." >&2
+  exit 1
+fi
+
+if ! command -v jq &>/dev/null; then
+  echo "jq is not installed. Please install it (e.g., sudo apt-get install jq)." >&2
+  exit 1
+fi
+
+if ! command -v tmux &>/dev/null; then
+  echo "tmux is not installed. Please install it." >&2
+  exit 1
+fi
+
+if ! command -v telnet &>/dev/null; then
+  echo "telnet is not installed. Please install it." >&2
+  exit 1
+fi
+
+# Function to parse JSON and handle errors
+parse_json() {
+  local json_data="$1"
+  local jq_expression="$2"
+
+  local result
+  result=$(echo "$json_data" | jq -r "$jq_expression" 2>/dev/null)
+
+  if [[ -z "$result" ]]; then
+    if ! echo "$json_data" | jq -e . &>/dev/null; then
+      echo "Error: Invalid JSON input." >&2
+      return 1
+    elif [[ "$jq_expression" != "." ]] && ! echo "$json_data" | jq -e "$jq_expression" &>/dev/null; then
+      return 2
+    fi
+  fi
+
+  echo "$result"
+  return 0
+}
+
+# Run clab inspect and capture the JSON output
+json_data=$(clab inspect -f json)
+
+# Check if clab returned an error
+if [[ $? -ne 0 ]]; then
+  echo "Error running 'clab inspect'. Make sure a lab is deployed." >&2
+  exit 1
+fi
+
+# Get container data for vr-sros containers ONLY (CRUCIAL CHANGE HERE)
+container_data=$(parse_json "$json_data" '.containers[] | select(.kind == "nokia_sros") | {name, ipv4: (.ipv4_address | split("/")[0])} | @json')
+#container_data=$(parse_json "$json_data" '.containers[] | select(.kind == "vr-sros") | {name, ipv4: .ipv4_address} | @json')
+if [[ $? -eq 1 ]]; then exit 1; fi
+
+# Loop through vr-sros containers and create tmux sessions with telnet
+while IFS= read -r container; do
+  # CRUCIAL CHANGE: Use jq to parse the JSON string correctly
+  container_name=$(echo "$container" | jq -r '.name')
+  ipv4_address=$(echo "$container" | jq -r '.ipv4')
+
+    # Check for "N/A" IPv4 addresses
+    if [[ "$ipv4_address" == "N/A" ]]; then
+        echo "Container '$container_name' has no IPv4 address. Skipping telnet."
+        continue # Skip to the next container
+    fi
+
+  # Check if a tmux session with this name already exists
+  if tmux has-session -t "$container_name" 2>/dev/null; then
+    echo "tmux session '$container_name' already exists. Skipping creation."
+  else
+    echo "Creating tmux session '$container_name' and connecting via telnet to $ipv4_address"
+    # Create the tmux session and run telnet
+    tmux new-session -d -s "$container_name" 
+    tmux send-keys -t "$container_name" "telnet "$ipv4_address" 5000" ENTER
+        if [[ $? -ne 0 ]]; then
+            echo "Error creating tmux session '$container_name'." >&2
+        fi
+  fi
+done <<< "$container_data"
+
+# List the created tmux sessions (optional)
+echo ""
+echo "Created/Existing tmux sessions:"
+tmux ls
+
+exit 0

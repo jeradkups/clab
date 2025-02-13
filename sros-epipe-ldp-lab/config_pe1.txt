@@ -1,11 +1,11 @@
-# TiMOS-C-23.7.R2 cpm/x86_64 Nokia 7250 IXR Copyright (c) 2000-2023 Nokia.
+# TiMOS-C-24.3.R2-1 cpm/x86_64 Nokia 7250 IXR Copyright (c) 2000-2024 Nokia.
 # All rights reserved. All use subject to applicable license agreements.
-# Built on Tue Aug 29 13:26:59 PDT 2023 by builder in /builds/237B/R2/panos/main/sros
-# Configuration format version 23.7 revision 0
+# Built on Fri May 3 12:15:20 PDT 2024 by builder in /builds/243B/R2-1/panos/main/sros
+# Configuration format version 24.3 revision 0
 
-# Generated 2023-11-26T19:44:44.9+00:00 by admin from 172.31.255.29
-# Commit ID 6
-#   Committed 2023-11-26T19:32:34.5+00:00 by admin (MD-CLI) from Console
+# Generated 2025-01-20T01:22:01.8Z by admin from 172.31.255.29
+# Commit ID 20
+#   Committed 2025-01-20T01:06:54.8Z by admin (MD-CLI) from Console
 
 configure {
     log {
@@ -20,9 +20,8 @@ configure {
                 }
             }
         }
-        log-id "100" {
-            description "Default Serious Errors Log"
-            filter "1001"
+        log-id "99" {
+            description "Default System Log"
             source {
                 main true
             }
@@ -32,8 +31,9 @@ configure {
                 }
             }
         }
-        log-id "99" {
-            description "Default System Log"
+        log-id "100" {
+            description "Default Serious Errors Log"
+            filter "1001"
             source {
                 main true
             }
@@ -144,8 +144,32 @@ configure {
                 end 524000
             }
         }
+        isis 0 {
+            admin-state enable
+            advertise-router-capability as
+            ldp-sync true
+            level-capability 2
+            router-id 10.1.1.1
+            traffic-engineering true
+            area-address [49.01]
+            interface "system" {
+                admin-state enable
+                passive true
+            }
+            interface "to_P1" {
+                admin-state enable
+                interface-type point-to-point
+            }
+            level 2 {
+                wide-metrics-only true
+            }
+        }
         ldp {
             admin-state enable
+            implicit-null-label true
+            ldp-shortcut {
+                ipv4 true
+            }
             interface-parameters {
                 interface "to_P1" {
                     admin-state enable
@@ -154,7 +178,16 @@ configure {
                 }
             }
             targeted-session {
-                peer 10.1.1.3 {
+                sdp-auto-targeted-session true
+                auto-tx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+                auto-rx {
+                    ipv4 {
+                        admin-state enable
+                    }
                 }
             }
         }
@@ -180,20 +213,6 @@ configure {
                 }
             }
         }
-        ospf 0 {
-            admin-state enable
-            router-id 10.1.1.1
-            advertise-router-capability area
-            traffic-engineering true
-            area 0.0.0.0 {
-                interface "system" {
-                    passive true
-                }
-                interface "to_P1" {
-                    interface-type point-to-point
-                }
-            }
-        }
         rsvp {
             admin-state disable
             interface "to_P1" {
@@ -211,6 +230,26 @@ configure {
             sap 1/1/2:10 {
             }
         }
+        epipe "11" {
+            admin-state enable
+            customer "1"
+            spoke-sdp 11:11 {
+                vc-type ether
+            }
+            sap 1/1/2:11 {
+                admin-state enable
+                ingress {
+                    vlan-manipulation {
+                        action preserve
+                    }
+                }
+                egress {
+                    vlan-manipulation {
+                        action preserve
+                    }
+                }
+            }
+        }
         sdp 10 {
             admin-state enable
             delivery-type mpls
@@ -220,6 +259,28 @@ configure {
                 ip-address 10.1.1.3
             }
         }
+        sdp 11 {
+            admin-state enable
+            delivery-type mpls
+            path-mtu 1514
+            signaling tldp
+            ldp true
+            far-end {
+                ip-address 10.1.1.5
+            }
+        }
+        vpls "12" {
+            admin-state enable
+            customer "1"
+            service-mtu 1514
+            spoke-sdp 11:12 {
+                admin-state enable
+                vc-type ether
+            }
+            sap 1/1/2:12 {
+                admin-state enable
+            }
+        }
     }
     system {
         name "lab_PE1"
@@ -227,6 +288,7 @@ configure {
             cli {
                 md-cli {
                     environment {
+                        more true
                         console {
                             length 100
                         }
@@ -234,7 +296,9 @@ configure {
                 }
             }
             netconf {
-                admin-state enable
+                listen {
+                    admin-state enable
+                }
             }
         }
         security {
@@ -362,6 +426,18 @@ configure {
                         }
                     }
                 }
+                user-template ldap-default {
+                    restricted-to-home false
+                    save-when-restricted false
+                }
+                user-template radius-default {
+                    restricted-to-home false
+                    save-when-restricted false
+                }
+                user-template tacplus-default {
+                    restricted-to-home false
+                    save-when-restricted false
+                }
             }
             ssh {
                 server-cipher-list-v2 {
@@ -458,6 +534,8 @@ configure {
                 local-user {
                     user "admin" {
                         password "$2y$10$TQrZlpBDra86.qoexZUzQeBXDY1FcdDhGWdD9lLxMuFyPVSm0OGy6"
+                        restricted-to-home false
+                        save-when-restricted false
                         access {
                             console true
                             netconf true
@@ -493,4 +571,4 @@ persistent-indices {
     }
 }
 
-# Finished 2023-11-26T19:44:45.0+00:00
+# Finished 2025-01-20T01:22:01.8Z

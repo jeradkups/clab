@@ -1,0 +1,298 @@
+!
+! Last configuration change at 04:08:59 UTC Sat Feb 8 2025
+!
+version 17.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+! Call-home is enabled by Smart-Licensing.
+service call-home
+platform qfp utilization monitor load 80
+platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname pe3
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip domain name example.com
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+!
+!
+!
+!
+!
+!
+mpls label protocol ldp
+mpls ldp igp sync holddown 1
+mpls ldp discovery targeted-hello accept
+mpls traffic-eng tunnels
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-1169225665
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1169225665
+ revocation-check none
+ rsakeypair TP-self-signed-1169225665
+!
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
+!
+!
+crypto pki certificate chain TP-self-signed-1169225665
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 31313639 32323536 3635301E 170D3235 30323037 32303335
+  30355A17 0D333530 32303732 30333530 355A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 31363932
+  32353636 35308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201
+  0A028201 0100C9BC F0390850 E2B4E4B7 FD36EE37 F2E25DF3 C2CA9F6E 3BB99E47
+  5C65F471 CF471205 677ABD3E F39E81D1 BD8B456F ACAFA808 7428C2F5 45A81237
+  3C45E74B 21957E72 7014F30B 76127A72 4509AE6B F2ED5A87 0B4A929D D5E35B70
+  8A944462 A941195B 6C060E98 1BDBD424 99C6866E A4D98B7E 5314A9DA 162328DC
+  B623FED5 F47E0107 C8AC660A 3420244D F3A9F84E BCFCD4B8 93CDF6D8 33C6E741
+  8C0DB239 4CD5F671 71D4D6A8 4D941523 286504E0 1F6D122C 9E71982A 35A8D400
+  B0A786F6 C6BF8839 3A6BE323 C465A605 2ADA90A6 D282E2D4 4E003E5F 0A039ADE
+  25E3D6FB DB71648B E394ED9A 1B64B4A6 C5BD457A 4A216CCA B7581183 7806B67E
+  776AA40C CAF50203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF
+  301F0603 551D2304 18301680 1444F4D0 7D6D37C5 D4CFB548 24BFCF64 ACF50CFB
+  06301D06 03551D0E 04160414 44F4D07D 6D37C5D4 CFB54824 BFCF64AC F50CFB06
+  300D0609 2A864886 F70D0101 05050003 82010100 77FB0688 9BB81C69 2AEC8373
+  56798E58 9C9AF7FF 43BC4605 82484772 A7805988 02850CAE 2230D7B3 EC2A82C2
+  D222E268 92E56719 D4AA9F90 8E06B7CE E37243D4 44CE3122 4A3341D1 47A7EA90
+  22C12C1A B6248108 4C7CA4C1 F1FBC5E0 E73AA7CF E38E6842 CD4D7E80 8C84C71E
+  662FF027 C26B6EA1 9C0CDC51 2CC853DD 658362FC 5E63D6F9 E5E95D5F 6DD7C7B7
+  40182D1A 74B3336A 15C32991 2657B5B5 1331B429 F7302766 6531E316 574326B4
+  E9B3FA2F FF64F567 3AE9CF4B ADFE220A 21238307 9EBFF884 67D7F1DA EA231145
+  77B643D3 6CD25FBF 394A3660 2E965E7E 048F5C95 8A596A6F ED052A79 BA6E5F5B
+  B9985577 1B4C6BFC 49ABCDE7 EA8E6906 819ABFE7
+        quit
+crypto pki certificate chain SLA-TrustPoint
+ certificate ca 01
+  30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030
+  32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363
+  6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934
+  3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305
+  43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720
+  526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030
+  82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D
+  CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520
+  1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE
+  4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC
+  7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188
+  68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7
+  C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191
+  C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44
+  DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201
+  06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85
+  4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500
+  03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905
+  604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B
+  D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8
+  467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C
+  7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B
+  5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678
+  80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB
+  418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0
+  D697DF7F 28
+        quit
+!
+license udi pid CSR1000V sn 9U28UM8MN87
+diagnostic bootup level minimal
+memory free low-watermark processor 71464
+!
+!
+spanning-tree extend system-id
+!
+username admin privilege 15 password 0 admin
+!
+redundancy
+bfd-template single-hop BFD1
+ interval min-tx 1000 min-rx 1000 multiplier 3
+!
+!
+bridge-domain 12
+!
+!
+!
+!
+!
+!
+pseudowire-class PE2
+ encapsulation mpls
+!
+pseudowire-class PE1
+ encapsulation mpls
+!
+pseudowire-class OLT
+ encapsulation mpls
+ control-word
+!
+l2 router-id 1.1.1.6
+l2 vfi VPLS12 manual
+ vpn id 12
+ bridge-domain 12
+ mtu 1500
+ neighbor 1.1.1.4 encapsulation mpls
+ neighbor 10.0.131.1 4001 pw-class OLT
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 1.1.1.6 255.255.255.255
+ ip router isis 21949
+!
+interface Tunnel1
+ ip unnumbered Loopback0
+ shutdown
+ mpls traffic-eng tunnels
+ tunnel mode mpls traffic-eng
+ tunnel destination 10.0.131.1
+ tunnel mpls traffic-eng autoroute announce
+ tunnel mpls traffic-eng priority 1 1
+ tunnel mpls traffic-eng path-option 1 dynamic
+!
+interface GigabitEthernet2
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ mtu 9198
+ ip address 2.3.1.5 255.255.255.254
+ ip mtu 8690
+ ip router isis 21949
+ negotiation auto
+ mpls ip
+ mpls traffic-eng tunnels
+ no mop enabled
+ no mop sysid
+ isis circuit-type level-2-only
+ isis network point-to-point
+ no isis hello padding always
+!
+interface GigabitEthernet4
+ no ip address
+ negotiation auto
+ no mop enabled
+ no mop sysid
+ service instance 12 ethernet
+  encapsulation dot1q 12
+  rewrite ingress tag pop 1 symmetric
+  bridge-domain 12
+ !
+!
+interface GigabitEthernet4.11
+ encapsulation dot1Q 11
+ xconnect 1.1.1.4 11 encapsulation mpls pw-class PE2
+!
+router isis 21949
+ net 49.0001.1000.0100.0105.00
+ is-type level-2-only
+ router-id Loopback0
+ metric-style wide
+ no hello padding point-to-point
+ log-adjacency-changes
+ mpls traffic-eng router-id Loopback0
+ mpls traffic-eng level-2
+!
+ip forward-protocol nd
+no ip http server
+ip http secure-server
+!
+!
+!
+!
+!
+mpls ldp router-id Loopback0
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0
+ login
+ transport input ssh
+line vty 1
+ login
+ length 0
+ transport input ssh
+line vty 2 4
+ login
+ transport input ssh
+!
+call-home
+ ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
+ ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
+ contact-email-addr sch-smart-licensing@cisco.com
+ profile "CiscoTAC-1"
+  active
+  destination transport-method http
+!
+!
+!
+!
+!
+end

@@ -1,0 +1,95 @@
+{
+    "interfaces": {
+	"rx-threads": 2,
+        "tx-threads": 2,
+        "links": [
+            {
+                "interface": "eth1",
+                "rx-threads": 3,
+                "tx-threads": 3
+            }
+        ],
+	"network": [
+            {
+                "__comment__": "Network",
+		"interface": "eth1",
+		"vlan": 0,
+		"address": "10.10.1.6",
+		"gateway": "10.10.1.5"
+            },
+	    {
+		"__comment__": "Network-IPTV",
+                "interface": "eth3",
+		"vlan": 0,
+                "address": "10.200.0.10",
+                "gateway": "10.200.0.1"
+	    }
+	],
+        "access": [
+            {
+                "__comment__": "DHCP Clients",
+                "interface": "eth2",
+		"network-interface": "eth1",
+                "type": "ipoe",
+		"vlan-mode": "N:1",
+                "ipv6": false,
+                "outer-vlan": 300,
+                "stream-group-id": 1,
+		"igmp-autostart": false
+            },
+    	    {
+                "__comment__": "IPTV Clients",
+                "interface": "eth2",
+                "network-interface": "eth3",
+                "type": "ipoe",
+                "vlan-mode": "N:1",
+                "ipv6": false,
+                "outer-vlan": 75,
+                "stream-group-id": 2,
+		"igmp-autostart": true
+	    }
+        ]
+    },
+    "igmp": {
+	"group": "239.0.0.1",
+	"group-iter": "0.0.0.1",
+	"group-count": 10,
+	"network-interface": "eth3",
+	"send-multicast-traffic": true
+    },
+    "access-line": {
+        "agent-remote-id": "BNG.DEMO.{session-global}",
+        "agent-circuit-id": "BNG.DEMO:{session-global}"
+    },
+    "dhcp": {
+        "enable": true,
+        "broadcast": true,
+	"access-line": true
+    },
+    "sessions": {
+        "count": 10
+    },
+    "session-traffic": {
+        "ipv4-pps": 10
+    },
+    "streams": [
+        {
+            "stream-group-id": 1,
+            "name": "S1",
+            "type": "ipv4",
+            "direction": "both",
+            "priority": 0,
+            "length": 512,
+            "pps": 10
+        },
+        {
+            "stream-group-id": 2,
+            "name": "S2",
+            "type": "ipv4",
+            "direction": "both",
+            "priority": 0,
+            "length": 512,
+            "pps": 10
+        }
+    ]
+}

@@ -92,5 +92,6 @@ topology:
     #radius server
     - endpoints: ["client1:eth1", "agg3:eth1"]
     #bng-tester
-    - endpoints: ["client2:eth1", "agg2:eth2"]
-    - endpoints: ["client2:eth2", "agg3:eth4"]
+    - endpoints: ["client2:eth2", "agg2:eth2"]
+    - endpoints: ["client2:eth3", "agg2:eth3"]
+    - endpoints: ["client2:eth1", "agg3:eth4"]

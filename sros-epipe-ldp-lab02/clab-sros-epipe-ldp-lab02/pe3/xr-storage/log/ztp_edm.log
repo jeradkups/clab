@@ -1,0 +1,5 @@
+2025-02-17 00:33:08,136   2746 [__main__     ] INF: -------------------------------------------------------------------------------
+2025-02-17 00:33:08,136   2746 [__main__     ] INF: Started
+2025-02-17 00:33:08,455   2746 [Verifier     ] INF: Verifier setup done
+2025-02-17 00:33:08,456   2746 [__main__     ] DEB: Entering event loop
+2025-02-17 00:33:08,460   2746 [_sync        ] INF: Standby state change: <StandbyState.DOWN: 0>

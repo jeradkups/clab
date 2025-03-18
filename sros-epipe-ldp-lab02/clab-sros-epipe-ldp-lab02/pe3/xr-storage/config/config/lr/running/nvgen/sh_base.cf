@@ -1,0 +1,28 @@
+username clab
+ group root-lr
+ group cisco-support
+ secret 10 $6$ttTL/1yrJkR3A/1.$4k6nKqAkCQ0mlrQhN9zcxUQo3roO6wNRNHMU875uVBlWKdj0k6rTm2uECPB/4d2BKO1EIevBDnE7EA66oU2xT/
+!
+grpc
+ no-tls
+ address-family dual
+!
+vrf internet
+ address-family ipv4 unicast
+ !
+!
+line default
+ transport input ssh
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method email disable
+  destination transport-method http
+ !
+!
+netconf-yang agent
+ ssh
+!

@@ -1,0 +1,8 @@
+dhcp ipv4
+ profile MF-2-Internet server
+  lease 1
+  pool MF-2-Internet
+  default-router 66.234.48.1
+ !
+ interface BVI4001 server profile Test
+!

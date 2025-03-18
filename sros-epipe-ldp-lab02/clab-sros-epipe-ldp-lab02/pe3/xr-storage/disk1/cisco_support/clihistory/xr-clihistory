@@ -1,0 +1,146 @@
+PAM_PAM_PAM
+Mon Feb 17 00:53:12 2025
+Mon-Feb-17-00:40:30.392-2025-UTC:exec:show running-config 
+Mon-Feb-17-00:40:53.114-2025-UTC:exec:show interfaces brief 
+Mon-Feb-17-00:41:18.689-2025-UTC:exec:show isis adjacency 
+Mon-Feb-17-00:41:25.539-2025-UTC:exec:show ip route 
+Mon-Feb-17-00:49:09.926-2025-UTC:exec:terminal length 0 
+Mon-Feb-17-00:49:10.134-2025-UTC:exec:exit 
+Mon-Feb-17-00:50:42.932-2025-UTC:exec:configure terminal 
+Mon-Feb-17-00:50:48.171-2025-UTC:config:rsvp 
+Mon-Feb-17-00:51:30.769-2025-UTC:config:interface GigabitEthernet0/0/0/1 
+Mon-Feb-17-00:51:53.022-2025-UTC:config:exit 
+Mon-Feb-17-00:51:54.857-2025-UTC:config:exit 
+Mon-Feb-17-00:51:59.962-2025-UTC:config:exit 
+Mon-Feb-17-00:52:17.660-2025-UTC:exec:show rsvp interface 
+Mon-Feb-17-00:52:39.113-2025-UTC:exec:show rsvp summary 
+Mon-Feb-17-00:52:57.670-2025-UTC:exec:configure terminal 
+last_timestamp: 20250217005257.670
+PAM_PAM_PAM
+Mon Feb 17 01:23:16 2025
+Mon-Feb-17-00:53:45.209-2025-UTC(clab,vty2,-,config):interface tunnel-te1 
+Mon-Feb-17-00:53:55.645-2025-UTC(clab,vty2,-,config):ipv4 unnumbered Loopback0 
+Mon-Feb-17-00:54:24.411-2025-UTC(clab,vty2,-,config):destination 10.0.131.1 
+Mon-Feb-17-00:54:47.322-2025-UTC(clab,vty2,-,config):path-option 1 dynamic 
+Mon-Feb-17-00:54:52.411-2025-UTC(clab,vty2,-,config):commit 
+Mon-Feb-17-00:55:09.663-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-00:55:11.231-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-00:55:17.676-2025-UTC(clab,vty2,-,exec):show interfaces tunnel-te1 
+Mon-Feb-17-00:55:22.796-2025-UTC(clab,vty2,-,exec):configure terminal 
+Mon-Feb-17-00:55:27.305-2025-UTC(clab,vty2,-,config):interface tunnel-te1 
+Mon-Feb-17-00:55:28.760-2025-UTC(clab,vty2,-,config):no shutdown 
+Mon-Feb-17-00:55:31.722-2025-UTC(clab,vty2,-,config):commit 
+Mon-Feb-17-00:55:36.451-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-00:55:37.137-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-00:55:39.050-2025-UTC(clab,vty2,-,exec):show interfaces tunnel-te1 
+Mon-Feb-17-00:55:48.911-2025-UTC(clab,vty2,-,exec):configure terminal 
+Mon-Feb-17-00:56:27.489-2025-UTC(clab,vty2,-,config):mpls traffic-eng interface GigabitEthernet0/0/0/1 
+Mon-Feb-17-00:56:35.374-2025-UTC(clab,vty2,-,config):commit 
+Mon-Feb-17-00:56:40.650-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-00:57:14.195-2025-UTC(clab,vty2,-,config):interface tunnel-te1 
+Mon-Feb-17-00:57:23.797-2025-UTC(clab,vty2,-,config):commit 
+Mon-Feb-17-00:57:26.979-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-00:57:27.962-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-00:57:29.762-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-00:57:37.583-2025-UTC(clab,vty2,-,exec):show interfaces tunnel-te1 
+Mon-Feb-17-00:58:04.731-2025-UTC(clab,vty2,-,exec):show running-config 
+Mon-Feb-17-00:58:12.129-2025-UTC(clab,vty2,-,exec):configure terminal 
+Mon-Feb-17-00:58:20.475-2025-UTC(clab,vty2,-,config):interface Loopback1 
+Mon-Feb-17-00:58:30.762-2025-UTC(clab,vty2,-,config):ipv4 address 1.1.1.6 255.255.255.255 
+Mon-Feb-17-00:58:33.619-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-00:58:40.043-2025-UTC(clab,vty2,-,config):interface tunnel-te1 
+Mon-Feb-17-00:58:49.423-2025-UTC(clab,vty2,-,config):ipv4 unnumbered Loopback1 
+Mon-Feb-17-00:58:51.437-2025-UTC(clab,vty2,-,config):commit 
+Mon-Feb-17-00:58:54.531-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-00:58:55.226-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-00:58:59.901-2025-UTC(clab,vty2,-,exec):show interfaces tunnel-te1 
+Mon-Feb-17-01:00:25.625-2025-UTC(clab,vty2,-,exec):show running-config 
+Mon-Feb-17-01:00:50.110-2025-UTC(clab,vty2,-,exec):show running-config 
+Mon-Feb-17-01:00:55.171-2025-UTC(clab,vty2,-,exec):configure terminal 
+Mon-Feb-17-01:01:01.782-2025-UTC(clab,vty2,-,config):router isis 21949 
+Mon-Feb-17-01:01:06.666-2025-UTC(clab,vty2,-,config):interface Loopback1 
+Mon-Feb-17-01:01:08.677-2025-UTC(clab,vty2,-,config):passive 
+Mon-Feb-17-01:01:16.086-2025-UTC(clab,vty2,-,config):address-family ipv4 unicast 
+Mon-Feb-17-01:01:17.743-2025-UTC(clab,vty2,-,config):commit 
+Mon-Feb-17-01:02:53.659-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:02:54.374-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:02:55.267-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:02:57.086-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:03:01.074-2025-UTC(clab,vty2,-,exec):show running-config 
+Mon-Feb-17-01:03:47.837-2025-UTC(clab,vty2,-,exec):configure terminal 
+Mon-Feb-17-01:03:52.197-2025-UTC(clab,vty2,-,config):no interface Loopback1 
+Mon-Feb-17-01:04:00.268-2025-UTC(clab,vty2,-,config):router isis 21949 
+Mon-Feb-17-01:04:04.887-2025-UTC(clab,vty2,-,config):no interface Loopback1 
+Mon-Feb-17-01:04:11.224-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:04:16.400-2025-UTC(clab,vty2,-,config):interface tunnel-te1 
+Mon-Feb-17-01:04:24.020-2025-UTC(clab,vty2,-,config):ipv4 unnumbered Loopback0 
+Mon-Feb-17-01:04:31.982-2025-UTC(clab,vty2,-,config):commit 
+Mon-Feb-17-01:06:41.635-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:06:43.309-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:06:44.998-2025-UTC(clab,vty2,-,exec):show running-config 
+Mon-Feb-17-01:07:14.411-2025-UTC(clab,vty2,-,exec):configure terminal 
+Mon-Feb-17-01:07:16.674-2025-UTC(clab,vty2,-,config):l2vpn 
+Mon-Feb-17-01:07:27.040-2025-UTC(clab,vty2,-,config):pw-class OLT1 
+Mon-Feb-17-01:07:36.044-2025-UTC(clab,vty2,-,config):encapsulation mpls 
+Mon-Feb-17-01:07:48.991-2025-UTC(clab,vty2,-,config):protocol ldp 
+Mon-Feb-17-01:07:58.974-2025-UTC(clab,vty2,-,config):transport-mode ethernet 
+Mon-Feb-17-01:08:28.358-2025-UTC(clab,vty2,-,config):preferred-path interface tunnel-te 1 fallback disable 
+Mon-Feb-17-01:08:32.573-2025-UTC(clab,vty2,-,config):commit 
+Mon-Feb-17-01:08:54.289-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:09:02.441-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:09:05.547-2025-UTC(clab,vty2,-,config):do show running-config 
+Mon-Feb-17-01:09:26.428-2025-UTC(clab,vty2,-,config):bridge group MF-2-Internet 
+Mon-Feb-17-01:09:34.411-2025-UTC(clab,vty2,-,config):bridge-domain MF-2-Internet 
+Mon-Feb-17-01:09:51.882-2025-UTC(clab,vty2,-,config):neighbor 10.0.131.1 pw-id 4001 pw-class OLT1 
+Mon-Feb-17-01:09:54.554-2025-UTC(clab,vty2,-,config):commit 
+Mon-Feb-17-01:10:08.895-2025-UTC(clab,vty2,-,config):show configuration failed 
+last_timestamp: 20250217011008.895
+PAM_PAM_PAM
+Mon Feb 17 01:53:19 2025
+Mon-Feb-17-01:40:21.774-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:40:22.570-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:40:23.441-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:40:24.264-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:40:29.472-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-01:40:40.982-2025-UTC(clab,vty2,-,exec):show l2vpn 
+Mon-Feb-17-01:40:56.414-2025-UTC(clab,vty2,-,exec):show l2vpn bridge-domain 
+Mon-Feb-17-01:46:36.785-2025-UTC(clab,vty2,-,exec):show l2vpn bridge-domain 
+Mon-Feb-17-01:46:55.951-2025-UTC(clab,vty2,-,exec):show interfaces tunnel-te1 
+Mon-Feb-17-01:47:08.742-2025-UTC(clab,vty2,-,exec):show rsvp summary 
+Mon-Feb-17-01:47:13.439-2025-UTC(clab,vty2,-,exec):show rsvp session 
+Mon-Feb-17-01:47:22.266-2025-UTC(clab,vty2,-,exec):show rsvp neighbors 
+Mon-Feb-17-01:47:48.419-2025-UTC(clab,vty2,-,exec):show mpls traffic-eng tunnels 
+Mon-Feb-17-01:50:27.152-2025-UTC(clab,vty2,-,exec):show running-config 
+last_timestamp: 20250217015027.152
+PAM_PAM_PAM
+Mon Feb 17 02:23:22 2025
+Mon-Feb-17-02:03:16.833-2025-UTC(clab,vty2,-,exec):configure terminal 
+Mon-Feb-17-02:03:20.102-2025-UTC(clab,vty2,-,config):l2vpn 
+Mon-Feb-17-02:03:28.621-2025-UTC(clab,vty2,-,config):pw-class OLT1 
+Mon-Feb-17-02:03:34.050-2025-UTC(clab,vty2,-,config):encapsulation mpls 
+Mon-Feb-17-02:03:44.285-2025-UTC(clab,vty2,-,config):transport-mode ethernet 
+Mon-Feb-17-02:03:52.008-2025-UTC(clab,vty2,-,config):protocol ldp 
+Mon-Feb-17-02:03:58.492-2025-UTC(clab,vty2,-,config):control-word 
+Mon-Feb-17-02:04:25.322-2025-UTC(clab,vty2,-,config):preferred-path interface tunnel-te 1 fallback disable 
+Mon-Feb-17-02:04:33.486-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-02:04:34.303-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-02:04:38.754-2025-UTC(clab,vty2,-,config):do show running-config l2vpn 
+Mon-Feb-17-02:04:53.670-2025-UTC(clab,vty2,-,config):bridge group MF-2-Internet 
+Mon-Feb-17-02:04:59.658-2025-UTC(clab,vty2,-,config):bridge-domain MF-2-Internet 
+Mon-Feb-17-02:05:11.732-2025-UTC(clab,vty2,-,config):neighbor 10.0.131.1 pw-id 4001 pw-class OLT1 
+Mon-Feb-17-02:05:47.865-2025-UTC(clab,vty2,-,config):do show running-config 
+Mon-Feb-17-02:06:54.528-2025-UTC(clab,vty2,-,config):do show running-config 
+Mon-Feb-17-02:08:27.367-2025-UTC(clab,vty2,-,config):no neighbor 10.0.131.1 pw-id 4001 
+Mon-Feb-17-02:08:53.204-2025-UTC(clab,vty2,-,config):neighbor 10.0.131.1 pw-id 4001 pw-class OLT1 
+Mon-Feb-17-02:08:58.289-2025-UTC(clab,vty2,-,config):do show running-config 
+Mon-Feb-17-02:09:26.425-2025-UTC(clab,vty2,-,config):show commit changes diff 
+Mon-Feb-17-02:14:08.367-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-02:14:15.450-2025-UTC(clab,vty2,-,config):exit 
+last_timestamp: 20250217021415.450
+PAM_PAM_PAM
+Mon Feb 17 21:25:23 2025
+Mon-Feb-17-21:14:44.374-2025-UTC(clab,vty2,-,config):do show running-config 
+Mon-Feb-17-21:17:04.894-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-21:17:05.556-2025-UTC(clab,vty2,-,config):exit 
+Mon-Feb-17-21:17:25.672-2025-UTC(clab,vty2,-,exec):show mpls ldp neighbor 
+last_timestamp: 20250217211725.672

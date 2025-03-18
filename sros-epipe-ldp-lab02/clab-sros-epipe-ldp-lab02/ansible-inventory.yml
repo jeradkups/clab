@@ -5,7 +5,7 @@ all:
     # module does not attempt using any global http proxy.
     ansible_httpapi_use_proxy: false
   children:
-    cisco_xrv9k:
+    cisco_xrd:
       vars:
         # ansible_connection: set ansible_connection variable if required
         ansible_user: clab
@@ -21,7 +21,9 @@ all:
           ansible_host: 172.80.80.32
     ovs-bridge:
       hosts:
-        clab-sros-epipe-ldp-lab02-clab:
+        clab-sros-epipe-ldp-lab02-clab-1:
+          ansible_host: 
+        clab-sros-epipe-ldp-lab02-clab-2:
           ansible_host: 
     vr-sros:
       vars:

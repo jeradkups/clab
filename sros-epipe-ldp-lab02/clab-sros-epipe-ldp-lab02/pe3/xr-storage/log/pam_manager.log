@@ -1,0 +1,28 @@
+Mon Feb 17 00:33:10 2025 :: 6 :: main : PAM manager start monitoring.
+Mon Feb 17 00:33:10 2025 :: 3 :: Couldn't check existence of /misc/disk1/cisco_support/ directory. Will retry in 30 seconds
+
+Mon Feb 17 00:33:40 2025 :: 3 :: Couldn't check existence of /misc/disk1/cisco_support/ directory. Will retry in 30 seconds
+
+Mon Feb 17 00:34:10 2025 :: 3 :: Couldn't check existence of /misc/disk1/cisco_support/ directory. Will retry in 30 seconds
+
+Mon Feb 17 00:34:40 2025 :: 3 :: Couldn't check existence of /misc/disk1/cisco_support/ directory. Will retry in 30 seconds
+
+Mon Feb 17 00:35:10 2025 :: 3 :: Couldn't check existence of /misc/disk1/cisco_support/ directory. Will retry in 30 seconds
+
+===Mon Feb 17 00:35:11 UTC 2025===
+Action: start
+===Mon Feb 17 00:35:11 UTC 2025===
+Action: start
+==========================
+               monitor_cpu       running
+             monitor_crash       running
+      monitor_show_logging       running
+           monitor_process       running
+                pam_plugin       running
+                pam_plugin       running
+==========================
+               monitor_cpu       running
+             monitor_crash       running
+      monitor_show_logging       running
+           monitor_process       running
+                pam_plugin       running

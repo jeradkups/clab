@@ -1,0 +1,19 @@
+VERSION 1.0
+WALL_TIME_SEC 67b283b6
+WALL_TIME_USEC 479f8
+CLOCK_TIME_SEC 20f837
+CLOCK_TIME_NSEC fdd38d4
+CTRACE_NODE_ID ac000001
+CTRACE_PROCESS_ID 980
+CTRACE_ARGV0 invmgr
+TS_IDX_MSK 1
+TS_RES 1
+WALL_TIME_Z_SEC 67b283b6
+WALL_TIME_Z_USEC 5aa31
+CLOCK_TIME_Z_SEC 20f837
+CLOCK_TIME_Z_NSEC 148193e3
+PROG_NAME invmgr
+CTRACE_DECODE_REF inv_replicationSvc_capi_server_error "libinv_replicationSvc_capi_server_ctrace_dir" 0.880.6b5bf0fe8875a82ee63198d6346d584e
+CTRACE_DECODE_REF inv_replicationSvc_capi_server_error/inv_replicationSvc_server_cipc_error "libcalvados_infra_ctrace_dir" 881.1136.edbc6ad808248fa226faf117c512e8ec
+
+   

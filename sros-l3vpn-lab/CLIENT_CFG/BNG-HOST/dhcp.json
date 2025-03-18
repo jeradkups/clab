@@ -1,0 +1,60 @@
+{
+    "interfaces": {
+	"rx-threads": 2,
+        "tx-threads": 2,
+        "links": [
+            {
+                "interface": "eth1",
+                "rx-threads": 3,
+                "tx-threads": 3
+            }
+        ],
+	"network": [
+            {
+                "__comment__": "Network-VPN301",
+		"interface": "eth1",
+		"address": "10.10.1.6/30",
+		"gateway": "10.10.1.5",
+		"vlan": 300
+            }
+	],
+        "access": [
+            {
+                "__comment__": "DHCP Clients-Agg1",
+                "interface": "eth2",
+                "type": "ipoe",
+		"vlan-mode": "N:1",
+                "ipv6": false,
+                "outer-vlan": 75,
+                "stream-group-id": 1
+            }
+        ]
+    },
+    "access-line": {
+        "agent-remote-id": "BNG.DEMO.{session-global}",
+        "agent-circuit-id": "BNG.DEMO:{session-global}"
+    },
+    "dhcp": {
+        "enable": true,
+        "broadcast": true,
+	"access-line": true
+    },
+    "sessions": {
+        "count": 10
+    },
+    "session-traffic": {
+        "ipv4-pps": 10
+    },
+    "streams": [
+        {
+            "stream-group-id": 1,
+	    "network-interface": "eth1:300",
+            "name": "S1",
+            "type": "ipv4",
+            "direction": "both",
+            "priority": 0,
+            "length": 512,
+            "pps": 10
+        }
+    ]
+}

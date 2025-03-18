@@ -1,0 +1,62 @@
+Feb 17 00:33:06 pe3 groupadd[2138]: group added to /etc/group: name=cisco-support, GID=1001
+Feb 17 00:33:06 pe3 groupadd[2138]: group added to /etc/gshadow: name=cisco-support
+Feb 17 00:33:06 pe3 groupadd[2138]: new group: name=cisco-support, GID=1001
+Feb 17 00:33:06 pe3 groupadd[2179]: group added to /etc/group: name=maintenance, GID=1002
+Feb 17 00:33:06 pe3 groupadd[2179]: group added to /etc/gshadow: name=maintenance
+Feb 17 00:33:06 pe3 groupadd[2179]: new group: name=maintenance, GID=1002
+Feb 17 00:33:06 pe3 groupadd[2211]: group added to /etc/group: name=netadmin, GID=1003
+Feb 17 00:33:06 pe3 groupadd[2211]: group added to /etc/gshadow: name=netadmin
+Feb 17 00:33:06 pe3 groupadd[2211]: new group: name=netadmin, GID=1003
+Feb 17 00:33:06 pe3 groupadd[2249]: group added to /etc/group: name=provisioning, GID=1004
+Feb 17 00:33:06 pe3 groupadd[2249]: group added to /etc/gshadow: name=provisioning
+Feb 17 00:33:06 pe3 groupadd[2249]: new group: name=provisioning, GID=1004
+Feb 17 00:33:06 pe3 groupadd[2304]: group added to /etc/group: name=retrieve, GID=1005
+Feb 17 00:33:06 pe3 groupadd[2304]: group added to /etc/gshadow: name=retrieve
+Feb 17 00:33:06 pe3 groupadd[2304]: new group: name=retrieve, GID=1005
+Feb 17 00:33:06 pe3 groupadd[2327]: group added to /etc/group: name=root-lr, GID=1006
+Feb 17 00:33:06 pe3 groupadd[2327]: group added to /etc/gshadow: name=root-lr
+Feb 17 00:33:06 pe3 groupadd[2327]: new group: name=root-lr, GID=1006
+Feb 17 00:33:06 pe3 groupadd[2342]: group added to /etc/group: name=root-system, GID=1007
+Feb 17 00:33:06 pe3 groupadd[2342]: group added to /etc/gshadow: name=root-system
+Feb 17 00:33:06 pe3 groupadd[2342]: new group: name=root-system, GID=1007
+Feb 17 00:33:06 pe3 groupadd[2358]: group added to /etc/group: name=serviceadmin, GID=1008
+Feb 17 00:33:06 pe3 groupadd[2358]: group added to /etc/gshadow: name=serviceadmin
+Feb 17 00:33:06 pe3 groupadd[2358]: new group: name=serviceadmin, GID=1008
+Feb 17 00:33:06 pe3 groupadd[2376]: group added to /etc/group: name=sysadmin, GID=1009
+Feb 17 00:33:06 pe3 groupadd[2376]: group added to /etc/gshadow: name=sysadmin
+Feb 17 00:33:06 pe3 groupadd[2376]: new group: name=sysadmin, GID=1009
+Feb 17 00:33:06 pe3 groupadd[2391]: group added to /etc/group: name=read-only-tg, GID=1010
+Feb 17 00:33:06 pe3 groupadd[2391]: group added to /etc/gshadow: name=read-only-tg
+Feb 17 00:33:06 pe3 groupadd[2391]: new group: name=read-only-tg, GID=1010
+Feb 17 00:33:16 pe3 useradd[4691]: new group: name=clab, GID=1011
+Feb 17 00:33:16 pe3 useradd[4691]: new user: name=clab, UID=1000, GID=1011, home=/home/clab, shell=/bin/sh, from=none
+Feb 17 00:33:16 pe3 usermod[4729]: add 'clab' to group 'root-lr'
+Feb 17 00:33:16 pe3 usermod[4729]: add 'clab' to shadow group 'root-lr'
+Feb 17 00:33:17 pe3 usermod[4741]: add 'clab' to group 'sudo'
+Feb 17 00:33:17 pe3 usermod[4741]: add 'clab' to shadow group 'sudo'
+Feb 17 00:33:17 pe3 usermod[4777]: add 'clab' to group 'cisco-support'
+Feb 17 00:33:17 pe3 usermod[4777]: add 'clab' to shadow group 'cisco-support'
+Feb 17 00:33:17 pe3 sshd[4948]: Server listening on 0.0.0.0 port 22.
+Feb 17 00:33:17 pe3 sshd[4948]: Sending to syslog proxy : Server listening on 0.0.0.0 port 22.
+Feb 17 00:33:17 pe3 sshd[4948]: Server listening on :: port 22.
+Feb 17 00:33:17 pe3 sshd[4948]: Sending to syslog proxy : Server listening on :: port 22.
+Feb 17 00:33:18 pe3 sshd[4948]: Received signal 15; terminating.
+Feb 17 00:33:18 pe3 sshd[4948]: Sending to syslog proxy : Received signal 15; terminating.
+Feb 17 00:33:18 pe3 sshd[5027]: Server listening on 0.0.0.0 port 830.
+Feb 17 00:33:18 pe3 sshd[5027]: Sending to syslog proxy : Server listening on 0.0.0.0 port 830.
+Feb 17 00:33:18 pe3 sshd[5027]: Server listening on :: port 830.
+Feb 17 00:33:18 pe3 sshd[5027]: Sending to syslog proxy : Server listening on :: port 830.
+Feb 17 00:33:18 pe3 sshd[5027]: Server listening on 0.0.0.0 port 22.
+Feb 17 00:33:18 pe3 sshd[5027]: Sending to syslog proxy : Server listening on 0.0.0.0 port 22.
+Feb 17 00:33:18 pe3 sshd[5027]: Server listening on :: port 22.
+Feb 17 00:33:18 pe3 sshd[5027]: Sending to syslog proxy : Server listening on :: port 22.
+Feb 25 01:44:24 pe3 sshd[589309]: (sshd): Socket created, sockfd = 6
+Feb 25 01:44:24 pe3 sshd[589309]: (sshd): Successfully connected to server, sockfd = 6
+Feb 25 01:44:24 pe3 sshd[589309]: reserve - src addr: 172.80.80.1 src port: 39532, dst addr: 172.80.80.54 dst port: 830 protocol: 6, family: 2, pty id: 3
+Feb 25 01:44:24 pe3 sshd[589309]: Initialized client socket 14 with path /var/run/tty-channels/client589309
+Feb 25 01:44:24 pe3 sshd[589309]: Accepted authentication for clab from 172.80.80.1 port 39532 ssh2
+Feb 25 01:44:24 pe3 sshd[589309]: Sending to syslog proxy : Accepted authentication for clab from 172.80.80.1 port 39532 ssh2
+Feb 25 01:44:24 pe3 sshd[589313]: unreserve request received for port 0
+Feb 25 01:44:24 pe3 sshd[589313]: Initialized client socket 17 with path /var/run/tty-channels/client589313
+Feb 25 01:44:28 pe3 sshd[589313]: Connection closed by 172.80.80.1 port 39532
+Feb 25 01:44:28 pe3 sshd[589313]: Sending to syslog proxy : Connection closed by 172.80.80.1 port 39532

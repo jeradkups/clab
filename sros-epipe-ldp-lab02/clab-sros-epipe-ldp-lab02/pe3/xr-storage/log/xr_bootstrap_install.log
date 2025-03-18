@@ -1,0 +1,12 @@
+2023 Nov 18 13:59:53.096 UTC: Performing preparation prior to installing RPMs
+2023 Nov 18 13:59:53.625 UTC: Found card-PID package: xr-identifier-xrd-cp-c-01
+2023 Nov 18 13:59:53.639 UTC: Preparing IMA labeling environment
+2023 Nov 18 14:02:20.630 UTC: Installing RPMs
+2023 Nov 18 14:05:42.220 UTC: Performing post-install scripts after installing 3P RPMs
+2023 Nov 18 14:05:42.242 UTC: Running post-install scripts
+2023 Nov 18 14:34:55.437 UTC: Installing RPMs
+2023 Nov 18 14:35:11.086 UTC: Running XR post-install scripts
+enabling systemd service xr_startup
+Created symlink /mnt/disk/etc/systemd/system/ios-xr.target.requires/xr_startup.service → /etc/systemd/system/xr_startup.service.
+2023 Nov 18 14:35:11.341 UTC: Copy gISO configuration file
+2023 Nov 18 14:35:11.347 UTC: No configuration file available

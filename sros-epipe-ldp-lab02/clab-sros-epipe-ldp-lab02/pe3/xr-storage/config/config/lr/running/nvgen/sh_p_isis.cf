@@ -1,0 +1,27 @@
+router isis 21949
+ is-type level-2-only
+ net 49.0001.1000.0100.0105.00
+ nsf cisco
+ log adjacency changes
+ log pdu drops
+ hello-padding disable
+ address-family ipv4 unicast
+  metric-style wide
+  mpls traffic-eng level-2-only
+  mpls traffic-eng router-id 10.1.1.5
+  router-id 10.1.1.5
+ !
+ interface Loopback0
+  passive
+  address-family ipv4 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/1
+  point-to-point
+  link-down fast-detect
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp
+  !
+ !
+!

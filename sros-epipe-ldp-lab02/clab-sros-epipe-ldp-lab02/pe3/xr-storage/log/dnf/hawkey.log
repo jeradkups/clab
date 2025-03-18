@@ -1,0 +1,32 @@
+INFO Feb-17 00:32:59 === Started libdnf-0.11.1 ===
+DEBUG Feb-17 00:32:59 fetching rpmdb
+INFO Feb-17 00:33:01 === Started libdnf-0.11.1 ===
+DEBUG Feb-17 00:33:01 fetching rpmdb
+INFO Feb-17 00:33:01 === Started libdnf-0.11.1 ===
+DEBUG Feb-17 00:33:01 fetching rpmdb
+INFO Feb-17 00:33:01 === Started libdnf-0.11.1 ===
+DEBUG Feb-17 00:33:01 fetching rpmdb
+INFO Feb-17 00:33:05 === Started libdnf-0.11.1 ===
+DEBUG Feb-17 00:33:05 fetching rpmdb
+INFO Feb-17 00:33:06 === Started libdnf-0.11.1 ===
+DEBUG Feb-17 00:33:06 fetching rpmdb
+INFO Feb-17 00:33:07 === Started libdnf-0.11.1 ===
+DEBUG Feb-17 00:33:07 fetching rpmdb
+INFO Feb-17 00:33:07 Downloading: file:///var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml
+INFO Feb-17 00:33:07 Error during transfer: Curl error (37): Couldn't read a file:// file for file:///var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml [Couldn't open file /var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml]
+INFO Feb-17 00:33:07 Error while downloading: Cannot download repodata/repomd.xml: All mirrors were tried
+INFO Feb-17 00:33:08 === Started libdnf-0.11.1 ===
+DEBUG Feb-17 00:33:08 fetching rpmdb
+INFO Feb-17 00:33:08 Downloading: file:///var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml
+INFO Feb-17 00:33:08 Error during transfer: Curl error (37): Couldn't read a file:// file for file:///var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml [Couldn't open file /var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml]
+INFO Feb-17 00:33:08 Error while downloading: Cannot download repodata/repomd.xml: All mirrors were tried
+INFO Feb-17 00:33:08 === Started libdnf-0.11.1 ===
+DEBUG Feb-17 00:33:08 fetching rpmdb
+INFO Feb-17 00:33:08 Downloading: file:///var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml
+INFO Feb-17 00:33:08 Error during transfer: Curl error (37): Couldn't read a file:// file for file:///var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml [Couldn't open file /var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml]
+INFO Feb-17 00:33:08 Error while downloading: Cannot download repodata/repomd.xml: All mirrors were tried
+INFO Feb-17 00:33:09 === Started libdnf-0.11.1 ===
+DEBUG Feb-17 00:33:09 fetching rpmdb
+INFO Feb-17 00:33:09 Downloading: file:///var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml
+INFO Feb-17 00:33:09 Error during transfer: Curl error (37): Couldn't read a file:// file for file:///var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml [Couldn't open file /var/opt/cisco/iosxr/install/mirror/iosxr_install_internal_repo/repodata/repomd.xml]
+INFO Feb-17 00:33:09 Error while downloading: Cannot download repodata/repomd.xml: All mirrors were tried

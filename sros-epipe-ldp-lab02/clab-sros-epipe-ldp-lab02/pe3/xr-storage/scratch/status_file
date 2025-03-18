@@ -1,0 +1,50 @@
+----
+'Mon Feb 17 00:33:16 UTC 2025' 5 arguemnts are passed to script
+'Mon Feb 17 00:33:16 UTC 2025' Username is clab
+'Mon Feb 17 00:33:16 UTC 2025' configtype is USERNAME
+'Mon Feb 17 00:33:16 UTC 2025' action is CREATE
+'Mon Feb 17 00:33:16 UTC 2025' Group is NULL
+'Mon Feb 17 00:33:16 UTC 2025' shell is          : 
+'Mon Feb 17 00:33:16 UTC 2025' directory is      : 
+'Mon Feb 17 00:33:16 UTC 2025' firstuser flag is : 
+'Mon Feb 17 00:33:16 UTC 2025' useradd clab 0
+'Mon Feb 17 00:33:16 UTC 2025' User added successfully
+----
+'Mon Feb 17 00:33:16 UTC 2025' 5 arguemnts are passed to script
+'Mon Feb 17 00:33:16 UTC 2025' Username is clab
+'Mon Feb 17 00:33:16 UTC 2025' configtype is GROUP
+'Mon Feb 17 00:33:16 UTC 2025' action is CREATE
+'Mon Feb 17 00:33:16 UTC 2025' Group is root-lr
+'Mon Feb 17 00:33:16 UTC 2025' shell is          : 
+'Mon Feb 17 00:33:16 UTC 2025' directory is      : 
+'Mon Feb 17 00:33:16 UTC 2025' firstuser flag is : 
+'Mon Feb 17 00:33:16 UTC 2025' User clab exists
+'Mon Feb 17 00:33:16 UTC 2025' usermod group root-lr clab 0
+'Mon Feb 17 00:33:16 UTC 2025' adding sudo group
+'Mon Feb 17 00:33:17 UTC 2025' usermod group add sudo clab 0
+----
+'Mon Feb 17 00:33:17 UTC 2025' 5 arguemnts are passed to script
+'Mon Feb 17 00:33:17 UTC 2025' Username is clab
+'Mon Feb 17 00:33:17 UTC 2025' configtype is GROUP
+'Mon Feb 17 00:33:17 UTC 2025' action is CREATE
+'Mon Feb 17 00:33:17 UTC 2025' Group is cisco-support
+'Mon Feb 17 00:33:17 UTC 2025' shell is          : 
+'Mon Feb 17 00:33:17 UTC 2025' directory is      : 
+'Mon Feb 17 00:33:17 UTC 2025' firstuser flag is : 
+'Mon Feb 17 00:33:17 UTC 2025' User clab exists
+'Mon Feb 17 00:33:17 UTC 2025' usermod group cisco-support clab 0
+----
+'Mon Feb 17 00:33:17 UTC 2025' 8 arguemnts are passed to script
+'Mon Feb 17 00:33:17 UTC 2025' Username is clab
+'Mon Feb 17 00:33:17 UTC 2025' configtype is SECRET
+'Mon Feb 17 00:33:17 UTC 2025' action is CREATE
+'Mon Feb 17 00:33:17 UTC 2025' Group is NULL
+'Mon Feb 17 00:33:17 UTC 2025' shell is          : NULL
+'Mon Feb 17 00:33:17 UTC 2025' directory is      : NULL
+'Mon Feb 17 00:33:17 UTC 2025' firstuser flag is : FIRST
+'Mon Feb 17 00:33:17 UTC 2025' User clab exists
+'Mon Feb 17 00:33:17 UTC 2025' usermod secret clab 0
+'Mon Feb 17 00:33:17 UTC 2025' Remove ciscodbg user
+'Mon Feb 17 00:33:17 UTC 2025' First-user flag set, start cleanup 
+'Mon Feb 17 00:33:17 UTC 2025'User : ciscodbg donot exists
+'Mon Feb 17 00:33:17 UTC 2025' Remove ciscodbg done 

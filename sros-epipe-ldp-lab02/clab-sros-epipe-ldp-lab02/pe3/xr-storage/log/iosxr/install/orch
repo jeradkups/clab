@@ -1,0 +1,57 @@
+2025-02-17 00:32:58,288 UTC   1519 [orch.__main__       :  38] INF: -------------------------------------------------------------------------------
+2025-02-17 00:32:58,288 UTC   1519 [orch.__main__       :  39] INF: Started
+2025-02-17 00:32:59,209 UTC   1519 [orch.persist.Persist: 296] ERR: Op history directory unexpectedly removed, recreating
+2025-02-17 00:32:59,210 UTC   1519 [orch.__main__       : 368] INF: Cookie access retry count 0
+2025-02-17 00:33:02,212 UTC   1519 [orch.__main__       : 368] INF: Cookie access retry count 1
+2025-02-17 00:33:05,214 UTC   1519 [orch.__main__       : 592] INF: Creating volatile tmp dir at /var/volatile/tmp/cisco/iosxr/install
+2025-02-17 00:33:05,237 UTC   1519 [orch.reload.sm      : 192] INF: Attempting to connect to shelf manager. rc is 0
+2025-02-17 00:33:05,237 UTC   1519 [orch.persist.Persist:1750] INF: Attempting to load previous state data from path /var/opt/cisco/iosxr/install/mirror/feature-db-state
+2025-02-17 00:33:05,238 UTC   1519 [orch.persist.Persist:1756] INF: No state data file '/var/opt/cisco/iosxr/install/mirror/feature-db-state' exists
+2025-02-17 00:33:05,380 UTC   1519 [orch.config         : 197] INF: Registering config verifier
+2025-02-17 00:33:05,394 UTC   1519 [orch.config         :  87] INF: Error (Failed to get done: 'sysdb' detected the 'warning' condition 'A SysDB client tried to access a nonexistent item or list an empty directory') when reading startup done path. Treating as if done value=False
+2025-02-17 00:33:05,399 UTC   1519 [orch.features.infra.comms:  86] INF: Creating Endpoint
+2025-02-17 00:33:05,402 UTC   1519 [orch.features.infra.comms: 121] INF: Publishing endpoint
+2025-02-17 00:33:05,421 UTC   1519 [orch.alarms         :  43] INF: Initialising FM at node: 0/RP0/CPU0
+2025-02-17 00:33:05,492 UTC   1519 [orch.disaster_recovery: 162] INF: This platform does not have a DR partition
+2025-02-17 00:33:05,493 UTC   1519 [orch.persist.Persist:1750] INF: Attempting to load previous state data from path /var/opt/cisco/iosxr/install/mirror/state
+2025-02-17 00:33:05,494 UTC   1519 [orch.persist.Persist:1756] INF: No state data file '/var/opt/cisco/iosxr/install/mirror/state' exists
+2025-02-17 00:33:05,494 UTC   1519 [orch.persist.Persist:1750] INF: Attempting to load previous state data from path /var/opt/cisco/iosxr/install/mirror/orchstate
+2025-02-17 00:33:05,495 UTC   1519 [orch.persist.Persist:1756] INF: No state data file '/var/opt/cisco/iosxr/install/mirror/orchstate' exists
+2025-02-17 00:33:05,496 UTC   1519 [orch.engine.fsm     : 200] INF: Resuming with no state record
+2025-02-17 00:33:05,523 UTC   1519 [orch.features.infra.comms: 171] INF: Finished publishing endpoint, exception None
+2025-02-17 00:33:05,525 UTC   1519 [orch.oper.pq        :3301] INF: Base gISO build metadata file does not exist.
+2025-02-17 00:33:05,526 UTC   1519 [orch.oper.pq        : 556] INF: Falling back to using installed packages
+2025-02-17 00:33:05,531 UTC   1519 [cmn.yum.Query       : 364] INF: [D27B] Running ['/usr/bin/python3', '/usr/bin/dnf', '--disableplugin=local', '-c', '/etc/opt/cisco/iosxr/install/dnf/dnf.conf.instorch', 'list', '-y', '--disablerepo=*', '--enablerepo=iosxr_install_internal', '--no-wrap', '--refresh', '--', 'installed']
+2025-02-17 00:33:05,543 UTC   1519 [orch.repo           :1546] INF: Not creating initial rollback point as rollback is disabled
+2025-02-17 00:33:05,545 UTC   1519 [cmn.iso             : 155] INF: Unmounting ISO at '{}'
+2025-02-17 00:33:05,553 UTC   1519 [comms.Orch          : 485] INF: Received AGENT_HELLO unsolicited message from 0/RP0/CPU0
+2025-02-17 00:33:05,558 UTC   1519 [orch.engine.monitor : 559] INF: Node 0/RP0/CPU0 has trans-in-progress marker file: False, expected: False - ok
+2025-02-17 00:33:05,559 UTC   1519 [orch.engine.monitor : 599] INF: Node 0/RP0/CPU0 has op-in-progress marker file: False, packaging operation in progress: False - ok
+2025-02-17 00:33:05,559 UTC   1519 [orch.engine.monitor : 623] INF: Node 0/RP0/CPU0 has software cookie 'fixed-platform-cookie', expected 'fixed-platform-cookie' - matches
+2025-02-17 00:33:05,560 UTC   1519 [orch.engine.monitor : 656] INF: Node 0/RP0/CPU0 has giso_label '', expected '' - 'matches'
+2025-02-17 00:33:05,562 UTC   1519 [orch.oper.pq        : 588] INF: Falling back to using installed packages
+2025-02-17 00:33:05,565 UTC   1519 [comms.Orch          : 167] INF: Sending PKG_QUERY request message (to nodes [Node(0/RP0/CPU0)]): {"category": 19, "msg_type": 1, "error": null, "msg_data": {"query": 2, "inputs": [], "wait": false, "get_security_data": false, "category": 19}, "req_id": "0x1152ac1b00000001", "nodes": ["0/RP0/CPU0"], "warnings": null}
+2025-02-17 00:33:05,566 UTC   1519 [orch.reload         : 346] INF: Connect callback from Shelf Manager. Status 0
+2025-02-17 00:33:05,567 UTC   1519 [orch.reload         : 348] INF: Connected to Shelf Manager.
+2025-02-17 00:33:06,418 UTC   1519 [cmn.yum.Query       : 478] INF: [D27B] Subprocess completed successfully
+2025-02-17 00:33:06,423 UTC   1519 [cmn.yum.Query       : 708] INF: [D27B] Subprocess exited with success
+2025-02-17 00:33:06,431 UTC   1519 [orch.oper.pq        : 683] INF: Filtering disabled packages path: None
+2025-02-17 00:33:06,460 UTC   1519 [cmn.subprocs.exec   : 364] INF: [3C59] Running ['rpm', '-qa', '--queryformat', '%{name}-%|epoch?{%{epoch}}:{0}|:%{version}-%{release}.%{arch}`%{packager}`%{buildhost}`%{buildtime}\n'] as user iosxr
+2025-02-17 00:33:06,732 UTC   1519 [comms.Orch          : 455] INF: Received PKG_QUERY response message to request 0x1152ac1b00000001 from 0/RP0/CPU0: b'{"category": 19, "msg_type": 2, "error": null, "msg_data": {"yum_output": [{"Name": "acl", "Version": "2.2.53", "Release": "r0.11.111.2", "Epoch": "0", "Architecture": "corei7_64", "Summary": null, "Repository": "@iosxr_install_internal", "Cached": null, "Size": null, "Description": null, "License": null, "ProvidesMatches": [], "Active": null, "Committed": null, "Pkgmgr": null, "URL": null, "XRMandatory": null, "XROption...
+2025-02-17 00:33:07,013 UTC   1519 [cmn.subprocs.exec   : 478] INF: [3C59] Subprocess completed successfully
+2025-02-17 00:33:07,073 UTC   1519 [yum_repoquery       : 364] INF: [A222] Running ['/usr/bin/python3', '/usr/bin/dnf', '--disableplugin=local', '-c', '/etc/opt/cisco/iosxr/install/dnf/dnf.conf.instorch', 'repoquery', '-q', '--whatprovides', 'cisco-iosxr', '--all', '--disablerepo=*', '--enablerepo=iosxr_install_internal', '--no-wrap', '--refresh']
+2025-02-17 00:33:07,668 UTC   1519 [yum_repoquery       : 478] INF: [A222] Subprocess completed successfully
+2025-02-17 00:33:07,674 UTC   1519 [yum_repoquery       : 708] INF: [A222] Subprocess exited with success
+2025-02-17 00:33:07,682 UTC   1519 [yum_repoquery       : 364] INF: [1286] Running ['/usr/bin/python3', '/usr/bin/dnf', '--disableplugin=local', '-c', '/etc/opt/cisco/iosxr/install/dnf/dnf.conf.instorch', 'repoquery', '-q', '--whatprovides', 'cisco-iosxr-user-installable', '--all', '--disablerepo=*', '--enablerepo=iosxr_install_internal', '--no-wrap', '--refresh']
+2025-02-17 00:33:08,268 UTC   1519 [yum_repoquery       : 478] INF: [1286] Subprocess completed successfully
+2025-02-17 00:33:08,272 UTC   1519 [yum_repoquery       : 708] INF: [1286] Subprocess exited with success
+2025-02-17 00:33:08,277 UTC   1519 [yum_repoquery       : 364] INF: [F60B] Running ['/usr/bin/python3', '/usr/bin/dnf', '--disableplugin=local', '-c', '/etc/opt/cisco/iosxr/install/dnf/dnf.conf.instorch', 'repoquery', '-q', '--requires', '--resolve', '--disablerepo=*', '--enablerepo=iosxr_install_internal', '--no-wrap', '--refresh', '--', 'xr-foundation-*']
+2025-02-17 00:33:08,776 UTC   1519 [yum_repoquery       : 478] INF: [F60B] Subprocess completed successfully
+2025-02-17 00:33:08,780 UTC   1519 [yum_repoquery       : 708] INF: [F60B] Subprocess exited with success
+2025-02-17 00:33:08,787 UTC   1519 [yum_repoquery       : 364] INF: [B83F] Running ['/usr/bin/python3', '/usr/bin/dnf', '--disableplugin=local', '-c', '/etc/opt/cisco/iosxr/install/dnf/dnf.conf.instorch', 'repoquery', '-q', '--disablerepo=*', '--enablerepo=iosxr_install_internal', '--no-wrap', '--refresh', '--', 'xr-foundation-*']
+2025-02-17 00:33:09,244 UTC   1519 [yum_repoquery       : 478] INF: [B83F] Subprocess completed successfully
+2025-02-17 00:33:09,249 UTC   1519 [yum_repoquery       : 708] INF: [B83F] Subprocess exited with success
+2025-02-17 00:33:09,254 UTC   1519 [cmn.subprocs.exec   : 364] INF: [BAC7] Running ['rpm', '--showrc'] as user iosxr
+2025-02-17 00:33:09,288 UTC   1519 [cmn.subprocs.exec   : 478] INF: [BAC7] Subprocess completed successfully
+2025-02-17 00:33:20,164 UTC   1519 [orch.config         : 275] INF: Cleaned up /var/opt/cisco/iosxr/install/giso_cfg_marker
+2025-02-17 00:33:20,164 UTC   1519 [orch.config         : 275] INF: Cleaned up /var/xr/config/config/running/alternate_cfg/giso.cfg

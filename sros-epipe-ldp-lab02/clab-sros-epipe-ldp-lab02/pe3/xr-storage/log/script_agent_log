@@ -1,0 +1,10 @@
+[2025-02-17 00:33:11,225] INFO [script_agent]:: Script agent directory /harddisk:/mirror/script-mgmt not present. Creating
+[2025-02-17 00:33:11,225] INFO [script_agent]:: Script agent directory /harddisk:/mirror/script-mgmt/logs not present. Creating
+[2025-02-17 00:33:11,226] INFO [script_agent]:: Script agent directory /harddisk:/mirror/script-mgmt/.script-mgmt not present. Creating
+[2025-02-17 00:33:11,226] INFO [script_agent]:: Script agent directory /var/run/script-mgmt not present. Creating
+[2025-02-17 00:33:11,226] DEBUG [script_agent]:: Joining request watcher thread
+[2025-02-17 00:33:11,226] DEBUG [script_agent]:: Monitoring threads did not complete: cannot join thread before it is started
+[2025-02-17 00:33:11,226] INFO [script_db]:: Script DB directory /run/lock/script-mgmt not present. Creating
+[2025-02-17 00:33:11,270] INFO [script_agent]:: ScriptAgent: Init Request Queue
+[2025-02-17 00:33:11,270] DEBUG [script_agent]:: Processing request queue
+[2025-02-17 00:33:11,277] INFO [script_agent]:: ScriptAgent: Ready

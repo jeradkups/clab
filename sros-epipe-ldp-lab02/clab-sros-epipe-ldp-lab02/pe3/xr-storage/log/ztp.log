@@ -1,0 +1,9 @@
+2025-02-17 00:33:11,109   3991 [__main__     ] INF: -------------------------------------------------------------------------------
+2025-02-17 00:33:11,109   3991 [__main__     ] INF: Started
+2025-02-17 00:33:11,701   3991 [__main__     ] DEB: Informing sysmgr proc ready
+2025-02-17 00:33:11,718   3991 [__main__     ] INF: ZTP process role is Primary
+2025-02-17 00:33:11,719   3991 [__main__     ] DEB: Successfully Validated input Arguments
+2025-02-17 00:33:11,837   3991 [__main__     ] DEB: Disabling snooping sysdb tuple.
+2025-02-17 00:33:11,845   3991 [__main__     ] INF: ZTP is not configured to start.
+2025-02-17 00:33:11,852   3991 [__main__     ] INF: Exiting SUCCESSFULLY
+2025-02-17 00:33:11,852   3991 [__main__     ] INF: ZTP Exited

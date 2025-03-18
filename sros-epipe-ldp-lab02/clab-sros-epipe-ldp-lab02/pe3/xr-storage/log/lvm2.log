@@ -1,0 +1,21 @@
+00:32:45.489329 none[309] commands/toolcontext.c:393  Logging initialised at Mon Feb 17 00:32:45 2025
+00:32:45.490518 none[309] commands/toolcontext.c:583  Set umask from 0022 to 0077
+00:32:45.501265 vgchange[309] device_mapper/libdm-file.c:46  Creating directory "/tmp/lock/lvm"
+00:32:48.741946 vgchange[309] vgchange.c:170  1 logical volume(s) in volume group "ubuntu-vg" monitored
+00:32:52.988539 none[754] commands/toolcontext.c:393  Logging initialised at Mon Feb 17 00:32:52 2025
+00:32:52.989197 none[754] commands/toolcontext.c:583  Set umask from 0022 to 0077
+00:32:53.9424 vgcfgbackup[754] format_text/archiver.c:574  Creating volume group backup "/etc/lvm/backup/ubuntu-vg" (seqno 2).
+00:32:53.25546 vgcfgbackup[754] vgcfgbackup.c:85  Volume group "ubuntu-vg" successfully backed up.
+00:33:13.105272 none[4419] commands/toolcontext.c:393  Logging initialised at Mon Feb 17 00:33:13 2025
+00:33:13.106558 none[4419] commands/toolcontext.c:583  Set umask from 0022 to 0077
+00:33:13.115130 pvscan[4419] pvscan.c:1249  pvscan devices on command line.
+00:33:13.133641 pvscan[4419] pvscan.c:1405  pvscan only specific devices add 1 rem 0.
+00:33:13.136983 pvscan[4419] pvscan.c:540  pvscan[4419] PV /dev/sda3 online, VG ubuntu-vg is complete.
+00:33:13.137208 pvscan[4419] pvscan.c:1176  pvscan[4419] VG ubuntu-vg run autoactivation.
+00:33:13.138761 pvscan[4419] vgchange.c:244  1 logical volume(s) in volume group "ubuntu-vg" already active
+00:33:13.139333 pvscan[4419] vgchange.c:251  1 existing logical volume(s) in volume group "ubuntu-vg" monitored
+00:33:13.139379 pvscan[4419] activate/activate.c:173  activation/auto_activation_volume_list configuration setting not defined: All logical volumes will be auto-activated.
+00:33:13.139401 pvscan[4419] metadata/lv.c:1525  Activating logical volume ubuntu-vg/ubuntu-lv.
+00:33:13.139431 pvscan[4419] activate/activate.c:440  activation/volume_list configuration setting not defined: Checking only host tags for ubuntu-vg/ubuntu-lv.
+00:33:13.139464 pvscan[4419] vgchange.c:136  Activated 1 logical volumes in volume group ubuntu-vg.
+00:33:13.139554 pvscan[4419] vgchange.c:262  1 logical volume(s) in volume group "ubuntu-vg" now active

@@ -1,0 +1,17 @@
+Feb 17 00:33:13 pe3 lvm[4419]: Logging initialised at Mon Feb 17 00:33:13 2025
+Feb 17 00:33:13 pe3 lvm[4419]: Set umask from 0022 to 0077
+Feb 17 00:33:13 pe3 lvm[4419]: pvscan devices on command line.
+Feb 17 00:33:13 pe3 lvm[4419]: pvscan only specific devices add 1 rem 0.
+Feb 17 00:33:13 pe3 lvm[4419]: pvscan[4419] PV /dev/sda3 online, VG ubuntu-vg is complete.
+Feb 17 00:33:13 pe3 lvm[4419]: pvscan[4419] VG ubuntu-vg run autoactivation.
+Feb 17 00:33:13 pe3 lvm[4419]: 1 logical volume(s) in volume group "ubuntu-vg" already active
+Feb 17 00:33:13 pe3 lvm[4419]: 1 existing logical volume(s) in volume group "ubuntu-vg" monitored
+Feb 17 00:33:13 pe3 lvm[4419]: activation/auto_activation_volume_list configuration setting not defined: All logical volumes will be auto-activated.
+Feb 17 00:33:13 pe3 lvm[4419]: Activating logical volume ubuntu-vg/ubuntu-lv.
+Feb 17 00:33:13 pe3 lvm[4419]: activation/volume_list configuration setting not defined: Checking only host tags for ubuntu-vg/ubuntu-lv.
+Feb 17 00:33:13 pe3 lvm[4419]: Activated 1 logical volumes in volume group ubuntu-vg.
+Feb 17 00:33:13 pe3 lvm[4419]: 1 logical volume(s) in volume group "ubuntu-vg" now active
+Feb 17 00:33:17 pe3 sshd: (sshd): Socket created, sockfd = 3
+Feb 17 00:33:17 pe3 sshd: (sshd): Successfully connected to server, sockfd = 3
+Feb 17 00:33:18 pe3 sshd: (sshd): Socket created, sockfd = 3
+Feb 17 00:33:18 pe3 sshd: (sshd): Successfully connected to server, sockfd = 3

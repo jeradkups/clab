@@ -1,0 +1,31 @@
+interface Loopback0
+ ipv4 address 10.1.1.5 255.255.255.255
+!
+interface tunnel-te1
+ ipv4 unnumbered Loopback0
+ destination 10.0.131.1
+ path-option 1 dynamic
+!
+interface MgmtEth0/RP0/CPU0/0
+ ipv4 address 172.80.80.54 255.255.255.0
+!
+interface GigabitEthernet0/0/0/1
+ mtu 9000
+ ipv4 address 1.1.1.5 255.255.255.254
+ lldp
+  enable
+ !
+!
+interface GigabitEthernet0/0/0/2.11 l2transport
+ encapsulation dot1q 11
+!
+interface GigabitEthernet0/0/0/2.12 l2transport
+ encapsulation dot1q 12
+ rewrite ingress tag pop 1 symmetric
+ local-traffic default encapsulation dot1q 12
+!
+interface BVI4001
+ description OLT: MF-2-Internet
+ vrf internet
+ ipv4 address 66.234.48.1 255.255.255.0
+!

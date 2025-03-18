@@ -1,0 +1,40 @@
+all:
+  vars:
+    # The generated inventory is assumed to be used from the clab host.
+    # Hence no http proxy should be used. Therefore we make sure the http
+    # module does not attempt using any global http proxy.
+    ansible_httpapi_use_proxy: false
+  children:
+    linux:
+      hosts:
+        clab-sros-lab01-bng-host:
+          ansible_host: 172.80.80.32
+        clab-sros-lab01-dhcp1:
+          ansible_host: 172.80.80.30
+        clab-sros-lab01-dhcp2:
+          ansible_host: 172.80.80.33
+        clab-sros-lab01-radius:
+          ansible_host: 172.80.80.31
+    ovs-bridge:
+      hosts:
+        clab-sros-lab01-clab-internal:
+          ansible_host: 
+    vr-sros:
+      vars:
+        ansible_network_os: nokia.sros.md
+        # default connection type for nodes of this kind
+        # feel free to override this in your inventory
+        ansible_connection: ansible.netcommon.network_cli
+        ansible_user: admin
+        ansible_password: admin
+      hosts:
+        clab-sros-lab01-agg1:
+          ansible_host: 172.80.80.21
+        clab-sros-lab01-agg2:
+          ansible_host: 172.80.80.22
+        clab-sros-lab01-agg3:
+          ansible_host: 172.80.80.23
+        clab-sros-lab01-bng1:
+          ansible_host: 172.80.80.51
+        clab-sros-lab01-bng2:
+          ansible_host: 172.80.80.52

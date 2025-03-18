@@ -1,0 +1,19 @@
+mpls ldp
+ log
+  neighbor
+  nsr
+  graceful-restart
+  session-protection
+ !
+ router-id 10.1.1.5
+ session protection
+ address-family ipv4
+  label
+   local
+    allocate for host-routes
+   !
+  !
+ !
+ interface GigabitEthernet0/0/0/1
+ !
+!

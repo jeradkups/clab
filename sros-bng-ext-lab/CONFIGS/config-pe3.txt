@@ -26,6 +26,12 @@ no aaa new-model
 !
 !
 ip domain name example.com
+ip dhcp excluded-address 192.168.99.1
+!
+ip dhcp pool test
+ network 192.168.99.0 255.255.255.0
+ default-router 192.168.99.1
+ dns-server 8.8.8.8
 !
 !
 !
@@ -164,13 +170,13 @@ pseudowire-class PE1
 pseudowire-class OLT
  encapsulation mpls
  control-word
+ preferred-path interface Tunnel1 disable-fallback
 !
 l2 router-id 1.1.1.6
 l2 vfi VPLS12 manual
  vpn id 12
  bridge-domain 12
  mtu 1500
- neighbor 1.1.1.4 encapsulation mpls
  neighbor 10.0.131.1 4001 pw-class OLT
 !
 !
@@ -197,11 +203,10 @@ interface Loopback0
 !
 interface Tunnel1
  ip unnumbered Loopback0
- shutdown
+ mpls ip
  mpls traffic-eng tunnels
  tunnel mode mpls traffic-eng
  tunnel destination 10.0.131.1
- tunnel mpls traffic-eng autoroute announce
  tunnel mpls traffic-eng priority 1 1
  tunnel mpls traffic-eng path-option 1 dynamic
 !
@@ -240,6 +245,12 @@ interface GigabitEthernet4
 interface GigabitEthernet4.11
  encapsulation dot1Q 11
  xconnect 1.1.1.4 11 encapsulation mpls pw-class PE2
+!
+interface BDI12
+ ip dhcp relay information trusted
+ ip address 192.168.99.1 255.255.255.0
+ no mop enabled
+ no mop sysid
 !
 router isis 21949
  net 49.0001.1000.0100.0105.00

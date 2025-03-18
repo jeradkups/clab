@@ -1,0 +1,2271 @@
+2025-02-17 00:33:08.941263 Sync: create_directory():160, directory: /misc/disk1/.sppdc created
+2025-02-17 00:33:08.941770 Sync: create_directory():160, directory: /misc/disk1/.sppdc_new created
+2025-02-17 00:33:08.941929 Sync: ROLE_PRIMARY. setting master flags
+2025-02-17 00:33:08.941954 Sync: Entering plat_sl_mount for mounting /misc/disk1/.sppdc_new
+2025-02-17 00:33:53.262786 SIALOG: Entering plat_sl_update_upgrade_license_status
+2025-02-17 00:33:53.263101 Sync: ROLE_PRIMARY. setting master flags
+2025-02-17 00:33:53.263126 Sync: Entering plat_sl_mount for mounting /misc/disk1/.sppdc_new
+2025-02-17 00:33:53.287744 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:33:53.287797 SIALOG: Entering plat_sl_update_upgrade_license_status
+2025-02-17 00:33:53.287814 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:33:53.288013 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:33:53.288040 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:33:53.288112 SIAERROR: Failed to open file /etc/sl/platinfo.data rc=2
+2025-02-17 00:33:53.288134 SIALOG: Let's Update the upgrade license status.
+2025-02-17 00:33:53.288158 SIALOG: Writing buffer len 2
+2025-02-17 00:33:53.288181 SIALOG: Locked by thread 140545434216192
+2025-02-17 00:33:53.288320 SIALOG: Entering plat_sl_update_node_deactivation_status
+2025-02-17 00:33:53.288443 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:33:53.288460 SIALOG: Entering plat_sl_update_node_deactivation_status
+2025-02-17 00:33:53.288475 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:33:53.288579 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:33:53.288596 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:33:53.288634 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 2
+2025-02-17 00:33:53.288672 SIALOG: Let's Update the Node Deactivation status.
+2025-02-17 00:33:53.288690 SIALOG: Writing buffer len 4
+2025-02-17 00:33:53.288705 SIALOG: Locked by thread 140545434216192
+2025-02-17 00:33:53.290638 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 00:33:53.290810 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:33:53.290855 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 00:33:53.290876 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:33:53.290982 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:33:53.290999 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:33:53.291037 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 4
+2025-02-17 00:33:53.291086 SIALOG: No sia reason 
+2025-02-17 00:33:53.291103 SIALOG: Updating collection time
+2025-02-17 00:33:53.291119 SIALOG: Writing buffer len 10
+2025-02-17 00:33:53.291134 SIALOG: Locked by thread 140545434216192
+2025-02-17 00:33:53.301535 SIALOG: Entering plat_sl_get_ooc_status_from_ts
+2025-02-17 00:33:53.301736 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:33:53.301758 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:33:53.301988 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:33:53.302038 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:33:53.302099 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 00:33:53.302171 SIALOG: Reading mdata file /etc/sl/platinfo.data size 10 10
+2025-02-17 00:33:53.302211 SIALOG: Upgrade license field exist
+2025-02-17 00:33:53.302227 SIALOG: SL node deactivation field exists
+2025-02-17 00:33:53.302242 SIALOG: is_node_deactivated = 0
+2025-02-17 00:38:53.254026 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 00:38:53.254372 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:38:53.254400 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 00:38:53.254415 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:38:53.254524 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:38:53.254541 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:38:53.254588 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 00:38:53.254662 SIALOG: No sia reason 
+2025-02-17 00:38:53.254709 SIALOG: Updating collection time
+2025-02-17 00:38:53.254736 SIALOG: Writing buffer len 10
+2025-02-17 00:38:53.254756 SIALOG: Locked by thread 140545434216192
+2025-02-17 00:38:53.256419 SIALOG: Entering plat_sl_get_ooc_status_from_ts
+2025-02-17 00:38:53.256615 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:38:53.256638 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:38:53.256754 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 00:38:53.256806 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 00:38:53.256852 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 00:38:53.256911 SIALOG: Reading mdata file /etc/sl/platinfo.data size 10 10
+2025-02-17 00:38:53.256952 SIALOG: Upgrade license field exist
+2025-02-17 00:38:53.256968 SIALOG: SL node deactivation field exists
+2025-02-17 00:38:53.256983 SIALOG: is_node_deactivated = 0
+2025-02-17 01:38:53.254271 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 01:38:53.255033 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 01:38:53.255125 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 01:38:53.255168 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 01:38:53.255522 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 01:38:53.255622 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 01:38:53.255764 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 01:38:53.255908 SIALOG: No sia reason 
+2025-02-17 01:38:53.255950 SIALOG: Updating collection time
+2025-02-17 01:38:53.256003 SIALOG: Writing buffer len 10
+2025-02-17 01:38:53.256043 SIALOG: Locked by thread 140545434216192
+2025-02-17 02:38:53.253429 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 02:38:53.253873 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 02:38:53.253915 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 02:38:53.253934 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 02:38:53.254091 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 02:38:53.254116 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 02:38:53.254172 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 02:38:53.254256 SIALOG: No sia reason 
+2025-02-17 02:38:53.254277 SIALOG: Updating collection time
+2025-02-17 02:38:53.254300 SIALOG: Writing buffer len 10
+2025-02-17 02:38:53.254319 SIALOG: Locked by thread 140545434216192
+2025-02-17 03:38:53.253850 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 03:38:53.254284 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 03:38:53.254324 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 03:38:53.254342 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 03:38:53.254457 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 03:38:53.254475 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 03:38:53.254534 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 03:38:53.254621 SIALOG: No sia reason 
+2025-02-17 03:38:53.254641 SIALOG: Updating collection time
+2025-02-17 03:38:53.254664 SIALOG: Writing buffer len 10
+2025-02-17 03:38:53.254683 SIALOG: Locked by thread 140545434216192
+2025-02-17 04:38:53.253122 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 04:38:53.253529 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 04:38:53.253570 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 04:38:53.253589 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 04:38:53.253712 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 04:38:53.253731 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 04:38:53.253792 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 04:38:53.253868 SIALOG: No sia reason 
+2025-02-17 04:38:53.253888 SIALOG: Updating collection time
+2025-02-17 04:38:53.253905 SIALOG: Writing buffer len 10
+2025-02-17 04:38:53.253920 SIALOG: Locked by thread 140545434216192
+2025-02-17 05:38:53.253843 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 05:38:53.254340 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 05:38:53.254380 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 05:38:53.254398 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 05:38:53.254517 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 05:38:53.254535 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 05:38:53.254603 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 05:38:53.254691 SIALOG: No sia reason 
+2025-02-17 05:38:53.254712 SIALOG: Updating collection time
+2025-02-17 05:38:53.254758 SIALOG: Writing buffer len 10
+2025-02-17 05:38:53.254778 SIALOG: Locked by thread 140545434216192
+2025-02-17 06:38:53.254097 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 06:38:53.254515 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 06:38:53.254555 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 06:38:53.254574 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 06:38:53.254697 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 06:38:53.254716 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 06:38:53.254766 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 06:38:53.254854 SIALOG: No sia reason 
+2025-02-17 06:38:53.254874 SIALOG: Updating collection time
+2025-02-17 06:38:53.254898 SIALOG: Writing buffer len 10
+2025-02-17 06:38:53.254916 SIALOG: Locked by thread 140545434216192
+2025-02-17 07:38:53.255085 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 07:38:53.255586 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 07:38:53.255631 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 07:38:53.255650 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 07:38:53.255768 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 07:38:53.255786 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 07:38:53.255853 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 07:38:53.255950 SIALOG: No sia reason 
+2025-02-17 07:38:53.255971 SIALOG: Updating collection time
+2025-02-17 07:38:53.255987 SIALOG: Writing buffer len 10
+2025-02-17 07:38:53.256002 SIALOG: Locked by thread 140545434216192
+2025-02-17 08:38:53.253374 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 08:38:53.253852 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 08:38:53.253893 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 08:38:53.253912 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 08:38:53.254027 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 08:38:53.254044 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 08:38:53.254123 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 08:38:53.254225 SIALOG: No sia reason 
+2025-02-17 08:38:53.254246 SIALOG: Updating collection time
+2025-02-17 08:38:53.254270 SIALOG: Writing buffer len 10
+2025-02-17 08:38:53.254289 SIALOG: Locked by thread 140545434216192
+2025-02-17 09:38:53.252813 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 09:38:53.253267 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 09:38:53.253309 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 09:38:53.253328 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 09:38:53.253441 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 09:38:53.253459 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 09:38:53.253513 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 09:38:53.253595 SIALOG: No sia reason 
+2025-02-17 09:38:53.253614 SIALOG: Updating collection time
+2025-02-17 09:38:53.253637 SIALOG: Writing buffer len 10
+2025-02-17 09:38:53.253656 SIALOG: Locked by thread 140545434216192
+2025-02-17 10:38:53.253201 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 10:38:53.253765 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 10:38:53.253845 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 10:38:53.253868 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 10:38:53.253992 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 10:38:53.254011 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 10:38:53.254078 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 10:38:53.254162 SIALOG: No sia reason 
+2025-02-17 10:38:53.254182 SIALOG: Updating collection time
+2025-02-17 10:38:53.254205 SIALOG: Writing buffer len 10
+2025-02-17 10:38:53.254223 SIALOG: Locked by thread 140545434216192
+2025-02-17 11:38:53.253259 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 11:38:53.253701 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 11:38:53.253741 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 11:38:53.253759 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 11:38:53.253873 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 11:38:53.253890 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 11:38:53.253950 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 11:38:53.254032 SIALOG: No sia reason 
+2025-02-17 11:38:53.254053 SIALOG: Updating collection time
+2025-02-17 11:38:53.254106 SIALOG: Writing buffer len 10
+2025-02-17 11:38:53.254127 SIALOG: Locked by thread 140545434216192
+2025-02-17 12:38:53.252838 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 12:38:53.253238 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 12:38:53.253274 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 12:38:53.253292 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 12:38:53.253408 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 12:38:53.253425 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 12:38:53.253484 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 12:38:53.253587 SIALOG: No sia reason 
+2025-02-17 12:38:53.253609 SIALOG: Updating collection time
+2025-02-17 12:38:53.253632 SIALOG: Writing buffer len 10
+2025-02-17 12:38:53.253650 SIALOG: Locked by thread 140545434216192
+2025-02-17 13:38:53.252557 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 13:38:53.253020 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 13:38:53.253060 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 13:38:53.253079 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 13:38:53.253217 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 13:38:53.253240 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 13:38:53.253307 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 13:38:53.253391 SIALOG: No sia reason 
+2025-02-17 13:38:53.253411 SIALOG: Updating collection time
+2025-02-17 13:38:53.253434 SIALOG: Writing buffer len 10
+2025-02-17 13:38:53.253452 SIALOG: Locked by thread 140545434216192
+2025-02-17 14:38:53.252767 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 14:38:53.253186 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 14:38:53.253230 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 14:38:53.253249 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 14:38:53.253368 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 14:38:53.253386 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 14:38:53.253445 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 14:38:53.253526 SIALOG: No sia reason 
+2025-02-17 14:38:53.253547 SIALOG: Updating collection time
+2025-02-17 14:38:53.253570 SIALOG: Writing buffer len 10
+2025-02-17 14:38:53.253588 SIALOG: Locked by thread 140545434216192
+2025-02-17 15:38:53.253163 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 15:38:53.253592 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 15:38:53.253635 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 15:38:53.253653 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 15:38:53.253798 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 15:38:53.253818 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 15:38:53.253884 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 15:38:53.253968 SIALOG: No sia reason 
+2025-02-17 15:38:53.253989 SIALOG: Updating collection time
+2025-02-17 15:38:53.254011 SIALOG: Writing buffer len 10
+2025-02-17 15:38:53.254030 SIALOG: Locked by thread 140545434216192
+2025-02-17 16:38:53.253726 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 16:38:53.254228 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 16:38:53.254271 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 16:38:53.254290 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 16:38:53.254405 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 16:38:53.254423 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 16:38:53.254489 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 16:38:53.254590 SIALOG: No sia reason 
+2025-02-17 16:38:53.254611 SIALOG: Updating collection time
+2025-02-17 16:38:53.254634 SIALOG: Writing buffer len 10
+2025-02-17 16:38:53.254653 SIALOG: Locked by thread 140545434216192
+2025-02-17 17:38:53.253661 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 17:38:53.254312 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 17:38:53.254405 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 17:38:53.254449 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 17:38:53.254665 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 17:38:53.254714 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 17:38:53.254817 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 17:38:53.255035 SIALOG: No sia reason 
+2025-02-17 17:38:53.255082 SIALOG: Updating collection time
+2025-02-17 17:38:53.255132 SIALOG: Writing buffer len 10
+2025-02-17 17:38:53.255173 SIALOG: Locked by thread 140545434216192
+2025-02-17 18:38:53.253957 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 18:38:53.254472 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 18:38:53.254518 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 18:38:53.254536 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 18:38:53.254658 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 18:38:53.254677 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 18:38:53.254733 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 18:38:53.254838 SIALOG: No sia reason 
+2025-02-17 18:38:53.254860 SIALOG: Updating collection time
+2025-02-17 18:38:53.254884 SIALOG: Writing buffer len 10
+2025-02-17 18:38:53.254902 SIALOG: Locked by thread 140545434216192
+2025-02-17 19:38:53.253361 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 19:38:53.253872 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 19:38:53.253914 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 19:38:53.253933 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 19:38:53.254051 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 19:38:53.254070 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 19:38:53.254139 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 19:38:53.254226 SIALOG: No sia reason 
+2025-02-17 19:38:53.254247 SIALOG: Updating collection time
+2025-02-17 19:38:53.254270 SIALOG: Writing buffer len 10
+2025-02-17 19:38:53.254288 SIALOG: Locked by thread 140545434216192
+2025-02-17 20:38:53.254148 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 20:38:53.254862 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 20:38:53.254909 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 20:38:53.254928 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 20:38:53.255046 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 20:38:53.255064 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 20:38:53.255188 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 20:38:53.255337 SIALOG: No sia reason 
+2025-02-17 20:38:53.255364 SIALOG: Updating collection time
+2025-02-17 20:38:53.255389 SIALOG: Writing buffer len 10
+2025-02-17 20:38:53.255408 SIALOG: Locked by thread 140545434216192
+2025-02-17 21:38:53.253328 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 21:38:53.253773 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 21:38:53.253813 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 21:38:53.253861 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 21:38:53.253992 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 21:38:53.254011 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 21:38:53.254067 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 21:38:53.254151 SIALOG: No sia reason 
+2025-02-17 21:38:53.254172 SIALOG: Updating collection time
+2025-02-17 21:38:53.254195 SIALOG: Writing buffer len 10
+2025-02-17 21:38:53.254213 SIALOG: Locked by thread 140545434216192
+2025-02-17 22:38:53.253654 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 22:38:53.254120 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 22:38:53.254162 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 22:38:53.254180 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 22:38:53.254297 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 22:38:53.254315 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 22:38:53.254363 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 22:38:53.254450 SIALOG: No sia reason 
+2025-02-17 22:38:53.254471 SIALOG: Updating collection time
+2025-02-17 22:38:53.254494 SIALOG: Writing buffer len 10
+2025-02-17 22:38:53.254512 SIALOG: Locked by thread 140545434216192
+2025-02-17 23:38:53.253132 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 23:38:53.253616 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 23:38:53.253658 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-17 23:38:53.253676 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 23:38:53.253832 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-17 23:38:53.253857 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-17 23:38:53.253924 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-17 23:38:53.254015 SIALOG: No sia reason 
+2025-02-17 23:38:53.254036 SIALOG: Updating collection time
+2025-02-17 23:38:53.254059 SIALOG: Writing buffer len 10
+2025-02-17 23:38:53.254077 SIALOG: Locked by thread 140545434216192
+2025-02-18 00:38:53.253023 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 00:38:53.253661 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 00:38:53.253715 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 00:38:53.253736 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 00:38:53.253865 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 00:38:53.253884 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 00:38:53.253974 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 00:38:53.254128 SIALOG: No sia reason 
+2025-02-18 00:38:53.254173 SIALOG: Updating collection time
+2025-02-18 00:38:53.254214 SIALOG: Writing buffer len 10
+2025-02-18 00:38:53.254235 SIALOG: Locked by thread 140545434216192
+2025-02-18 00:38:53.256018 SIALOG: Entering plat_sl_get_ooc_status_from_ts
+2025-02-18 00:38:53.256349 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 00:38:53.256390 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 00:38:53.256537 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 00:38:53.256564 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 00:38:53.256611 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 00:38:53.256673 SIALOG: Reading mdata file /etc/sl/platinfo.data size 10 10
+2025-02-18 00:38:53.256715 SIALOG: Upgrade license field exist
+2025-02-18 00:38:53.256757 SIALOG: SL node deactivation field exists
+2025-02-18 00:38:53.256775 SIALOG: is_node_deactivated = 0
+2025-02-18 01:38:53.254154 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 01:38:53.254645 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 01:38:53.254686 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 01:38:53.254704 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 01:38:53.254822 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 01:38:53.254841 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 01:38:53.254942 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 01:38:53.255035 SIALOG: No sia reason 
+2025-02-18 01:38:53.255055 SIALOG: Updating collection time
+2025-02-18 01:38:53.255078 SIALOG: Writing buffer len 10
+2025-02-18 01:38:53.255097 SIALOG: Locked by thread 140545434216192
+2025-02-18 02:38:53.253941 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 02:38:53.254584 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 02:38:53.254675 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 02:38:53.254708 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 02:38:53.254902 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 02:38:53.254938 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 02:38:53.255008 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 02:38:53.255134 SIALOG: No sia reason 
+2025-02-18 02:38:53.255163 SIALOG: Updating collection time
+2025-02-18 02:38:53.255197 SIALOG: Writing buffer len 10
+2025-02-18 02:38:53.255303 SIALOG: Locked by thread 140545434216192
+2025-02-18 03:38:53.253448 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 03:38:53.253916 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 03:38:53.253956 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 03:38:53.253975 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 03:38:53.254088 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 03:38:53.254105 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 03:38:53.254167 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 03:38:53.254254 SIALOG: No sia reason 
+2025-02-18 03:38:53.254274 SIALOG: Updating collection time
+2025-02-18 03:38:53.254296 SIALOG: Writing buffer len 10
+2025-02-18 03:38:53.254315 SIALOG: Locked by thread 140545434216192
+2025-02-18 04:38:53.254223 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 04:38:53.254769 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 04:38:53.254815 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 04:38:53.254834 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 04:38:53.254951 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 04:38:53.254970 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 04:38:53.255040 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 04:38:53.255148 SIALOG: No sia reason 
+2025-02-18 04:38:53.255170 SIALOG: Updating collection time
+2025-02-18 04:38:53.255193 SIALOG: Writing buffer len 10
+2025-02-18 04:38:53.255247 SIALOG: Locked by thread 140545434216192
+2025-02-18 05:38:53.253457 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 05:38:53.254210 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 05:38:53.254297 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 05:38:53.254333 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 05:38:53.254531 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 05:38:53.254572 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 05:38:53.254631 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 05:38:53.254723 SIALOG: No sia reason 
+2025-02-18 05:38:53.254744 SIALOG: Updating collection time
+2025-02-18 05:38:53.254767 SIALOG: Writing buffer len 10
+2025-02-18 05:38:53.254786 SIALOG: Locked by thread 140545434216192
+2025-02-18 06:38:53.252891 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 06:38:53.253395 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 06:38:53.253437 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 06:38:53.253455 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 06:38:53.253569 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 06:38:53.253587 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 06:38:53.253728 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 06:38:53.253939 SIALOG: No sia reason 
+2025-02-18 06:38:53.253988 SIALOG: Updating collection time
+2025-02-18 06:38:53.254036 SIALOG: Writing buffer len 10
+2025-02-18 06:38:53.254071 SIALOG: Locked by thread 140545434216192
+2025-02-18 07:38:53.254194 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 07:38:53.254657 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 07:38:53.254698 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 07:38:53.254717 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 07:38:53.254839 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 07:38:53.254858 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 07:38:53.254908 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 07:38:53.255008 SIALOG: No sia reason 
+2025-02-18 07:38:53.255030 SIALOG: Updating collection time
+2025-02-18 07:38:53.255053 SIALOG: Writing buffer len 10
+2025-02-18 07:38:53.255104 SIALOG: Locked by thread 140545434216192
+2025-02-18 08:38:53.253445 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 08:38:53.253941 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 08:38:53.253982 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 08:38:53.254000 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 08:38:53.254115 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 08:38:53.254133 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 08:38:53.254189 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 08:38:53.254271 SIALOG: No sia reason 
+2025-02-18 08:38:53.254293 SIALOG: Updating collection time
+2025-02-18 08:38:53.254316 SIALOG: Writing buffer len 10
+2025-02-18 08:38:53.254334 SIALOG: Locked by thread 140545434216192
+2025-02-18 09:38:53.253107 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 09:38:53.253632 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 09:38:53.253691 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 09:38:53.253711 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 09:38:53.253910 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 09:38:53.253962 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 09:38:53.254031 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 09:38:53.254121 SIALOG: No sia reason 
+2025-02-18 09:38:53.254144 SIALOG: Updating collection time
+2025-02-18 09:38:53.254168 SIALOG: Writing buffer len 10
+2025-02-18 09:38:53.254186 SIALOG: Locked by thread 140545434216192
+2025-02-18 10:38:53.253989 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 10:38:53.254443 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 10:38:53.254484 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 10:38:53.254502 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 10:38:53.254616 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 10:38:53.254634 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 10:38:53.254692 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 10:38:53.254803 SIALOG: No sia reason 
+2025-02-18 10:38:53.254831 SIALOG: Updating collection time
+2025-02-18 10:38:53.254875 SIALOG: Writing buffer len 10
+2025-02-18 10:38:53.254912 SIALOG: Locked by thread 140545434216192
+2025-02-18 11:38:53.253974 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 11:38:53.254538 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 11:38:53.254622 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 11:38:53.254662 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 11:38:53.254907 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 11:38:53.254963 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 11:38:53.255043 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 11:38:53.255167 SIALOG: No sia reason 
+2025-02-18 11:38:53.255192 SIALOG: Updating collection time
+2025-02-18 11:38:53.255260 SIALOG: Writing buffer len 10
+2025-02-18 11:38:53.255289 SIALOG: Locked by thread 140545434216192
+2025-02-18 12:38:53.253563 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 12:38:53.254089 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 12:38:53.254159 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 12:38:53.254199 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 12:38:53.254402 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 12:38:53.254444 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 12:38:53.254537 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 12:38:53.254675 SIALOG: No sia reason 
+2025-02-18 12:38:53.254703 SIALOG: Updating collection time
+2025-02-18 12:38:53.254729 SIALOG: Writing buffer len 10
+2025-02-18 12:38:53.254760 SIALOG: Locked by thread 140545434216192
+2025-02-18 13:38:53.253817 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 13:38:53.254328 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 13:38:53.254369 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 13:38:53.254388 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 13:38:53.254503 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 13:38:53.254521 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 13:38:53.254588 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 13:38:53.254679 SIALOG: No sia reason 
+2025-02-18 13:38:53.254699 SIALOG: Updating collection time
+2025-02-18 13:38:53.254723 SIALOG: Writing buffer len 10
+2025-02-18 13:38:53.254741 SIALOG: Locked by thread 140545434216192
+2025-02-18 14:38:53.254384 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 14:38:53.254860 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 14:38:53.254900 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 14:38:53.254918 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 14:38:53.255035 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 14:38:53.255053 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 14:38:53.255119 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 14:38:53.255207 SIALOG: No sia reason 
+2025-02-18 14:38:53.255280 SIALOG: Updating collection time
+2025-02-18 14:38:53.255311 SIALOG: Writing buffer len 10
+2025-02-18 14:38:53.255330 SIALOG: Locked by thread 140545434216192
+2025-02-18 15:38:53.254192 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 15:38:53.254685 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 15:38:53.254731 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 15:38:53.254750 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 15:38:53.254872 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 15:38:53.254891 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 15:38:53.254947 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 15:38:53.255089 SIALOG: No sia reason 
+2025-02-18 15:38:53.255114 SIALOG: Updating collection time
+2025-02-18 15:38:53.255138 SIALOG: Writing buffer len 10
+2025-02-18 15:38:53.255157 SIALOG: Locked by thread 140545434216192
+2025-02-18 16:38:53.254068 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 16:38:53.254540 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 16:38:53.254580 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 16:38:53.254599 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 16:38:53.254777 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 16:38:53.254799 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 16:38:53.254855 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 16:38:53.254957 SIALOG: No sia reason 
+2025-02-18 16:38:53.254979 SIALOG: Updating collection time
+2025-02-18 16:38:53.255002 SIALOG: Writing buffer len 10
+2025-02-18 16:38:53.255021 SIALOG: Locked by thread 140545434216192
+2025-02-18 17:38:53.253943 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 17:38:53.254678 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 17:38:53.254755 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 17:38:53.254778 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 17:38:53.254902 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 17:38:53.254920 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 17:38:53.254970 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 17:38:53.255072 SIALOG: No sia reason 
+2025-02-18 17:38:53.255094 SIALOG: Updating collection time
+2025-02-18 17:38:53.255118 SIALOG: Writing buffer len 10
+2025-02-18 17:38:53.255136 SIALOG: Locked by thread 140545434216192
+2025-02-18 18:38:53.252874 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 18:38:53.253355 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 18:38:53.253398 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 18:38:53.253417 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 18:38:53.253559 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 18:38:53.253580 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 18:38:53.253645 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 18:38:53.253765 SIALOG: No sia reason 
+2025-02-18 18:38:53.253792 SIALOG: Updating collection time
+2025-02-18 18:38:53.253877 SIALOG: Writing buffer len 10
+2025-02-18 18:38:53.253955 SIALOG: Locked by thread 140545434216192
+2025-02-18 19:38:53.253264 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 19:38:53.253764 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 19:38:53.253809 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 19:38:53.253828 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 19:38:53.253943 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 19:38:53.253961 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 19:38:53.254024 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 19:38:53.254113 SIALOG: No sia reason 
+2025-02-18 19:38:53.254134 SIALOG: Updating collection time
+2025-02-18 19:38:53.254157 SIALOG: Writing buffer len 10
+2025-02-18 19:38:53.254175 SIALOG: Locked by thread 140545434216192
+2025-02-18 20:38:53.254980 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 20:38:53.255511 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 20:38:53.255557 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 20:38:53.255576 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 20:38:53.255758 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 20:38:53.255800 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 20:38:53.255906 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 20:38:53.256010 SIALOG: No sia reason 
+2025-02-18 20:38:53.256031 SIALOG: Updating collection time
+2025-02-18 20:38:53.256056 SIALOG: Writing buffer len 10
+2025-02-18 20:38:53.256075 SIALOG: Locked by thread 140545434216192
+2025-02-18 21:38:53.253197 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 21:38:53.253668 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 21:38:53.253709 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 21:38:53.253728 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 21:38:53.253841 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 21:38:53.253860 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 21:38:53.253972 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 21:38:53.254069 SIALOG: No sia reason 
+2025-02-18 21:38:53.254090 SIALOG: Updating collection time
+2025-02-18 21:38:53.254113 SIALOG: Writing buffer len 10
+2025-02-18 21:38:53.254131 SIALOG: Locked by thread 140545434216192
+2025-02-18 22:38:53.253473 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 22:38:53.253954 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 22:38:53.254000 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 22:38:53.254019 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 22:38:53.254134 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 22:38:53.254153 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 22:38:53.254206 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 22:38:53.254340 SIALOG: No sia reason 
+2025-02-18 22:38:53.254376 SIALOG: Updating collection time
+2025-02-18 22:38:53.254410 SIALOG: Writing buffer len 10
+2025-02-18 22:38:53.254430 SIALOG: Locked by thread 140545434216192
+2025-02-18 23:38:53.253731 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 23:38:53.254167 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 23:38:53.254208 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-18 23:38:53.254227 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 23:38:53.254427 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-18 23:38:53.254481 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-18 23:38:53.254570 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-18 23:38:53.254698 SIALOG: No sia reason 
+2025-02-18 23:38:53.254724 SIALOG: Updating collection time
+2025-02-18 23:38:53.254748 SIALOG: Writing buffer len 10
+2025-02-18 23:38:53.254769 SIALOG: Locked by thread 140545434216192
+2025-02-19 00:38:53.253975 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 00:38:53.254448 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 00:38:53.254488 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 00:38:53.254507 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 00:38:53.254623 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 00:38:53.254641 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 00:38:53.254705 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 00:38:53.254792 SIALOG: No sia reason 
+2025-02-19 00:38:53.254813 SIALOG: Updating collection time
+2025-02-19 00:38:53.254836 SIALOG: Writing buffer len 10
+2025-02-19 00:38:53.254854 SIALOG: Locked by thread 140545434216192
+2025-02-19 00:38:53.256548 SIALOG: Entering plat_sl_get_ooc_status_from_ts
+2025-02-19 00:38:53.256745 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 00:38:53.256768 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 00:38:53.256879 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 00:38:53.256896 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 00:38:53.256937 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 00:38:53.256995 SIALOG: Reading mdata file /etc/sl/platinfo.data size 10 10
+2025-02-19 00:38:53.257038 SIALOG: Upgrade license field exist
+2025-02-19 00:38:53.257055 SIALOG: SL node deactivation field exists
+2025-02-19 00:38:53.257070 SIALOG: is_node_deactivated = 0
+2025-02-19 01:38:53.254001 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 01:38:53.254460 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 01:38:53.254501 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 01:38:53.254520 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 01:38:53.254671 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 01:38:53.254699 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 01:38:53.254751 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 01:38:53.254831 SIALOG: No sia reason 
+2025-02-19 01:38:53.254851 SIALOG: Updating collection time
+2025-02-19 01:38:53.254904 SIALOG: Writing buffer len 10
+2025-02-19 01:38:53.254927 SIALOG: Locked by thread 140545434216192
+2025-02-19 02:38:53.253559 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 02:38:53.254137 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 02:38:53.254189 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 02:38:53.254208 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 02:38:53.254337 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 02:38:53.254356 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 02:38:53.254452 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 02:38:53.254562 SIALOG: No sia reason 
+2025-02-19 02:38:53.254584 SIALOG: Updating collection time
+2025-02-19 02:38:53.254608 SIALOG: Writing buffer len 10
+2025-02-19 02:38:53.254627 SIALOG: Locked by thread 140545434216192
+2025-02-19 03:38:53.253940 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 03:38:53.254459 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 03:38:53.254502 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 03:38:53.254520 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 03:38:53.254637 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 03:38:53.254655 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 03:38:53.254709 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 03:38:53.254798 SIALOG: No sia reason 
+2025-02-19 03:38:53.254818 SIALOG: Updating collection time
+2025-02-19 03:38:53.254841 SIALOG: Writing buffer len 10
+2025-02-19 03:38:53.254859 SIALOG: Locked by thread 140545434216192
+2025-02-19 04:38:53.253691 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 04:38:53.254220 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 04:38:53.254262 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 04:38:53.254280 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 04:38:53.254444 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 04:38:53.254474 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 04:38:53.254559 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 04:38:53.254653 SIALOG: No sia reason 
+2025-02-19 04:38:53.254674 SIALOG: Updating collection time
+2025-02-19 04:38:53.254697 SIALOG: Writing buffer len 10
+2025-02-19 04:38:53.254715 SIALOG: Locked by thread 140545434216192
+2025-02-19 05:38:53.255087 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 05:38:53.255638 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 05:38:53.255681 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 05:38:53.255700 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 05:38:53.255817 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 05:38:53.255835 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 05:38:53.255889 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 05:38:53.256003 SIALOG: No sia reason 
+2025-02-19 05:38:53.256027 SIALOG: Updating collection time
+2025-02-19 05:38:53.256051 SIALOG: Writing buffer len 10
+2025-02-19 05:38:53.256071 SIALOG: Locked by thread 140545434216192
+2025-02-19 06:38:53.253554 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 06:38:53.254044 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 06:38:53.254085 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 06:38:53.254104 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 06:38:53.254219 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 06:38:53.254272 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 06:38:53.254343 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 06:38:53.254434 SIALOG: No sia reason 
+2025-02-19 06:38:53.254454 SIALOG: Updating collection time
+2025-02-19 06:38:53.254476 SIALOG: Writing buffer len 10
+2025-02-19 06:38:53.254494 SIALOG: Locked by thread 140545434216192
+2025-02-19 07:38:53.253463 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 07:38:53.254008 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 07:38:53.254057 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 07:38:53.254077 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 07:38:53.254194 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 07:38:53.254219 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 07:38:53.254327 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 07:38:53.254489 SIALOG: No sia reason 
+2025-02-19 07:38:53.254526 SIALOG: Updating collection time
+2025-02-19 07:38:53.254570 SIALOG: Writing buffer len 10
+2025-02-19 07:38:53.254609 SIALOG: Locked by thread 140545434216192
+2025-02-19 08:38:53.253247 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 08:38:53.253808 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 08:38:53.253858 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 08:38:53.253902 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 08:38:53.254028 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 08:38:53.254047 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 08:38:53.254102 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 08:38:53.254188 SIALOG: No sia reason 
+2025-02-19 08:38:53.254209 SIALOG: Updating collection time
+2025-02-19 08:38:53.254233 SIALOG: Writing buffer len 10
+2025-02-19 08:38:53.254251 SIALOG: Locked by thread 140545434216192
+2025-02-19 09:38:53.253497 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 09:38:53.253941 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 09:38:53.253981 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 09:38:53.253999 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 09:38:53.254184 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 09:38:53.254234 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 09:38:53.254381 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 09:38:53.254535 SIALOG: No sia reason 
+2025-02-19 09:38:53.254589 SIALOG: Updating collection time
+2025-02-19 09:38:53.254645 SIALOG: Writing buffer len 10
+2025-02-19 09:38:53.254684 SIALOG: Locked by thread 140545434216192
+2025-02-19 10:38:53.253267 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 10:38:53.253711 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 10:38:53.253780 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 10:38:53.253813 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 10:38:53.254016 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 10:38:53.254066 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 10:38:53.254149 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 10:38:53.254249 SIALOG: No sia reason 
+2025-02-19 10:38:53.254270 SIALOG: Updating collection time
+2025-02-19 10:38:53.254294 SIALOG: Writing buffer len 10
+2025-02-19 10:38:53.254312 SIALOG: Locked by thread 140545434216192
+2025-02-19 11:38:53.253632 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 11:38:53.254102 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 11:38:53.254145 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 11:38:53.254164 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 11:38:53.254278 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 11:38:53.254296 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 11:38:53.254349 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 11:38:53.254435 SIALOG: No sia reason 
+2025-02-19 11:38:53.254457 SIALOG: Updating collection time
+2025-02-19 11:38:53.254480 SIALOG: Writing buffer len 10
+2025-02-19 11:38:53.254499 SIALOG: Locked by thread 140545434216192
+2025-02-19 12:38:53.253893 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 12:38:53.254317 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 12:38:53.254387 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 12:38:53.254410 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 12:38:53.254530 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 12:38:53.254550 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 12:38:53.254597 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 12:38:53.254681 SIALOG: No sia reason 
+2025-02-19 12:38:53.254702 SIALOG: Updating collection time
+2025-02-19 12:38:53.254720 SIALOG: Writing buffer len 10
+2025-02-19 12:38:53.254735 SIALOG: Locked by thread 140545434216192
+2025-02-19 13:38:53.253510 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 13:38:53.254163 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 13:38:53.254222 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 13:38:53.254242 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 13:38:53.254362 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 13:38:53.254381 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 13:38:53.254432 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 13:38:53.254529 SIALOG: No sia reason 
+2025-02-19 13:38:53.254552 SIALOG: Updating collection time
+2025-02-19 13:38:53.254576 SIALOG: Writing buffer len 10
+2025-02-19 13:38:53.254594 SIALOG: Locked by thread 140545434216192
+2025-02-19 14:38:53.254174 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 14:38:53.254635 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 14:38:53.254676 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 14:38:53.254695 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 14:38:53.254808 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 14:38:53.254826 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 14:38:53.254922 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 14:38:53.255013 SIALOG: No sia reason 
+2025-02-19 14:38:53.255034 SIALOG: Updating collection time
+2025-02-19 14:38:53.255057 SIALOG: Writing buffer len 10
+2025-02-19 14:38:53.255075 SIALOG: Locked by thread 140545434216192
+2025-02-19 15:38:53.253452 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 15:38:53.254042 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 15:38:53.254132 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 15:38:53.254173 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 15:38:53.254387 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 15:38:53.254426 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 15:38:53.254533 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 15:38:53.254689 SIALOG: No sia reason 
+2025-02-19 15:38:53.254733 SIALOG: Updating collection time
+2025-02-19 15:38:53.254780 SIALOG: Writing buffer len 10
+2025-02-19 15:38:53.254820 SIALOG: Locked by thread 140545434216192
+2025-02-19 16:38:53.254911 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 16:38:53.255469 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 16:38:53.255517 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 16:38:53.255537 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 16:38:53.255656 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 16:38:53.255674 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 16:38:53.255740 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 16:38:53.255826 SIALOG: No sia reason 
+2025-02-19 16:38:53.255846 SIALOG: Updating collection time
+2025-02-19 16:38:53.255870 SIALOG: Writing buffer len 10
+2025-02-19 16:38:53.255888 SIALOG: Locked by thread 140545434216192
+2025-02-19 17:38:53.253633 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 17:38:53.254129 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 17:38:53.254171 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 17:38:53.254190 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 17:38:53.254341 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 17:38:53.254362 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 17:38:53.254416 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 17:38:53.254502 SIALOG: No sia reason 
+2025-02-19 17:38:53.254522 SIALOG: Updating collection time
+2025-02-19 17:38:53.254546 SIALOG: Writing buffer len 10
+2025-02-19 17:38:53.254564 SIALOG: Locked by thread 140545434216192
+2025-02-19 18:38:53.253808 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 18:38:53.254526 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 18:38:53.254596 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 18:38:53.254630 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 18:38:53.254827 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 18:38:53.254863 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 18:38:53.254949 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 18:38:53.255084 SIALOG: No sia reason 
+2025-02-19 18:38:53.255119 SIALOG: Updating collection time
+2025-02-19 18:38:53.255160 SIALOG: Writing buffer len 10
+2025-02-19 18:38:53.255192 SIALOG: Locked by thread 140545434216192
+2025-02-19 19:38:53.254550 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 19:38:53.255027 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 19:38:53.255071 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 19:38:53.255090 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 19:38:53.255258 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 19:38:53.255289 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 19:38:53.255347 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 19:38:53.255439 SIALOG: No sia reason 
+2025-02-19 19:38:53.255459 SIALOG: Updating collection time
+2025-02-19 19:38:53.255483 SIALOG: Writing buffer len 10
+2025-02-19 19:38:53.255502 SIALOG: Locked by thread 140545434216192
+2025-02-19 20:38:53.253827 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 20:38:53.254301 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 20:38:53.254348 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 20:38:53.254368 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 20:38:53.254489 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 20:38:53.254507 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 20:38:53.254562 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 20:38:53.254647 SIALOG: No sia reason 
+2025-02-19 20:38:53.254667 SIALOG: Updating collection time
+2025-02-19 20:38:53.254684 SIALOG: Writing buffer len 10
+2025-02-19 20:38:53.254699 SIALOG: Locked by thread 140545434216192
+2025-02-19 21:38:53.254063 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 21:38:53.254486 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 21:38:53.254526 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 21:38:53.254544 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 21:38:53.254735 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 21:38:53.254805 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 21:38:53.254889 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 21:38:53.254992 SIALOG: No sia reason 
+2025-02-19 21:38:53.255012 SIALOG: Updating collection time
+2025-02-19 21:38:53.255029 SIALOG: Writing buffer len 10
+2025-02-19 21:38:53.255044 SIALOG: Locked by thread 140545434216192
+2025-02-19 22:38:53.253208 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 22:38:53.254025 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 22:38:53.254084 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 22:38:53.254105 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 22:38:53.254227 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 22:38:53.254245 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 22:38:53.254344 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 22:38:53.254434 SIALOG: No sia reason 
+2025-02-19 22:38:53.254454 SIALOG: Updating collection time
+2025-02-19 22:38:53.254478 SIALOG: Writing buffer len 10
+2025-02-19 22:38:53.254496 SIALOG: Locked by thread 140545434216192
+2025-02-19 23:38:53.253418 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 23:38:53.253927 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 23:38:53.253969 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-19 23:38:53.253988 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 23:38:53.254104 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-19 23:38:53.254123 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-19 23:38:53.254192 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-19 23:38:53.254283 SIALOG: No sia reason 
+2025-02-19 23:38:53.254304 SIALOG: Updating collection time
+2025-02-19 23:38:53.254328 SIALOG: Writing buffer len 10
+2025-02-19 23:38:53.254346 SIALOG: Locked by thread 140545434216192
+2025-02-20 00:38:53.253371 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 00:38:53.253773 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 00:38:53.253813 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 00:38:53.253831 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 00:38:53.253949 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 00:38:53.253967 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 00:38:53.254047 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 00:38:53.254128 SIALOG: No sia reason 
+2025-02-20 00:38:53.254147 SIALOG: Updating collection time
+2025-02-20 00:38:53.254163 SIALOG: Writing buffer len 10
+2025-02-20 00:38:53.254178 SIALOG: Locked by thread 140545434216192
+2025-02-20 00:38:53.255796 SIALOG: Entering plat_sl_get_ooc_status_from_ts
+2025-02-20 00:38:53.256040 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 00:38:53.256068 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 00:38:53.256177 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 00:38:53.256195 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 00:38:53.256235 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 00:38:53.256292 SIALOG: Reading mdata file /etc/sl/platinfo.data size 10 10
+2025-02-20 00:38:53.256363 SIALOG: Upgrade license field exist
+2025-02-20 00:38:53.256386 SIALOG: SL node deactivation field exists
+2025-02-20 00:38:53.256401 SIALOG: is_node_deactivated = 0
+2025-02-20 01:38:53.253097 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 01:38:53.253544 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 01:38:53.253585 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 01:38:53.253604 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 01:38:53.253721 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 01:38:53.253739 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 01:38:53.253832 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 01:38:53.253938 SIALOG: No sia reason 
+2025-02-20 01:38:53.253961 SIALOG: Updating collection time
+2025-02-20 01:38:53.253978 SIALOG: Writing buffer len 10
+2025-02-20 01:38:53.253993 SIALOG: Locked by thread 140545434216192
+2025-02-20 02:38:53.254104 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 02:38:53.254776 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 02:38:53.254837 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 02:38:53.254865 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 02:38:53.255038 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 02:38:53.255069 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 02:38:53.255147 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 02:38:53.255341 SIALOG: No sia reason 
+2025-02-20 02:38:53.255379 SIALOG: Updating collection time
+2025-02-20 02:38:53.255482 SIALOG: Writing buffer len 10
+2025-02-20 02:38:53.255517 SIALOG: Locked by thread 140545434216192
+2025-02-20 03:38:53.252426 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 03:38:53.252820 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 03:38:53.252856 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 03:38:53.252874 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 03:38:53.252992 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 03:38:53.253009 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 03:38:53.253062 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 03:38:53.253137 SIALOG: No sia reason 
+2025-02-20 03:38:53.253176 SIALOG: Updating collection time
+2025-02-20 03:38:53.253202 SIALOG: Writing buffer len 10
+2025-02-20 03:38:53.253230 SIALOG: Locked by thread 140545434216192
+2025-02-20 04:38:53.253493 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 04:38:53.254010 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 04:38:53.254059 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 04:38:53.254079 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 04:38:53.254199 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 04:38:53.254218 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 04:38:53.254274 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 04:38:53.254398 SIALOG: No sia reason 
+2025-02-20 04:38:53.254419 SIALOG: Updating collection time
+2025-02-20 04:38:53.254443 SIALOG: Writing buffer len 10
+2025-02-20 04:38:53.254461 SIALOG: Locked by thread 140545434216192
+2025-02-20 05:38:53.253439 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 05:38:53.254186 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 05:38:53.254323 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 05:38:53.254371 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 05:38:53.254598 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 05:38:53.254637 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 05:38:53.254697 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 05:38:53.254795 SIALOG: No sia reason 
+2025-02-20 05:38:53.254816 SIALOG: Updating collection time
+2025-02-20 05:38:53.254840 SIALOG: Writing buffer len 10
+2025-02-20 05:38:53.254858 SIALOG: Locked by thread 140545434216192
+2025-02-20 06:38:53.253539 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 06:38:53.253996 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 06:38:53.254099 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 06:38:53.254123 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 06:38:53.254252 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 06:38:53.254271 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 06:38:53.254328 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 06:38:53.254414 SIALOG: No sia reason 
+2025-02-20 06:38:53.254434 SIALOG: Updating collection time
+2025-02-20 06:38:53.254451 SIALOG: Writing buffer len 10
+2025-02-20 06:38:53.254466 SIALOG: Locked by thread 140545434216192
+2025-02-20 07:38:53.253262 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 07:38:53.253739 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 07:38:53.253790 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 07:38:53.253809 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 07:38:53.253930 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 07:38:53.253949 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 07:38:53.254015 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 07:38:53.254101 SIALOG: No sia reason 
+2025-02-20 07:38:53.254122 SIALOG: Updating collection time
+2025-02-20 07:38:53.254145 SIALOG: Writing buffer len 10
+2025-02-20 07:38:53.254183 SIALOG: Locked by thread 140545434216192
+2025-02-20 08:38:53.253317 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 08:38:53.253832 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 08:38:53.253875 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 08:38:53.253894 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 08:38:53.254013 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 08:38:53.254031 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 08:38:53.254092 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 08:38:53.254207 SIALOG: No sia reason 
+2025-02-20 08:38:53.254229 SIALOG: Updating collection time
+2025-02-20 08:38:53.254253 SIALOG: Writing buffer len 10
+2025-02-20 08:38:53.254271 SIALOG: Locked by thread 140545434216192
+2025-02-20 09:38:53.253879 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 09:38:53.254382 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 09:38:53.254425 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 09:38:53.254444 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 09:38:53.254559 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 09:38:53.254577 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 09:38:53.254644 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 09:38:53.254738 SIALOG: No sia reason 
+2025-02-20 09:38:53.254758 SIALOG: Updating collection time
+2025-02-20 09:38:53.254782 SIALOG: Writing buffer len 10
+2025-02-20 09:38:53.254800 SIALOG: Locked by thread 140545434216192
+2025-02-20 10:38:53.253347 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 10:38:53.253837 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 10:38:53.253884 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 10:38:53.253903 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 10:38:53.254045 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 10:38:53.254068 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 10:38:53.254119 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 10:38:53.254234 SIALOG: No sia reason 
+2025-02-20 10:38:53.254288 SIALOG: Updating collection time
+2025-02-20 10:38:53.254350 SIALOG: Writing buffer len 10
+2025-02-20 10:38:53.254386 SIALOG: Locked by thread 140545434216192
+2025-02-20 11:38:53.253250 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 11:38:53.253707 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 11:38:53.253749 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 11:38:53.253767 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 11:38:53.253885 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 11:38:53.253902 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 11:38:53.253953 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 11:38:53.254072 SIALOG: No sia reason 
+2025-02-20 11:38:53.254095 SIALOG: Updating collection time
+2025-02-20 11:38:53.254118 SIALOG: Writing buffer len 10
+2025-02-20 11:38:53.254137 SIALOG: Locked by thread 140545434216192
+2025-02-20 12:38:53.254230 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 12:38:53.254685 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 12:38:53.254729 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 12:38:53.254749 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 12:38:53.254987 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 12:38:53.255042 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 12:38:53.255121 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 12:38:53.255243 SIALOG: No sia reason 
+2025-02-20 12:38:53.255271 SIALOG: Updating collection time
+2025-02-20 12:38:53.255288 SIALOG: Writing buffer len 10
+2025-02-20 12:38:53.255306 SIALOG: Locked by thread 140545434216192
+2025-02-20 13:38:53.253931 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 13:38:53.254379 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 13:38:53.254449 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 13:38:53.254472 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 13:38:53.254598 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 13:38:53.254618 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 13:38:53.254667 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 13:38:53.254750 SIALOG: No sia reason 
+2025-02-20 13:38:53.254769 SIALOG: Updating collection time
+2025-02-20 13:38:53.254785 SIALOG: Writing buffer len 10
+2025-02-20 13:38:53.254800 SIALOG: Locked by thread 140545434216192
+2025-02-20 14:38:53.253886 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 14:38:53.254337 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 14:38:53.254378 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 14:38:53.254396 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 14:38:53.254518 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 14:38:53.254536 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 14:38:53.254614 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 14:38:53.254704 SIALOG: No sia reason 
+2025-02-20 14:38:53.254725 SIALOG: Updating collection time
+2025-02-20 14:38:53.254748 SIALOG: Writing buffer len 10
+2025-02-20 14:38:53.254766 SIALOG: Locked by thread 140545434216192
+2025-02-20 15:38:53.253094 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 15:38:53.253748 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 15:38:53.253841 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 15:38:53.253879 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 15:38:53.254113 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 15:38:53.254149 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 15:38:53.254241 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 15:38:53.254370 SIALOG: No sia reason 
+2025-02-20 15:38:53.254412 SIALOG: Updating collection time
+2025-02-20 15:38:53.254436 SIALOG: Writing buffer len 10
+2025-02-20 15:38:53.254451 SIALOG: Locked by thread 140545434216192
+2025-02-20 16:38:53.253554 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 16:38:53.254019 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 16:38:53.254059 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 16:38:53.254078 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 16:38:53.254191 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 16:38:53.254209 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 16:38:53.254298 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 16:38:53.254394 SIALOG: No sia reason 
+2025-02-20 16:38:53.254415 SIALOG: Updating collection time
+2025-02-20 16:38:53.254438 SIALOG: Writing buffer len 10
+2025-02-20 16:38:53.254456 SIALOG: Locked by thread 140545434216192
+2025-02-20 17:38:53.252767 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 17:38:53.253240 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 17:38:53.253284 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 17:38:53.253303 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 17:38:53.253420 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 17:38:53.253439 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 17:38:53.253494 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 17:38:53.253582 SIALOG: No sia reason 
+2025-02-20 17:38:53.253627 SIALOG: Updating collection time
+2025-02-20 17:38:53.253655 SIALOG: Writing buffer len 10
+2025-02-20 17:38:53.253674 SIALOG: Locked by thread 140545434216192
+2025-02-20 18:38:53.253494 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 18:38:53.253939 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 18:38:53.253982 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 18:38:53.254000 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 18:38:53.254147 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 18:38:53.254168 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 18:38:53.254222 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 18:38:53.254305 SIALOG: No sia reason 
+2025-02-20 18:38:53.254325 SIALOG: Updating collection time
+2025-02-20 18:38:53.254342 SIALOG: Writing buffer len 10
+2025-02-20 18:38:53.254357 SIALOG: Locked by thread 140545434216192
+2025-02-20 19:38:53.253750 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 19:38:53.254170 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 19:38:53.254211 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 19:38:53.254230 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 19:38:53.254350 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 19:38:53.254369 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 19:38:53.254416 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 19:38:53.254497 SIALOG: No sia reason 
+2025-02-20 19:38:53.254517 SIALOG: Updating collection time
+2025-02-20 19:38:53.254533 SIALOG: Writing buffer len 10
+2025-02-20 19:38:53.254548 SIALOG: Locked by thread 140545434216192
+2025-02-20 20:38:53.253824 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 20:38:53.254318 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 20:38:53.254363 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 20:38:53.254383 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 20:38:53.254500 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 20:38:53.254518 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 20:38:53.254574 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 20:38:53.254676 SIALOG: No sia reason 
+2025-02-20 20:38:53.254698 SIALOG: Updating collection time
+2025-02-20 20:38:53.254721 SIALOG: Writing buffer len 10
+2025-02-20 20:38:53.254739 SIALOG: Locked by thread 140545434216192
+2025-02-20 21:38:53.253494 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 21:38:53.253992 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 21:38:53.254056 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 21:38:53.254080 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 21:38:53.254208 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 21:38:53.254227 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 21:38:53.254282 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 21:38:53.254407 SIALOG: No sia reason 
+2025-02-20 21:38:53.254431 SIALOG: Updating collection time
+2025-02-20 21:38:53.254478 SIALOG: Writing buffer len 10
+2025-02-20 21:38:53.254500 SIALOG: Locked by thread 140545434216192
+2025-02-20 22:38:53.254508 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 22:38:53.255048 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 22:38:53.255095 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 22:38:53.255114 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 22:38:53.255312 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 22:38:53.255371 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 22:38:53.255453 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 22:38:53.255548 SIALOG: No sia reason 
+2025-02-20 22:38:53.255569 SIALOG: Updating collection time
+2025-02-20 22:38:53.255593 SIALOG: Writing buffer len 10
+2025-02-20 22:38:53.255611 SIALOG: Locked by thread 140545434216192
+2025-02-20 23:38:53.253210 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 23:38:53.253810 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 23:38:53.253860 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-20 23:38:53.253880 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 23:38:53.253993 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-20 23:38:53.254010 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-20 23:38:53.254083 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-20 23:38:53.254176 SIALOG: No sia reason 
+2025-02-20 23:38:53.254196 SIALOG: Updating collection time
+2025-02-20 23:38:53.254218 SIALOG: Writing buffer len 10
+2025-02-20 23:38:53.254267 SIALOG: Locked by thread 140545434216192
+2025-02-21 00:38:53.253938 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 00:38:53.254430 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 00:38:53.254503 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 00:38:53.254527 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 00:38:53.254745 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 00:38:53.254797 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 00:38:53.254896 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 00:38:53.254990 SIALOG: No sia reason 
+2025-02-21 00:38:53.255011 SIALOG: Updating collection time
+2025-02-21 00:38:53.255035 SIALOG: Writing buffer len 10
+2025-02-21 00:38:53.255054 SIALOG: Locked by thread 140545434216192
+2025-02-21 00:38:53.256981 SIALOG: Entering plat_sl_get_ooc_status_from_ts
+2025-02-21 00:38:53.257290 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 00:38:53.257339 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 00:38:53.257490 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 00:38:53.257513 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 00:38:53.257585 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 00:38:53.257651 SIALOG: Reading mdata file /etc/sl/platinfo.data size 10 10
+2025-02-21 00:38:53.257693 SIALOG: Upgrade license field exist
+2025-02-21 00:38:53.257710 SIALOG: SL node deactivation field exists
+2025-02-21 00:38:53.257725 SIALOG: is_node_deactivated = 0
+2025-02-21 01:38:53.253337 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 01:38:53.253789 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 01:38:53.253855 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 01:38:53.253876 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 01:38:53.253996 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 01:38:53.254014 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 01:38:53.254068 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 01:38:53.254155 SIALOG: No sia reason 
+2025-02-21 01:38:53.254176 SIALOG: Updating collection time
+2025-02-21 01:38:53.254199 SIALOG: Writing buffer len 10
+2025-02-21 01:38:53.254217 SIALOG: Locked by thread 140545434216192
+2025-02-21 02:38:53.253435 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 02:38:53.254044 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 02:38:53.254105 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 02:38:53.254125 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 02:38:53.254246 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 02:38:53.254301 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 02:38:53.254361 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 02:38:53.254496 SIALOG: No sia reason 
+2025-02-21 02:38:53.254539 SIALOG: Updating collection time
+2025-02-21 02:38:53.254579 SIALOG: Writing buffer len 10
+2025-02-21 02:38:53.254599 SIALOG: Locked by thread 140545434216192
+2025-02-21 03:38:53.252411 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 03:38:53.252912 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 03:38:53.252951 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 03:38:53.252969 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 03:38:53.253109 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 03:38:53.253148 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 03:38:53.253208 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 03:38:53.253353 SIALOG: No sia reason 
+2025-02-21 03:38:53.253393 SIALOG: Updating collection time
+2025-02-21 03:38:53.253463 SIALOG: Writing buffer len 10
+2025-02-21 03:38:53.253486 SIALOG: Locked by thread 140545434216192
+2025-02-21 04:38:53.253162 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 04:38:53.253647 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 04:38:53.253688 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 04:38:53.253706 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 04:38:53.253820 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 04:38:53.253838 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 04:38:53.253892 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 04:38:53.253989 SIALOG: No sia reason 
+2025-02-21 04:38:53.254011 SIALOG: Updating collection time
+2025-02-21 04:38:53.254035 SIALOG: Writing buffer len 10
+2025-02-21 04:38:53.254053 SIALOG: Locked by thread 140545434216192
+2025-02-21 05:38:53.252231 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 05:38:53.252701 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 05:38:53.252739 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 05:38:53.252757 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 05:38:53.252872 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 05:38:53.252890 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 05:38:53.252964 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 05:38:53.253058 SIALOG: No sia reason 
+2025-02-21 05:38:53.253078 SIALOG: Updating collection time
+2025-02-21 05:38:53.253118 SIALOG: Writing buffer len 10
+2025-02-21 05:38:53.253152 SIALOG: Locked by thread 140545434216192
+2025-02-21 06:38:53.252755 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 06:38:53.253195 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 06:38:53.253234 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 06:38:53.253252 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 06:38:53.253362 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 06:38:53.253379 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 06:38:53.253429 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 06:38:53.253517 SIALOG: No sia reason 
+2025-02-21 06:38:53.253537 SIALOG: Updating collection time
+2025-02-21 06:38:53.253560 SIALOG: Writing buffer len 10
+2025-02-21 06:38:53.253577 SIALOG: Locked by thread 140545434216192
+2025-02-21 07:38:53.253226 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 07:38:53.253749 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 07:38:53.253810 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 07:38:53.253830 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 07:38:53.253956 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 07:38:53.253976 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 07:38:53.254027 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 07:38:53.254160 SIALOG: No sia reason 
+2025-02-21 07:38:53.254185 SIALOG: Updating collection time
+2025-02-21 07:38:53.254210 SIALOG: Writing buffer len 10
+2025-02-21 07:38:53.254229 SIALOG: Locked by thread 140545434216192
+2025-02-21 08:38:53.253074 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 08:38:53.253565 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 08:38:53.253606 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 08:38:53.253625 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 08:38:53.253745 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 08:38:53.253764 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 08:38:53.253821 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 08:38:53.253938 SIALOG: No sia reason 
+2025-02-21 08:38:53.253964 SIALOG: Updating collection time
+2025-02-21 08:38:53.253989 SIALOG: Writing buffer len 10
+2025-02-21 08:38:53.254008 SIALOG: Locked by thread 140545434216192
+2025-02-21 09:38:53.253614 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 09:38:53.254079 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 09:38:53.254119 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 09:38:53.254138 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 09:38:53.254252 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 09:38:53.254270 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 09:38:53.254323 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 09:38:53.254450 SIALOG: No sia reason 
+2025-02-21 09:38:53.254478 SIALOG: Updating collection time
+2025-02-21 09:38:53.254503 SIALOG: Writing buffer len 10
+2025-02-21 09:38:53.254523 SIALOG: Locked by thread 140545434216192
+2025-02-21 10:38:53.253491 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 10:38:53.253954 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 10:38:53.253995 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 10:38:53.254013 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 10:38:53.254143 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 10:38:53.254168 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 10:38:53.254246 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 10:38:53.254360 SIALOG: No sia reason 
+2025-02-21 10:38:53.254383 SIALOG: Updating collection time
+2025-02-21 10:38:53.254406 SIALOG: Writing buffer len 10
+2025-02-21 10:38:53.254425 SIALOG: Locked by thread 140545434216192
+2025-02-21 11:38:53.253587 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 11:38:53.254080 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 11:38:53.254122 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 11:38:53.254141 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 11:38:53.254273 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 11:38:53.254313 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 11:38:53.254440 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 11:38:53.254587 SIALOG: No sia reason 
+2025-02-21 11:38:53.254613 SIALOG: Updating collection time
+2025-02-21 11:38:53.254638 SIALOG: Writing buffer len 10
+2025-02-21 11:38:53.254658 SIALOG: Locked by thread 140545434216192
+2025-02-21 12:38:53.254248 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 12:38:53.254743 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 12:38:53.254791 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 12:38:53.254811 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 12:38:53.254933 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 12:38:53.254952 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 12:38:53.255005 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 12:38:53.255109 SIALOG: No sia reason 
+2025-02-21 12:38:53.255131 SIALOG: Updating collection time
+2025-02-21 12:38:53.255155 SIALOG: Writing buffer len 10
+2025-02-21 12:38:53.255174 SIALOG: Locked by thread 140545434216192
+2025-02-21 13:38:53.253289 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 13:38:53.253719 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 13:38:53.253759 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 13:38:53.253777 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 13:38:53.253927 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 13:38:53.253951 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 13:38:53.254003 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 13:38:53.254102 SIALOG: No sia reason 
+2025-02-21 13:38:53.254124 SIALOG: Updating collection time
+2025-02-21 13:38:53.254147 SIALOG: Writing buffer len 10
+2025-02-21 13:38:53.254166 SIALOG: Locked by thread 140545434216192
+2025-02-21 14:38:53.253526 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 14:38:53.254084 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 14:38:53.254164 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 14:38:53.254189 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 14:38:53.254366 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 14:38:53.254390 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 14:38:53.254444 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 14:38:53.254544 SIALOG: No sia reason 
+2025-02-21 14:38:53.254566 SIALOG: Updating collection time
+2025-02-21 14:38:53.254590 SIALOG: Writing buffer len 10
+2025-02-21 14:38:53.254608 SIALOG: Locked by thread 140545434216192
+2025-02-21 15:38:53.254146 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 15:38:53.254634 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 15:38:53.254675 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 15:38:53.254694 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 15:38:53.254808 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 15:38:53.254826 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 15:38:53.254896 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 15:38:53.255002 SIALOG: No sia reason 
+2025-02-21 15:38:53.255024 SIALOG: Updating collection time
+2025-02-21 15:38:53.255047 SIALOG: Writing buffer len 10
+2025-02-21 15:38:53.255066 SIALOG: Locked by thread 140545434216192
+2025-02-21 16:38:53.252064 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 16:38:53.252490 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 16:38:53.252527 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 16:38:53.252544 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 16:38:53.252658 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 16:38:53.252675 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 16:38:53.252735 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 16:38:53.252823 SIALOG: No sia reason 
+2025-02-21 16:38:53.252843 SIALOG: Updating collection time
+2025-02-21 16:38:53.252864 SIALOG: Writing buffer len 10
+2025-02-21 16:38:53.252883 SIALOG: Locked by thread 140545434216192
+2025-02-21 17:38:53.253380 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 17:38:53.253843 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 17:38:53.253881 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 17:38:53.253900 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 17:38:53.254071 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 17:38:53.254097 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 17:38:53.254163 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 17:38:53.254260 SIALOG: No sia reason 
+2025-02-21 17:38:53.254281 SIALOG: Updating collection time
+2025-02-21 17:38:53.254304 SIALOG: Writing buffer len 10
+2025-02-21 17:38:53.254323 SIALOG: Locked by thread 140545434216192
+2025-02-21 18:38:53.252974 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 18:38:53.253431 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 18:38:53.253472 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 18:38:53.253491 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 18:38:53.253605 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 18:38:53.253623 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 18:38:53.253677 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 18:38:53.253772 SIALOG: No sia reason 
+2025-02-21 18:38:53.253795 SIALOG: Updating collection time
+2025-02-21 18:38:53.253818 SIALOG: Writing buffer len 10
+2025-02-21 18:38:53.253836 SIALOG: Locked by thread 140545434216192
+2025-02-21 19:38:53.252669 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 19:38:53.253239 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 19:38:53.253291 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 19:38:53.253310 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 19:38:53.253461 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 19:38:53.253480 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 19:38:53.253533 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 19:38:53.253626 SIALOG: No sia reason 
+2025-02-21 19:38:53.253664 SIALOG: Updating collection time
+2025-02-21 19:38:53.253692 SIALOG: Writing buffer len 10
+2025-02-21 19:38:53.253710 SIALOG: Locked by thread 140545434216192
+2025-02-21 20:38:53.254626 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 20:38:53.255123 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 20:38:53.255168 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 20:38:53.255187 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 20:38:53.255512 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 20:38:53.255578 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 20:38:53.255690 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 20:38:53.255805 SIALOG: No sia reason 
+2025-02-21 20:38:53.255828 SIALOG: Updating collection time
+2025-02-21 20:38:53.255852 SIALOG: Writing buffer len 10
+2025-02-21 20:38:53.255871 SIALOG: Locked by thread 140545434216192
+2025-02-21 21:38:53.253411 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 21:38:53.253930 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 21:38:53.253975 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 21:38:53.253994 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 21:38:53.254112 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 21:38:53.254130 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 21:38:53.254184 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 21:38:53.254282 SIALOG: No sia reason 
+2025-02-21 21:38:53.254305 SIALOG: Updating collection time
+2025-02-21 21:38:53.254329 SIALOG: Writing buffer len 10
+2025-02-21 21:38:53.254348 SIALOG: Locked by thread 140545434216192
+2025-02-21 22:38:53.254169 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 22:38:53.254721 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 22:38:53.254774 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 22:38:53.254793 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 22:38:53.254913 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 22:38:53.254931 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 22:38:53.254987 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 22:38:53.255084 SIALOG: No sia reason 
+2025-02-21 22:38:53.255106 SIALOG: Updating collection time
+2025-02-21 22:38:53.255129 SIALOG: Writing buffer len 10
+2025-02-21 22:38:53.255148 SIALOG: Locked by thread 140545434216192
+2025-02-21 23:38:53.253298 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 23:38:53.253777 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 23:38:53.253821 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-21 23:38:53.253841 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 23:38:53.253957 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-21 23:38:53.253975 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-21 23:38:53.254029 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-21 23:38:53.254122 SIALOG: No sia reason 
+2025-02-21 23:38:53.254144 SIALOG: Updating collection time
+2025-02-21 23:38:53.254167 SIALOG: Writing buffer len 10
+2025-02-21 23:38:53.254185 SIALOG: Locked by thread 140545434216192
+2025-02-22 00:38:53.252586 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 00:38:53.253015 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 00:38:53.253053 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 00:38:53.253071 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 00:38:53.253184 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 00:38:53.253201 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 00:38:53.253285 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 00:38:53.253410 SIALOG: No sia reason 
+2025-02-22 00:38:53.253458 SIALOG: Updating collection time
+2025-02-22 00:38:53.253503 SIALOG: Writing buffer len 10
+2025-02-22 00:38:53.253531 SIALOG: Locked by thread 140545434216192
+2025-02-22 00:38:53.255020 SIALOG: Entering plat_sl_get_ooc_status_from_ts
+2025-02-22 00:38:53.255198 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 00:38:53.255259 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 00:38:53.255378 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 00:38:53.255395 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 00:38:53.255434 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 00:38:53.255489 SIALOG: Reading mdata file /etc/sl/platinfo.data size 10 10
+2025-02-22 00:38:53.255528 SIALOG: Upgrade license field exist
+2025-02-22 00:38:53.255543 SIALOG: SL node deactivation field exists
+2025-02-22 00:38:53.255558 SIALOG: is_node_deactivated = 0
+2025-02-22 01:38:53.253823 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 01:38:53.254304 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 01:38:53.255086 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 01:38:53.255139 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 01:38:53.255348 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 01:38:53.255378 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 01:38:53.255432 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 01:38:53.255531 SIALOG: No sia reason 
+2025-02-22 01:38:53.255554 SIALOG: Updating collection time
+2025-02-22 01:38:53.255578 SIALOG: Writing buffer len 10
+2025-02-22 01:38:53.255596 SIALOG: Locked by thread 140545434216192
+2025-02-22 02:38:53.253488 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 02:38:53.254125 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 02:38:53.254182 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 02:38:53.254203 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 02:38:53.254322 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 02:38:53.254341 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 02:38:53.254398 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 02:38:53.254501 SIALOG: No sia reason 
+2025-02-22 02:38:53.254524 SIALOG: Updating collection time
+2025-02-22 02:38:53.254549 SIALOG: Writing buffer len 10
+2025-02-22 02:38:53.254589 SIALOG: Locked by thread 140545434216192
+2025-02-22 03:38:53.253332 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 03:38:53.253760 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 03:38:53.253802 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 03:38:53.253820 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 03:38:53.253933 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 03:38:53.253951 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 03:38:53.253998 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 03:38:53.254090 SIALOG: No sia reason 
+2025-02-22 03:38:53.254111 SIALOG: Updating collection time
+2025-02-22 03:38:53.254135 SIALOG: Writing buffer len 10
+2025-02-22 03:38:53.254153 SIALOG: Locked by thread 140545434216192
+2025-02-22 04:38:53.253531 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 04:38:53.253958 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 04:38:53.253997 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 04:38:53.254016 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 04:38:53.254216 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 04:38:53.254266 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 04:38:53.254347 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 04:38:53.254459 SIALOG: No sia reason 
+2025-02-22 04:38:53.254499 SIALOG: Updating collection time
+2025-02-22 04:38:53.254588 SIALOG: Writing buffer len 10
+2025-02-22 04:38:53.254629 SIALOG: Locked by thread 140545434216192
+2025-02-22 05:38:53.253769 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 05:38:53.254218 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 05:38:53.254262 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 05:38:53.254282 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 05:38:53.254401 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 05:38:53.254420 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 05:38:53.254475 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 05:38:53.254572 SIALOG: No sia reason 
+2025-02-22 05:38:53.254594 SIALOG: Updating collection time
+2025-02-22 05:38:53.254617 SIALOG: Writing buffer len 10
+2025-02-22 05:38:53.254636 SIALOG: Locked by thread 140545434216192
+2025-02-22 06:38:53.253928 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 06:38:53.254470 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 06:38:53.254559 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 06:38:53.254608 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 06:38:53.254846 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 06:38:53.254901 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 06:38:53.255004 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 06:38:53.255157 SIALOG: No sia reason 
+2025-02-22 06:38:53.255183 SIALOG: Updating collection time
+2025-02-22 06:38:53.255254 SIALOG: Writing buffer len 10
+2025-02-22 06:38:53.255303 SIALOG: Locked by thread 140545434216192
+2025-02-22 07:38:53.253859 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 07:38:53.254476 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 07:38:53.254534 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 07:38:53.254555 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 07:38:53.254676 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 07:38:53.254694 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 07:38:53.254756 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 07:38:53.254936 SIALOG: No sia reason 
+2025-02-22 07:38:53.255015 SIALOG: Updating collection time
+2025-02-22 07:38:53.255061 SIALOG: Writing buffer len 10
+2025-02-22 07:38:53.255086 SIALOG: Locked by thread 140545434216192
+2025-02-22 08:38:53.253985 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 08:38:53.254406 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 08:38:53.254447 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 08:38:53.254465 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 08:38:53.254585 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 08:38:53.254603 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 08:38:53.254651 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 08:38:53.254745 SIALOG: No sia reason 
+2025-02-22 08:38:53.254767 SIALOG: Updating collection time
+2025-02-22 08:38:53.254791 SIALOG: Writing buffer len 10
+2025-02-22 08:38:53.254809 SIALOG: Locked by thread 140545434216192
+2025-02-22 09:38:53.253475 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 09:38:53.253898 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 09:38:53.253938 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 09:38:53.253956 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 09:38:53.254071 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 09:38:53.254088 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 09:38:53.254181 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 09:38:53.254286 SIALOG: No sia reason 
+2025-02-22 09:38:53.254307 SIALOG: Updating collection time
+2025-02-22 09:38:53.254332 SIALOG: Writing buffer len 10
+2025-02-22 09:38:53.254350 SIALOG: Locked by thread 140545434216192
+2025-02-22 10:38:53.254554 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 10:38:53.255034 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 10:38:53.255076 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 10:38:53.255094 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 10:38:53.255265 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 10:38:53.255322 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 10:38:53.255449 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 10:38:53.255567 SIALOG: No sia reason 
+2025-02-22 10:38:53.255590 SIALOG: Updating collection time
+2025-02-22 10:38:53.255615 SIALOG: Writing buffer len 10
+2025-02-22 10:38:53.255633 SIALOG: Locked by thread 140545434216192
+2025-02-22 11:38:53.254669 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 11:38:53.255276 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 11:38:53.255365 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 11:38:53.255391 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 11:38:53.255517 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 11:38:53.255537 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 11:38:53.255624 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 11:38:53.255726 SIALOG: No sia reason 
+2025-02-22 11:38:53.255747 SIALOG: Updating collection time
+2025-02-22 11:38:53.255772 SIALOG: Writing buffer len 10
+2025-02-22 11:38:53.255790 SIALOG: Locked by thread 140545434216192
+2025-02-22 12:38:53.253574 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 12:38:53.254233 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 12:38:53.254305 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 12:38:53.254338 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 12:38:53.254534 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 12:38:53.254569 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 12:38:53.254739 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 12:38:53.254932 SIALOG: No sia reason 
+2025-02-22 12:38:53.254972 SIALOG: Updating collection time
+2025-02-22 12:38:53.255013 SIALOG: Writing buffer len 10
+2025-02-22 12:38:53.255043 SIALOG: Locked by thread 140545434216192
+2025-02-22 13:38:53.255009 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 13:38:53.255874 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 13:38:53.255961 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 13:38:53.256002 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 13:38:53.256224 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 13:38:53.256280 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 13:38:53.256371 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 13:38:53.256553 SIALOG: No sia reason 
+2025-02-22 13:38:53.256590 SIALOG: Updating collection time
+2025-02-22 13:38:53.256641 SIALOG: Writing buffer len 10
+2025-02-22 13:38:53.256678 SIALOG: Locked by thread 140545434216192
+2025-02-22 14:38:53.253313 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 14:38:53.253790 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 14:38:53.253832 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 14:38:53.253850 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 14:38:53.253968 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 14:38:53.253986 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 14:38:53.254042 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 14:38:53.254176 SIALOG: No sia reason 
+2025-02-22 14:38:53.254201 SIALOG: Updating collection time
+2025-02-22 14:38:53.254225 SIALOG: Writing buffer len 10
+2025-02-22 14:38:53.254243 SIALOG: Locked by thread 140545434216192
+2025-02-22 15:38:53.254403 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 15:38:53.255133 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 15:38:53.255292 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 15:38:53.255335 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 15:38:53.255527 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 15:38:53.255563 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 15:38:53.255684 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 15:38:53.255867 SIALOG: No sia reason 
+2025-02-22 15:38:53.255906 SIALOG: Updating collection time
+2025-02-22 15:38:53.255946 SIALOG: Writing buffer len 10
+2025-02-22 15:38:53.255981 SIALOG: Locked by thread 140545434216192
+2025-02-22 16:38:53.253696 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 16:38:53.254166 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 16:38:53.254208 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 16:38:53.254258 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 16:38:53.254382 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 16:38:53.254400 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 16:38:53.254453 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 16:38:53.254555 SIALOG: No sia reason 
+2025-02-22 16:38:53.254578 SIALOG: Updating collection time
+2025-02-22 16:38:53.254602 SIALOG: Writing buffer len 10
+2025-02-22 16:38:53.254621 SIALOG: Locked by thread 140545434216192
+2025-02-22 17:38:53.253549 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 17:38:53.254248 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 17:38:53.254325 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 17:38:53.254356 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 17:38:53.254644 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 17:38:53.254696 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 17:38:53.254776 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 17:38:53.254925 SIALOG: No sia reason 
+2025-02-22 17:38:53.254961 SIALOG: Updating collection time
+2025-02-22 17:38:53.254998 SIALOG: Writing buffer len 10
+2025-02-22 17:38:53.255027 SIALOG: Locked by thread 140545434216192
+2025-02-22 18:38:53.254418 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 18:38:53.254909 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 18:38:53.254954 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 18:38:53.254973 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 18:38:53.255089 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 18:38:53.255107 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 18:38:53.255173 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 18:38:53.255317 SIALOG: No sia reason 
+2025-02-22 18:38:53.255345 SIALOG: Updating collection time
+2025-02-22 18:38:53.255369 SIALOG: Writing buffer len 10
+2025-02-22 18:38:53.255388 SIALOG: Locked by thread 140545434216192
+2025-02-22 19:38:53.253399 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 19:38:53.253877 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 19:38:53.253919 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 19:38:53.253937 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 19:38:53.254057 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 19:38:53.254076 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 19:38:53.254141 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 19:38:53.254276 SIALOG: No sia reason 
+2025-02-22 19:38:53.254306 SIALOG: Updating collection time
+2025-02-22 19:38:53.254332 SIALOG: Writing buffer len 10
+2025-02-22 19:38:53.254351 SIALOG: Locked by thread 140545434216192
+2025-02-22 20:38:53.254335 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 20:38:53.254811 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 20:38:53.254875 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 20:38:53.254900 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 20:38:53.255056 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 20:38:53.255077 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 20:38:53.255139 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 20:38:53.255305 SIALOG: No sia reason 
+2025-02-22 20:38:53.255334 SIALOG: Updating collection time
+2025-02-22 20:38:53.255359 SIALOG: Writing buffer len 10
+2025-02-22 20:38:53.255377 SIALOG: Locked by thread 140545434216192
+2025-02-22 21:38:53.253889 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 21:38:53.254449 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 21:38:53.254521 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 21:38:53.254557 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 21:38:53.254786 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 21:38:53.254840 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 21:38:53.254950 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 21:38:53.255072 SIALOG: No sia reason 
+2025-02-22 21:38:53.255095 SIALOG: Updating collection time
+2025-02-22 21:38:53.255119 SIALOG: Writing buffer len 10
+2025-02-22 21:38:53.255138 SIALOG: Locked by thread 140545434216192
+2025-02-22 22:38:53.253555 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 22:38:53.253993 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 22:38:53.254035 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 22:38:53.254081 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 22:38:53.254215 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 22:38:53.254234 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 22:38:53.254298 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 22:38:53.254396 SIALOG: No sia reason 
+2025-02-22 22:38:53.254417 SIALOG: Updating collection time
+2025-02-22 22:38:53.254440 SIALOG: Writing buffer len 10
+2025-02-22 22:38:53.254458 SIALOG: Locked by thread 140545434216192
+2025-02-22 23:38:53.253351 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 23:38:53.254057 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 23:38:53.254116 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-22 23:38:53.254136 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 23:38:53.254263 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-22 23:38:53.254283 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-22 23:38:53.254348 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-22 23:38:53.254466 SIALOG: No sia reason 
+2025-02-22 23:38:53.254489 SIALOG: Updating collection time
+2025-02-22 23:38:53.254512 SIALOG: Writing buffer len 10
+2025-02-22 23:38:53.254531 SIALOG: Locked by thread 140545434216192
+2025-02-23 00:38:53.253194 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 00:38:53.253777 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 00:38:53.253827 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 00:38:53.253850 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 00:38:53.254078 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 00:38:53.254108 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 00:38:53.254235 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 00:38:53.254368 SIALOG: No sia reason 
+2025-02-23 00:38:53.254391 SIALOG: Updating collection time
+2025-02-23 00:38:53.254415 SIALOG: Writing buffer len 10
+2025-02-23 00:38:53.254433 SIALOG: Locked by thread 140545434216192
+2025-02-23 00:38:53.256089 SIALOG: Entering plat_sl_get_ooc_status_from_ts
+2025-02-23 00:38:53.256338 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 00:38:53.256372 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 00:38:53.256491 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 00:38:53.256509 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 00:38:53.256549 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 00:38:53.256606 SIALOG: Reading mdata file /etc/sl/platinfo.data size 10 10
+2025-02-23 00:38:53.256672 SIALOG: Upgrade license field exist
+2025-02-23 00:38:53.256726 SIALOG: SL node deactivation field exists
+2025-02-23 00:38:53.256756 SIALOG: is_node_deactivated = 0
+2025-02-23 01:38:53.253306 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 01:38:53.253726 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 01:38:53.253766 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 01:38:53.253785 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 01:38:53.253957 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 01:38:53.253986 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 01:38:53.254053 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 01:38:53.254142 SIALOG: No sia reason 
+2025-02-23 01:38:53.254163 SIALOG: Updating collection time
+2025-02-23 01:38:53.254187 SIALOG: Writing buffer len 10
+2025-02-23 01:38:53.254206 SIALOG: Locked by thread 140545434216192
+2025-02-23 02:38:53.253916 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 02:38:53.254434 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 02:38:53.254479 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 02:38:53.254499 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 02:38:53.254627 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 02:38:53.254647 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 02:38:53.254715 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 02:38:53.254833 SIALOG: No sia reason 
+2025-02-23 02:38:53.254855 SIALOG: Updating collection time
+2025-02-23 02:38:53.254880 SIALOG: Writing buffer len 10
+2025-02-23 02:38:53.254899 SIALOG: Locked by thread 140545434216192
+2025-02-23 03:38:53.253832 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 03:38:53.254475 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 03:38:53.254531 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 03:38:53.254551 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 03:38:53.254678 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 03:38:53.254697 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 03:38:53.254761 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 03:38:53.254859 SIALOG: No sia reason 
+2025-02-23 03:38:53.254881 SIALOG: Updating collection time
+2025-02-23 03:38:53.254905 SIALOG: Writing buffer len 10
+2025-02-23 03:38:53.254942 SIALOG: Locked by thread 140545434216192
+2025-02-23 04:38:53.253833 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 04:38:53.254416 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 04:38:53.254459 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 04:38:53.254477 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 04:38:53.254594 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 04:38:53.254612 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 04:38:53.254678 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 04:38:53.254773 SIALOG: No sia reason 
+2025-02-23 04:38:53.254794 SIALOG: Updating collection time
+2025-02-23 04:38:53.254817 SIALOG: Writing buffer len 10
+2025-02-23 04:38:53.254835 SIALOG: Locked by thread 140545434216192
+2025-02-23 05:38:53.253602 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 05:38:53.254064 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 05:38:53.254103 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 05:38:53.254122 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 05:38:53.254238 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 05:38:53.254256 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 05:38:53.254321 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 05:38:53.254427 SIALOG: No sia reason 
+2025-02-23 05:38:53.254448 SIALOG: Updating collection time
+2025-02-23 05:38:53.254498 SIALOG: Writing buffer len 10
+2025-02-23 05:38:53.254520 SIALOG: Locked by thread 140545434216192
+2025-02-23 06:38:53.254029 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 06:38:53.254476 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 06:38:53.254516 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 06:38:53.254535 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 06:38:53.254650 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 06:38:53.254669 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 06:38:53.254756 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 06:38:53.254859 SIALOG: No sia reason 
+2025-02-23 06:38:53.254880 SIALOG: Updating collection time
+2025-02-23 06:38:53.254908 SIALOG: Writing buffer len 10
+2025-02-23 06:38:53.254941 SIALOG: Locked by thread 140545434216192
+2025-02-23 07:38:53.253849 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 07:38:53.254345 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 07:38:53.254387 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 07:38:53.254405 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 07:38:53.254573 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 07:38:53.254599 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 07:38:53.254670 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 07:38:53.254772 SIALOG: No sia reason 
+2025-02-23 07:38:53.254815 SIALOG: Updating collection time
+2025-02-23 07:38:53.254845 SIALOG: Writing buffer len 10
+2025-02-23 07:38:53.254864 SIALOG: Locked by thread 140545434216192
+2025-02-23 08:38:53.254086 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 08:38:53.254638 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 08:38:53.254690 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 08:38:53.254709 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 08:38:53.254829 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 08:38:53.254847 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 08:38:53.254915 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 08:38:53.255013 SIALOG: No sia reason 
+2025-02-23 08:38:53.255035 SIALOG: Updating collection time
+2025-02-23 08:38:53.255058 SIALOG: Writing buffer len 10
+2025-02-23 08:38:53.255076 SIALOG: Locked by thread 140545434216192
+2025-02-23 09:38:53.253446 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 09:38:53.254052 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 09:38:53.254126 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 09:38:53.254148 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 09:38:53.254360 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 09:38:53.254426 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 09:38:53.254539 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 09:38:53.254732 SIALOG: No sia reason 
+2025-02-23 09:38:53.254779 SIALOG: Updating collection time
+2025-02-23 09:38:53.254824 SIALOG: Writing buffer len 10
+2025-02-23 09:38:53.254858 SIALOG: Locked by thread 140545434216192
+2025-02-23 10:38:53.254039 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 10:38:53.254548 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 10:38:53.254591 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 10:38:53.254610 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 10:38:53.254730 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 10:38:53.254748 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 10:38:53.254806 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 10:38:53.254908 SIALOG: No sia reason 
+2025-02-23 10:38:53.254930 SIALOG: Updating collection time
+2025-02-23 10:38:53.254953 SIALOG: Writing buffer len 10
+2025-02-23 10:38:53.254972 SIALOG: Locked by thread 140545434216192
+2025-02-23 11:38:53.253844 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 11:38:53.254344 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 11:38:53.254387 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 11:38:53.254406 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 11:38:53.254519 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 11:38:53.254537 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 11:38:53.254602 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 11:38:53.254702 SIALOG: No sia reason 
+2025-02-23 11:38:53.254723 SIALOG: Updating collection time
+2025-02-23 11:38:53.254740 SIALOG: Writing buffer len 10
+2025-02-23 11:38:53.254756 SIALOG: Locked by thread 140545434216192
+2025-02-23 12:38:53.253195 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 12:38:53.253664 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 12:38:53.253736 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 12:38:53.253756 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 12:38:53.253873 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 12:38:53.253891 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 12:38:53.253958 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 12:38:53.254056 SIALOG: No sia reason 
+2025-02-23 12:38:53.254078 SIALOG: Updating collection time
+2025-02-23 12:38:53.254102 SIALOG: Writing buffer len 10
+2025-02-23 12:38:53.254120 SIALOG: Locked by thread 140545434216192
+2025-02-23 13:38:53.254203 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 13:38:53.254826 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 13:38:53.254872 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 13:38:53.254891 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 13:38:53.255005 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 13:38:53.255024 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 13:38:53.255085 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 13:38:53.255182 SIALOG: No sia reason 
+2025-02-23 13:38:53.255204 SIALOG: Updating collection time
+2025-02-23 13:38:53.255305 SIALOG: Writing buffer len 10
+2025-02-23 13:38:53.255349 SIALOG: Locked by thread 140545434216192
+2025-02-23 14:38:53.253476 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 14:38:53.254185 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 14:38:53.254243 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 14:38:53.254263 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 14:38:53.254385 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 14:38:53.254405 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 14:38:53.254470 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 14:38:53.254570 SIALOG: No sia reason 
+2025-02-23 14:38:53.254592 SIALOG: Updating collection time
+2025-02-23 14:38:53.254615 SIALOG: Writing buffer len 10
+2025-02-23 14:38:53.254634 SIALOG: Locked by thread 140545434216192
+2025-02-23 15:38:53.254324 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 15:38:53.254949 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 15:38:53.255020 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 15:38:53.255058 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 15:38:53.255211 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 15:38:53.255284 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 15:38:53.255349 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 15:38:53.255463 SIALOG: No sia reason 
+2025-02-23 15:38:53.255486 SIALOG: Updating collection time
+2025-02-23 15:38:53.255510 SIALOG: Writing buffer len 10
+2025-02-23 15:38:53.255529 SIALOG: Locked by thread 140545434216192
+2025-02-23 16:38:53.253994 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 16:38:53.254485 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 16:38:53.254550 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 16:38:53.254572 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 16:38:53.254717 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 16:38:53.254739 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 16:38:53.254803 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 16:38:53.254909 SIALOG: No sia reason 
+2025-02-23 16:38:53.254931 SIALOG: Updating collection time
+2025-02-23 16:38:53.254954 SIALOG: Writing buffer len 10
+2025-02-23 16:38:53.254972 SIALOG: Locked by thread 140545434216192
+2025-02-23 17:38:53.255134 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 17:38:53.255685 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 17:38:53.255754 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 17:38:53.255778 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 17:38:53.255900 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 17:38:53.255918 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 17:38:53.255984 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 17:38:53.256087 SIALOG: No sia reason 
+2025-02-23 17:38:53.256109 SIALOG: Updating collection time
+2025-02-23 17:38:53.256133 SIALOG: Writing buffer len 10
+2025-02-23 17:38:53.256152 SIALOG: Locked by thread 140545434216192
+2025-02-23 18:38:53.253744 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 18:38:53.254290 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 18:38:53.254330 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 18:38:53.254349 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 18:38:53.254467 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 18:38:53.254485 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 18:38:53.254547 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 18:38:53.254642 SIALOG: No sia reason 
+2025-02-23 18:38:53.254664 SIALOG: Updating collection time
+2025-02-23 18:38:53.254687 SIALOG: Writing buffer len 10
+2025-02-23 18:38:53.254728 SIALOG: Locked by thread 140545434216192
+2025-02-23 19:38:53.253848 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 19:38:53.254382 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 19:38:53.254426 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 19:38:53.254454 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 19:38:53.254713 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 19:38:53.254772 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 19:38:53.254892 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 19:38:53.255083 SIALOG: No sia reason 
+2025-02-23 19:38:53.255131 SIALOG: Updating collection time
+2025-02-23 19:38:53.255183 SIALOG: Writing buffer len 10
+2025-02-23 19:38:53.255285 SIALOG: Locked by thread 140545434216192
+2025-02-23 20:38:53.253922 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 20:38:53.254403 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 20:38:53.254445 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 20:38:53.254464 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 20:38:53.254582 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 20:38:53.254600 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 20:38:53.254655 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 20:38:53.254757 SIALOG: No sia reason 
+2025-02-23 20:38:53.254779 SIALOG: Updating collection time
+2025-02-23 20:38:53.254803 SIALOG: Writing buffer len 10
+2025-02-23 20:38:53.254821 SIALOG: Locked by thread 140545434216192
+2025-02-23 21:38:53.253379 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 21:38:53.253861 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 21:38:53.253908 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 21:38:53.253928 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 21:38:53.254077 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 21:38:53.254098 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 21:38:53.254150 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 21:38:53.254314 SIALOG: No sia reason 
+2025-02-23 21:38:53.254353 SIALOG: Updating collection time
+2025-02-23 21:38:53.254380 SIALOG: Writing buffer len 10
+2025-02-23 21:38:53.254400 SIALOG: Locked by thread 140545434216192
+2025-02-23 22:38:53.253269 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 22:38:53.253703 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 22:38:53.253744 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 22:38:53.253762 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 22:38:53.253908 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 22:38:53.253933 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 22:38:53.254003 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 22:38:53.254108 SIALOG: No sia reason 
+2025-02-23 22:38:53.254130 SIALOG: Updating collection time
+2025-02-23 22:38:53.254147 SIALOG: Writing buffer len 10
+2025-02-23 22:38:53.254162 SIALOG: Locked by thread 140545434216192
+2025-02-23 23:38:53.253802 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 23:38:53.254530 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 23:38:53.254612 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-23 23:38:53.254649 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 23:38:53.254846 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-23 23:38:53.254890 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-23 23:38:53.254995 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-23 23:38:53.255199 SIALOG: No sia reason 
+2025-02-23 23:38:53.255293 SIALOG: Updating collection time
+2025-02-23 23:38:53.255347 SIALOG: Writing buffer len 10
+2025-02-23 23:38:53.255384 SIALOG: Locked by thread 140545434216192
+2025-02-24 00:38:53.254469 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 00:38:53.255133 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 00:38:53.255272 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 00:38:53.255337 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 00:38:53.255577 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 00:38:53.255619 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 00:38:53.255716 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 00:38:53.255846 SIALOG: No sia reason 
+2025-02-24 00:38:53.255870 SIALOG: Updating collection time
+2025-02-24 00:38:53.255893 SIALOG: Writing buffer len 10
+2025-02-24 00:38:53.255912 SIALOG: Locked by thread 140545434216192
+2025-02-24 00:38:53.257649 SIALOG: Entering plat_sl_get_ooc_status_from_ts
+2025-02-24 00:38:53.257971 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 00:38:53.258008 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 00:38:53.258127 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 00:38:53.258145 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 00:38:53.258187 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 00:38:53.258242 SIALOG: Reading mdata file /etc/sl/platinfo.data size 10 10
+2025-02-24 00:38:53.258283 SIALOG: Upgrade license field exist
+2025-02-24 00:38:53.258299 SIALOG: SL node deactivation field exists
+2025-02-24 00:38:53.258314 SIALOG: is_node_deactivated = 0
+2025-02-24 01:38:53.254289 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 01:38:53.255107 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 01:38:53.255199 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 01:38:53.255299 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 01:38:53.255565 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 01:38:53.255614 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 01:38:53.255724 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 01:38:53.255986 SIALOG: No sia reason 
+2025-02-24 01:38:53.256028 SIALOG: Updating collection time
+2025-02-24 01:38:53.256074 SIALOG: Writing buffer len 10
+2025-02-24 01:38:53.256110 SIALOG: Locked by thread 140545434216192
+2025-02-24 02:38:53.253961 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 02:38:53.254438 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 02:38:53.254481 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 02:38:53.254500 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 02:38:53.254617 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 02:38:53.254635 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 02:38:53.254697 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 02:38:53.254802 SIALOG: No sia reason 
+2025-02-24 02:38:53.254824 SIALOG: Updating collection time
+2025-02-24 02:38:53.254848 SIALOG: Writing buffer len 10
+2025-02-24 02:38:53.254867 SIALOG: Locked by thread 140545434216192
+2025-02-24 03:38:53.253667 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 03:38:53.254173 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 03:38:53.254214 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 03:38:53.254232 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 03:38:53.254351 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 03:38:53.254369 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 03:38:53.254432 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 03:38:53.254529 SIALOG: No sia reason 
+2025-02-24 03:38:53.254552 SIALOG: Updating collection time
+2025-02-24 03:38:53.254575 SIALOG: Writing buffer len 10
+2025-02-24 03:38:53.254593 SIALOG: Locked by thread 140545434216192
+2025-02-24 04:38:53.253538 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 04:38:53.254104 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 04:38:53.254148 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 04:38:53.254167 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 04:38:53.254286 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 04:38:53.254304 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 04:38:53.254368 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 04:38:53.254464 SIALOG: No sia reason 
+2025-02-24 04:38:53.254486 SIALOG: Updating collection time
+2025-02-24 04:38:53.254509 SIALOG: Writing buffer len 10
+2025-02-24 04:38:53.254527 SIALOG: Locked by thread 140545434216192
+2025-02-24 05:38:53.253360 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 05:38:53.253847 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 05:38:53.253889 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 05:38:53.253907 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 05:38:53.254028 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 05:38:53.254046 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 05:38:53.254113 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 05:38:53.254242 SIALOG: No sia reason 
+2025-02-24 05:38:53.254266 SIALOG: Updating collection time
+2025-02-24 05:38:53.254291 SIALOG: Writing buffer len 10
+2025-02-24 05:38:53.254309 SIALOG: Locked by thread 140545434216192
+2025-02-24 06:38:53.254161 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 06:38:53.254613 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 06:38:53.254654 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 06:38:53.254673 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 06:38:53.254830 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 06:38:53.254854 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 06:38:53.254922 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 06:38:53.255018 SIALOG: No sia reason 
+2025-02-24 06:38:53.255039 SIALOG: Updating collection time
+2025-02-24 06:38:53.255084 SIALOG: Writing buffer len 10
+2025-02-24 06:38:53.255102 SIALOG: Locked by thread 140545434216192
+2025-02-24 07:38:53.254460 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 07:38:53.255139 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 07:38:53.255291 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 07:38:53.255379 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 07:38:53.255577 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 07:38:53.255611 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 07:38:53.255733 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 07:38:53.255869 SIALOG: No sia reason 
+2025-02-24 07:38:53.255900 SIALOG: Updating collection time
+2025-02-24 07:38:53.255925 SIALOG: Writing buffer len 10
+2025-02-24 07:38:53.255949 SIALOG: Locked by thread 140545434216192
+2025-02-24 08:38:53.253843 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 08:38:53.254475 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 08:38:53.254558 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 08:38:53.254586 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 08:38:53.254754 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 08:38:53.254783 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 08:38:53.254850 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 08:38:53.254981 SIALOG: No sia reason 
+2025-02-24 08:38:53.255006 SIALOG: Updating collection time
+2025-02-24 08:38:53.255051 SIALOG: Writing buffer len 10
+2025-02-24 08:38:53.255074 SIALOG: Locked by thread 140545434216192
+2025-02-24 09:38:53.253963 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 09:38:53.254414 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 09:38:53.254455 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 09:38:53.254475 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 09:38:53.254591 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 09:38:53.254610 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 09:38:53.254695 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 09:38:53.254796 SIALOG: No sia reason 
+2025-02-24 09:38:53.254818 SIALOG: Updating collection time
+2025-02-24 09:38:53.254842 SIALOG: Writing buffer len 10
+2025-02-24 09:38:53.254861 SIALOG: Locked by thread 140545434216192
+2025-02-24 10:38:53.255763 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 10:38:53.256256 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 10:38:53.256298 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 10:38:53.256317 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 10:38:53.256433 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 10:38:53.256451 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 10:38:53.256516 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 10:38:53.256622 SIALOG: No sia reason 
+2025-02-24 10:38:53.256643 SIALOG: Updating collection time
+2025-02-24 10:38:53.256666 SIALOG: Writing buffer len 10
+2025-02-24 10:38:53.256685 SIALOG: Locked by thread 140545434216192
+2025-02-24 11:38:53.253603 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 11:38:53.254016 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 11:38:53.254055 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 11:38:53.254074 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 11:38:53.254225 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 11:38:53.254248 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 11:38:53.254310 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 11:38:53.254400 SIALOG: No sia reason 
+2025-02-24 11:38:53.254421 SIALOG: Updating collection time
+2025-02-24 11:38:53.254437 SIALOG: Writing buffer len 10
+2025-02-24 11:38:53.254452 SIALOG: Locked by thread 140545434216192
+2025-02-24 12:38:53.254013 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 12:38:53.254489 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 12:38:53.254531 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 12:38:53.254550 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 12:38:53.254668 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 12:38:53.254686 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 12:38:53.254735 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 12:38:53.254849 SIALOG: No sia reason 
+2025-02-24 12:38:53.254887 SIALOG: Updating collection time
+2025-02-24 12:38:53.254932 SIALOG: Writing buffer len 10
+2025-02-24 12:38:53.254990 SIALOG: Locked by thread 140545434216192
+2025-02-24 13:38:53.254488 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 13:38:53.254977 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 13:38:53.255020 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 13:38:53.255040 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 13:38:53.255182 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 13:38:53.255206 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 13:38:53.255327 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 13:38:53.255433 SIALOG: No sia reason 
+2025-02-24 13:38:53.255455 SIALOG: Updating collection time
+2025-02-24 13:38:53.255472 SIALOG: Writing buffer len 10
+2025-02-24 13:38:53.255487 SIALOG: Locked by thread 140545434216192
+2025-02-24 14:38:53.253869 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 14:38:53.254353 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 14:38:53.254396 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 14:38:53.254416 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 14:38:53.254570 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 14:38:53.254594 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 14:38:53.254663 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 14:38:53.254766 SIALOG: No sia reason 
+2025-02-24 14:38:53.254789 SIALOG: Updating collection time
+2025-02-24 14:38:53.254813 SIALOG: Writing buffer len 10
+2025-02-24 14:38:53.254832 SIALOG: Locked by thread 140545434216192
+2025-02-24 15:38:53.253273 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 15:38:53.253778 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 15:38:53.253820 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 15:38:53.253839 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 15:38:53.254004 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 15:38:53.254094 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 15:38:53.254193 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 15:38:53.254370 SIALOG: No sia reason 
+2025-02-24 15:38:53.254417 SIALOG: Updating collection time
+2025-02-24 15:38:53.254462 SIALOG: Writing buffer len 10
+2025-02-24 15:38:53.254494 SIALOG: Locked by thread 140545434216192
+2025-02-24 16:38:53.253448 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 16:38:53.253923 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 16:38:53.253964 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 16:38:53.253982 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 16:38:53.254098 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 16:38:53.254117 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 16:38:53.254182 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 16:38:53.254279 SIALOG: No sia reason 
+2025-02-24 16:38:53.254300 SIALOG: Updating collection time
+2025-02-24 16:38:53.254323 SIALOG: Writing buffer len 10
+2025-02-24 16:38:53.254341 SIALOG: Locked by thread 140545434216192
+2025-02-24 17:38:53.253469 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 17:38:53.253933 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 17:38:53.253999 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 17:38:53.254021 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 17:38:53.254136 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 17:38:53.254154 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 17:38:53.254206 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 17:38:53.254301 SIALOG: No sia reason 
+2025-02-24 17:38:53.254323 SIALOG: Updating collection time
+2025-02-24 17:38:53.254347 SIALOG: Writing buffer len 10
+2025-02-24 17:38:53.254388 SIALOG: Locked by thread 140545434216192
+2025-02-24 18:38:53.253450 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 18:38:53.253912 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 18:38:53.253953 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 18:38:53.253972 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 18:38:53.254088 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 18:38:53.254106 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 18:38:53.254193 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 18:38:53.254296 SIALOG: No sia reason 
+2025-02-24 18:38:53.254319 SIALOG: Updating collection time
+2025-02-24 18:38:53.254343 SIALOG: Writing buffer len 10
+2025-02-24 18:38:53.254362 SIALOG: Locked by thread 140545434216192
+2025-02-24 19:38:53.253989 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 19:38:53.254486 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 19:38:53.254532 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 19:38:53.254552 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 19:38:53.254670 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 19:38:53.254689 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 19:38:53.254744 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 19:38:53.254843 SIALOG: No sia reason 
+2025-02-24 19:38:53.254868 SIALOG: Updating collection time
+2025-02-24 19:38:53.254892 SIALOG: Writing buffer len 10
+2025-02-24 19:38:53.254910 SIALOG: Locked by thread 140545434216192
+2025-02-24 20:38:53.254190 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 20:38:53.254702 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 20:38:53.254745 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 20:38:53.254765 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 20:38:53.254882 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 20:38:53.254900 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 20:38:53.254958 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 20:38:53.255072 SIALOG: No sia reason 
+2025-02-24 20:38:53.255094 SIALOG: Updating collection time
+2025-02-24 20:38:53.255118 SIALOG: Writing buffer len 10
+2025-02-24 20:38:53.255137 SIALOG: Locked by thread 140545434216192
+2025-02-24 21:38:53.254186 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 21:38:53.254674 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 21:38:53.254715 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 21:38:53.254733 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 21:38:53.254848 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 21:38:53.254866 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 21:38:53.254924 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 21:38:53.255052 SIALOG: No sia reason 
+2025-02-24 21:38:53.255079 SIALOG: Updating collection time
+2025-02-24 21:38:53.255104 SIALOG: Writing buffer len 10
+2025-02-24 21:38:53.255123 SIALOG: Locked by thread 140545434216192
+2025-02-24 22:38:53.253560 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 22:38:53.254268 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 22:38:53.254390 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 22:38:53.254428 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 22:38:53.254616 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 22:38:53.254640 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 22:38:53.254713 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 22:38:53.254824 SIALOG: No sia reason 
+2025-02-24 22:38:53.254847 SIALOG: Updating collection time
+2025-02-24 22:38:53.254870 SIALOG: Writing buffer len 10
+2025-02-24 22:38:53.254889 SIALOG: Locked by thread 140545434216192
+2025-02-24 23:38:53.253729 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 23:38:53.254383 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 23:38:53.254434 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-24 23:38:53.254454 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 23:38:53.254609 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-24 23:38:53.254629 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-24 23:38:53.254698 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-24 23:38:53.254865 SIALOG: No sia reason 
+2025-02-24 23:38:53.254905 SIALOG: Updating collection time
+2025-02-24 23:38:53.254957 SIALOG: Writing buffer len 10
+2025-02-24 23:38:53.254997 SIALOG: Locked by thread 140545434216192
+2025-02-25 00:38:53.254049 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-25 00:38:53.254606 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-25 00:38:53.254650 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-25 00:38:53.254670 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-25 00:38:53.254984 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-25 00:38:53.255048 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-25 00:38:53.255178 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-25 00:38:53.255385 SIALOG: No sia reason 
+2025-02-25 00:38:53.255421 SIALOG: Updating collection time
+2025-02-25 00:38:53.255447 SIALOG: Writing buffer len 10
+2025-02-25 00:38:53.255467 SIALOG: Locked by thread 140545434216192
+2025-02-25 00:38:53.257240 SIALOG: Entering plat_sl_get_ooc_status_from_ts
+2025-02-25 00:38:53.257524 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-25 00:38:53.257578 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-25 00:38:53.257729 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-25 00:38:53.257751 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-25 00:38:53.257797 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-25 00:38:53.257853 SIALOG: Reading mdata file /etc/sl/platinfo.data size 10 10
+2025-02-25 00:38:53.257896 SIALOG: Upgrade license field exist
+2025-02-25 00:38:53.257913 SIALOG: SL node deactivation field exists
+2025-02-25 00:38:53.257927 SIALOG: is_node_deactivated = 0
+2025-02-25 01:38:53.254459 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-25 01:38:53.254983 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-25 01:38:53.255026 SIALOG: Entering plat_sl_update_validate_collection_time_in_ts
+2025-02-25 01:38:53.255045 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-25 01:38:53.255161 SIALOG: sia_ooc_mdata_path /etc/sl/platinfo.data
+2025-02-25 01:38:53.255179 SIALOG: Entering plat_sl_read_sia_mdata
+2025-02-25 01:38:53.255278 SIALOG: Reading checkpoint file /etc/sl/platinfo.data size 10
+2025-02-25 01:38:53.255388 SIALOG: No sia reason 
+2025-02-25 01:38:53.255410 SIALOG: Updating collection time
+2025-02-25 01:38:53.255437 SIALOG: Writing buffer len 10
+2025-02-25 01:38:53.255457 SIALOG: Locked by thread 140545434216192

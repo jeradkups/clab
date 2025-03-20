@@ -1,0 +1,84 @@
+name: sros-lab01
+
+mgmt:
+  network: mgmt
+  ipv4-subnet: 172.80.80.0/24
+
+topology:
+  kinds:
+    vr-sros:
+      image: jeradkups/vr-sros:24.03.R2
+      license: license-sros.txt
+    vr-csr:
+      image: jeradkups/vr-csr:17.03.08
+  nodes:
+    clab:
+      kind: ovs-bridge
+    pe1:
+      kind: vr-sros
+      type: ixr-e-big
+      mgmt-ipv4: 172.80.80.51
+      startup-config: config_pe1.txt 
+
+    p1:
+      kind: vr-sros
+      type: ixr-e-big
+      mgmt-ipv4: 172.80.80.52
+      startup-config: config_p1.txt
+
+    pe2:
+      kind: vr-sros
+      type: ixr-e-big
+      mgmt-ipv4: 172.80.80.53
+      startup-config: config_pe2.txt
+
+    pe3:
+      kind: vr-csr
+      startup-config: config_pe3.txt
+      mgmt-ipv4: 172.80.80.54
+
+    ### CLIENTS ###
+    client1:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool
+      mgmt-ipv4: 172.80.80.31
+      exec:
+        - apk add vlan
+        - ip link add link eth1 name eth1.10 type vlan id 10
+        - ip address add 192.168.10.1/24 dev eth1.10
+        - ip link set dev eth1.10 up
+        - ip link add link eth1 name eth1.11 type vlan id 11
+        - ip address add 192.168.11.1/24 dev eth1.11
+        - ip link set dev eth1.11 up
+        - ip link add link eth1 name eth1.12 type vlan id 12
+        - ip address add 192.168.12.1/24 dev eth1.12
+        - ip link set dev eth1.12 up          
+
+
+    client2:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool
+      mgmt-ipv4: 172.80.80.32
+      exec:
+        - apk add vlan
+        - ip link add link eth1 name eth1.10 type vlan id 10
+        - ip address add 192.168.10.2/24 dev eth1.10
+        - ip link set dev eth1.10 up
+        - ip link add link eth2 name eth2.11 type vlan id 11
+        - ip address add 192.168.11.2/24 dev eth2.11
+        - ip link set dev eth2.11 up
+        - ip link add link eth2 name eth2.12 type vlan id 12
+        - ip address add 192.168.12.2/24 dev eth2.12
+        - ip link set dev eth2.12 up
+
+
+  links:
+    - endpoints: ["pe1:eth1", "p1:eth1"]
+    - endpoints: ["pe2:eth1", "p1:eth2"]
+    - endpoints: ["pe3:eth1", "p1:eth3"]
+    - endpoints: ["pe1:eth2", "client1:eth1"]
+    - endpoints: ["pe2:eth2", "client2:eth1"]
+    - endpoints: ["pe3:eth2", "client2:eth2"]
+    - endpoints: ["p1:eth4", "clab:ovsp1"]
+
+

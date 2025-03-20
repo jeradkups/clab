@@ -1,0 +1,256 @@
+{
+  "name": "beanfield-simple-lab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "mgmt",
+        "bridge": "br-f6c1148a7093",
+        "ipv4-subnet": "172.80.80.0/24",
+        "ipv4-gw": "172.80.80.1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCi7ZX+JGFqblwNpSho6J+0W/Dls5dIBiU92JaoyTsKzGy69qExyxM0RaQp49G7m8X30fzuz4MxsLkdna9+AroW9pnZ2MiGgTa5u9oO/URitJRAm9BzI+QKhhs8V8riueOy0lHVapfAuswDEB9gxq4t4PnClY4ZIfL+Msr50fnv7wp6s2IF8q3uq22gSZ4w7sVLZ8iwuRSWVshrhYSN/ZNb+mbf+PbozCjCxXpP+b1Y85UjHwVioieMkLMyJHT8JPEMgwsfr9DwVdZcVVELDRo/Rxt+XOkiJZWng7lE61uKx/lD5GHolirYb1HPdmnbnM9se4Lvvv5iOkSb2aA5kMbNGfcTA1INb+JQfoBwqI86cCYMS31IKDhD6AE/1BFxw87D6T3/WzhQsOCwLxiq+z8uSYYcwWVVmqEwVwvFHutNL7jnPjnz6FepSyyl6unpYRjmRo0ybwk1FN7WihjqPRdN5AcUvpaPrX7vlCArPkAdDUS1924iLXDZCnELa0ehK3E6XXeUF0vHdZFw+znijE0e7zw0DbEWVVhcVp0o4AIFzCmGF3da5BUcOsUmz6AvRhyagRAOY5y5Sw1nKyQmWQ/5VpY+x1p2ELraPGNO5Fi0ZrtpnE4mXPqoA78gjNJNn1Lt3sTOM1SQRvmixab7Uz4EpS4ex/hn6qpV0ceHvEfonQ=="],
+  "nodes": {
+    "client1": {
+      "index": "0",
+      "shortname": "client1",
+      "longname": "clab-beanfield-simple-lab-client1",
+      "fqdn": "client1.beanfield-simple-lab.io",
+      "group": "",
+      "labdir": "/root/clab/beanfield-simple-lab/clab-beanfield-simple-lab/client1",
+      "kind": "linux",
+      "image": "ghcr.io/hellt/network-multitool",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.80.80.31",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-f6c1148a7093",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/root/clab/beanfield-simple-lab/clab-beanfield-simple-lab/client1",
+        "clab-node-longname": "clab-beanfield-simple-lab-client1",
+        "clab-node-name": "client1",
+        "clab-node-type": "",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/beanfield-simple-lab/beanfield-simple-lab.clab.yml",
+        "containerlab": "beanfield-simple-lab"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 80,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "client2": {
+      "index": "1",
+      "shortname": "client2",
+      "longname": "clab-beanfield-simple-lab-client2",
+      "fqdn": "client2.beanfield-simple-lab.io",
+      "group": "",
+      "labdir": "/root/clab/beanfield-simple-lab/clab-beanfield-simple-lab/client2",
+      "kind": "linux",
+      "image": "ghcr.io/hellt/network-multitool",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.80.80.32",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-f6c1148a7093",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/root/clab/beanfield-simple-lab/clab-beanfield-simple-lab/client2",
+        "clab-node-longname": "clab-beanfield-simple-lab-client2",
+        "clab-node-name": "client2",
+        "clab-node-type": "",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/beanfield-simple-lab/beanfield-simple-lab.clab.yml",
+        "containerlab": "beanfield-simple-lab"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 80,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "p1": {
+      "index": "2",
+      "shortname": "p1",
+      "longname": "clab-beanfield-simple-lab-p1",
+      "fqdn": "p1.beanfield-simple-lab.io",
+      "group": "",
+      "labdir": "/root/clab/beanfield-simple-lab/clab-beanfield-simple-lab/p1",
+      "kind": "vr-sros",
+      "image": "jeradkups/vr-sros:24.10.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.80.80.52",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-f6c1148a7093",
+        "clab-node-group": "",
+        "clab-node-kind": "vr-sros",
+        "clab-node-lab-dir": "/root/clab/beanfield-simple-lab/clab-beanfield-simple-lab/p1",
+        "clab-node-longname": "clab-beanfield-simple-lab-p1",
+        "clab-node-name": "p1",
+        "clab-node-type": "ixr-e-big",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/beanfield-simple-lab/beanfield-simple-lab.clab.yml",
+        "containerlab": "beanfield-simple-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "pe1": {
+      "index": "3",
+      "shortname": "pe1",
+      "longname": "clab-beanfield-simple-lab-pe1",
+      "fqdn": "pe1.beanfield-simple-lab.io",
+      "group": "",
+      "labdir": "/root/clab/beanfield-simple-lab/clab-beanfield-simple-lab/pe1",
+      "kind": "vr-sros",
+      "image": "jeradkups/vr-sros:24.10.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.80.80.51",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-f6c1148a7093",
+        "clab-node-group": "",
+        "clab-node-kind": "vr-sros",
+        "clab-node-lab-dir": "/root/clab/beanfield-simple-lab/clab-beanfield-simple-lab/pe1",
+        "clab-node-longname": "clab-beanfield-simple-lab-pe1",
+        "clab-node-name": "pe1",
+        "clab-node-type": "sr-1-24d",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/beanfield-simple-lab/beanfield-simple-lab.clab.yml",
+        "containerlab": "beanfield-simple-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "pe2": {
+      "index": "4",
+      "shortname": "pe2",
+      "longname": "clab-beanfield-simple-lab-pe2",
+      "fqdn": "pe2.beanfield-simple-lab.io",
+      "group": "",
+      "labdir": "/root/clab/beanfield-simple-lab/clab-beanfield-simple-lab/pe2",
+      "kind": "vr-sros",
+      "image": "jeradkups/vr-sros:24.10.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.80.80.53",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-f6c1148a7093",
+        "clab-node-group": "",
+        "clab-node-kind": "vr-sros",
+        "clab-node-lab-dir": "/root/clab/beanfield-simple-lab/clab-beanfield-simple-lab/pe2",
+        "clab-node-longname": "clab-beanfield-simple-lab-pe2",
+        "clab-node-name": "pe2",
+        "clab-node-type": "sr-1-24d",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/beanfield-simple-lab/beanfield-simple-lab.clab.yml",
+        "containerlab": "beanfield-simple-lab"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "pe1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:9d:85:83",
+        "peer": "z"
+      },
+      "z": {
+        "node": "p1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:0e:a9:dc",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "pe2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:73:eb:e1",
+        "peer": "z"
+      },
+      "z": {
+        "node": "p1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:bc:11:99",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "pe1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:b5:63:64",
+        "peer": "z"
+      },
+      "z": {
+        "node": "client1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:15:48:43",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "pe2",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:63:82:b9",
+        "peer": "z"
+      },
+      "z": {
+        "node": "client2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:a7:ab:d7",
+        "peer": "a"
+      }
+    }
+  ]
+}

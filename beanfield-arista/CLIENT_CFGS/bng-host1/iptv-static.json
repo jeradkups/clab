@@ -1,0 +1,68 @@
+{
+    "interfaces": {
+        "rx-threads": 2,
+        "tx-threads": 2,
+        "links": [
+            {
+                "interface": "eth1",
+                "rx-threads": 3,
+                "tx-threads": 3
+            }
+        ],
+        "network": [
+            {
+                "__comment__": "Network",
+                "interface": "eth1",
+                "address": "10.200.0.10",
+                "gateway": "10.200.0.1",
+		"vlan": 200
+            }
+        ],
+        "access": [
+            {
+                "__comment__": "DHCP Clients",
+                "interface": "eth2",
+                "network-interface": "eth1:200",
+                "type": "ipoe",
+                "vlan-mode": "N:1",
+                "ipv6": false,
+		"address": "10.203.0.10",
+		"address-iter": "0.0.0.1",
+	        "gateway": "10.203.0.1",
+                "outer-vlan-min": 85,
+		"outer-vlan-max": 85,
+		"outer-vlan-step": 0,
+		"inner-vlan-min": 0,
+		"inner-vlan-max": 0,
+		"inner-vlan-step": 0,
+                "stream-group-id": 1
+            }
+        ]
+    },
+    "access-line": {
+        "agent-remote-id": "BNG.DEMO.{session-global}",
+        "agent-circuit-id": "BNG.DEMO:{session-global}"
+    },
+    "dhcp": {
+        "enable": false,
+        "broadcast": true,
+        "access-line": true
+    },
+    "sessions": {
+        "count": 5
+    },
+    "session-traffic": {
+        "ipv4-pps": 10
+    },
+    "streams": [
+        {
+            "stream-group-id": 1,
+            "name": "S1",
+            "type": "ipv4",
+            "direction": "both",
+            "priority": 0,
+            "length": 512,
+            "pps": 10
+        }
+    ]
+}

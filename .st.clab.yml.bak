@@ -1,0 +1,105 @@
+# Copyright 2020 Nokia
+# Licensed under the BSD 3-Clause License.
+# SPDX-License-Identifier: BSD-3-Clause
+
+name: bng # short for streaming telemetry ;)
+prefix: ""
+
+mgmt:
+  network: mgmt
+  ipv4_subnet: 172.80.80.0/24
+
+topology:
+  defaults:
+    kind: vr-sros
+
+  kinds:
+    vr-sros:
+      image: vr-sros:22.07.R1
+      license: license-sros22.txt
+    linux:
+      image: ghcr.io/hellt/network-multitool
+
+  nodes:
+    ### BNG ###
+    bng1:
+      kind: vr-sros
+      mgmt_ipv4: 172.80.80.51
+      type: sr-1
+      startup-config: configs/bng/bng1.cfg
+#    bng2:
+#      kind: vr-sros
+#      mgmt_ipv4: 172.80.80.52
+#      type: sr-1
+#      startup-config: configs/bng/bng2.cfg
+#      env:
+#        BOOT_DELAY: 90    
+
+    ### AGG ###
+    agg1:
+      kind: vr-sros
+      mgmt_ipv4: 172.80.80.21
+      type: sr-1
+      startup-config: configs/agg/agg1.cfg
+
+    ### CLIENTS ###
+    client1:
+      kind: linux
+      mgmt_ipv4: 172.80.80.31
+#      exec:
+#        - ip address add 172.17.0.1/24 dev eth1
+#        - ip -6 address add 2002::172:17:0:1/96 dev eth1
+#        - iperf3 -s -p 5201 -D > iperf3_1.log
+#        - iperf3 -s -p 5202 -D > iperf3_2.log
+#      group: server
+    client2:
+      kind: linux
+      mgmt_ipv4: 172.80.80.32
+#      binds:
+#        - configs/client2:/config
+#      exec:
+#        - ip address add 172.17.0.2/24 dev eth1
+#        - ip -6 address add 2002::172:17:0:2/96 dev eth1
+#      group: server
+      group: server
+
+    ### TELEMETRY STACK ###
+#    gnmic:
+#      kind: linux
+#      mgmt_ipv4: 172.80.80.41
+#      image: ghcr.io/openconfig/gnmic:0.28.0
+#      binds:
+#        - gnmic-config.yml:/gnmic-config.yml:ro
+#      cmd: --config /gnmic-config.yml --log subscribe
+#      group: "10" # group 10 is assigned to the nodes of a telemetry stack
+
+#    prometheus:
+#      kind: linux
+#      mgmt_ipv4: 172.80.80.42
+#      image: prom/prometheus:v2.35.0
+#      binds:
+#        - configs/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+#      cmd: --config.file=/etc/prometheus/prometheus.yml
+#      ports:
+#        - 9090:9090
+#      group: "10"
+
+#    grafana:
+#      kind: linux
+#      mgmt_ipv4: 172.80.80.43
+#      image: grafana/grafana:8.5.2
+#      binds:
+#        - configs/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yaml:ro
+#        - configs/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
+#        - configs/grafana/dashboards:/var/lib/grafana/dashboards
+#        - configs/grafana/grafana-flowcharting:/var/lib/grafana/plugins/grafana-flowcharting
+#      ports:
+#        - 3000:3000
+#      group: "10"
+
+  links:
+    - endpoints: ["bng1:eth1", "bng2:eth1"]
+    - endpoints: ["bng1:eth2", "agg1:eth1"]
+    - endpoints: ["bng2:eth2", "agg1:eth2"]
+    - endpoints: ["client1:eth1", "bng1:eth3"]
+    - endpoints: ["client2:eth1", "agg1:eth3"]

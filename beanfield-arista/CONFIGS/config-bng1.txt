@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-02-10T20:48:53.5Z by admin from 172.31.255.29
+# Generated 2025-03-22T13:39:34.1Z by admin from 172.31.255.29
 # Commit ID 1
-#   Committed 2025-02-10T20:48:43.0Z by system (MD-CLI) from Console
+#   Committed 2025-03-22T04:24:09.2Z by system (MD-CLI) from Console
 #   Log       "System booted version C-24.10.R2."
 
 configure {
@@ -29,42 +29,16 @@ configure {
     }
     card 1 {
         admin-state enable
-        card-type xcm-2s
-        xiom "x1" {
+        card-type i24-800g-qsfpdd-1
+        mda 1 {
             admin-state enable
-            xiom-type iom-s-3.0t
-            mda 1 {
-                admin-state enable
-                mda-type ms8-100gb-sfpdd+2-100gb-qsfp28
-                xconnect {
-                    mac 1 {
-                        loopback 1 {
-                            bandwidth 100
-                        }
+            mda-type m24-800g-qsfpdd-1
+            xconnect {
+                mac 1 {
+                    loopback 1 {
+                        bandwidth 100
                     }
                 }
-            }
-        }
-    }
-    chassis router chassis-number 1 {
-        power-shelf 1 {
-            admin-state enable
-            power-shelf-type ps-a4-shelf-dc
-            power-module 1 {
-                admin-state enable
-                power-module-type ps-a-dc-6000
-            }
-            power-module 2 {
-                admin-state enable
-                power-module-type ps-a-dc-6000
-            }
-            power-module 3 {
-                admin-state enable
-                power-module-type ps-a-dc-6000
-            }
-            power-module 4 {
-                admin-state enable
-                power-module-type ps-a-dc-6000
             }
         }
     }
@@ -130,24 +104,6 @@ configure {
                 }
             }
         }
-        log-id "1" {
-            admin-state enable
-            source {
-                debug true
-            }
-            destination {
-                console
-            }
-        }
-        log-id "10" {
-            admin-state disable
-            source {
-                debug true
-            }
-            destination {
-                console
-            }
-        }
         log-id "99" {
             description "Default System Log"
             source {
@@ -168,12 +124,6 @@ configure {
             destination {
                 memory {
                     max-entries 500
-                }
-            }
-        }
-        log-id "101" {
-            destination {
-                netconf {
                 }
             }
         }
@@ -198,11 +148,11 @@ configure {
                 start-length 32
                 end-length 32
             }
-            prefix 172.100.255.0/24 type range {
+            prefix 172.100.0.0/24 type range {
                 start-length 32
                 end-length 32
             }
-            prefix 172.200.255.0/24 type range {
+            prefix 172.200.0.0/24 type range {
                 start-length 32
                 end-length 32
             }
@@ -276,50 +226,92 @@ configure {
     port pxc-1.b {
         admin-state enable
     }
-    port 1/x1/1/c1 {
+    port 1/1/c1 {
         admin-state enable
         connector {
             breakout c1-100g
         }
     }
-    port 1/x1/1/c1/1 {
+    port 1/1/c1/1 {
         admin-state enable
         ethernet {
             mode network
         }
     }
-    port 1/x1/1/c2 {
+    port 1/1/c2 {
         admin-state enable
         connector {
             breakout c1-100g
         }
     }
-    port 1/x1/1/c2/1 {
+    port 1/1/c2/1 {
         admin-state enable
         ethernet {
             mode network
         }
     }
-    port 1/x1/1/c3 {
+    port 1/1/c3 {
         admin-state enable
         connector {
             breakout c1-100g
         }
     }
-    port 1/x1/1/c3/1 {
+    port 1/1/c3/1 {
         admin-state enable
         ethernet {
             mode access
             encap-type dot1q
         }
     }
-    port 1/x1/1/m1/1 {
+    port 1/1/c4 {
+    }
+    port 1/1/c5 {
+    }
+    port 1/1/c6 {
+    }
+    port 1/1/c7 {
+    }
+    port 1/1/c8 {
+    }
+    port 1/1/c9 {
+    }
+    port 1/1/c10 {
+    }
+    port 1/1/c11 {
+    }
+    port 1/1/c12 {
+    }
+    port 1/1/c13 {
+    }
+    port 1/1/c14 {
+    }
+    port 1/1/c15 {
+    }
+    port 1/1/c16 {
+    }
+    port 1/1/c17 {
+    }
+    port 1/1/c18 {
+    }
+    port 1/1/c19 {
+    }
+    port 1/1/c20 {
+    }
+    port 1/1/c21 {
+    }
+    port 1/1/c22 {
+    }
+    port 1/1/c23 {
+    }
+    port 1/1/c24 {
+    }
+    port 1/1/m1/1 {
         admin-state enable
     }
     port-xc {
         pxc 1 {
             admin-state enable
-            port-id 1/x1/1/m1/1
+            port-id 1/1/m1/1
         }
     }
     pw-port 10 {
@@ -330,9 +322,9 @@ configure {
             oper-up-on-mh-standby true
         }
     }
-    pw-port 11 {
+    pw-port 100 {
         encap-type qinq
-        epipe "bng-epipe-11" {
+        epipe "bng-epipe-100" {
             admin-state enable
             fpe-id 1
             oper-up-on-mh-standby true
@@ -378,7 +370,6 @@ configure {
         }
     }
     redundancy {
-        synchronize config
         multi-chassis {
             peer 1.1.1.3 {
                 admin-state enable
@@ -394,6 +385,9 @@ configure {
                         pw-port 10 {
                             sync-tag "pw-10"
                         }
+                        pw-port 100 {
+                            sync-tag "pw-100"
+                        }
                     }
                 }
             }
@@ -405,7 +399,7 @@ configure {
         router-id 1.1.1.1
         interface "To_peer1" {
             admin-state enable
-            port 1/x1/1/c2/1
+            port 1/1/c2/1
             ipv4 {
                 unnumbered {
                     system
@@ -414,7 +408,7 @@ configure {
         }
         interface "To_spine1" {
             admin-state enable
-            port 1/x1/1/c1/1
+            port 1/1/c1/1
             ipv4 {
                 unnumbered {
                     system
@@ -535,17 +529,25 @@ configure {
                 interface "To_peer1" {
                     admin-state enable
                     ipv4 {
-                        fec-type-capability {
-                            p2mp-ipv4 true
-                        }
+                        admin-state enable
                     }
                 }
                 interface "To_spine1" {
-                    admin-state disable
+                    admin-state enable
                     ipv4 {
-                        fec-type-capability {
-                            p2mp-ipv4 true
-                        }
+                        admin-state enable
+                    }
+                }
+            }
+            targeted-session {
+                auto-tx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+                auto-rx {
+                    ipv4 {
+                        admin-state enable
                     }
                 }
             }
@@ -586,7 +588,7 @@ configure {
         radius {
             server "radius1" {
                 description "radius server"
-                address 10.10.1.2
+                address 10.10.10.2
                 secret "7NcYcNGWMxapfjrDQIyYNQ+qtbHg0Zk= hash2"
                 accept-coa true
             }
@@ -637,27 +639,6 @@ configure {
                         }
                         association {
                             pw-port 10 {
-                                pw-port-headend true
-                            }
-                        }
-                    }
-                    ethernet-segment "hubsite_11" {
-                        admin-state enable
-                        esi 0x00101030100000000011
-                        multi-homing-mode single-active
-                        oper-group "hubsite_11"
-                        df-election {
-                            es-activation-timer 0
-                            service-carving-mode manual
-                            manual {
-                                preference {
-                                    mode non-revertive
-                                    value 1010
-                                }
-                            }
-                        }
-                        association {
-                            pw-port 11 {
                                 pw-port-headend true
                             }
                         }
@@ -719,12 +700,30 @@ configure {
                 }
             }
         }
+        epipe "bng-epipe-100" {
+            admin-state enable
+            service-id 100
+            customer "1"
+            vc-switching true
+            spoke-sdp 1:100 {
+                admin-state enable
+            }
+        }
+        sdp 1 {
+            admin-state enable
+            description "SDP to leaf1"
+            delivery-type mpls
+            signaling tldp
+            ldp true
+            far-end {
+                ip-address 1.1.3.1
+            }
+        }
         sdp 2 {
             admin-state enable
             description "To BNG2"
             delivery-type mpls
-            ldp false
-            sr-isis true
+            ldp true
             keep-alive {
                 admin-state enable
             }
@@ -753,7 +752,8 @@ configure {
                 admin-state enable
                 radius-auth-policy "IPOE Auth"
                 trigger-packet {
-                    arp true
+                    arp false
+                    data true
                     dhcp true
                 }
                 msap-defaults {
@@ -766,77 +766,12 @@ configure {
                     ipoe-session-policy "IPOE Auth"
                 }
             }
-            capture-sap pw-11:75.* {
-                admin-state enable
-                radius-auth-policy "IPOE Auth"
-                trigger-packet {
-                    arp true
-                    dhcp true
-                }
-                msap-defaults {
-                    policy "default"
-                    service-name "bng_1"
-                    group-interface "Hub_11"
-                }
-                ipoe-session {
-                    admin-state enable
-                    ipoe-session-policy "IPOE Auth"
-                }
-            }
-        }
-        vpls "iptv-vpls-bd202" {
-            admin-state enable
-            description "SBD VPLS - OISM"
-            service-id 202
-            customer "1"
-            routed-vpls {
-                multicast {
-                    ipv4 {
-                        forward-to-ip-interface true
-                    }
-                    evpn-gateway {
-                        admin-state enable
-                        advertise mvpn-pim
-                        non-dr-attract-traffic from-evpn-pim-mvpn
-                    }
-                }
-            }
-            bgp 1 {
-            }
-            igmp-snooping {
-                admin-state enable
-            }
-            bgp-evpn {
-                evi 202
-                routes {
-                    mac-ip {
-                        advertise false
-                    }
-                    ip-prefix {
-                        advertise true
-                        domain-id "65100:202"
-                    }
-                    sel-mcast {
-                        advertise true
-                    }
-                }
-                mpls 1 {
-                    admin-state enable
-                    ingress-replication-bum-label true
-                    ecmp 2
-                    auto-bind-tunnel {
-                        resolution filter
-                        resolution-filter {
-                            sr-isis true
-                        }
-                    }
-                }
-            }
         }
         vprn "bng_1" {
             admin-state enable
             service-id 300
             customer "1"
+            autonomous-system 65100
             ecmp 4
             bgp-ipvpn {
                 mpls {
@@ -852,7 +787,7 @@ configure {
                         ecmp 2
                         resolution filter
                         resolution-filter {
-                            sr-isis true
+                            ldp true
                         }
                     }
                 }
@@ -864,7 +799,6 @@ configure {
                 admin-state enable
                 loopback true
                 ipv4 {
-                    local-dhcp-server "bng_dhcp_1"
                     primary {
                         address 1.1.1.1
                         prefix-length 32
@@ -883,84 +817,22 @@ configure {
                     }
                 }
             }
-            dhcp-server {
-                dhcpv4 "bng_dhcp_1" {
-                    admin-state enable
-                    description "DHCP server for BNG testing"
-                    pool-selection {
-                        use-gi-address {
-                            scope pool
-                        }
-                    }
-                    failover {
-                        admin-state enable
-                        peer 1.1.1.3 {
-                            sync-tag "dhcp-1"
-                        }
-                    }
-                    pool "pool1" {
-                        max-lease-time 900
-                        options {
-                            option lease-time {
-                                duration 900
-                            }
-                        }
-                        subnet 172.100.0.0/16 {
-                            options {
-                                option subnet-mask {
-                                    ipv4-address [255.255.0.0]
-                                }
-                                option default-router {
-                                    ipv4-address [172.100.0.1]
-                                }
-                            }
-                            address-range 172.100.255.1 end 172.100.255.255 {
-                            }
-                        }
-                        subnet 172.200.0.0/16 {
-                            options {
-                                option subnet-mask {
-                                    ipv4-address [255.255.0.0]
-                                }
-                                option default-router {
-                                    ipv4-address [172.200.0.1]
-                                }
-                            }
-                            address-range 172.200.255.1 end 172.200.255.254 {
-                            }
-                        }
-                    }
-                }
-            }
             radius {
                 server "radius1" {
                     description "radius server"
-                    address 10.10.1.2
+                    address 10.10.10.2
                     secret "7NcYcNGWMxapfjrDQIyYNS6PjOiei1Q= hash2"
                     accept-coa true
                 }
             }
             subscriber-interface "Sub1" {
+                admin-state enable
                 ipv4 {
-                    allow-unmatching-subnets false
-                    address 99.0.0.2 {
-                        prefix-length 24
-                        gateway 99.0.0.1
-                        populate-host-routes true
-                    }
+                    allow-unmatching-subnets true
                     address 172.100.0.2 {
                         prefix-length 16
                         gateway 172.100.0.1
                         populate-host-routes true
-                    }
-                    address 172.200.0.2 {
-                        prefix-length 16
-                        gateway 172.200.0.1
-                        populate-host-routes true
-                    }
-                    dhcp {
-                        gi-address 172.100.0.2
-                        src-ip-addr auto
                     }
                 }
                 hold-time {
@@ -992,7 +864,7 @@ configure {
                         }
                         dhcp {
                             admin-state enable
-                            server [1.1.1.1]
+                            server [10.10.10.3]
                             trusted true
                             gi-address 172.100.0.2
                             src-ip-addr gi-address
@@ -1008,12 +880,6 @@ configure {
                     }
                     data-trigger {
                         admin-state enable
-                    }
-                    local-address-assignment {
-                        admin-state enable
-                        ipv4 {
-                            server "bng_dhcp_1"
-                        }
                     }
                     srrp 10 {
                         admin-state enable
@@ -1031,9 +897,8 @@ configure {
                         }
                     }
                 }
-                group-interface "Hub_11" {
+                group-interface "Hub_100" {
                     admin-state enable
-                    radius-auth-policy "IPOE Auth"
                     oper-up-while-empty true
                     redundant-interface "redundant-to-bng2"
                     dynamic-routes-track-srrp {
@@ -1046,7 +911,7 @@ configure {
                         }
                         dhcp {
                             admin-state enable
-                            server [1.1.1.1]
+                            server [10.10.10.3]
                             trusted true
                             gi-address 172.100.0.2
                             src-ip-addr gi-address
@@ -1058,167 +923,43 @@ configure {
                     ipoe-session {
                         admin-state enable
                         ipoe-session-policy "IPOE Auth"
+                        user-db "Default"
                         sap-session-limit 1000
-                    }
-                    data-trigger {
-                        admin-state enable
-                    }
-                    local-address-assignment {
-                        admin-state enable
-                        ipv4 {
-                            server "bng_dhcp_1"
-                        }
                     }
                     srrp 11 {
                         admin-state enable
                         gw-mac 00:00:5e:00:00:01
                         keep-alive-interval 10
-                        message-path pw-11:4080.4080
-                        priority 100
+                        message-path pw-100:4080.4080
+                        priority 10
                         one-garp-per-sap true
                     }
-                    sap pw-11:4080.4080 {
+                    sap pw-100:75.0 {
+                        sub-sla-mgmt {
+                            admin-state enable
+                            subscriber-limit 1000
+                            defaults {
+                                sub-profile "Internet"
+                                sla-profile "Internet"
+                                subscriber-id {
+                                    auto-id
+                                }
+                            }
+                        }
+                    }
+                    sap pw-100:4080.4080 {
                         admin-state enable
-                        monitor-oper-group "hubsite_10"
                         sub-sla-mgmt {
                             admin-state disable
                         }
                     }
                 }
             }
-        }
-        vprn "iptv" {
-            admin-state enable
-            service-id 200
-            customer "1"
-            igmp {
-                admin-state enable
-                ssm-translate {
-                    group-range start 239.0.0.0 end 239.255.255.255 {
-                        source 10.200.0.10 { }
-                    }
-                }
-                interface "Default" {
-                    admin-state enable
-                }
-                interface "bd-202" {
-                    admin-state enable
-                }
-            }
-            pim {
-                admin-state enable
-                apply-to all
-                interface "Default" {
-                    admin-state enable
-                }
-                interface "bd-202" {
-                    multicast-senders always
-                }
-                rp {
-                    ipv4 {
-                        bsr-candidate {
-                            admin-state disable
-                        }
-                        rp-candidate {
-                            admin-state disable
-                        }
-                        static {
-                            address 1.1.10.2 {
-                                group-prefix 239.0.0.0/8 { }
-                            }
-                        }
-                    }
-                }
-            }
-            mvpn {
-                c-mcast-signaling bgp
-                auto-discovery {
-                    type bgp
-                }
-                intersite-shared {
-                    persistent-type5-advertisement true
-                }
-                vrf-target {
-                    unicast true
-                }
-                provider-tunnel {
-                    inclusive {
-                        mldp {
-                            admin-state enable
-                        }
-                    }
-                }
-            }
-            bgp-ipvpn {
-                mpls {
-                    admin-state enable
-                    route-distinguisher "1.1.10.1:200"
-                    vrf-target {
-                        community "target:65100:200"
-                    }
-                    vrf-import {
-                        policy ["mvpn-iptv"]
-                    }
-                    auto-bind-tunnel {
-                        resolution any
-                    }
-                }
-            }
-            interface "Default" {
-                admin-state enable
-                description "local loopback"
-                loopback true
+            subscriber-interface "test" {
                 ipv4 {
-                    local-dhcp-server "iptv_dhcp_1"
-                    primary {
-                        address 1.1.10.1
-                        prefix-length 32
-                    }
-                }
-            }
-            interface "bd-202" {
-                admin-state enable
-                description "SBD interface"
-                vpls "iptv-vpls-bd202" {
-                    evpn-tunnel {
-                        supplementary-broadcast-domain true
-                    }
-                }
-            }
-            dhcp-server {
-                dhcpv4 "iptv_dhcp_1" {
-                    admin-state enable
-                    description "DHCP server for BNG testing"
-                    pool-selection {
-                        use-gi-address {
-                            scope subnet
-                        }
-                    }
-                    failover {
-                        admin-state enable
-                        peer 1.1.1.3 {
-                            sync-tag "dhcp-iptv-1"
-                        }
-                    }
-                    pool "pool1" {
-                        max-lease-time 900
-                        options {
-                            option lease-time {
-                                duration 900
-                            }
-                        }
-                        subnet 10.203.0.0/24 {
-                            options {
-                                option subnet-mask {
-                                    ipv4-address [255.255.255.0]
-                                }
-                                option default-router {
-                                    ipv4-address [10.203.0.1]
-                                }
-                            }
-                            address-range 10.203.0.5 end 10.203.0.254 {
-                            }
-                        }
+                    address 99.0.0.2 {
+                        prefix-length 24
+                        gateway 99.0.0.1
                     }
                 }
             }
@@ -1255,14 +996,6 @@ configure {
                 }
             }
         }
-    }
-    sfm 1 {
-        admin-state enable
-        sfm-type sfm-2s
-    }
-    sfm 2 {
-        admin-state enable
-        sfm-type sfm-2s
     }
     subscriber-mgmt {
         ipoe-session-policy "IPOE Auth" {
@@ -1307,8 +1040,13 @@ configure {
             password "NvWD3Rb04eIB6x5vbY41oqwWzbB/iNc= hash2"
             radius-server-policy "Radius-server-policy"
             re-authentication true
+            fallback {
+                action {
+                    user-db "Default"
+                }
+            }
             user-name {
-                format mac
+                format tuple
             }
             include-radius-attribute {
                 circuit-id true
@@ -1322,7 +1060,7 @@ configure {
             }
         }
         auto-sub-id {
-            ipoe-key [mac]
+            ipoe-key [mac circuit-id]
         }
         msap-policy "default" {
             sticky-msaps true
@@ -1330,6 +1068,15 @@ configure {
             sub-sla-mgmt {
                 subscriber-limit no-limit
                 sub-ident-policy "BNG1"
+            }
+        }
+        local-user-db "Default" {
+            admin-state enable
+            ipoe {
+                match-list [circuit-id]
+                host "default" {
+                    admin-state enable
+                }
             }
         }
     }
@@ -1604,21 +1351,19 @@ persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
     vrtr-id {
         router-name "bng_1" vrtr-id 2
-        router-name "iptv" vrtr-id 5
         router-name "peering" vrtr-id 3
     }
     vrtr-if-id {
-        router-name "Base" interface-name "To_peer1" vrtr-id 1 if-index 7
-        router-name "Base" interface-name "To_spine1" vrtr-id 1 if-index 2
-        router-name "Base" interface-name "anycast" vrtr-id 1 if-index 8
-        router-name "bng_1" interface-name "Hub_10" vrtr-id 2 if-index 3
-        router-name "bng_1" interface-name "Hub_11" vrtr-id 2 if-index 5
-        router-name "bng_1" interface-name "Sub1" vrtr-id 2 if-index 4
-        router-name "bng_1" interface-name "default" vrtr-id 2 if-index 6
-        router-name "bng_1" interface-name "redundant-to-bng2" vrtr-id 2 if-index 9
-        router-name "iptv" interface-name "Default" vrtr-id 5 if-index 11
-        router-name "iptv" interface-name "bd-202" vrtr-id 5 if-index 12
-        router-name "peering" interface-name "external" vrtr-id 3 if-index 10
+        router-name "Base" interface-name "To_peer1" vrtr-id 1 if-index 2
+        router-name "Base" interface-name "To_spine1" vrtr-id 1 if-index 3
+        router-name "Base" interface-name "anycast" vrtr-id 1 if-index 4
+        router-name "bng_1" interface-name "Hub_10" vrtr-id 2 if-index 9
+        router-name "bng_1" interface-name "Hub_100" vrtr-id 2 if-index 11
+        router-name "bng_1" interface-name "Sub1" vrtr-id 2 if-index 7
+        router-name "bng_1" interface-name "default" vrtr-id 2 if-index 8
+        router-name "bng_1" interface-name "redundant-to-bng2" vrtr-id 2 if-index 6
+        router-name "bng_1" interface-name "test" vrtr-id 2 if-index 10
+        router-name "peering" interface-name "external" vrtr-id 3 if-index 5
     }
     mpls-lsp-index {
         lsp-name "To_hubsite_10" type 10 lsp-index 65536
@@ -1635,10 +1380,6 @@ persistent-indices {
         client pxc index 0 pool 1 offset 1
         client pxc index 1 pool 1 offset 2
     }
-    log-name-id {
-        log-name "1" log-id 1 context 1 vrtr-id 1
-        log-name "10" log-id 10 context 1 vrtr-id 1
-    }
 }
 
-# Finished 2025-02-10T20:48:53.5Z
+# Finished 2025-03-22T13:39:34.1Z

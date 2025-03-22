@@ -5,6 +5,16 @@ all:
     # module does not attempt using any global http proxy.
     ansible_httpapi_use_proxy: false
   children:
+    ceos:
+      vars:
+        # ansible_connection: set ansible_connection variable if required
+        ansible_user: admin
+        ansible_password: admin
+      hosts:
+        clab-sros-beanfield-lab01-spine1:
+          ansible_host: 172.80.80.21
+        clab-sros-beanfield-lab01-spine2:
+          ansible_host: 172.80.80.22
     linux:
       hosts:
         clab-sros-beanfield-lab01-bng-host1:
@@ -42,7 +52,3 @@ all:
           ansible_host: 172.80.80.14
         clab-sros-beanfield-lab01-rr2:
           ansible_host: 172.80.80.15
-        clab-sros-beanfield-lab01-spine1:
-          ansible_host: 172.80.80.21
-        clab-sros-beanfield-lab01-spine2:
-          ansible_host: 172.80.80.22

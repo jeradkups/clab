@@ -7,8 +7,12 @@ mgmt:
 topology:
   kinds:
     vr-sros:
-      #image: jeradkups/vr-sros:24.03.R2
+      image: jeradkups/vr-sros:24.03.R2
       license: license-sros.txt
+    ceos:
+      #image: jeradkups/ceos:4.25.5m
+      image: jeradkups/ceos:4.32.0F
+
   nodes:
     clab-internal:
       kind: ovs-bridge
@@ -18,11 +22,6 @@ topology:
       type: sr-1-24d
       startup-config: CONFIGS/config-bng1.txt
       mgmt-ipv4: 172.80.80.11
-      stages:
-        create:
-          wait-for:
-            - node: spine1
-              stage: healthy
 
     bng2:
       kind: vr-sros
@@ -30,11 +29,6 @@ topology:
       type: sr-1-24d
       startup-config: CONFIGS/config-bng2.txt
       mgmt-ipv4: 172.80.80.13
-      stages:
-        create:
-          wait-for:
-            - node: spine2
-              stage: healthy
 
     peer1:
       kind: vr-sros
@@ -73,17 +67,13 @@ topology:
               stage: healthy
 
     spine1:
-      kind: vr-sros
-      image: jeradkups/vr-sros:24.10.R2
-      type: ixr-x3
-      startup-config: CONFIGS/config-spine1.txt
+      kind: ceos
+        #startup-config: CONFIGS/config-spine1.txt
       mgmt-ipv4: 172.80.80.21
 
     spine2:
-      kind: vr-sros
-      image: jeradkups/vr-sros:24.10.R2
-      type: ixr-x3
-      startup-config: CONFIGS/config-spine2.txt
+      kind: ceos
+        #startup-config: CONFIGS/config-spine2.txt
       mgmt-ipv4: 172.80.80.22
 
     leaf1:
@@ -209,20 +199,18 @@ topology:
         - ip link add link eth1 name eth1.85 type vlan id 85
         - ip address add 10.203.0.10/24 dev eth1.85
         - ip link set dev eth1.85 up
-        - ip addr add 239.10.10.6/32 dev eth1.85 autojoin
-
 
 
   links:
-    - endpoints: ["bng1:eth1", "spine1:eth1"]
+    - endpoints: ["bng1:eth1", "spine1:eth1_1"]
     - endpoints: ["bng1:eth2", "peer1:eth1"]
-    - endpoints: ["bng2:eth1", "spine2:eth1"]
+    - endpoints: ["bng2:eth1", "spine2:eth1_1"]
     - endpoints: ["bng2:eth2", "peer1:eth2"]
-    - endpoints: ["leaf1:eth1", "spine1:eth3"]
-    - endpoints: ["leaf1:eth2", "spine2:eth3"]
-    - endpoints: ["rr1:eth1", "spine1:eth4"]
-    - endpoints: ["rr2:eth1", "spine2:eth4"]
-    - endpoints: ["spine1:eth2", "spine2:eth2"]
+    - endpoints: ["leaf1:eth1", "spine1:eth3_1"]
+    - endpoints: ["leaf1:eth2", "spine2:eth3_1"]
+    - endpoints: ["rr1:eth1", "spine1:eth4_1"]
+    - endpoints: ["rr2:eth1", "spine2:eth4_1"]
+    - endpoints: ["spine1:eth2_1", "spine2:eth2_1"]
     #radius server
     - endpoints: ["radius1:eth1", "clab-internal:ovsp2"]
     - endpoints: ["clab-internal:ovsp1", "peer1:eth4"]

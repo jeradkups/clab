@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-02-10T20:51:03.3Z by admin from 172.31.255.29
+# Generated 2025-03-22T13:39:33.7Z by admin from 172.31.255.29
 # Commit ID 1
-#   Committed 2025-02-10T20:50:58.6Z by system (MD-CLI) from Console
+#   Committed 2025-03-22T04:26:27.5Z by system (MD-CLI) from Console
 #   Log       "System booted version B-24.10.R2."
 
 configure {
@@ -227,17 +227,25 @@ configure {
                 interface "To_bng1" {
                     admin-state enable
                     ipv4 {
-                        fec-type-capability {
-                            p2mp-ipv4 true
-                        }
+                        admin-state enable
                     }
                 }
                 interface "To_bng2" {
                     admin-state enable
                     ipv4 {
-                        fec-type-capability {
-                            p2mp-ipv4 true
-                        }
+                        admin-state enable
+                    }
+                }
+            }
+            targeted-session {
+                auto-tx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+                auto-rx {
+                    ipv4 {
+                        admin-state enable
                     }
                 }
             }
@@ -299,22 +307,6 @@ configure {
             service-id 300
             customer "1"
             ecmp 4
-            bgp-evpn {
-                mpls 1 {
-                    admin-state disable
-                    route-distinguisher "1.1.1.2:300"
-                    evi 300
-                    vrf-target {
-                        community "target:65100:300"
-                    }
-                    auto-bind-tunnel {
-                        resolution filter
-                        resolution-filter {
-                            sr-isis true
-                        }
-                    }
-                }
-            }
             bgp-ipvpn {
                 mpls {
                     admin-state enable
@@ -326,7 +318,7 @@ configure {
                         ecmp 2
                         resolution filter
                         resolution-filter {
-                            sr-isis true
+                            ldp true
                         }
                     }
                 }
@@ -343,7 +335,7 @@ configure {
                         prefix-length 30
                     }
                 }
-                sap 1/1/c3/1:0 {
+                sap 1/1/c3/1:301 {
                     admin-state enable
                 }
             }
@@ -352,11 +344,11 @@ configure {
                 description "to radius server"
                 ipv4 {
                     primary {
-                        address 10.10.1.1
-                        prefix-length 30
+                        address 10.10.10.1
+                        prefix-length 24
                     }
                 }
-                sap 1/1/c4/1:0 {
+                sap 1/1/c4/1:300 {
                     admin-state enable
                 }
             }
@@ -756,4 +748,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-02-10T20:51:03.3Z
+# Finished 2025-03-22T13:39:33.7Z

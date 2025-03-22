@@ -3,10 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-02-10T20:52:39.3Z by admin from 172.31.255.29
-# Commit ID 1
-#   Committed 2025-02-10T20:52:35.5Z by system (MD-CLI) from Console
-#   Log       "System booted version C-24.10.R2."
+# Generated 2025-03-20T18:21:02.0Z by admin from 172.31.255.29
+# Commit ID 8
+#   Committed 2025-03-18T03:16:42.9Z by admin (MD-CLI) from Console
 
 configure {
     log {
@@ -308,22 +307,30 @@ configure {
             }
         }
         ldp {
-            admin-state disable
+            admin-state enable
             interface-parameters {
                 interface "To_spine1" {
                     admin-state enable
                     ipv4 {
-                        fec-type-capability {
-                            p2mp-ipv4 true
-                        }
+                        admin-state enable
                     }
                 }
                 interface "To_spine2" {
                     admin-state enable
                     ipv4 {
-                        fec-type-capability {
-                            p2mp-ipv4 true
-                        }
+                        admin-state enable
+                    }
+                }
+            }
+            targeted-session {
+                auto-tx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+                auto-rx {
+                    ipv4 {
+                        admin-state enable
                     }
                 }
             }
@@ -492,180 +499,50 @@ configure {
                 }
             }
         }
-        vpls "iptv-vpls-bd202" {
+        sdp 1 {
             admin-state enable
-            description "SDB VPLS"
-            service-id 202
-            customer "1"
-            routed-vpls {
-                multicast {
-                    ipv4 {
-                        forward-to-ip-interface true
-                    }
-                    evpn-gateway {
-                        admin-state enable
-                        advertise pim-only
-                        non-dr-attract-traffic none
-                    }
-                }
-            }
-            bgp 1 {
-            }
-            igmp-snooping {
-                admin-state enable
-            }
-            bgp-evpn {
-                evi 202
-                routes {
-                    mac-ip {
-                        advertise false
-                    }
-                    ip-prefix {
-                        advertise true
-                    }
-                    sel-mcast {
-                        advertise true
-                    }
-                }
-                mpls 1 {
-                    admin-state enable
-                    auto-bind-tunnel {
-                        resolution filter
-                        resolution-filter {
-                            sr-isis true
-                        }
-                    }
-                }
+            description "SDP to BNG1"
+            delivery-type mpls
+            signaling tldp
+            ldp true
+            far-end {
+                ip-address 1.1.1.1
             }
         }
-        vpls "iptv-vpls-bd203" {
+        sdp 2 {
             admin-state enable
-            service-id 203
-            customer "1"
-            routed-vpls {
-                multicast {
-                    ipv4 {
-                        forward-to-ip-interface true
-                    }
-                }
-            }
-            igmp-snooping {
-                admin-state enable
-                query-interval 60
-                query-source-address 0.0.0.0
-            }
-            bgp-evpn {
-                evi 203
-                routes {
-                    mac-ip {
-                        advertise false
-                    }
-                }
-                mpls 1 {
-                    admin-state enable
-                    auto-bind-tunnel {
-                        resolution filter
-                        resolution-filter {
-                            sr-isis true
-                        }
-                    }
-                }
-            }
-            split-horizon-group "IPTV" {
-                fdb {
-                    saps {
-                        auto-learn-mac-protect true
-                    }
-                }
-            }
-            sap 1/1/c4/1:85 {
-                admin-state enable
-                collect-stats true
-                split-horizon-group "IPTV"
-                igmp-snooping {
-                    query-interval 60
-                    query-response-interval 10
-                    fast-leave true
-                    send-queries true
-                }
-            }
-            sap 1/1/c5/1:85 {
-                admin-state enable
-                collect-stats true
-                split-horizon-group "IPTV"
-                igmp-snooping {
-                    query-interval 60
-                    query-response-interval 10
-                    fast-leave true
-                    send-queries true
-                }
+            description "SDP to BNG2"
+            delivery-type mpls
+            signaling tldp
+            ldp true
+            far-end {
+                ip-address 1.1.1.3
             }
         }
-        vprn "iptv" {
+        vpls "Internet-vpls" {
             admin-state enable
-            service-id 200
+            service-id 100
             customer "1"
-            igmp {
-                admin-state enable
-                query-interval 125
-                query-last-member-interval 1
-                query-response-interval 10
-                robust-count 2
-                interface "Default" {
-                    admin-state enable
-                }
-                interface "bd-203" {
-                    admin-state enable
-                }
-            }
-            pim {
-                admin-state enable
-                apply-to all
-                interface "bd-202" {
-                    multicast-senders always
-                }
-                interface "bd-203" {
-                    admin-state enable
-                    multicast-senders always
-                }
-            }
-            bgp {
+            spoke-sdp 1:100 {
                 admin-state enable
             }
-            interface "Default" {
+            spoke-sdp 2:100 {
                 admin-state enable
-                loopback true
-                ipv4 {
-                    primary {
-                        address 1.1.3.1
-                        prefix-length 32
+            }
+            sap 1/1/c5/1:10 {
+                admin-state enable
+            }
+            sap 1/1/c5/1:75 {
+                admin-state enable
+                ingress {
+                    vlan-manipulation {
+                        action preserve
                     }
                 }
-            }
-            interface "bd-202" {
-                admin-state enable
-                vpls "iptv-vpls-bd202" {
-                    evpn-tunnel {
-                        supplementary-broadcast-domain true
+                egress {
+                    vlan-manipulation {
+                        action preserve
                     }
-                }
-            }
-            interface "bd-203" {
-                admin-state enable
-                ipv4 {
-                    primary {
-                        address 10.203.0.1
-                        prefix-length 24
-                    }
-                    dhcp {
-                        admin-state enable
-                        server [1.1.10.1 1.1.10.3]
-                        trusted true
-                        gi-address 10.203.0.1
-                        src-ip-addr gi-address
-                    }
-                }
-                vpls "iptv-vpls-bd203" {
                 }
             }
         }
@@ -925,16 +802,10 @@ configure {
 
 persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
-    vrtr-id {
-        router-name "iptv" vrtr-id 2
-    }
     vrtr-if-id {
         router-name "Base" interface-name "To_spine1" vrtr-id 1 if-index 2
         router-name "Base" interface-name "To_spine2" vrtr-id 1 if-index 3
-        router-name "iptv" interface-name "Default" vrtr-id 2 if-index 5
-        router-name "iptv" interface-name "bd-202" vrtr-id 2 if-index 6
-        router-name "iptv" interface-name "bd-203" vrtr-id 2 if-index 7
     }
 }
 
-# Finished 2025-02-10T20:52:39.4Z
+# Finished 2025-03-20T18:21:02.0Z

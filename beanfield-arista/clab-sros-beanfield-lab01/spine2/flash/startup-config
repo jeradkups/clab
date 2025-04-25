@@ -1,4 +1,4 @@
-! Startup-config last modified at Sat Mar 22 13:39:34 2025 by root
+! Startup-config last modified at Thu Mar 27 23:37:01 2025 by root
 ! device: spine2 (cEOSLab, EOS-4.32.0F-36401836.4320F (engineering build))
 !
 no aaa root
@@ -29,7 +29,6 @@ management api netconf
    transport ssh default
 !
 interface Ethernet1/1
-   mtu 9202
    no switchport
    ip address unnumbered Loopback0
    mpls ldp igp sync
@@ -37,7 +36,6 @@ interface Ethernet1/1
    isis network point-to-point
 !
 interface Ethernet2/1
-   mtu 9202
    no switchport
    ip address unnumbered Loopback0
    mpls ldp igp sync
@@ -45,7 +43,6 @@ interface Ethernet2/1
    isis network point-to-point
 !
 interface Ethernet3/1
-   mtu 9202
    no switchport
    ip address unnumbered Loopback0
    mpls ldp igp sync
@@ -53,7 +50,6 @@ interface Ethernet3/1
    isis network point-to-point
 !
 interface Ethernet4/1
-   mtu 9202
    no switchport
    ip address unnumbered Loopback0
    mpls ldp igp sync

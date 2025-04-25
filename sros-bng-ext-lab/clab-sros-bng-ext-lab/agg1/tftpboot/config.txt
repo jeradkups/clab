@@ -1,12 +1,12 @@
-# TiMOS-B-24.3.R2-1 both/x86_64 Nokia 7750 SR Copyright (c) 2000-2024 Nokia.
+# TiMOS-B-24.10.R2 both/x86_64 Nokia 7750 SR Copyright (c) 2000-2024 Nokia.
 # All rights reserved. All use subject to applicable license agreements.
-# Built on Fri May 3 12:15:20 PDT 2024 by builder in /builds/243B/R2-1/panos/main/sros
-# Configuration format version 24.3 revision 0
+# Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
+# Configuration format version 24.10 revision 0
 
-# Generated 2025-02-16T17:04:52.8Z by admin from 172.31.255.29
+# Generated 2025-04-14T01:01:43.7Z by admin from 172.31.255.29
 # Commit ID 1
-#   Committed 2025-02-16T17:04:47.6Z by system (MD-CLI) from Console
-#   Log       "System booted version B-24.3.R2-1."
+#   Committed 2025-03-29T01:35:19.7Z by system (MD-CLI) from Console
+#   Log       "System booted version B-24.10.R2."
 
 configure {
     card 1 {
@@ -751,4 +751,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-02-16T17:04:52.8Z
+# Finished 2025-04-14T01:01:43.7Z

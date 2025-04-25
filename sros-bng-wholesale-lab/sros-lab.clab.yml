@@ -157,6 +157,9 @@ topology:
       mgmt-ipv4: 172.80.80.32
       binds:
         - CLIENT_CFG/BNG-HOST/dhcp.json:/root/dhcp.json
+        - CLIENT_CFG/BNG-HOST/dhcp301.json:/root/dhcp301.json
+        - CLIENT_CFG/BNG-HOST/dhcp302.json:/root/dhcp302.json
+
       exec:
         - apt install vlan tcpdump
         #- ip link add link eth1 name eth1.10 type vlan id 10

@@ -36,11 +36,3 @@ all:
           ansible_host: 
         clab-sros-bng-ext-lab-clab-2:
           ansible_host: 
-    vr-csr:
-      vars:
-        # ansible_connection: set ansible_connection variable if required
-        ansible_user: admin
-        ansible_password: admin
-      hosts:
-        clab-sros-bng-ext-lab-pe3:
-          ansible_host: 172.80.80.53

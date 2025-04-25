@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-03-22T13:39:33.6Z by admin from 172.31.255.29
-# Commit ID 8
-#   Committed 2025-03-22T13:30:51.6Z by admin (MD-CLI) from Console
+# Generated 2025-03-27T23:37:01.7Z by admin from 172.31.255.29
+# Commit ID 6
+#   Committed 2025-03-26T00:10:11.6Z by admin (MD-CLI) from Console
 
 configure {
     log {
@@ -536,6 +536,16 @@ configure {
             }
             sap 1/1/c5/1:10 {
                 admin-state enable
+                ingress {
+                    vlan-manipulation {
+                        action preserve
+                    }
+                }
+                egress {
+                    vlan-manipulation {
+                        action preserve
+                    }
+                }
             }
             sap 1/1/c5/1:75 {
                 admin-state enable
@@ -813,4 +823,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-03-22T13:39:33.6Z
+# Finished 2025-03-27T23:37:01.7Z

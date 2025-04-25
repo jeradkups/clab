@@ -11,28 +11,30 @@
         ],
 	"network": [
             {
-                "__comment__": "Network",
+                "__comment__": "Network-VPN301",
 		"interface": "eth1",
-		"address": "10.10.1.6",
-		"gateway": "10.10.1.5"
+		"address": "10.10.1.6/30",
+		"gateway": "10.10.1.5",
+		"vlan": 301
             }
 	],
         "access": [
             {
-                "__comment__": "DHCP Clients",
+                "__comment__": "DHCP Clients-VPN301",
                 "interface": "eth2",
-		"network-interface": "eth1",
                 "type": "ipoe",
 		"vlan-mode": "N:1",
                 "ipv6": false,
-                "outer-vlan": 100,
+                "outer-vlan": 101,
+		"i1-start": 1,
+		"i1-step": 1,
                 "stream-group-id": 1
             }
         ]
     },
     "access-line": {
-        "agent-remote-id": "BNG.DEMO.{session-global}",
-        "agent-circuit-id": "BNG.DEMO:{session-global}"
+        "agent-remote-id": "BNG.DEMO.{i1}",
+        "agent-circuit-id": "BNG.DEMO:{i1}"
     },
     "dhcp": {
         "enable": true,
@@ -40,20 +42,21 @@
 	"access-line": true
     },
     "sessions": {
-        "count": 1
+        "count": 5
     },
     "session-traffic": {
-        "ipv4-pps": 1
+        "ipv4-pps": 10
     },
     "streams": [
         {
             "stream-group-id": 1,
+	    "network-interface": "eth1:301",
             "name": "S1",
             "type": "ipv4",
             "direction": "both",
             "priority": 0,
             "length": 512,
-            "pps": 1
+            "pps": 10
         }
     ]
 }

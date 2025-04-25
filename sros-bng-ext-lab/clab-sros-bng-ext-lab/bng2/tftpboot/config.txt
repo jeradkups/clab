@@ -1,12 +1,11 @@
-# TiMOS-B-24.3.R2-1 both/x86_64 Nokia 7750 SR Copyright (c) 2000-2024 Nokia.
+# TiMOS-B-24.10.R2 both/x86_64 Nokia 7750 SR Copyright (c) 2000-2024 Nokia.
 # All rights reserved. All use subject to applicable license agreements.
-# Built on Fri May 3 12:15:20 PDT 2024 by builder in /builds/243B/R2-1/panos/main/sros
-# Configuration format version 24.3 revision 0
+# Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
+# Configuration format version 24.10 revision 0
 
-# Generated 2025-02-16T17:04:55.6Z by admin from 172.31.255.29
-# Commit ID 1
-#   Committed 2025-02-16T17:04:51.9Z by system (MD-CLI) from Console
-#   Log       "System booted version B-24.3.R2-1."
+# Generated 2025-04-14T01:01:43.9Z by admin from 172.31.255.29
+# Commit ID 86
+#   Committed 2025-04-14T00:59:31.5Z by admin (MD-CLI) from Console
 
 configure {
     aaa {
@@ -32,6 +31,141 @@ configure {
         mda 1 {
             admin-state enable
             mda-type me12-100gb-qsfp28
+            xconnect {
+                mac 1 {
+                    loopback 1 {
+                        bandwidth 100
+                    }
+                }
+            }
+        }
+    }
+    filter {
+        match-list {
+            ip-prefix-list "BOGON" {
+                prefix 10.0.0.0/8 { }
+                prefix 127.0.0.0/8 { }
+                prefix 169.254.0.0/16 { }
+                prefix 172.16.0.0/12 { }
+                prefix 192.0.2.0/24 { }
+                prefix 192.168.0.0/16 { }
+            }
+            ip-prefix-list "EXFO" {
+                prefix 192.168.77.0/30 { }
+            }
+            ip-prefix-list "SMTP-RELAY" {
+                prefix 76.9.193.160/27 { }
+                prefix 76.9.193.192/27 { }
+            }
+            port-list "SMTP" {
+                port 25 { }
+            }
+        }
+        ip-filter "FILTER:DYNAMIC:IN" {
+            default-action accept
+            type normal
+            filter-id 4
+            entry 1 {
+                match {
+                    protocol ip
+                    ip {
+                        ip-prefix-list "EXFO"
+                    }
+                }
+                action {
+                    accept
+                }
+            }
+            entry 2 {
+                match {
+                    protocol tcp
+                    dst-ip {
+                        ip-prefix-list "SMTP-RELAY"
+                    }
+                    dst-port {
+                        port-list "SMTP"
+                    }
+                }
+                action {
+                    accept
+                }
+            }
+            entry 3 {
+                match {
+                    protocol tcp
+                    dst-port {
+                        port-list "SMTP"
+                    }
+                }
+                action {
+                    drop
+                }
+            }
+            entry 4 {
+                match {
+                    protocol ip
+                    ip {
+                        ip-prefix-list "BOGON"
+                    }
+                }
+                action {
+                    drop
+                }
+            }
+        }
+        ip-filter "FILTER:DYNAMIC:OUT" {
+            default-action accept
+            type normal
+            filter-id 5
+            entry 1 {
+                match {
+                    protocol tcp
+                    dst-port {
+                        port-list "SMTP"
+                    }
+                }
+                action {
+                    drop
+                }
+            }
+        }
+    }
+    fwd-path-ext {
+        sdp-id-range {
+            start 30001
+            end 30128
+        }
+        fpe 1 {
+            path {
+                xc-lag-a "lag-internalXC1"
+                xc-lag-b "lag-internalXC2"
+            }
+            application {
+                pw-port-extension {
+                }
+            }
+        }
+    }
+    lag "lag-internalXC1" {
+        admin-state enable
+        encap-type dot1q
+        mode hybrid
+        lacp {
+            mode active
+            administrative-key 65534
+        }
+        port pxc-1.a {
+        }
+    }
+    lag "lag-internalXC2" {
+        admin-state enable
+        encap-type dot1q
+        mode hybrid
+        lacp {
+            mode active
+            administrative-key 65535
+        }
+        port pxc-1.b {
         }
     }
     log {
@@ -90,12 +224,47 @@ configure {
         community "ESM_Customers_301" {
             member "64512:301" { }
         }
+        community "NO-EXPORT" {
+            member "no-export" { }
+        }
+        community "RT:INTERNET" {
+            member "target:21949:4" { }
+            member "target:64512:4" { }
+        }
+        community "RT:VOIPUNTRUSTED" {
+            member "target:21949:11" { }
+            member "target:64512:11" { }
+        }
+        community "TYPE:BLACKHOLE" {
+            member "21949:666" { }
+            member "64512:666" { }
+        }
+        community "TYPE:DIRECT" {
+            member "21949:1002" { }
+            member "64512:1002" { }
+        }
+        community "TYPE:STATIC" {
+            member "21949:1003" { }
+            member "64512:1003" { }
+        }
         prefix-list "ESM_Customers" {
             prefix 172.100.0.0/16 type exact {
             }
         }
         prefix-list "ESM_Host" {
             prefix 172.100.255.0/24 type range {
+                start-length 32
+                end-length 32
+            }
+        }
+        prefix-list "LDP-Block" {
+            prefix 1.1.1.2/32 type exact {
+            }
+            prefix 1.1.1.4/32 type exact {
+            }
+        }
+        prefix-list "LDP_Loopback" {
+            prefix 0.0.0.0/0 type range {
                 start-length 32
                 end-length 32
             }
@@ -129,6 +298,166 @@ configure {
                 }
             }
         }
+        policy-statement "LDP_Import" {
+            entry 10 {
+                from {
+                    prefix-list ["LDP_Loopback"]
+                    protocol {
+                        name [ldp]
+                    }
+                }
+                action {
+                    action-type accept
+                }
+            }
+            entry 100 {
+                action {
+                    action-type reject
+                }
+            }
+            default-action {
+                action-type reject
+            }
+        }
+        policy-statement "POLICY:GRT:IN" {
+            entry-type numbered
+            entry 10 {
+                from {
+                    family [vpn-ipv4]
+                    community {
+                        name "TYPE:BLACKHOLE"
+                    }
+                }
+                action {
+                    action-type accept
+                    next-hop 192.168.6.6
+                    resolve-static true
+                }
+            }
+            default-action {
+                action-type accept
+            }
+        }
+        policy-statement "POLICY:RI:INTERNET:IN" {
+            entry-type numbered
+            entry 20 {
+                from {
+                    community {
+                        name "RT:INTERNET"
+                    }
+                }
+                action {
+                    action-type accept
+                }
+            }
+        }
+        policy-statement "POLICY:RI:INTERNET:OUT" {
+            entry-type named
+            named-entry "DIRECT:ALL" {
+                from {
+                    protocol {
+                        name [direct]
+                    }
+                }
+                action {
+                    action-type accept
+                    local-preference 790
+                    origin igp
+                    bgp-med {
+                        set 1
+                    }
+                    community {
+                        add ["RT:INTERNET" "TYPE:DIRECT" "NO-EXPORT"]
+                    }
+                }
+            }
+            named-entry "STATIC:ALL" {
+                from {
+                    protocol {
+                        name [static]
+                    }
+                }
+                action {
+                    action-type accept
+                    local-preference 790
+                    origin igp
+                    bgp-med {
+                        set 2
+                    }
+                    community {
+                        add ["RT:INTERNET" "TYPE:STATIC" "NO-EXPORT"]
+                    }
+                }
+            }
+        }
+        policy-statement "POLICY:RI:VOIPUNTRUSTED:IN" {
+            entry-type named
+            named-entry "DISCARD:RTBH" {
+                from {
+                    community {
+                        name "TYPE:BLACKHOLE"
+                    }
+                }
+                action {
+                    action-type accept
+                }
+            }
+            named-entry "ACCEPT" {
+                from {
+                    community {
+                        name "RT:VOIPUNTRUSTED"
+                    }
+                }
+                action {
+                    action-type accept
+                }
+            }
+        }
+        policy-statement "POLICY:RI:VOIPUNTRUSTED:OUT" {
+            entry-type named
+            named-entry "DIRECT:ALL" {
+                from {
+                    protocol {
+                        name [direct]
+                    }
+                }
+                action {
+                    action-type accept
+                    local-preference 790
+                    origin igp
+                    bgp-med {
+                        set 1
+                    }
+                    community {
+                        add ["RT:VOIPUNTRUSTED" "TYPE:DIRECT" "NO-EXPORT"]
+                    }
+                }
+            }
+            named-entry "STATIC:ALL" {
+                from {
+                    protocol {
+                        name [static]
+                    }
+                }
+                action {
+                    action-type accept
+                    local-preference 790
+                    origin igp
+                    bgp-med {
+                        set 2
+                    }
+                    community {
+                        add ["RT:VOIPUNTRUSTED" "TYPE:STATIC" "NO-EXPORT"]
+                    }
+                }
+            }
+        }
+    }
+    port pxc-1.a {
+        admin-state enable
+    }
+    port pxc-1.b {
+        admin-state enable
     }
     port 1/1/c1 {
         admin-state enable
@@ -187,6 +516,15 @@ configure {
     }
     port 1/1/c12 {
     }
+    port 1/1/m1/1 {
+        admin-state enable
+    }
+    port-xc {
+        pxc 1 {
+            admin-state enable
+            port-id 1/1/m1/1
+        }
+    }
     pw-port 1000 {
         sdp 13 {
             admin-state enable
@@ -194,12 +532,19 @@ configure {
         }
     }
     pw-port 4001 {
-        sdp 4001 {
+        encap-type qinq
+        epipe "bng-epipe-1" {
             admin-state enable
-            vc-id 4001
-            vc-type ether
-            control-word true
-            adv-service-mtu 1500
+            fpe-id 1
+            oper-up-on-mh-standby true
+        }
+    }
+    pw-port 4005 {
+        encap-type qinq
+        epipe "bng-epipe-1-voice" {
+            admin-state enable
+            fpe-id 1
+            oper-up-on-mh-standby true
         }
     }
     qos {
@@ -219,13 +564,29 @@ configure {
                 }
             }
         }
+        sap-ingress "voice" {
+            policy-id 30
+            default-fc "ef"
+            policer 1 {
+                rate {
+                    pir 10000
+                    cir 2000
+                }
+            }
+            fc "ef" {
+                policer 1
+                in-remark {
+                    dscp ef
+                }
+            }
+        }
         sap-egress "default" {
         }
         sap-egress "internet" {
             policy-id 20
             queue 1 {
                 rate {
-                    pir 50000
+                    pir 8500000
                 }
             }
             fc be {
@@ -237,6 +598,26 @@ configure {
                 dscp {
                     in-profile be
                     out-profile be
+                }
+            }
+        }
+        sap-egress "voice" {
+            policy-id 30
+            policer 1 {
+                rate {
+                    pir 10000
+                    cir 2000
+                }
+            }
+            fc ef {
+                policer 1
+                dot1p {
+                    in-profile 5
+                    out-profile 5
+                }
+                dscp {
+                    in-profile ef
+                    out-profile ef
                 }
             }
         }
@@ -255,11 +636,11 @@ configure {
                         ipoe true
                     }
                     tags {
-                        pw-port 1000 {
-                            sync-tag "301"
-                        }
                         pw-port 4001 {
                             sync-tag "4001"
+                        }
+                        pw-port 4005 {
+                            sync-tag "4005"
                         }
                     }
                 }
@@ -272,10 +653,14 @@ configure {
         router-id 1.1.1.2
         interface "system" {
             ipv4 {
-                local-dhcp-server "bng_dhcp_1"
                 primary {
                     address 1.1.1.2
                     prefix-length 32
+                }
+            }
+            ipv6 {
+                address 2606:880:0:200::1 {
+                    prefix-length 128
                 }
             }
         }
@@ -344,8 +729,8 @@ configure {
             rapid-update {
                 evpn true
             }
-            export {
-                policy ["Customer_nets"]
+            import {
+                policy ["POLICY:GRT:IN"]
             }
             group "iBGP" {
                 next-hop-self true
@@ -354,6 +739,8 @@ configure {
                 local-address 1.1.1.2
                 family {
                     ipv4 true
+                    vpn-ipv4 true
+                    vpn-ipv6 true
                     evpn true
                 }
                 local-as {
@@ -365,61 +752,6 @@ configure {
             }
             neighbor "1.1.1.5" {
                 group "iBGP"
-            }
-        }
-        dhcp-server {
-            dhcpv4 "bng_dhcp_1" {
-                admin-state enable
-                description "DHCP server for BNG testing"
-                pool-selection {
-                    use-gi-address {
-                        scope subnet
-                    }
-                }
-                failover {
-                    admin-state enable
-                    peer 1.1.1.1 {
-                        sync-tag "301"
-                    }
-                }
-                pool "pool1" {
-                    max-lease-time 900
-                    options {
-                        option lease-time {
-                            duration 900
-                        }
-                    }
-                    subnet 172.100.0.0/16 {
-                        options {
-                            option subnet-mask {
-                                hex-string 0xffff0000
-                            }
-                            option default-router {
-                                hex-string 0xac640001
-                            }
-                        }
-                        address-range 172.100.255.1 end 172.100.255.255 {
-                        }
-                    }
-                }
-            }
-            dhcpv6 "bng_dhcp6_1" {
-                description "DHCPv6 server for BNG testing"
-                pool-selection {
-                    use-link-address {
-                        scope pool
-                    }
-                    use-pool-from-client {
-                    }
-                }
-                failover {
-                    admin-state enable
-                    peer 1.1.1.1 {
-                        sync-tag "3001"
-                    }
-                }
-                pool "pool1" {
-                }
             }
         }
         isis 0 {
@@ -447,6 +779,7 @@ configure {
         }
         ldp {
             admin-state enable
+            import-policy ["LDP_Import"]
             ldp-shortcut {
                 ipv4 true
             }
@@ -454,6 +787,12 @@ configure {
                 interface "to_agg1" {
                     admin-state enable
                     ipv4 {
+                    }
+                }
+                interface "to_agg3" {
+                    admin-state enable
+                    ipv4 {
+                        admin-state enable
                     }
                 }
                 interface "to_bng1" {
@@ -481,6 +820,9 @@ configure {
                 rsvp-te true
             }
             interface "to_agg1" {
+            }
+            interface "to_agg3" {
+                admin-state enable
             }
             interface "to_bng1" {
             }
@@ -536,166 +878,70 @@ configure {
             interface "to_agg1" {
                 admin-state enable
             }
+            interface "to_agg3" {
+                admin-state disable
+            }
             interface "to_bng1" {
                 admin-state enable
             }
         }
-    }
-    service {
-        ies "301" {
-            admin-state enable
-            customer "1"
-            vpn-id 301
-            redundant-interface "redundant-to-bng1" {
-                admin-state enable
-                spoke-sdp 2:301 {
+        static-routes {
+            route 192.168.6.6/32 route-type unicast {
+                tag 666
+                blackhole {
                     admin-state enable
                 }
-                ipv4 {
-                    primary {
-                        address 20.2.3.1
-                        prefix-length 31
+            }
+        }
+    }
+    service {
+        oper-group "MF2-OLT1-Internet" {
+            hold-time {
+                down 1
+                up 0
+            }
+        }
+        system {
+            bgp {
+                evpn {
+                    ethernet-segment "MF2-OLT1" {
+                        admin-state disable
+                        type virtual
+                        esi 0x01000000002300000001
+                        multi-homing-mode single-active
+                        df-election {
+                            es-activation-timer 3
+                            service-carving-mode manual
+                            manual {
+                                preference {
+                                    value 10
+                                }
+                            }
+                        }
                     }
                 }
             }
-            subscriber-interface "Sub1" {
-                ipv4 {
-                    allow-unmatching-subnets true
-                    address 172.100.0.3 {
-                        prefix-length 16
-                        gateway 172.100.0.1
-                        track-srrp 301
-                    }
-                    dhcp {
-                        gi-address 172.100.0.3
-                    }
-                }
-                group-interface "GI-1" {
-                    radius-auth-policy "IPOE Auth"
-                    oper-up-while-empty true
-                    redundant-interface "redundant-to-bng1"
-                    dynamic-routes-track-srrp {
-                        hold-time 10
-                    }
-                    ipv4 {
-                        neighbor-discovery {
-                            local-proxy-arp true
-                            populate true
-                        }
-                        dhcp {
-                            admin-state enable
-                            server [1.1.1.2]
-                            trusted true
-                            gi-address 172.100.0.3
-                            src-ip-addr gi-address
-                            lease-populate {
-                                max-leases 1000
-                            }
-                        }
-                    }
-                    ipoe-session {
-                        admin-state enable
-                        ipoe-session-policy "IPOE Auth"
-                        user-db "IPOE User DB"
-                        sap-session-limit 1000
-                    }
-                    local-address-assignment {
-                        admin-state enable
-                        ipv4 {
-                            server "bng_dhcp_1"
-                        }
-                    }
-                    srrp 301 {
-                        admin-state enable
-                        gw-mac 00:00:5e:00:00:01
-                        keep-alive-interval 100
-                        message-path pw-1000:4080
-                        priority 10
-                        one-garp-per-sap true
-                    }
-                    sap pw-1000:200 {
-                        sub-sla-mgmt {
-                            admin-state enable
-                            subscriber-limit 1000
-                            defaults {
-                                sub-profile "Internet"
-                                sla-profile "Internet"
-                                subscriber-id {
-                                    auto-id
-                                }
-                            }
-                        }
-                    }
-                    sap pw-1000:4080 {
-                        admin-state enable
-                        sub-sla-mgmt {
-                            admin-state disable
-                        }
-                    }
-                }
-                group-interface "MF2" {
-                    radius-auth-policy "IPOE Auth"
-                    oper-up-while-empty true
-                    redundant-interface "redundant-to-bng1"
-                    dynamic-routes-track-srrp {
-                        hold-time 10
-                    }
-                    ipv4 {
-                        neighbor-discovery {
-                            local-proxy-arp true
-                            populate true
-                        }
-                        dhcp {
-                            admin-state enable
-                            server [1.1.1.1]
-                            trusted true
-                            gi-address 172.100.0.3
-                            src-ip-addr gi-address
-                            lease-populate {
-                                max-leases 1000
-                            }
-                        }
-                    }
-                    ipoe-session {
-                        admin-state enable
-                        ipoe-session-policy "IPOE Auth"
-                        user-db "IPOE User DB"
-                        sap-session-limit 1000
-                    }
-                    local-address-assignment {
-                        admin-state enable
-                        ipv4 {
-                            server "bng_dhcp_1"
-                        }
-                    }
-                    srrp 4001 {
-                        admin-state enable
-                        gw-mac 00:00:5e:00:00:01
-                        keep-alive-interval 100
-                        message-path pw-4001:4080
-                        priority 100
-                        one-garp-per-sap true
-                    }
-                    sap pw-4001:4001 {
-                        sub-sla-mgmt {
-                            admin-state enable
-                            subscriber-limit 1000
-                            defaults {
-                                sub-profile "Internet"
-                                sla-profile "Internet"
-                                subscriber-id {
-                                    auto-id
-                                }
-                            }
-                        }
-                    }
-                    sap pw-4001:4080 {
-                        admin-state enable
-                        sub-sla-mgmt {
-                            admin-state disable
-                        }
-                    }
-                }
+        }
+        epipe "bng-epipe-1" {
+            admin-state enable
+            service-id 4001
+            customer "1"
+            vc-switching true
+            spoke-sdp 4001:4001 {
+                admin-state enable
+                control-word false
+                vc-type ether
+            }
+        }
+        epipe "bng-epipe-1-voice" {
+            admin-state enable
+            service-id 400510
+            customer "1"
+            vc-switching true
+            spoke-sdp 4001:4005 {
+                admin-state enable
+                control-word false
+                vc-type ether
             }
         }
         sdp 2 {
@@ -736,8 +982,527 @@ configure {
             far-end {
                 ip-address 10.0.131.1
             }
-            pw-port {
-                binding-port 1/1/c2/1
+        }
+        vpls "voice-vpls" {
+            admin-state enable
+            service-id 40051
+            customer "1"
+            fdb {
+                mac-learning {
+                    learning true
+                }
+            }
+            routed-vpls {
+            }
+            bgp-evpn {
+                evi 40051
+                routes {
+                    mac-ip {
+                        advertise true
+                        arp-nd-only-with-fdb-advertisement true
+                    }
+                    ip-prefix {
+                        advertise true
+                    }
+                }
+                mpls 1 {
+                    admin-state enable
+                    ingress-replication-bum-label true
+                    auto-bind-tunnel {
+                        resolution filter
+                        resolution-filter {
+                            ldp true
+                        }
+                    }
+                }
+            }
+            split-horizon-group "OLTs" {
+            }
+        }
+        vprn "internet" {
+            admin-state enable
+            service-id 4
+            customer "1"
+            autonomous-system 64512
+            ecmp 1
+            bgp-ipvpn {
+                mpls {
+                    admin-state enable
+                    route-distinguisher "1.1.1.2:4"
+                    vrf-target {
+                        community "target:64512:4"
+                    }
+                    vrf-import {
+                        policy ["POLICY:RI:INTERNET:IN"]
+                    }
+                    vrf-export {
+                        policy ["POLICY:RI:INTERNET:OUT"]
+                    }
+                    auto-bind-tunnel {
+                        ecmp 2
+                        resolution filter
+                        static-blackhole-first true
+                        resolution-filter {
+                            ldp true
+                        }
+                    }
+                }
+            }
+            bgp {
+                admin-state enable
+            }
+            interface "loopback" {
+                admin-state enable
+                loopback true
+                ipv4 {
+                    primary {
+                        address 1.4.1.2
+                        prefix-length 32
+                    }
+                }
+                ipv6 {
+                    address 2606:880:0:600:: {
+                        prefix-length 128
+                    }
+                }
+            }
+            interface "siaddr" {
+                admin-state enable
+                loopback true
+                ipv4 {
+                    primary {
+                        address 72.15.48.83
+                        prefix-length 32
+                    }
+                }
+                ipv6 {
+                    address 2606:880:0:500:: {
+                        prefix-length 128
+                    }
+                }
+            }
+            redundant-interface "to_bng1" {
+                admin-state enable
+                spoke-sdp 2:4001 {
+                    admin-state enable
+                }
+                ipv4 {
+                    primary {
+                        address 10.10.1.1
+                        prefix-length 31
+                    }
+                }
+            }
+            dhcp-server {
+                dhcpv4 "SERVER-DHCPv4" {
+                    admin-state disable
+                    description "DHCPv4 server for BNG testing"
+                    pool-selection {
+                        use-gi-address {
+                            scope pool
+                        }
+                    }
+                    failover {
+                        admin-state enable
+                        peer 1.1.1.1 {
+                            sync-tag "4-dhcpv4"
+                        }
+                    }
+                    pool "POOL" {
+                        max-lease-time 900
+                        options {
+                            option lease-time {
+                                duration 900
+                            }
+                        }
+                        subnet 50.21.64.0/24 {
+                            options {
+                                option subnet-mask {
+                                    ipv4-address [255.255.255.0]
+                                }
+                                option default-router {
+                                    ipv4-address [50.21.64.1]
+                                }
+                            }
+                            address-range 50.21.64.4 end 50.21.64.250 {
+                            }
+                            exclude-addresses 50.21.64.1 end 50.21.64.3 { }
+                        }
+                    }
+                }
+                dhcpv6 "SERVER-DHCPv6" {
+                    admin-state disable
+                    description "DHCPv6 server for BNG testing"
+                    pool-selection {
+                        use-link-address {
+                            scope pool
+                        }
+                    }
+                    failover {
+                        admin-state enable
+                        peer 1.1.1.1 {
+                            sync-tag "4-dhcpv6"
+                        }
+                    }
+                    pool "POOL" {
+                        delegated-prefix {
+                            length 64
+                        }
+                        prefix 2606:880::/56 {
+                            preferred-lifetime 3600
+                            valid-lifetime 86400
+                            renew-time 300
+                            rebind-time 400
+                            prefix-type {
+                                pd true
+                            }
+                        }
+                        prefix 2606:880:0:100::/64 {
+                            preferred-lifetime 3600
+                            valid-lifetime 86400
+                            renew-time 300
+                            rebind-time 400
+                            prefix-type {
+                                wan-host true
+                            }
+                            options {
+                                option dns-server {
+                                    ipv6-address [2001:4860:4860::8888]
+                                }
+                            }
+                        }
+                        exclude-prefix 2606:880::/128 { }
+                        exclude-prefix 2606:880:0:1::/64 { }
+                    }
+                }
+            }
+            subscriber-interface "Sub1" {
+                admin-state enable
+                wan-mode mode128
+                ipv4 {
+                    allow-unmatching-subnets true
+                    address 50.21.64.3 {
+                        prefix-length 24
+                        gateway 50.21.64.1
+                        populate-host-routes true
+                    }
+                }
+                ipv6 {
+                    allow-unmatching-prefixes true
+                    delegated-prefix-length variable
+                    prefix 2606:880::/56 {
+                        host-type pd
+                    }
+                    prefix 2606:880:0:100::/64 {
+                        host-type wan
+                    }
+                }
+                hold-time {
+                    ipv4 {
+                        down {
+                            seconds 60
+                            init-only true
+                        }
+                    }
+                    ipv6 {
+                        down {
+                            seconds 60
+                            init-only true
+                        }
+                    }
+                }
+                group-interface "MF2" {
+                    admin-state enable
+                    oper-up-while-empty true
+                    redundant-interface "to_bng1"
+                    dynamic-routes-track-srrp {
+                        hold-time 10
+                    }
+                    ipv4 {
+                        urpf-check {
+                            mode loose
+                        }
+                        neighbor-discovery {
+                            local-proxy-arp true
+                            populate true
+                        }
+                        dhcp {
+                            admin-state enable
+                            server [1.2.1.5]
+                            trusted true
+                            gi-address 1.4.1.2
+                            src-ip-addr gi-address
+                            lease-populate {
+                                max-leases 10000
+                            }
+                            relay-proxy {
+                                release-update-src-ip true
+                                siaddr-override 72.15.48.83
+                            }
+                        }
+                    }
+                    ipv6 {
+                        auto-reply {
+                            router-solicitation true
+                        }
+                        urpf-check {
+                            mode loose
+                        }
+                        dhcp6 {
+                            pd-managed-route {
+                                next-hop ipv6
+                            }
+                            relay {
+                                admin-state enable
+                                source-address 2606:880:0:600::
+                                link-address 2606:880:0:100::
+                                server ["2606:880:0:800::"]
+                                client-applications {
+                                    dhcp true
+                                }
+                            }
+                        }
+                        router-advertisements {
+                            admin-state enable
+                            max-advertisement-interval 1200
+                            min-advertisement-interval 900
+                            options {
+                                managed-configuration true
+                                router-lifetime 4500
+                                dns {
+                                    include-rdnss true
+                                    rdnss-lifetime infinite
+                                }
+                            }
+                        }
+                    }
+                    ipoe-linking {
+                        admin-state enable
+                        gratuitous-router-advertisement true
+                        shared-circuit-id true
+                    }
+                    ipoe-session {
+                        admin-state enable
+                        ipoe-session-policy "IPOE Auth"
+                        user-db "Default"
+                        sap-session-limit 1000
+                    }
+                    local-address-assignment {
+                        admin-state enable
+                        ipv4 {
+                            server "SERVER-DHCPv4"
+                        }
+                        ipv6 {
+                            server "SERVER-DHCPv6"
+                            client-applications {
+                                ppp-slaac false
+                                ipoe-wan true
+                                ipoe-slaac false
+                            }
+                        }
+                    }
+                    srrp 4001 {
+                        admin-state enable
+                        gw-mac 00:00:5e:00:00:01
+                        keep-alive-interval 10
+                        message-path pw-4001:4001.4080
+                        priority 10
+                        one-garp-per-sap true
+                    }
+                    sap pw-4001:4001.0 {
+                        admin-state disable
+                        anti-spoof next-hop-ip-and-mac-addr
+                        sub-sla-mgmt {
+                            admin-state enable
+                            subscriber-limit 10000
+                            defaults {
+                                sub-profile "Internet"
+                                sla-profile "Internet"
+                                subscriber-id {
+                                    auto-id
+                                }
+                            }
+                        }
+                    }
+                    sap pw-4001:4001.4001 {
+                        admin-state enable
+                        anti-spoof next-hop-ip-and-mac-addr
+                        sub-sla-mgmt {
+                            admin-state enable
+                            subscriber-limit 10000
+                            defaults {
+                                sub-profile "Internet"
+                                sla-profile "Internet"
+                                subscriber-id {
+                                    auto-id
+                                }
+                            }
+                        }
+                    }
+                    sap pw-4001:4001.4080 {
+                        admin-state enable
+                        sub-sla-mgmt {
+                            admin-state disable
+                        }
+                    }
+                }
+            }
+        }
+        vprn "voice" {
+            admin-state enable
+            service-id 4005
+            customer "1"
+            autonomous-system 64512
+            ecmp 1
+            bgp-ipvpn {
+                mpls {
+                    admin-state enable
+                    route-distinguisher "1.1.1.2:4005"
+                    vrf-target {
+                        community "target:64512:4005"
+                    }
+                    auto-bind-tunnel {
+                        ecmp 2
+                        resolution filter
+                        resolution-filter {
+                            ldp true
+                        }
+                    }
+                }
+            }
+            bgp {
+                admin-state enable
+            }
+            interface "MF2" {
+                admin-state enable
+                ipv4 {
+                    primary {
+                        address 10.2.1.3
+                        prefix-length 24
+                    }
+                    dhcp {
+                        admin-state enable
+                        server [1.1.1.2]
+                        trusted true
+                        gi-address 10.2.1.3
+                        src-ip-addr gi-address
+                    }
+                    vrrp 1 {
+                        admin-state enable
+                        backup [10.2.1.1]
+                        passive true
+                        ping-reply true
+                        traceroute-reply true
+                    }
+                }
+                vpls "voice-vpls" {
+                }
+            }
+            interface "default" {
+                admin-state enable
+                loopback true
+                ipv4 {
+                    local-dhcp-server "Voice-DHCP4"
+                    primary {
+                        address 1.1.1.2
+                        prefix-length 32
+                    }
+                }
+            }
+            dhcp-server {
+                dhcpv4 "Voice-DHCP4" {
+                    admin-state enable
+                    description "DHCPv4 server for BNG testing"
+                    pool-selection {
+                        use-gi-address {
+                            scope pool
+                        }
+                    }
+                    failover {
+                        admin-state enable
+                        peer 1.1.1.1 {
+                            sync-tag "4005-dhcpv4"
+                        }
+                    }
+                    pool "POOL" {
+                        max-lease-time 900
+                        options {
+                            option lease-time {
+                                duration 900
+                            }
+                        }
+                        subnet 10.2.1.0/24 {
+                            options {
+                                option subnet-mask {
+                                    ipv4-address [255.255.255.0]
+                                }
+                                option default-router {
+                                    ipv4-address [10.2.1.1]
+                                }
+                            }
+                            address-range 10.2.1.4 end 10.2.1.250 {
+                            }
+                            exclude-addresses 10.2.1.1 end 10.2.1.3 { }
+                        }
+                    }
+                }
+            }
+        }
+        vprn "voip-untrusted" {
+            admin-state enable
+            service-id 11
+            customer "1"
+            autonomous-system 64512
+            ecmp 1
+            bgp-ipvpn {
+                mpls {
+                    admin-state enable
+                    route-distinguisher "1.1.1.1:11"
+                    vrf-target {
+                        community "target:64512:11"
+                    }
+                    vrf-import {
+                        policy ["POLICY:RI:VOIPUNTRUSTED:IN"]
+                    }
+                    vrf-export {
+                        policy ["POLICY:RI:VOIPUNTRUSTED:OUT"]
+                    }
+                    auto-bind-tunnel {
+                        ecmp 2
+                        resolution filter
+                        resolution-filter {
+                            ldp true
+                        }
+                    }
+                }
+            }
+            bgp {
+                admin-state enable
+            }
+            subscriber-interface "Voice1" {
+                admin-state enable
+                ipv4 {
+                    allow-unmatching-subnets true
+                    address 172.30.90.3 {
+                        prefix-length 24
+                        gateway 172.30.90.1
+                        populate-host-routes true
+                    }
+                }
+                hold-time {
+                    ipv4 {
+                        down {
+                            seconds 60
+                            init-only true
+                        }
+                    }
+                    ipv6 {
+                        down {
+                            seconds 60
+                            init-only true
+                        }
+                    }
+                }
             }
         }
     }
@@ -745,6 +1510,8 @@ configure {
         ipoe-session-policy "IPOE Auth" {
             circuit-id-from-auth true
             session-key {
+                sap true
+                mac true
                 cid true
             }
         }
@@ -756,14 +1523,45 @@ configure {
                 }
             }
         }
+        sub-profile "Voice" {
+            sla-profile-map {
+                use-direct-map-as-default true
+                entry "Voice" {
+                    sla-profile "Voice"
+                }
+            }
+        }
         sla-profile "Internet" {
             description "Default Internet SLA"
+            host-limits {
+                ipv4 {
+                    dhcp 4
+                }
+                ipv6 {
+                    pd-ipoe-dhcp 2
+                    wan-ipoe-dhcp 2
+                }
+            }
             ingress {
                 qos {
                     sap-ingress {
                         policy-name "internet"
                     }
                 }
+            }
+        }
+        sla-profile "Voice" {
+            description "Default Voice SLA"
+            egress {
+                ip-filter "FILTER:DYNAMIC:OUT"
+                qos {
+                    sap-egress {
+                        policy-name "voice"
+                    }
+                }
+            }
+            ingress {
+                ip-filter "FILTER:DYNAMIC:IN"
             }
         }
         sub-ident-policy "BNG1" {
@@ -798,6 +1596,9 @@ configure {
                 }
             }
         }
+        auto-sub-id {
+            ipoe-key [mac remote-id]
+        }
         msap-policy "Dynamic MSAPs" {
             sub-sla-mgmt {
                 defaults {
@@ -809,6 +1610,15 @@ configure {
                 }
                 single-sub-parameters {
                     profiled-traffic-only true
+                }
+            }
+        }
+        local-user-db "Default" {
+            admin-state enable
+            ipoe {
+                match-list [circuit-id]
+                host "default" {
+                    admin-state enable
                 }
             }
         }
@@ -1216,14 +2026,23 @@ configure {
 
 persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
+    vrtr-id {
+        router-name "internet" vrtr-id 2
+        router-name "voice" vrtr-id 3
+        router-name "voip-untrusted" vrtr-id 4
+    }
     vrtr-if-id {
-        router-name "301" interface-name "GI-1" vrtr-id 1 if-index 7
-        router-name "301" interface-name "MF2" vrtr-id 1 if-index 8
-        router-name "301" interface-name "Sub1" vrtr-id 1 if-index 6
-        router-name "301" interface-name "redundant-to-bng1" vrtr-id 1 if-index 5
         router-name "Base" interface-name "to_agg1" vrtr-id 1 if-index 2
         router-name "Base" interface-name "to_agg3" vrtr-id 1 if-index 3
         router-name "Base" interface-name "to_bng1" vrtr-id 1 if-index 4
+        router-name "internet" interface-name "MF2" vrtr-id 2 if-index 8
+        router-name "internet" interface-name "Sub1" vrtr-id 2 if-index 7
+        router-name "internet" interface-name "loopback" vrtr-id 2 if-index 14
+        router-name "internet" interface-name "siaddr" vrtr-id 2 if-index 6
+        router-name "internet" interface-name "to_bng1" vrtr-id 2 if-index 12
+        router-name "voice" interface-name "MF2" vrtr-id 3 if-index 10
+        router-name "voice" interface-name "default" vrtr-id 3 if-index 9
+        router-name "voip-untrusted" interface-name "Voice1" vrtr-id 4 if-index 11
     }
     mpls-lsp-index {
         lsp-name "to_agg2" type 2 lsp-index 1
@@ -1237,10 +2056,20 @@ persistent-indices {
     msap-policy-id {
         name "Dynamic MSAPs" id 1
     }
+    chassis-mac {
+        client lag index 65 pool 1 offset 385
+        client lag index 66 pool 1 offset 386
+        client pxc index 0 pool 1 offset 1
+        client pxc index 1 pool 1 offset 2
+    }
     log-name-id {
         log-name "9" log-id 9 context 1 vrtr-id 1
         log-name "testing" log-id 1 context 1 vrtr-id 1
     }
+    lag-name-id-max-ports-32 {
+        lag-name "lag-internalXC1" lag-id 65
+        lag-name "lag-internalXC2" lag-id 66
+    }
 }
 
-# Finished 2025-02-16T17:04:55.7Z
+# Finished 2025-04-14T01:01:44.0Z

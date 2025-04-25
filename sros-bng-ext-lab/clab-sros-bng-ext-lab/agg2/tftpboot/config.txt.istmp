@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-01-22T01:31:19.0Z by system from Console
-# Commit ID 7
-#   Committed 2025-01-22T01:31:18.6Z by admin (MD-CLI) from Console
+# Generated 2025-04-03T04:20:59.5Z by system from Console
+# Commit ID 13
+#   Committed 2025-04-03T04:20:59.4Z by admin (MD-CLI) from Console
 
 configure {
     card 1 {
@@ -261,6 +261,26 @@ configure {
         }
     }
     service {
+        epipe "test" {
+            admin-state enable
+            service-id 100
+            customer "1"
+            spoke-sdp 12:100 {
+                admin-state enable
+                vlan-vc-tag 100
+                control-word false
+                force-vc-forwarding vlan
+                vc-type ether
+            }
+            sap 1/1/2:100 {
+                admin-state enable
+                ingress {
+                    vlan-manipulation {
+                        action preserve
+                    }
+                }
+            }
+        }
         sdp 12 {
             admin-state enable
             delivery-type mpls
@@ -286,7 +306,7 @@ configure {
             }
         }
         sdp 14 {
-            admin-state enable
+            admin-state disable
             delivery-type mpls
             signaling tldp
             ldp true
@@ -676,4 +696,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-01-22T01:31:19.1Z
+# Finished 2025-04-03T04:20:59.9Z

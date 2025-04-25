@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-03-19T16:38:03.8Z by system from Console
-# Commit ID 34
-#   Committed 2025-03-19T16:38:03.5Z by admin (MD-CLI) from Console
+# Generated 2025-03-26T17:20:31.9Z by system from Console
+# Commit ID 24
+#   Committed 2025-03-26T17:20:31.7Z by admin (MD-CLI) from Console
 
 configure {
     aaa {
@@ -42,6 +42,77 @@ configure {
         }
     }
     filter {
+        match-list {
+            ip-prefix-list "BOGON" {
+                prefix 10.0.0.0/8 { }
+                prefix 127.0.0.0/8 { }
+                prefix 169.254.0.0/16 { }
+                prefix 172.16.0.0/12 { }
+                prefix 192.0.2.0/24 { }
+                prefix 192.168.0.0/16 { }
+            }
+            ip-prefix-list "SMTP" {
+                prefix 76.9.193.160/27 { }
+                prefix 76.9.193.192/27 { }
+            }
+            port-list "SMTP" {
+                port 25 { }
+                port 587 { }
+            }
+        }
+        ip-filter "FILTER:DYNAMIC:IN" {
+            default-action accept
+            type normal
+            filter-id 4
+            entry 1 {
+                match {
+                    protocol ip
+                    ip {
+                        address 192.168.77.0
+                        mask 255.255.255.252
+                    }
+                }
+                action {
+                    accept
+                }
+            }
+            entry 2 {
+                match {
+                    protocol tcp
+                    dst-ip {
+                        ip-prefix-list "SMTP"
+                    }
+                    dst-port {
+                        port-list "SMTP"
+                    }
+                }
+                action {
+                    accept
+                }
+            }
+            entry 3 {
+                match {
+                    protocol tcp
+                    dst-port {
+                        port-list "SMTP"
+                    }
+                }
+                action {
+                    drop
+                }
+            }
+            entry 4 {
+                match {
+                    protocol ip
+                    ip {
+                        ip-prefix-list "BOGON"
+                    }
+                }
+                action {
+                    drop
+                }
+            }
+        }
         ip-filter "ipv4_PBR_Internet" {
             filter-id 100
             entry 10 {
@@ -103,6 +174,16 @@ configure {
                 }
             }
         }
+        log-id "10" {
+            source {
+                debug true
+            }
+            destination {
+                memory {
+                    max-entries 500
+                }
+            }
+        }
         log-id "99" {
             description "Default System Log"
             source {
@@ -128,6 +209,17 @@ configure {
         }
     }
     policy-options {
+        community "BF-Default-Import" {
+            member "21949:666" { }
+        }
+        community "BF-Direct-Export" {
+            member "21949:1002" { }
+            member "no-export" { }
+        }
+        community "BF-Static-Export" {
+            member "21949:1003" { }
+            member "no-export" { }
+        }
         community "ESM_300" {
             member "target:65100:300" { }
         }
@@ -156,10 +248,70 @@ configure {
                 end-length 32
             }
         }
+        prefix-list "PREFIX:BOGON" {
+            prefix 0.0.0.0/8 type exact {
+            }
+        }
         prefix-list "loopbacks" {
             prefix 1.1.1.0/24 type range {
                 start-length 32
                 end-length 32
+            }
+        }
+        policy-statement "BF-Default-Import" {
+            entry-type numbered
+            entry 10 {
+                from {
+                    community {
+                        name "BF-Default-Import"
+                    }
+                }
+                action {
+                    action-type accept
+                    next-hop 192.168.6.6
+                }
+            }
+            default-action {
+                action-type accept
+            }
+        }
+        policy-statement "BF-VPN_Export" {
+            entry-type numbered
+            entry 10 {
+                from {
+                    protocol {
+                        name [direct]
+                    }
+                }
+                action {
+                    action-type accept
+                    local-preference 790
+                    origin igp
+                    bgp-med {
+                        set 1
+                    }
+                    community {
+                        add ["BF-Direct-Export"]
+                    }
+                }
+            }
+            entry 20 {
+                from {
+                    protocol {
+                        name [static]
+                    }
+                }
+                action {
+                    action-type accept
+                    local-preference 790
+                    origin igp
+                    bgp-med {
+                        set 2
+                    }
+                    community {
+                        add ["BF-Static-Export"]
+                    }
+                }
             }
         }
         policy-statement "Customer_nets" {
@@ -352,7 +504,7 @@ configure {
             policy-id 20
             queue 1 {
                 rate {
-                    pir 50000
+                    pir 8500000
                 }
             }
             fc be {
@@ -505,11 +657,6 @@ configure {
             interface "To_spine1" {
                 admin-state enable
                 interface-type point-to-point
-                bfd-liveness {
-                    ipv4 {
-                        include-bfd-tlv true
-                    }
-                }
             }
             interface "system" {
                 admin-state enable
@@ -780,7 +927,7 @@ configure {
                         community "target:65100:300"
                     }
                     vrf-export {
-                        policy ["Customer_nets"]
+                        policy ["Customer_nets" "BF-VPN_Export"]
                     }
                     auto-bind-tunnel {
                         ecmp 2
@@ -804,6 +951,27 @@ configure {
                     }
                 }
             }
+            interface "giaddr" {
+                admin-state enable
+                loopback true
+                ipv4 {
+                    primary {
+                        address 72.15.48.82
+                        prefix-length 32
+                    }
+                }
+            }
+            interface "siaddr" {
+                admin-state enable
+                loopback true
+                ipv4 {
+                    local-dhcp-server "SERVER"
+                    primary {
+                        address 72.15.48.83
+                        prefix-length 32
+                    }
+                }
+            }
             redundant-interface "redundant-to-bng2" {
                 admin-state enable
                 spoke-sdp 2:300 {
@@ -813,6 +981,44 @@ configure {
                     primary {
                         address 20.2.3.0
                         prefix-length 31
+                    }
+                }
+            }
+            static-routes {
+                route 192.168.6.6/32 route-type unicast {
+                    blackhole {
+                    }
+                }
+            }
+            dhcp-server {
+                dhcpv4 "SERVER" {
+                    admin-state enable
+                    pool-selection {
+                        use-gi-address {
+                            scope pool
+                        }
+                        use-pool-from-client {
+                        }
+                    }
+                    pool "POOL" {
+                        subnet 50.21.64.32/27 {
+                            options {
+                                option subnet-mask {
+                                    ipv4-address [255.255.255.224]
+                                }
+                                option default-router {
+                                    ipv4-address [50.21.64.33]
+                                }
+                                option lease-time {
+                                    duration 64000
+                                }
+                            }
+                            address-range 50.21.64.36 end 50.21.64.62 {
+                            }
+                            exclude-addresses 50.21.64.33 end 50.21.64.35 { }
+                        }
+                        subnet 72.15.48.80/29 {
+                        }
                     }
                 }
             }
@@ -828,6 +1034,11 @@ configure {
                 admin-state enable
                 ipv4 {
                     allow-unmatching-subnets true
+                    address 50.21.64.34 {
+                        prefix-length 27
+                        gateway 50.21.64.33
+                        populate-host-routes true
+                    }
                     address 172.100.0.2 {
                         prefix-length 16
                         gateway 172.100.0.1
@@ -910,9 +1121,9 @@ configure {
                         }
                         dhcp {
                             admin-state enable
-                            server [10.10.10.3]
+                            server [72.15.48.83]
                             trusted true
-                            gi-address 172.100.0.2
+                            gi-address 72.15.48.82
                             src-ip-addr gi-address
                             lease-populate {
                                 max-leases 1000
@@ -933,6 +1144,19 @@ configure {
                         priority 10
                         one-garp-per-sap true
                     }
+                    sap pw-100:10.0 {
+                        sub-sla-mgmt {
+                            admin-state enable
+                            subscriber-limit 1000
+                            defaults {
+                                sub-profile "Internet"
+                                sla-profile "Internet"
+                                subscriber-id {
+                                    auto-id
+                                }
+                            }
+                        }
+                    }
                     sap pw-100:75.0 {
                         sub-sla-mgmt {
                             admin-state enable
@@ -951,14 +1175,6 @@ configure {
                         sub-sla-mgmt {
                             admin-state disable
                         }
-                    }
-                }
-            }
-            subscriber-interface "test" {
-                ipv4 {
-                    address 99.0.0.2 {
-                        prefix-length 24
-                        gateway 99.0.0.1
                     }
                 }
             }
@@ -1015,12 +1231,15 @@ configure {
         }
         sla-profile "Internet" {
             description "Default Internet SLA"
-            ingress {
+            egress {
                 qos {
-                    sap-ingress {
+                    sap-egress {
                         policy-name "internet"
                     }
                 }
+            }
+            ingress {
+                ip-filter "FILTER:DYNAMIC:IN"
             }
         }
         sub-ident-policy "BNG1" {
@@ -1360,8 +1579,9 @@ persistent-indices {
         router-name "bng_1" interface-name "Hub_100" vrtr-id 2 if-index 11
         router-name "bng_1" interface-name "Sub1" vrtr-id 2 if-index 7
         router-name "bng_1" interface-name "default" vrtr-id 2 if-index 8
+        router-name "bng_1" interface-name "giaddr" vrtr-id 2 if-index 12
         router-name "bng_1" interface-name "redundant-to-bng2" vrtr-id 2 if-index 6
-        router-name "bng_1" interface-name "test" vrtr-id 2 if-index 10
+        router-name "bng_1" interface-name "siaddr" vrtr-id 2 if-index 13
         router-name "peering" interface-name "external" vrtr-id 3 if-index 5
     }
     mpls-lsp-index {
@@ -1379,6 +1599,9 @@ persistent-indices {
         client pxc index 0 pool 1 offset 1
         client pxc index 1 pool 1 offset 2
     }
+    log-name-id {
+        log-name "10" log-id 10 context 1 vrtr-id 1
+    }
 }
 
-# Finished 2025-03-19T16:38:03.9Z
+# Finished 2025-03-26T17:20:32.1Z

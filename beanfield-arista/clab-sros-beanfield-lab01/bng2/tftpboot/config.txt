@@ -3,10 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-03-22T13:39:34.0Z by admin from 172.31.255.29
-# Commit ID 1
-#   Committed 2025-03-22T04:24:12.0Z by system (MD-CLI) from Console
-#   Log       "System booted version C-24.10.R2."
+# Generated 2025-03-27T23:37:01.7Z by admin from 172.31.255.29
+# Commit ID 2
+#   Committed 2025-03-25T23:12:07.6Z by admin (MD-CLI) from Console
 
 configure {
     aaa {
@@ -712,7 +711,7 @@ configure {
             }
         }
         vprn "bng_1" {
-            admin-state enable
+            admin-state disable
             service-id 300
             customer "1"
             autonomous-system 65100
@@ -1273,4 +1272,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-03-22T13:39:34.1Z
+# Finished 2025-03-27T23:37:01.7Z

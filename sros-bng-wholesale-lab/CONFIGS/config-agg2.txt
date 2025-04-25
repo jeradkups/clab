@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-03-08T05:21:57.4Z by admin from 172.31.255.29
-# Commit ID 3
-#   Committed 2025-03-08T04:00:58.3Z by admin (MD-CLI) from Console
+# Generated 2025-03-29T01:27:13.2Z by admin from 172.31.255.29
+# Commit ID 2
+#   Committed 2025-03-28T17:56:28.2Z by admin (MD-CLI) from Console
 
 configure {
     card 1 {
@@ -292,6 +292,15 @@ configure {
                 qtag-normalization {
                     double-tag {
                         c-tag 110
+                        s-tag 75
+                    }
+                }
+            }
+            sap 1/1/c2/1:101 {
+                admin-state enable
+                qtag-normalization {
+                    double-tag {
+                        c-tag 111
                         s-tag 75
                     }
                 }
@@ -673,4 +682,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-03-08T05:21:57.4Z
+# Finished 2025-03-29T01:27:13.3Z

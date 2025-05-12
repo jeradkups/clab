@@ -3,10 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-02-10T20:50:57.4Z by admin from 172.31.255.29
-# Commit ID 1
-#   Committed 2025-02-10T20:50:50.9Z by system (MD-CLI) from Console
-#   Log       "System booted version B-24.10.R2."
+# Generated 2025-05-12T23:10:35.1Z by admin from 172.31.255.29
+# Commit ID 2
+#   Committed 2025-05-12T22:57:19.2Z by admin (MD-CLI) from Console
 
 configure {
     card 1 {
@@ -144,15 +143,27 @@ configure {
                 admin-state enable
                 group "iBGP"
             }
-            neighbor "1.1.2.1" {
-                admin-state enable
-                group "iBGP"
-            }
-            neighbor "1.1.2.2" {
-                admin-state enable
-                group "iBGP"
-            }
             neighbor "1.1.3.1" {
+                admin-state enable
+                group "iBGP"
+            }
+            neighbor "1.1.3.2" {
+                admin-state enable
+                group "iBGP"
+            }
+            neighbor "1.1.3.3" {
+                admin-state enable
+                group "iBGP"
+            }
+            neighbor "1.1.3.4" {
+                admin-state enable
+                group "iBGP"
+            }
+            neighbor "1.1.4.1" {
+                admin-state enable
+                group "iBGP"
+            }
+            neighbor "1.1.4.2" {
                 admin-state enable
                 group "iBGP"
             }
@@ -436,4 +447,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-02-10T20:50:57.4Z
+# Finished 2025-05-12T23:10:35.1Z

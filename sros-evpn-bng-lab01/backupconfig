@@ -6,10 +6,18 @@ cp ./clab-sros-evpn-bng-lab01/bng1/tftpboot/config.txt ./CONFIGS/config-bng1.txt
 cp ./clab-sros-evpn-bng-lab01/bng2/tftpboot/config.txt ./CONFIGS/config-bng2.txt
 cp ./clab-sros-evpn-bng-lab01/rr1/tftpboot/config.txt ./CONFIGS/config-rr1.txt
 cp ./clab-sros-evpn-bng-lab01/rr2/tftpboot/config.txt ./CONFIGS/config-rr2.txt
-cp ./clab-sros-evpn-bng-lab01/spine1/tftpboot/config.txt ./CONFIGS/config-spin1.txt
+cp ./clab-sros-evpn-bng-lab01/spine1/tftpboot/config.txt ./CONFIGS/config-spine1.txt
 cp ./clab-sros-evpn-bng-lab01/spine2/tftpboot/config.txt ./CONFIGS/config-spine2.txt
+cp ./clab-sros-evpn-bng-lab01/spine3/tftpboot/config.txt ./CONFIGS/config-spine3.txt
+cp ./clab-sros-evpn-bng-lab01/spine4/tftpboot/config.txt ./CONFIGS/config-spine4.txt
 cp ./clab-sros-evpn-bng-lab01/peer1/tftpboot/config.txt ./CONFIGS/config-peer1.txt
 cp ./clab-sros-evpn-bng-lab01/leaf1/tftpboot/config.txt ./CONFIGS/config-leaf1.txt
+cp ./clab-sros-evpn-bng-lab01/leaf2/tftpboot/config.txt ./CONFIGS/config-leaf2.txt
+cp ./clab-sros-evpn-bng-lab01/leaf3/tftpboot/config.txt ./CONFIGS/config-leaf3.txt
+cp ./clab-sros-evpn-bng-lab01/leaf4/tftpboot/config.txt ./CONFIGS/config-leaf4.txt
+cp ./clab-sros-evpn-bng-lab01/hub1/tftpboot/config.txt ./CONFIGS/config-hub1.txt
+cp ./clab-sros-evpn-bng-lab01/hub2/tftpboot/config.txt ./CONFIGS/config-hub2.txt
+cp ./clab-sros-evpn-bng-lab01/pim1/tftpboot/config.txt ./CONFIGS/config-pim1.txt
 
 echo "Copy completed"
 

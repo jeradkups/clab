@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-04-14T01:01:28.7Z by admin from 172.31.255.29
-# Commit ID 265
-#   Committed 2025-04-14T00:58:44.7Z by admin (MD-CLI) from Console
+# Generated 2025-04-28T15:07:38.6Z by admin from 172.31.255.29
+# Commit ID 276
+#   Committed 2025-04-14T21:48:19.8Z by admin (MD-CLI) from Console
 
 configure {
     aaa {
@@ -390,6 +390,20 @@ configure {
         }
         policy-statement "POLICY:RI:INTERNET:IN" {
             entry-type numbered
+            entry 10 {
+                from {
+                    community {
+                        name "TYPE:BLACKHOLE"
+                    }
+                    protocol {
+                        name [bgp-vpn]
+                    }
+                }
+                action {
+                    action-type accept
+                    next-hop 192.168.6.6
+                }
+            }
             entry 20 {
                 from {
                     community {
@@ -402,6 +416,9 @@ configure {
                 action {
                     action-type accept
                 }
+            }
+            default-action {
+                action-type accept
             }
         }
         policy-statement "POLICY:RI:INTERNET:OUT" {
@@ -531,7 +548,7 @@ configure {
             entry 20 {
                 from {
                     community {
-                        name "RT:INTERNET"
+                        name "TYPE:BLACKHOLE"
                     }
                     protocol {
                         name [bgp-vpn]
@@ -815,9 +832,6 @@ configure {
             }
             rapid-update {
                 evpn true
-            }
-            import {
-                policy ["POLICY:GRT:IN"]
             }
             group "iBGP" {
                 next-hop-self true
@@ -1195,6 +1209,7 @@ configure {
                     }
                 }
                 ipv6 {
+                    local-dhcp-server "SERVER-DHCPv6"
                     address 2606:880:0:300:: {
                         prefix-length 128
                     }
@@ -1267,7 +1282,7 @@ configure {
                     }
                 }
                 dhcpv6 "SERVER-DHCPv6" {
-                    admin-state disable
+                    admin-state enable
                     description "DHCPv6 server for BNG testing"
                     pool-selection {
                         use-link-address {
@@ -1390,9 +1405,8 @@ configure {
                             }
                             relay {
                                 admin-state enable
-                                source-address 2606:880:0:300::
                                 link-address 2606:880:0:100::
-                                server ["2606:880:0:800::"]
+                                server ["2606:880:0:300::"]
                                 client-applications {
                                     dhcp true
                                 }
@@ -1412,30 +1426,11 @@ configure {
                             }
                         }
                     }
-                    ipoe-linking {
-                        admin-state enable
-                        gratuitous-router-advertisement true
-                        shared-circuit-id true
-                    }
                     ipoe-session {
                         admin-state enable
                         ipoe-session-policy "IPOE Auth"
                         user-db "Default"
                         sap-session-limit 1000
-                    }
-                    local-address-assignment {
-                        admin-state enable
-                        ipv4 {
-                            server "SERVER-DHCPv4"
-                        }
-                        ipv6 {
-                            server "SERVER-DHCPv6"
-                            client-applications {
-                                ppp-slaac false
-                                ipoe-wan true
-                                ipoe-slaac false
-                            }
-                        }
                     }
                     srrp 4001 {
                         admin-state enable
@@ -1465,6 +1460,43 @@ configure {
                         sub-sla-mgmt {
                             admin-state disable
                         }
+                    }
+                }
+            }
+        }
+        vprn "management-internal" {
+            admin-state enable
+            service-id 50
+            customer "1"
+            bgp-ipvpn {
+                mpls {
+                    admin-state enable
+                    route-distinguisher "1.1.1.2:50"
+                    vrf-target {
+                        community "target:64512:50"
+                    }
+                    vrf-import {
+                        policy ["POLICY:RI_MANAGEMENT:IN"]
+                    }
+                    auto-bind-tunnel {
+                        resolution filter
+                        static-blackhole-first true
+                        resolution-filter {
+                            ldp true
+                        }
+                    }
+                }
+            }
+            bgp {
+                admin-state enable
+            }
+            interface "default" {
+                admin-state enable
+                loopback true
+                ipv4 {
+                    primary {
+                        address 1.2.1.2
+                        prefix-length 32
                     }
                 }
             }
@@ -2307,6 +2339,7 @@ persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
     vrtr-id {
         router-name "internet" vrtr-id 2
+        router-name "management-internal" vrtr-id 7
         router-name "voice" vrtr-id 3
         router-name "voip-untrusted" vrtr-id 4
     }
@@ -2319,6 +2352,7 @@ persistent-indices {
         router-name "internet" interface-name "loopback" vrtr-id 2 if-index 17
         router-name "internet" interface-name "siaddr" vrtr-id 2 if-index 13
         router-name "internet" interface-name "to_bng2" vrtr-id 2 if-index 15
+        router-name "management-internal" interface-name "default" vrtr-id 7 if-index 10
         router-name "voice" interface-name "MF2" vrtr-id 3 if-index 5
         router-name "voice" interface-name "default" vrtr-id 3 if-index 6
         router-name "voip-untrusted" interface-name "MF2-VOICE" vrtr-id 4 if-index 14
@@ -2362,4 +2396,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-04-14T01:01:28.8Z
+# Finished 2025-04-28T15:07:38.7Z

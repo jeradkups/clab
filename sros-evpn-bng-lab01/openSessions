@@ -41,9 +41,8 @@ parse_json() {
   echo "$result"
   return 0
 }
-
 # Run clab inspect and capture the JSON output
-json_data=$(clab inspect -f json)
+json_data=$(clab inspect --all -f json)
 
 # Check if clab returned an error
 if [[ $? -ne 0 ]]; then

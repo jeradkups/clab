@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-02-10T20:47:09.4Z by admin from 172.31.255.29
+# Generated 2025-05-12T23:10:35.5Z by admin from 172.31.255.29
 # Commit ID 1
-#   Committed 2025-02-10T20:47:00.6Z by system (MD-CLI) from Console
+#   Committed 2025-05-12T22:48:17.8Z by system (MD-CLI) from Console
 #   Log       "System booted version C-24.10.R2."
 
 configure {
@@ -94,6 +94,16 @@ configure {
         }
     }
     port 1/1/c5 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c5/1 {
+        admin-state enable
+        ethernet {
+            mode network
+        }
     }
     port 1/1/c6 {
     }
@@ -182,6 +192,21 @@ configure {
         interface "To_leaf1" {
             admin-state enable
             port 1/1/c3/1
+            ipv4 {
+                unnumbered {
+                    system
+                }
+                bfd {
+                    admin-state enable
+                    transmit-interval 1000
+                    receive 1000
+                    multiplier 3
+                }
+            }
+        }
+        interface "To_leaf2" {
+            admin-state enable
+            port 1/1/c5/1
             ipv4 {
                 unnumbered {
                     system
@@ -315,6 +340,15 @@ configure {
                     }
                 }
             }
+            interface "To_leaf2" {
+                admin-state enable
+                interface-type point-to-point
+                bfd-liveness {
+                    ipv4 {
+                        include-bfd-tlv true
+                    }
+                }
+            }
             interface "To_rr2" {
                 admin-state enable
                 interface-type point-to-point
@@ -352,6 +386,9 @@ configure {
             interface "To_leaf1" {
                 admin-state enable
             }
+            interface "To_leaf2" {
+                admin-state enable
+            }
             interface "To_spine1" {
                 admin-state enable
             }
@@ -365,6 +402,9 @@ configure {
                 admin-state disable
             }
             interface "To_leaf1" {
+                admin-state disable
+            }
+            interface "To_leaf2" {
                 admin-state disable
             }
             interface "To_spine1" {
@@ -633,10 +673,11 @@ persistent-indices {
     vrtr-if-id {
         router-name "Base" interface-name "To_bng2" vrtr-id 1 if-index 2
         router-name "Base" interface-name "To_leaf1" vrtr-id 1 if-index 3
+        router-name "Base" interface-name "To_leaf2" vrtr-id 1 if-index 7
         router-name "Base" interface-name "To_rr2" vrtr-id 1 if-index 4
         router-name "Base" interface-name "To_spine1" vrtr-id 1 if-index 5
         router-name "Base" interface-name "anycast" vrtr-id 1 if-index 6
     }
 }
 
-# Finished 2025-02-10T20:47:09.5Z
+# Finished 2025-05-12T23:10:35.5Z

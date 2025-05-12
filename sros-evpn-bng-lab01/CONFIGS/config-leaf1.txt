@@ -3,12 +3,24 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-02-10T20:52:39.3Z by admin from 172.31.255.29
-# Commit ID 1
-#   Committed 2025-02-10T20:52:35.5Z by system (MD-CLI) from Console
-#   Log       "System booted version C-24.10.R2."
+# Generated 2025-05-12T23:10:34.4Z by admin from 172.31.255.29
+# Commit ID 2
+#   Committed 2025-05-12T23:08:21.8Z by admin (MD-CLI) from Console
 
 configure {
+    lag "lag-1" {
+        admin-state enable
+        description "To Legacy Hub"
+        encap-type dot1q
+        mode access
+        lacp {
+            mode active
+            system-id 0c:00:d7:d7:82:00
+            administrative-key 1
+        }
+        port 1/1/c5/1 {
+        }
+    }
     log {
         filter "1001" {
             named-entry "10" {
@@ -90,8 +102,7 @@ configure {
     port 1/1/c4/1 {
         admin-state enable
         ethernet {
-            mode access
-            encap-type dot1q
+            mode network
         }
     }
     port 1/1/c5 {
@@ -172,6 +183,36 @@ configure {
     router "Base" {
         autonomous-system 65100
         ecmp 4
+        interface "To_hub1" {
+            admin-state enable
+            port 1/1/c3/1
+            ipv4 {
+                unnumbered {
+                    system
+                }
+                bfd {
+                    admin-state enable
+                    transmit-interval 1000
+                    receive 1000
+                    multiplier 3
+                }
+            }
+        }
+        interface "To_hub2" {
+            admin-state enable
+            port 1/1/c4/1
+            ipv4 {
+                unnumbered {
+                    system
+                }
+                bfd {
+                    admin-state enable
+                    transmit-interval 1000
+                    receive 1000
+                    multiplier 3
+                }
+            }
+        }
         interface "To_spine1" {
             admin-state enable
             port 1/1/c1/1
@@ -223,8 +264,8 @@ configure {
         bgp {
             admin-state enable
             min-route-advertisement 1
-            vpn-apply-export true
-            vpn-apply-import true
+            vpn-apply-export false
+            vpn-apply-import false
             asn-4-byte true
             router-id 1.1.3.1
             rapid-withdrawal true
@@ -276,6 +317,24 @@ configure {
                 admin-state enable
                 prefix-sid-range {
                     global
+                }
+            }
+            interface "To_hub1" {
+                admin-state enable
+                interface-type point-to-point
+                bfd-liveness {
+                    ipv4 {
+                        include-bfd-tlv true
+                    }
+                }
+            }
+            interface "To_hub2" {
+                admin-state enable
+                interface-type point-to-point
+                bfd-liveness {
+                    ipv4 {
+                        include-bfd-tlv true
+                    }
                 }
             }
             interface "To_spine1" {
@@ -333,6 +392,9 @@ configure {
             entropy-label {
                 sr-te true
             }
+            interface "To_hub1" {
+                admin-state enable
+            }
             interface "To_spine1" {
                 admin-state enable
             }
@@ -345,6 +407,9 @@ configure {
         }
         rsvp {
             admin-state disable
+            interface "To_hub1" {
+                admin-state disable
+            }
             interface "To_spine1" {
                 admin-state disable
             }
@@ -360,128 +425,40 @@ configure {
         system {
             bgp {
                 evpn {
-                    ingress-replication-bum-label-block "IR-BUM"
+                    route-distinguisher "1.1.3.1:0"
+                    ethernet-segment "legacy-hub-1" {
+                        admin-state enable
+                        multi-homing-mode all-active
+                        auto-esi type-1
+                        df-election {
+                            es-activation-timer 10
+                            service-carving-mode auto
+                        }
+                        association {
+                            lag "lag-1" {
+                            }
+                        }
+                    }
                 }
             }
         }
-        epipe "bng-epipe" {
+        epipe "legacy-hub" {
             admin-state enable
-            description "flexible cross connect epipe"
-            service-id 10
+            service-id 8585
             customer "1"
-            flexible-cross-connect true
-            bgp 1 {
-            }
-            sap 1/1/c4/1:100 {
+            sap lag-1:0 {
                 admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 110
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:100 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 100
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:101 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 101
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:102 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 102
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:103 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 103
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:104 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 104
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:105 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 105
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:106 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 106
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:107 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 107
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:108 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 108
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:109 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 109
-                        s-tag 75
-                    }
-                }
             }
             bgp-evpn {
-                evi 10
-                local-attachment-circuit "AC-2" {
-                    eth-tag 10
+                evi 8585
+                local-attachment-circuit "Hub-1" {
+                    eth-tag 851
                 }
-                remote-attachment-circuit "AC-1" {
-                    eth-tag 10
+                remote-attachment-circuit "Core-1" {
+                    eth-tag 852
                 }
                 mpls 1 {
                     admin-state enable
-                    ecmp 2
                     auto-bind-tunnel {
                         resolution filter
                         ecmp 2
@@ -489,183 +466,6 @@ configure {
                             sr-isis true
                         }
                     }
-                }
-            }
-        }
-        vpls "iptv-vpls-bd202" {
-            admin-state enable
-            description "SDB VPLS"
-            service-id 202
-            customer "1"
-            routed-vpls {
-                multicast {
-                    ipv4 {
-                        forward-to-ip-interface true
-                    }
-                    evpn-gateway {
-                        admin-state enable
-                        advertise pim-only
-                        non-dr-attract-traffic none
-                    }
-                }
-            }
-            bgp 1 {
-            }
-            igmp-snooping {
-                admin-state enable
-            }
-            bgp-evpn {
-                evi 202
-                routes {
-                    mac-ip {
-                        advertise false
-                    }
-                    ip-prefix {
-                        advertise true
-                    }
-                    sel-mcast {
-                        advertise true
-                    }
-                }
-                mpls 1 {
-                    admin-state enable
-                    auto-bind-tunnel {
-                        resolution filter
-                        resolution-filter {
-                            sr-isis true
-                        }
-                    }
-                }
-            }
-        }
-        vpls "iptv-vpls-bd203" {
-            admin-state enable
-            service-id 203
-            customer "1"
-            routed-vpls {
-                multicast {
-                    ipv4 {
-                        forward-to-ip-interface true
-                    }
-                }
-            }
-            igmp-snooping {
-                admin-state enable
-                query-interval 60
-                query-source-address 0.0.0.0
-            }
-            bgp-evpn {
-                evi 203
-                routes {
-                    mac-ip {
-                        advertise false
-                    }
-                }
-                mpls 1 {
-                    admin-state enable
-                    auto-bind-tunnel {
-                        resolution filter
-                        resolution-filter {
-                            sr-isis true
-                        }
-                    }
-                }
-            }
-            split-horizon-group "IPTV" {
-                fdb {
-                    saps {
-                        auto-learn-mac-protect true
-                    }
-                }
-            }
-            sap 1/1/c4/1:85 {
-                admin-state enable
-                collect-stats true
-                split-horizon-group "IPTV"
-                igmp-snooping {
-                    query-interval 60
-                    query-response-interval 10
-                    fast-leave true
-                    send-queries true
-                }
-            }
-            sap 1/1/c5/1:85 {
-                admin-state enable
-                collect-stats true
-                split-horizon-group "IPTV"
-                igmp-snooping {
-                    query-interval 60
-                    query-response-interval 10
-                    fast-leave true
-                    send-queries true
-                }
-            }
-        }
-        vprn "iptv" {
-            admin-state enable
-            service-id 200
-            customer "1"
-            igmp {
-                admin-state enable
-                query-interval 125
-                query-last-member-interval 1
-                query-response-interval 10
-                robust-count 2
-                interface "Default" {
-                    admin-state enable
-                }
-                interface "bd-203" {
-                    admin-state enable
-                }
-            }
-            pim {
-                admin-state enable
-                apply-to all
-                interface "bd-202" {
-                    multicast-senders always
-                }
-                interface "bd-203" {
-                    admin-state enable
-                    multicast-senders always
-                }
-            }
-            bgp {
-                admin-state enable
-            }
-            interface "Default" {
-                admin-state enable
-                loopback true
-                ipv4 {
-                    primary {
-                        address 1.1.3.1
-                        prefix-length 32
-                    }
-                }
-            }
-            interface "bd-202" {
-                admin-state enable
-                vpls "iptv-vpls-bd202" {
-                    evpn-tunnel {
-                        supplementary-broadcast-domain true
-                    }
-                }
-            }
-            interface "bd-203" {
-                admin-state enable
-                ipv4 {
-                    primary {
-                        address 10.203.0.1
-                        prefix-length 24
-                    }
-                    dhcp {
-                        admin-state enable
-                        server [1.1.10.1 1.1.10.3]
-                        trusted true
-                        gi-address 10.203.0.1
-                        src-ip-addr gi-address
-                    }
-                }
-                vpls "iptv-vpls-bd203" {
                 }
             }
         }
@@ -925,16 +725,15 @@ configure {
 
 persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
-    vrtr-id {
-        router-name "iptv" vrtr-id 2
-    }
     vrtr-if-id {
+        router-name "Base" interface-name "To_hub1" vrtr-id 1 if-index 4
+        router-name "Base" interface-name "To_hub2" vrtr-id 1 if-index 5
         router-name "Base" interface-name "To_spine1" vrtr-id 1 if-index 2
         router-name "Base" interface-name "To_spine2" vrtr-id 1 if-index 3
-        router-name "iptv" interface-name "Default" vrtr-id 2 if-index 5
-        router-name "iptv" interface-name "bd-202" vrtr-id 2 if-index 6
-        router-name "iptv" interface-name "bd-203" vrtr-id 2 if-index 7
+    }
+    chassis-mac {
+        client lag index 1 pool 1 offset 1025
     }
 }
 
-# Finished 2025-02-10T20:52:39.4Z
+# Finished 2025-05-12T23:10:34.4Z

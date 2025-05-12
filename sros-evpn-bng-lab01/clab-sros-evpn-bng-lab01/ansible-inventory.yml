@@ -7,14 +7,12 @@ all:
   children:
     linux:
       hosts:
-        clab-sros-evpn-bng-lab01-bng-host1:
-          ansible_host: 172.80.80.41
         clab-sros-evpn-bng-lab01-client1:
-          ansible_host: 172.80.80.42
+          ansible_host: 172.80.80.51
         clab-sros-evpn-bng-lab01-client2:
-          ansible_host: 172.80.80.43
-        clab-sros-evpn-bng-lab01-radius1:
-          ansible_host: 172.80.80.40
+          ansible_host: 172.80.80.52
+        clab-sros-evpn-bng-lab01-client3:
+          ansible_host: 172.80.80.53
     vr-sros:
       vars:
         ansible_network_os: nokia.sros.md
@@ -24,14 +22,20 @@ all:
         ansible_user: admin
         ansible_password: admin
       hosts:
-        clab-sros-evpn-bng-lab01-bng1:
-          ansible_host: 172.80.80.11
-        clab-sros-evpn-bng-lab01-bng2:
-          ansible_host: 172.80.80.13
+        clab-sros-evpn-bng-lab01-hub1:
+          ansible_host: 172.80.80.35
+        clab-sros-evpn-bng-lab01-hub2:
+          ansible_host: 172.80.80.36
         clab-sros-evpn-bng-lab01-leaf1:
-          ansible_host: 172.80.80.30
-        clab-sros-evpn-bng-lab01-peer1:
-          ansible_host: 172.80.80.12
+          ansible_host: 172.80.80.31
+        clab-sros-evpn-bng-lab01-leaf2:
+          ansible_host: 172.80.80.32
+        clab-sros-evpn-bng-lab01-leaf3:
+          ansible_host: 172.80.80.33
+        clab-sros-evpn-bng-lab01-leaf4:
+          ansible_host: 172.80.80.34
+        clab-sros-evpn-bng-lab01-pim1:
+          ansible_host: 172.80.80.37
         clab-sros-evpn-bng-lab01-rr1:
           ansible_host: 172.80.80.14
         clab-sros-evpn-bng-lab01-rr2:
@@ -40,3 +44,7 @@ all:
           ansible_host: 172.80.80.21
         clab-sros-evpn-bng-lab01-spine2:
           ansible_host: 172.80.80.22
+        clab-sros-evpn-bng-lab01-spine3:
+          ansible_host: 172.80.80.23
+        clab-sros-evpn-bng-lab01-spine4:
+          ansible_host: 172.80.80.24

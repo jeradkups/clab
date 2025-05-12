@@ -1,0 +1,980 @@
+# TiMOS-C-24.10.R2 cpm/x86_64 Nokia 7250 IXR Copyright (c) 2000-2024 Nokia.
+# All rights reserved. All use subject to applicable license agreements.
+# Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
+# Configuration format version 24.10 revision 0
+
+# Generated 2025-05-12T23:07:33.1Z by system from Console
+# Commit ID 3
+#   Committed 2025-05-12T23:07:32.8Z by admin (MD-CLI) from Console
+
+configure {
+    lag "lag-1" {
+        admin-state enable
+        description "To legacy Core"
+        encap-type dot1q
+        mode access
+        lacp {
+            mode active
+            system-id 0c:00:c5:d4:40:00
+            administrative-key 1
+        }
+        port 1/1/c6/1 {
+        }
+    }
+    log {
+        filter "1001" {
+            named-entry "10" {
+                description "Collect only events of major severity or higher"
+                action forward
+                match {
+                    severity {
+                        gte major
+                    }
+                }
+            }
+        }
+        log-id "99" {
+            description "Default System Log"
+            source {
+                main true
+            }
+            destination {
+                memory {
+                    max-entries 500
+                }
+            }
+        }
+        log-id "100" {
+            description "Default Serious Errors Log"
+            filter "1001"
+            source {
+                main true
+            }
+            destination {
+                memory {
+                    max-entries 500
+                }
+            }
+        }
+    }
+    policy-options {
+        community "IPTV" {
+            member "target:65100:200" { }
+        }
+        prefix-list "IPTV-Subscribers" {
+            prefix 1.1.85.4/32 type exact {
+            }
+            prefix 1.1.85.5/32 type exact {
+            }
+            prefix 10.85.0.0/16 type longer {
+            }
+        }
+        policy-statement "RI:POLICY:IPTV:IN" {
+            entry-type numbered
+            entry 5 {
+                from {
+                    prefix-list ["IPTV-Subscribers"]
+                }
+                action {
+                    action-type reject
+                }
+            }
+            entry 100 {
+                action {
+                    action-type accept
+                }
+            }
+            default-action {
+                action-type accept
+            }
+        }
+        policy-statement "RI:POLICY:IPTV:OUT" {
+            default-action {
+                action-type accept
+            }
+        }
+        policy-statement "mvpn-iptv" {
+            entry-type numbered
+            entry 1 {
+                from {
+                    community {
+                        name "IPTV"
+                    }
+                }
+                action {
+                    action-type accept
+                    preference 100
+                    metric {
+                        set 100
+                    }
+                }
+            }
+        }
+    }
+    port 1/1/c1 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c1/1 {
+        admin-state enable
+        ethernet {
+            mode network
+        }
+    }
+    port 1/1/c2 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c2/1 {
+        admin-state enable
+        ethernet {
+            mode network
+        }
+    }
+    port 1/1/c3 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c3/1 {
+        admin-state enable
+        ethernet {
+            mode network
+        }
+    }
+    port 1/1/c4 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c4/1 {
+        admin-state enable
+        ethernet {
+            mode access
+            encap-type dot1q
+        }
+    }
+    port 1/1/c5 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c5/1 {
+        admin-state enable
+        ethernet {
+            mode hybrid
+            encap-type dot1q
+        }
+    }
+    port 1/1/c6 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c6/1 {
+        admin-state enable
+        ethernet {
+            mode access
+            encap-type dot1q
+        }
+    }
+    port 1/1/c7 {
+    }
+    port 1/1/c8 {
+    }
+    port 1/1/c9 {
+    }
+    port 1/1/c10 {
+    }
+    port 1/1/c11 {
+    }
+    port 1/1/c12 {
+    }
+    port 1/1/c13 {
+    }
+    port 1/1/c14 {
+    }
+    port 1/1/c15 {
+    }
+    port 1/1/c16 {
+    }
+    port 1/1/c17 {
+    }
+    port 1/1/c18 {
+    }
+    port 1/1/c19 {
+    }
+    port 1/1/c20 {
+    }
+    port 1/1/c21 {
+    }
+    port 1/1/c22 {
+    }
+    port 1/1/c23 {
+    }
+    port 1/1/c24 {
+    }
+    port 1/1/c25 {
+    }
+    port 1/1/c26 {
+    }
+    port 1/1/c27 {
+    }
+    port 1/1/c28 {
+    }
+    port 1/1/c29 {
+    }
+    port 1/1/c30 {
+    }
+    port 1/1/c31 {
+    }
+    port 1/1/c32 {
+    }
+    port 1/1/c33 {
+    }
+    port 1/1/c34 {
+    }
+    port 1/1/c35 {
+    }
+    port 1/1/c36 {
+    }
+    redundancy {
+        bgp-evpn {
+            ethernet-segment {
+                boot-timer 120
+                activation-timer 10
+            }
+        }
+    }
+    router "Base" {
+        autonomous-system 65100
+        ecmp 4
+        interface "To_spine3" {
+            admin-state enable
+            port 1/1/c1/1
+            ipv4 {
+                unnumbered {
+                    system
+                }
+                bfd {
+                    admin-state enable
+                    transmit-interval 1000
+                    receive 1000
+                    multiplier 3
+                }
+            }
+        }
+        interface "To_spine4" {
+            admin-state enable
+            port 1/1/c2/1
+            ipv4 {
+                unnumbered {
+                    system
+                }
+                bfd {
+                    admin-state enable
+                    transmit-interval 1000
+                    receive 1000
+                    multiplier 3
+                }
+            }
+        }
+        interface "system" {
+            ipv4 {
+                primary {
+                    address 1.1.3.4
+                    prefix-length 32
+                }
+            }
+        }
+        mpls-labels {
+            sr-labels {
+                start 519000
+                end 524000
+            }
+            reserved-label-block "IR-BUM" {
+                start-label 551000
+                end-label 551999
+            }
+        }
+        bgp {
+            admin-state enable
+            min-route-advertisement 1
+            vpn-apply-export false
+            vpn-apply-import false
+            asn-4-byte true
+            router-id 1.1.3.4
+            rapid-withdrawal true
+            peer-ip-tracking true
+            split-horizon true
+            family {
+                vpn-ipv4 true
+                mvpn-ipv4 true
+                evpn true
+            }
+            rapid-update {
+                evpn true
+            }
+            group "iBGP" {
+                next-hop-self true
+                type internal
+                peer-as 65100
+                family {
+                    vpn-ipv4 true
+                    mvpn-ipv4 true
+                    evpn true
+                }
+                local-as {
+                    as-number 65100
+                }
+            }
+            neighbor "1.1.1.4" {
+                admin-state enable
+                group "iBGP"
+            }
+            neighbor "1.1.1.5" {
+                admin-state enable
+                group "iBGP"
+            }
+        }
+        isis 0 {
+            admin-state enable
+            advertise-router-capability as
+            level-capability 2
+            router-id 1.1.3.4
+            traffic-engineering true
+            area-address [49.01]
+            entropy-label {
+                override-tunnel-elc true
+            }
+            loopfree-alternate {
+            }
+            segment-routing {
+                admin-state enable
+                prefix-sid-range {
+                    global
+                }
+            }
+            interface "To_spine3" {
+                admin-state enable
+                interface-type point-to-point
+                bfd-liveness {
+                    ipv4 {
+                        include-bfd-tlv true
+                    }
+                }
+            }
+            interface "To_spine4" {
+                admin-state enable
+                interface-type point-to-point
+                bfd-liveness {
+                    ipv4 {
+                        include-bfd-tlv true
+                    }
+                }
+            }
+            interface "system" {
+                admin-state enable
+                passive true
+                ipv4-node-sid {
+                    index 34
+                }
+            }
+            level 2 {
+                wide-metrics-only true
+            }
+        }
+        ldp {
+            admin-state enable
+            targeted-session {
+                auto-tx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+                auto-rx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+            }
+        }
+        mpls {
+            admin-state enable
+            interface "To_spine3" {
+                admin-state enable
+            }
+            interface "To_spine4" {
+                admin-state enable
+            }
+            interface "system" {
+                admin-state enable
+            }
+        }
+        rsvp {
+            admin-state disable
+            interface "To_spine3" {
+                admin-state disable
+            }
+            interface "To_spine4" {
+                admin-state disable
+            }
+            interface "system" {
+                admin-state disable
+            }
+        }
+    }
+    service {
+        system {
+            bgp {
+                evpn {
+                    route-distinguisher "1.1.3.4:0"
+                    ingress-replication-bum-label-block "IR-BUM"
+                    ethernet-segment "legacy-core-1" {
+                        admin-state enable
+                        multi-homing-mode all-active
+                        auto-esi type-1
+                        df-election {
+                            es-activation-timer 10
+                            service-carving-mode auto
+                        }
+                        association {
+                            lag "lag-1" {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        epipe "legacy-hub" {
+            admin-state enable
+            service-id 8585
+            customer "1"
+            sap lag-1:0 {
+                admin-state enable
+            }
+            bgp-evpn {
+                evi 8585
+                local-attachment-circuit "Core-1" {
+                    eth-tag 852
+                }
+                remote-attachment-circuit "Hub-1" {
+                    eth-tag 851
+                }
+                mpls 1 {
+                    admin-state enable
+                    auto-bind-tunnel {
+                        resolution filter
+                        ecmp 2
+                        resolution-filter {
+                            sr-isis true
+                        }
+                    }
+                }
+            }
+        }
+        sdp 1 {
+            admin-state enable
+            delivery-type mpls
+            signaling tldp
+            ldp false
+            sr-isis true
+            far-end {
+                ip-address 1.1.3.3
+            }
+        }
+        vpls "iptv-vpls-bd202" {
+            admin-state enable
+            description "SBD VPLS - OISM"
+            service-id 202
+            customer "1"
+            routed-vpls {
+                multicast {
+                    ipv4 {
+                        forward-to-ip-interface true
+                    }
+                    evpn-gateway {
+                        admin-state enable
+                        advertise pim-only
+                        non-dr-attract-traffic from-evpn-pim-mvpn
+                    }
+                }
+            }
+            bgp 1 {
+            }
+            igmp-snooping {
+                admin-state enable
+            }
+            bgp-evpn {
+                evi 202
+                routes {
+                    mac-ip {
+                        advertise false
+                    }
+                    ip-prefix {
+                        advertise true
+                    }
+                    sel-mcast {
+                        advertise true
+                    }
+                }
+                mpls 1 {
+                    admin-state enable
+                    ingress-replication-bum-label true
+                    ecmp 2
+                    auto-bind-tunnel {
+                        resolution filter
+                        resolution-filter {
+                            sr-isis true
+                        }
+                    }
+                }
+            }
+        }
+        vpls "voice-vpls-bd900" {
+            admin-state enable
+            description "Voice - SBD VPLS"
+            service-id 900
+            customer "1"
+            routed-vpls {
+            }
+            bgp 1 {
+            }
+            bgp-evpn {
+                evi 900
+                routes {
+                    mac-ip {
+                        advertise false
+                    }
+                    ip-prefix {
+                        advertise true
+                    }
+                }
+                mpls 1 {
+                    admin-state enable
+                    ingress-replication-bum-label true
+                    auto-bind-tunnel {
+                        resolution filter
+                        resolution-filter {
+                            sr-isis true
+                        }
+                    }
+                }
+            }
+        }
+        vprn "iptv" {
+            admin-state enable
+            service-id 85
+            customer "1"
+            igmp {
+                admin-state enable
+                interface "Default" {
+                    admin-state enable
+                }
+                interface "bd-202" {
+                    admin-state enable
+                }
+            }
+            pim {
+                admin-state enable
+                apply-to all
+                non-dr-attract-traffic true
+                interface "Default" {
+                    admin-state enable
+                }
+                interface "To_IPTV_Core" {
+                    admin-state enable
+                }
+                interface "To_leaf3" {
+                    admin-state enable
+                }
+                interface "bd-202" {
+                    admin-state enable
+                    multicast-senders always
+                }
+                rp {
+                    ipv4 {
+                        static {
+                            address 10.200.0.1 {
+                                group-prefix 239.0.0.0/8 { }
+                            }
+                        }
+                    }
+                }
+            }
+            interface "Default" {
+                admin-state enable
+                description "local loopback"
+                loopback true
+                ipv4 {
+                    primary {
+                        address 1.1.85.4
+                        prefix-length 32
+                    }
+                }
+            }
+            interface "To_IPTV_Core" {
+                admin-state enable
+                description "L3 PIM to IPTV Core"
+                ipv4 {
+                    primary {
+                        address 100.1.1.2
+                        prefix-length 31
+                    }
+                }
+                sap 1/1/c4/1:0 {
+                    admin-state enable
+                }
+            }
+            interface "To_leaf3" {
+                admin-state enable
+                ipv4 {
+                    primary {
+                        address 100.1.1.5
+                        prefix-length 31
+                    }
+                }
+                spoke-sdp 1:85 {
+                    admin-state enable
+                }
+            }
+            interface "bd-202" {
+                admin-state enable
+                description "SBD interface"
+                vpls "iptv-vpls-bd202" {
+                    evpn-tunnel {
+                        supplementary-broadcast-domain true
+                    }
+                }
+            }
+            isis 1 {
+                admin-state enable
+                advertise-router-capability as
+                level-capability 2
+                router-id 1.1.85.4
+                export-policy ["RI:POLICY:IPTV:OUT"]
+                import-policy ["RI:POLICY:IPTV:IN"]
+                area-address [49.01]
+                interface "Default" {
+                    admin-state enable
+                    passive true
+                }
+                interface "To_IPTV_Core" {
+                    admin-state enable
+                    interface-type point-to-point
+                }
+                interface "To_leaf3" {
+                    admin-state enable
+                    interface-type point-to-point
+                }
+            }
+        }
+        vprn "voice" {
+            admin-state enable
+            service-id 90
+            customer "1"
+            bgp {
+                admin-state enable
+            }
+            interface "Default" {
+                loopback true
+                ipv4 {
+                    primary {
+                        address 1.1.90.4
+                        prefix-length 32
+                    }
+                }
+            }
+            interface "bd-900" {
+                admin-state enable
+                vpls "voice-vpls-bd900" {
+                    evpn-tunnel {
+                        supplementary-broadcast-domain true
+                    }
+                }
+            }
+        }
+    }
+    system {
+        name "leaf4"
+        management-interface {
+            netconf {
+                listen {
+                    admin-state enable
+                    port 830
+                }
+            }
+        }
+        security {
+            aaa {
+                local-profiles {
+                    profile "administrative" {
+                        default-action permit-all
+                        entry 10 {
+                            match "configure system security"
+                            action permit
+                        }
+                        entry 20 {
+                            match "show system security"
+                            action permit
+                        }
+                        entry 30 {
+                            match "tools perform security"
+                            action permit
+                        }
+                        entry 40 {
+                            match "tools dump security"
+                            action permit
+                        }
+                        entry 42 {
+                            match "tools dump system security"
+                            action permit
+                        }
+                        entry 50 {
+                            match "admin system security"
+                            action permit
+                        }
+                        entry 100 {
+                            match "configure li"
+                            action deny
+                        }
+                        entry 110 {
+                            match "show li"
+                            action deny
+                        }
+                        entry 111 {
+                            match "clear li"
+                            action deny
+                        }
+                        entry 112 {
+                            match "tools dump li"
+                            action deny
+                        }
+                        netconf {
+                            base-op-authorization {
+                                action true
+                                cancel-commit true
+                                close-session true
+                                commit true
+                                copy-config true
+                                create-subscription true
+                                delete-config true
+                                discard-changes true
+                                edit-config true
+                                get true
+                                get-config true
+                                get-data true
+                                get-schema true
+                                kill-session true
+                                lock true
+                                validate true
+                            }
+                        }
+                    }
+                    profile "default" {
+                        entry 10 {
+                            match "exec"
+                            action permit
+                        }
+                        entry 20 {
+                            match "exit"
+                            action permit
+                        }
+                        entry 30 {
+                            match "help"
+                            action permit
+                        }
+                        entry 40 {
+                            match "logout"
+                            action permit
+                        }
+                        entry 50 {
+                            match "password"
+                            action permit
+                        }
+                        entry 60 {
+                            match "show config"
+                            action deny
+                        }
+                        entry 65 {
+                            match "show li"
+                            action deny
+                        }
+                        entry 66 {
+                            match "clear li"
+                            action deny
+                        }
+                        entry 67 {
+                            match "tools dump li"
+                            action deny
+                        }
+                        entry 70 {
+                            match "show"
+                            action permit
+                        }
+                        entry 75 {
+                            match "state"
+                            action permit
+                        }
+                        entry 80 {
+                            match "enable-admin"
+                            action permit
+                        }
+                        entry 90 {
+                            match "enable"
+                            action permit
+                        }
+                        entry 100 {
+                            match "configure li"
+                            action deny
+                        }
+                    }
+                }
+            }
+            ssh {
+                server-cipher-list-v2 {
+                    cipher 190 {
+                        name aes256-ctr
+                    }
+                    cipher 192 {
+                        name aes192-ctr
+                    }
+                    cipher 194 {
+                        name aes128-ctr
+                    }
+                    cipher 200 {
+                        name aes128-cbc
+                    }
+                    cipher 205 {
+                        name 3des-cbc
+                    }
+                    cipher 225 {
+                        name aes192-cbc
+                    }
+                    cipher 230 {
+                        name aes256-cbc
+                    }
+                }
+                client-cipher-list-v2 {
+                    cipher 190 {
+                        name aes256-ctr
+                    }
+                    cipher 192 {
+                        name aes192-ctr
+                    }
+                    cipher 194 {
+                        name aes128-ctr
+                    }
+                    cipher 200 {
+                        name aes128-cbc
+                    }
+                    cipher 205 {
+                        name 3des-cbc
+                    }
+                    cipher 225 {
+                        name aes192-cbc
+                    }
+                    cipher 230 {
+                        name aes256-cbc
+                    }
+                }
+                server-mac-list-v2 {
+                    mac 200 {
+                        name hmac-sha2-512
+                    }
+                    mac 210 {
+                        name hmac-sha2-256
+                    }
+                    mac 215 {
+                        name hmac-sha1
+                    }
+                    mac 220 {
+                        name hmac-sha1-96
+                    }
+                    mac 225 {
+                        name hmac-md5
+                    }
+                    mac 240 {
+                        name hmac-md5-96
+                    }
+                }
+                client-mac-list-v2 {
+                    mac 200 {
+                        name hmac-sha2-512
+                    }
+                    mac 210 {
+                        name hmac-sha2-256
+                    }
+                    mac 215 {
+                        name hmac-sha1
+                    }
+                    mac 220 {
+                        name hmac-sha1-96
+                    }
+                    mac 225 {
+                        name hmac-md5
+                    }
+                    mac 240 {
+                        name hmac-md5-96
+                    }
+                }
+            }
+            user-params {
+                attempts {
+                    count 64
+                }
+                local-user {
+                    user "admin" {
+                        password "$2y$10$TQrZlpBDra86.qoexZUzQeBXDY1FcdDhGWdD9lLxMuFyPVSm0OGy6"
+                        restricted-to-home false
+                        access {
+                            console true
+                            netconf true
+                        }
+                        console {
+                            member ["administrative"]
+                        }
+                        public-keys {
+                            rsa {
+                                rsa-key 32 {
+                                    key-value "AAAAB3NzaC1yc2EAAAADAQABAAACAQCi7ZX+JGFqblwNpSho6J+0W/Dls5dIBiU92JaoyTsKzGy69qExyxM0RaQp49G7m8X30fzuz4MxsLkdna9+AroW9pnZ2MiGgTa5u9oO/URitJRAm9BzI+QKhhs8V8riueOy0lHVapfAuswDEB9gxq4t4PnClY4ZIfL+Msr50fnv7wp6s2IF8q3uq22gSZ4w7sVLZ8iwuRSWVshrhYSN/ZNb+mbf+PbozCjCxXpP+b1Y85UjHwVioieMkLMyJHT8JPEMgwsfr9DwVdZcVVELDRo/Rxt+XOkiJZWng7lE61uKx/lD5GHolirYb1HPdmnbnM9se4Lvvv5iOkSb2aA5kMbNGfcTA1INb+JQfoBwqI86cCYMS31IKDhD6AE/1BFxw87D6T3/WzhQsOCwLxiq+z8uSYYcwWVVmqEwVwvFHutNL7jnPjnz6FepSyyl6unpYRjmRo0ybwk1FN7WihjqPRdN5AcUvpaPrX7vlCArPkAdDUS1924iLXDZCnELa0ehK3E6XXeUF0vHdZFw+znijE0e7zw0DbEWVVhcVp0o4AIFzCmGF3da5BUcOsUmz6AvRhyagRAOY5y5Sw1nKyQmWQ/5VpY+x1p2ELraPGNO5Fi0ZrtpnE4mXPqoA78gjNJNn1Lt3sTOM1SQRvmixab7Uz4EpS4ex/hn6qpV0ceHvEfonQ=="
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+persistent-indices {
+    description "Persistent indices are maintained by the system and must not be modified."
+    vrtr-id {
+        router-name "iptv" vrtr-id 2
+        router-name "voice" vrtr-id 3
+    }
+    vrtr-if-id {
+        router-name "Base" interface-name "To_spine3" vrtr-id 1 if-index 2
+        router-name "Base" interface-name "To_spine4" vrtr-id 1 if-index 3
+        router-name "iptv" interface-name "Default" vrtr-id 2 if-index 4
+        router-name "iptv" interface-name "To_IPTV_Core" vrtr-id 2 if-index 6
+        router-name "iptv" interface-name "To_leaf3" vrtr-id 2 if-index 9
+        router-name "iptv" interface-name "bd-202" vrtr-id 2 if-index 5
+        router-name "voice" interface-name "Default" vrtr-id 3 if-index 8
+        router-name "voice" interface-name "bd-900" vrtr-id 3 if-index 7
+    }
+    chassis-mac {
+        client lag index 1 pool 1 offset 1026
+    }
+}
+
+# Finished 2025-05-12T23:07:33.2Z

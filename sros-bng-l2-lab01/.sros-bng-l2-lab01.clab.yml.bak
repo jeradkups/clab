@@ -1,0 +1,125 @@
+name: sros-bng-l2-lab01
+
+mgmt:
+  network: mgmt
+  ipv4-subnet: 172.80.80.0/24
+
+topology:
+  kinds:
+    vr-sros:
+      image: jeradkups/vr-sros:24.10.R2
+      license: license-sros.txt
+  nodes:
+    clab-internal:
+      kind: ovs-bridge    
+    bng1:
+      kind: vr-sros
+      type: sr-2s
+      startup-config: CONFIGS/config-bng1.txt
+      mgmt-ipv4: 172.80.80.11
+
+    bng2:
+      kind: vr-sros
+      type: sr-2s
+      startup-config: CONFIGS/config-bng2.txt
+      mgmt-ipv4: 172.80.80.13
+
+    peer1:
+      kind: vr-sros
+      type: sr-1
+      startup-config: CONFIGS/config-peer1.txt
+      mgmt-ipv4: 172.80.80.12
+
+    leaf1:
+      kind: vr-sros
+      type: ixr-x1
+      startup-config: CONFIGS/config-leaf1.txt
+      mgmt-ipv4: 172.80.80.31
+
+    hub1:
+      kind: vr-sros
+      type: ixr-e2
+      startup-config: CONFIGS/config-hub1.txt
+      mgmt-ipv4: 172.80.80.35
+                
+    ### CLIENTS ###
+    #
+    dhcp1:
+      kind: linux
+      image: alpine:3.20
+      mgmt-ipv4: 172.80.80.41
+      binds:
+        - CLIENT_CFGS/DHCP1/dhcpd.conf:/etc/dhcp/dhcpd.conf
+      exec:
+        - apk install vlan tcpdump
+        - ip link set dev eth1 up
+        - ip link add link eth1 name eth1.300 type vlan id 300
+        - ip address add 10.10.1.3/24 dev eth1.300
+        - ip link set dev eth1.300 up
+        - ip route add 1.0.0.0/8 via 10.10.1.1
+        - ip route add 172.100.0.0/24 via 10.10.1.1
+        - addgroup -g 9067 -S dhcp
+        - adduser --disabled-password --gecos "" --shell /sbin/nologin --home /var/lib/dhcp --no-create-home --ingroup dhcp --uid 9067 dhcp
+        - apk add --no-cache dhcp tzdata
+        - mkdir -p /var/lib/dhcp
+        - touch /var/lib/dhcp/dhcpd.conf
+        - touch /var/lib/dhcp/dhcpd.leases
+        - chown -R 9067:9067 /etc/dhcp
+        - chmod -R 0644 /etc/dhcp
+        - chown -R 9067:9067 /var/lib/dhcp
+        - chmod -R 0644 /var/lib/dhcp
+        - dhcpd -cf /etc/dhcp/dhcpd.conf -4 --no-pid -user dhcp -group dhcp eth1.300
+
+    radius1:
+      kind: linux
+      image: jeradkups/freeradius-server:1.2
+      mgmt-ipv4: 172.80.80.42
+      binds:
+        - CLIENT_CFGS/radius1/authorize:/etc/freeradius/3.0/mods-config/files/authorize
+      exec:
+        - apt install vlan tcpdump
+        - ip link set dev eth1 up
+        - ip link add link eth1 name eth1.300 type vlan id 300
+        - ip address add 10.10.1.2/30 dev eth1.300
+        - ip link set dev eth1.300 up
+        - ip route add 1.0.0.0/8 via 10.10.1.1
+        - ip route add 172.100.0.0/24 via 10.10.1.1
+        - freeradius &
+
+    bng-host1:
+      kind: linux
+      image: jeradkups/bng-host:1.1
+      mgmt-ipv4: 172.80.80.50
+      stages:
+        create:
+          wait-for:
+            - node: peer1
+              stage: healthy
+      binds:
+        - CLIENT_CFGS/bng-host1/dhcp.json:/root/dhcp.json
+        - CLIENT_CFGS/bng-host1/dhcp-msap.json:/root/dhcp-msap.json
+        - CLIENT_CFGS/bng-host1/dhcp-static.json:/root/dhcp-static.jso
+        - CLIENT_CFGS/bng-host1/static.json:/root/static.json
+        - CLIENT_CFGS/bng-host1/iptv.json:/root/iptv.json
+        - CLIENT_CFGS/bng-host1/iptv-static.json:/root/iptv-static.json
+        - CLIENT_CFGS/bng-host1/iptv-dhcp.json:/root/iptv-dhcp.json
+  
+      exec:
+        - apt install vlan
+        #- ip link add link eth1 name eth1.10 type vlan id 10
+
+  links:
+    - endpoints: ["bng1:eth1", "leaf1:eth1"]
+    - endpoints: ["bng1:eth3", "bng2:eth3"]      
+    - endpoints: ["bng1:eth2", "peer1:eth1"]
+    - endpoints: ["bng2:eth1", "leaf1:eth2"]
+    - endpoints: ["bng2:eth2", "peer1:eth2"]
+    - endpoints: ["hub1:eth1", "leaf1:eth3"]
+    
+    #internal services
+    - endpoints: ["dhcp1:eth1", "clab-internal:ovsp3"]
+    - endpoints: ["radius1:eth1", "clab-internal:ovsp2"]
+    - endpoints: ["clab-internal:ovsp1", "peer1:eth4"]
+    #bng-tester
+    - endpoints: ["bng-host1:eth2", "hub1:eth3"]
+    - endpoints: ["bng-host1:eth1", "peer1:eth3"]

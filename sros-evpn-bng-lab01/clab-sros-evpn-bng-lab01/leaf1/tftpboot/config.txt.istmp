@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-05-12T23:08:22.2Z by system from Console
-# Commit ID 2
-#   Committed 2025-05-12T23:08:21.8Z by admin (MD-CLI) from Console
+# Generated 2025-05-16T14:24:09.5Z by system from Console
+# Commit ID 6
+#   Committed 2025-05-16T14:24:09.0Z by admin (MD-CLI) from Console
 
 configure {
     lag "lag-1" {
@@ -125,6 +125,9 @@ configure {
     port 1/1/c8 {
     }
     port 1/1/c9 {
+        connector {
+            breakout c1-100g
+        }
     }
     port 1/1/c10 {
     }
@@ -163,6 +166,9 @@ configure {
     port 1/1/c27 {
     }
     port 1/1/c28 {
+        connector {
+            breakout c4-10g
+        }
     }
     port 1/1/c29 {
     }
@@ -179,6 +185,9 @@ configure {
     port 1/1/c35 {
     }
     port 1/1/c36 {
+        connector {
+            breakout c4-25g
+        }
     }
     router "Base" {
         autonomous-system 65100
@@ -736,4 +745,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-05-12T23:08:22.3Z
+# Finished 2025-05-16T14:24:09.6Z

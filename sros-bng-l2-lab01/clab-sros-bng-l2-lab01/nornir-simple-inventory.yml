@@ -1,0 +1,46 @@
+---
+bng-host1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.80.80.50
+dhcp1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.80.80.41
+radius1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.80.80.42
+clab-internal:
+    username: 
+    password: 
+    platform: ovs-bridge
+    hostname: 
+bng1:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.11
+bng2:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.13
+hub1:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.35
+leaf1:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.31
+peer1:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.12

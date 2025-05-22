@@ -17,33 +17,18 @@ topology:
       type: sr-2s
       startup-config: CONFIGS/config-bng1.txt
       mgmt-ipv4: 172.80.80.11
-      stages:
-        create:
-          wait-for:
-            - node: spine1
-              stage: healthy
 
     bng2:
       kind: vr-sros
       type: sr-2s
       startup-config: CONFIGS/config-bng2.txt
       mgmt-ipv4: 172.80.80.13
-      stages:
-        create:
-          wait-for:
-            - node: spine2
-              stage: healthy
 
     peer1:
       kind: vr-sros
       type: sr-1
       startup-config: CONFIGS/config-peer1.txt
       mgmt-ipv4: 172.80.80.12
-      stages:
-        create:
-          wait-for:
-            - node: bng1
-              stage: healthy
 
     rr1:
       kind: vr-sros

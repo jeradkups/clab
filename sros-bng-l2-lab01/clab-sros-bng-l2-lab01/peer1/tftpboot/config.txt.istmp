@@ -1,0 +1,670 @@
+# TiMOS-B-24.10.R2 both/x86_64 Nokia 7750 SR Copyright (c) 2000-2024 Nokia.
+# All rights reserved. All use subject to applicable license agreements.
+# Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
+# Configuration format version 24.10 revision 0
+
+# Generated 2025-05-20T03:02:35.3Z by system from Console
+# Commit ID 3
+#   Committed 2025-05-20T03:02:35.0Z by admin (MD-CLI) from Console
+
+configure {
+    card 1 {
+        admin-state enable
+        card-type iom-1
+        mda 1 {
+            admin-state enable
+            mda-type me12-100gb-qsfp28
+        }
+    }
+    log {
+        filter "1001" {
+            named-entry "10" {
+                description "Collect only events of major severity or higher"
+                action forward
+                match {
+                    severity {
+                        gte major
+                    }
+                }
+            }
+        }
+        log-id "99" {
+            description "Default System Log"
+            source {
+                main true
+            }
+            destination {
+                memory {
+                    max-entries 500
+                }
+            }
+        }
+        log-id "100" {
+            description "Default Serious Errors Log"
+            filter "1001"
+            source {
+                main true
+            }
+            destination {
+                memory {
+                    max-entries 500
+                }
+            }
+        }
+    }
+    policy-options {
+        community "RT:BNG-CORE" {
+            member "target:65100:300" { }
+        }
+        community "RT:BNG-SUBSCRIBERS" {
+            member "target:65100:75" { }
+        }
+        prefix-list "BNG-Internal" {
+            prefix 10.10.1.0/24 type exact {
+            }
+        }
+        policy-statement "POLICY:BNG-CORE:OUT" {
+            entry-type numbered
+            entry 5 {
+                from {
+                    prefix-list ["BNG-Internal"]
+                }
+                action {
+                    action-type accept
+                    community {
+                        add ["RT:BNG-CORE" "RT:BNG-SUBSCRIBERS"]
+                    }
+                }
+            }
+            entry 100 {
+                action {
+                    action-type accept
+                    community {
+                        add ["RT:BNG-CORE"]
+                    }
+                }
+            }
+        }
+    }
+    port 1/1/c1 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c1/1 {
+        admin-state enable
+        ethernet {
+            mode network
+        }
+    }
+    port 1/1/c2 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c2/1 {
+        admin-state enable
+        ethernet {
+            mode network
+        }
+    }
+    port 1/1/c3 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c3/1 {
+        admin-state enable
+        ethernet {
+            mode access
+            encap-type dot1q
+        }
+    }
+    port 1/1/c4 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c4/1 {
+        admin-state enable
+        ethernet {
+            mode access
+            encap-type dot1q
+        }
+    }
+    port 1/1/c5 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c5/1 {
+        admin-state enable
+        ethernet {
+            mode access
+            encap-type dot1q
+        }
+    }
+    router "Base" {
+        autonomous-system 65100
+        ecmp 4
+        interface "To_bng1" {
+            admin-state enable
+            port 1/1/c1/1
+            ipv4 {
+                unnumbered {
+                    system
+                }
+            }
+        }
+        interface "To_bng2" {
+            admin-state enable
+            port 1/1/c2/1
+            ipv4 {
+                unnumbered {
+                    system
+                }
+            }
+        }
+        interface "system" {
+            ipv4 {
+                primary {
+                    address 1.1.1.2
+                    prefix-length 32
+                }
+            }
+        }
+        mpls-labels {
+            sr-labels {
+                start 519000
+                end 524000
+            }
+        }
+        bgp {
+            admin-state enable
+            vpn-apply-export true
+            vpn-apply-import true
+            asn-4-byte true
+            router-id 1.1.1.2
+            rapid-withdrawal true
+            family {
+                vpn-ipv4 true
+                mvpn-ipv4 true
+                evpn true
+            }
+            rapid-update {
+                evpn true
+            }
+            group "iBGP" {
+                type internal
+                peer-as 65100
+                family {
+                    vpn-ipv4 true
+                    mvpn-ipv4 true
+                    evpn true
+                }
+                local-as {
+                    as-number 65100
+                }
+            }
+            neighbor "1.1.1.1" {
+                admin-state enable
+                group "iBGP"
+            }
+            neighbor "1.1.1.3" {
+                admin-state enable
+                group "iBGP"
+            }
+        }
+        isis 0 {
+            admin-state enable
+            advertise-router-capability as
+            level-capability 2
+            router-id 1.1.1.2
+            traffic-engineering true
+            area-address [49.01]
+            loopfree-alternate {
+            }
+            segment-routing {
+                admin-state enable
+                prefix-sid-range {
+                    global
+                }
+            }
+            interface "To_bng1" {
+                admin-state enable
+                interface-type point-to-point
+            }
+            interface "To_bng2" {
+                admin-state enable
+                interface-type point-to-point
+            }
+            interface "system" {
+                admin-state enable
+                passive true
+                ipv4-node-sid {
+                    index 12
+                }
+            }
+            level 2 {
+                wide-metrics-only true
+            }
+        }
+        ldp {
+            admin-state enable
+            interface-parameters {
+                interface "To_bng1" {
+                    admin-state enable
+                    ipv4 {
+                        fec-type-capability {
+                            p2mp-ipv4 true
+                        }
+                    }
+                }
+                interface "To_bng2" {
+                    admin-state enable
+                    ipv4 {
+                        fec-type-capability {
+                            p2mp-ipv4 true
+                        }
+                    }
+                }
+            }
+        }
+        mpls {
+            admin-state enable
+            interface "To_bng1" {
+                admin-state enable
+            }
+            interface "To_bng2" {
+                admin-state enable
+            }
+            interface "system" {
+                admin-state enable
+            }
+        }
+        rsvp {
+            admin-state disable
+            interface "To_bng1" {
+                admin-state disable
+            }
+            interface "To_bng2" {
+                admin-state disable
+            }
+            interface "system" {
+                admin-state disable
+            }
+        }
+    }
+    service {
+        vprn "bng_core" {
+            admin-state enable
+            description "VPRN for internal services"
+            service-id 300
+            customer "1"
+            ecmp 4
+            bgp-ipvpn {
+                mpls {
+                    admin-state enable
+                    route-distinguisher "1.1.1.2:300"
+                    vrf-target {
+                        community "target:65100:300"
+                    }
+                    auto-bind-tunnel {
+                        ecmp 2
+                        resolution filter
+                        resolution-filter {
+                            sr-isis true
+                        }
+                    }
+                }
+            }
+            bgp {
+                admin-state enable
+            }
+            interface "To_radius_dhcp" {
+                admin-state enable
+                ipv4 {
+                    primary {
+                        address 10.10.1.1
+                        prefix-length 24
+                    }
+                }
+                sap 1/1/c4/1:300 {
+                    admin-state enable
+                }
+            }
+            interface "default" {
+                admin-state enable
+                loopback true
+                ipv4 {
+                    primary {
+                        address 1.1.1.2
+                        prefix-length 32
+                    }
+                }
+            }
+        }
+        vprn "peering" {
+            admin-state enable
+            service-id 99
+            customer "1"
+            ecmp 4
+            bgp-ipvpn {
+                mpls {
+                    admin-state enable
+                    route-distinguisher "1.1.1.2:99"
+                    vrf-target {
+                        community "target:65100:99"
+                    }
+                    auto-bind-tunnel {
+                        ecmp 2
+                        resolution filter
+                        resolution-filter {
+                            sr-isis true
+                        }
+                    }
+                }
+            }
+            interface "To_bng-host" {
+                admin-state enable
+                description "network side of bng-host tester"
+                ipv4 {
+                    primary {
+                        address 10.10.10.5
+                        prefix-length 30
+                    }
+                }
+                sap 1/1/c3/1:0 {
+                    admin-state enable
+                }
+            }
+            interface "external" {
+                admin-state enable
+                loopback true
+                ipv4 {
+                    primary {
+                        address 100.10.10.1
+                        prefix-length 24
+                    }
+                }
+            }
+        }
+    }
+    system {
+        name "peer1"
+        management-interface {
+            netconf {
+                listen {
+                    admin-state enable
+                    port 830
+                }
+            }
+        }
+        bluetooth {
+            advertising-timeout 30
+        }
+        security {
+            aaa {
+                local-profiles {
+                    profile "administrative" {
+                        default-action permit-all
+                        entry 10 {
+                            match "configure system security"
+                            action permit
+                        }
+                        entry 20 {
+                            match "show system security"
+                            action permit
+                        }
+                        entry 30 {
+                            match "tools perform security"
+                            action permit
+                        }
+                        entry 40 {
+                            match "tools dump security"
+                            action permit
+                        }
+                        entry 50 {
+                            match "admin system security"
+                            action permit
+                        }
+                        entry 100 {
+                            match "configure li"
+                            action deny
+                        }
+                        entry 110 {
+                            match "show li"
+                            action deny
+                        }
+                        entry 111 {
+                            match "clear li"
+                            action deny
+                        }
+                        entry 112 {
+                            match "tools dump li"
+                            action deny
+                        }
+                        netconf {
+                            base-op-authorization {
+                                action true
+                                cancel-commit true
+                                close-session true
+                                commit true
+                                copy-config true
+                                create-subscription true
+                                delete-config true
+                                discard-changes true
+                                edit-config true
+                                get true
+                                get-config true
+                                get-data true
+                                get-schema true
+                                kill-session true
+                                lock true
+                                validate true
+                            }
+                        }
+                    }
+                    profile "default" {
+                        entry 10 {
+                            match "exec"
+                            action permit
+                        }
+                        entry 20 {
+                            match "exit"
+                            action permit
+                        }
+                        entry 30 {
+                            match "help"
+                            action permit
+                        }
+                        entry 40 {
+                            match "logout"
+                            action permit
+                        }
+                        entry 50 {
+                            match "password"
+                            action permit
+                        }
+                        entry 60 {
+                            match "show config"
+                            action deny
+                        }
+                        entry 65 {
+                            match "show li"
+                            action deny
+                        }
+                        entry 66 {
+                            match "clear li"
+                            action deny
+                        }
+                        entry 67 {
+                            match "tools dump li"
+                            action deny
+                        }
+                        entry 68 {
+                            match "state li"
+                            action deny
+                        }
+                        entry 70 {
+                            match "show"
+                            action permit
+                        }
+                        entry 75 {
+                            match "state"
+                            action permit
+                        }
+                        entry 80 {
+                            match "enable-admin"
+                            action permit
+                        }
+                        entry 90 {
+                            match "enable"
+                            action permit
+                        }
+                        entry 100 {
+                            match "configure li"
+                            action deny
+                        }
+                    }
+                }
+            }
+            ssh {
+                server-cipher-list-v2 {
+                    cipher 190 {
+                        name aes256-ctr
+                    }
+                    cipher 192 {
+                        name aes192-ctr
+                    }
+                    cipher 194 {
+                        name aes128-ctr
+                    }
+                    cipher 200 {
+                        name aes128-cbc
+                    }
+                    cipher 205 {
+                        name 3des-cbc
+                    }
+                    cipher 225 {
+                        name aes192-cbc
+                    }
+                    cipher 230 {
+                        name aes256-cbc
+                    }
+                }
+                client-cipher-list-v2 {
+                    cipher 190 {
+                        name aes256-ctr
+                    }
+                    cipher 192 {
+                        name aes192-ctr
+                    }
+                    cipher 194 {
+                        name aes128-ctr
+                    }
+                    cipher 200 {
+                        name aes128-cbc
+                    }
+                    cipher 205 {
+                        name 3des-cbc
+                    }
+                    cipher 225 {
+                        name aes192-cbc
+                    }
+                    cipher 230 {
+                        name aes256-cbc
+                    }
+                }
+                server-mac-list-v2 {
+                    mac 200 {
+                        name hmac-sha2-512
+                    }
+                    mac 210 {
+                        name hmac-sha2-256
+                    }
+                    mac 215 {
+                        name hmac-sha1
+                    }
+                    mac 220 {
+                        name hmac-sha1-96
+                    }
+                    mac 225 {
+                        name hmac-md5
+                    }
+                    mac 240 {
+                        name hmac-md5-96
+                    }
+                }
+                client-mac-list-v2 {
+                    mac 200 {
+                        name hmac-sha2-512
+                    }
+                    mac 210 {
+                        name hmac-sha2-256
+                    }
+                    mac 215 {
+                        name hmac-sha1
+                    }
+                    mac 220 {
+                        name hmac-sha1-96
+                    }
+                    mac 225 {
+                        name hmac-md5
+                    }
+                    mac 240 {
+                        name hmac-md5-96
+                    }
+                }
+            }
+            user-params {
+                attempts {
+                    count 64
+                }
+                local-user {
+                    user "admin" {
+                        password "$2y$10$TQrZlpBDra86.qoexZUzQeBXDY1FcdDhGWdD9lLxMuFyPVSm0OGy6"
+                        restricted-to-home false
+                        access {
+                            console true
+                            netconf true
+                        }
+                        console {
+                            member ["administrative"]
+                        }
+                        public-keys {
+                            rsa {
+                                rsa-key 32 {
+                                    key-value "AAAAB3NzaC1yc2EAAAADAQABAAACAQCi7ZX+JGFqblwNpSho6J+0W/Dls5dIBiU92JaoyTsKzGy69qExyxM0RaQp49G7m8X30fzuz4MxsLkdna9+AroW9pnZ2MiGgTa5u9oO/URitJRAm9BzI+QKhhs8V8riueOy0lHVapfAuswDEB9gxq4t4PnClY4ZIfL+Msr50fnv7wp6s2IF8q3uq22gSZ4w7sVLZ8iwuRSWVshrhYSN/ZNb+mbf+PbozCjCxXpP+b1Y85UjHwVioieMkLMyJHT8JPEMgwsfr9DwVdZcVVELDRo/Rxt+XOkiJZWng7lE61uKx/lD5GHolirYb1HPdmnbnM9se4Lvvv5iOkSb2aA5kMbNGfcTA1INb+JQfoBwqI86cCYMS31IKDhD6AE/1BFxw87D6T3/WzhQsOCwLxiq+z8uSYYcwWVVmqEwVwvFHutNL7jnPjnz6FepSyyl6unpYRjmRo0ybwk1FN7WihjqPRdN5AcUvpaPrX7vlCArPkAdDUS1924iLXDZCnELa0ehK3E6XXeUF0vHdZFw+znijE0e7zw0DbEWVVhcVp0o4AIFzCmGF3da5BUcOsUmz6AvRhyagRAOY5y5Sw1nKyQmWQ/5VpY+x1p2ELraPGNO5Fi0ZrtpnE4mXPqoA78gjNJNn1Lt3sTOM1SQRvmixab7Uz4EpS4ex/hn6qpV0ceHvEfonQ=="
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+persistent-indices {
+    description "Persistent indices are maintained by the system and must not be modified."
+    vrtr-id {
+        router-name "bng_core" vrtr-id 2
+        router-name "peering" vrtr-id 4
+    }
+    vrtr-if-id {
+        router-name "Base" interface-name "To_bng1" vrtr-id 1 if-index 2
+        router-name "Base" interface-name "To_bng2" vrtr-id 1 if-index 3
+        router-name "bng_core" interface-name "To_radius_dhcp" vrtr-id 2 if-index 10
+        router-name "bng_core" interface-name "default" vrtr-id 2 if-index 6
+        router-name "peering" interface-name "To_bng-host" vrtr-id 4 if-index 5
+        router-name "peering" interface-name "external" vrtr-id 4 if-index 9
+    }
+}
+
+# Finished 2025-05-20T03:02:35.4Z

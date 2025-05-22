@@ -16,18 +16,18 @@
   },
   "ssh-pub-keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCi7ZX+JGFqblwNpSho6J+0W/Dls5dIBiU92JaoyTsKzGy69qExyxM0RaQp49G7m8X30fzuz4MxsLkdna9+AroW9pnZ2MiGgTa5u9oO/URitJRAm9BzI+QKhhs8V8riueOy0lHVapfAuswDEB9gxq4t4PnClY4ZIfL+Msr50fnv7wp6s2IF8q3uq22gSZ4w7sVLZ8iwuRSWVshrhYSN/ZNb+mbf+PbozCjCxXpP+b1Y85UjHwVioieMkLMyJHT8JPEMgwsfr9DwVdZcVVELDRo/Rxt+XOkiJZWng7lE61uKx/lD5GHolirYb1HPdmnbnM9se4Lvvv5iOkSb2aA5kMbNGfcTA1INb+JQfoBwqI86cCYMS31IKDhD6AE/1BFxw87D6T3/WzhQsOCwLxiq+z8uSYYcwWVVmqEwVwvFHutNL7jnPjnz6FepSyyl6unpYRjmRo0ybwk1FN7WihjqPRdN5AcUvpaPrX7vlCArPkAdDUS1924iLXDZCnELa0ehK3E6XXeUF0vHdZFw+znijE0e7zw0DbEWVVhcVp0o4AIFzCmGF3da5BUcOsUmz6AvRhyagRAOY5y5Sw1nKyQmWQ/5VpY+x1p2ELraPGNO5Fi0ZrtpnE4mXPqoA78gjNJNn1Lt3sTOM1SQRvmixab7Uz4EpS4ex/hn6qpV0ceHvEfonQ=="],
   "nodes": {
-    "client1": {
+    "bng-host1": {
       "index": "0",
-      "shortname": "client1",
-      "longname": "clab-sros-evpn-bng-lab01-client1",
-      "fqdn": "client1.sros-evpn-bng-lab01.io",
+      "shortname": "bng-host1",
+      "longname": "clab-sros-evpn-bng-lab01-bng-host1",
+      "fqdn": "bng-host1.sros-evpn-bng-lab01.io",
       "group": "",
-      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/client1",
+      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/bng-host1",
       "kind": "linux",
-      "image": "jeradkups/network-multitool",
+      "image": "jeradkups/bng-host:1.1",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.80.80.51",
+      "mgmt-ipv4-address": "172.80.80.50",
       "mgmt-ipv4-prefix-length": 24,
       "mgmt-ipv6-address": "",
       "mgmt-ipv6-prefix-length": 0,
@@ -36,31 +36,112 @@
         "clab-mgmt-net-bridge": "br-773d2a189d0c",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/client1",
-        "clab-node-longname": "clab-sros-evpn-bng-lab01-client1",
-        "clab-node-name": "client1",
+        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/bng-host1",
+        "clab-node-longname": "clab-sros-evpn-bng-lab01-bng-host1",
+        "clab-node-name": "bng-host1",
         "clab-node-type": "",
         "clab-owner": "root",
         "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
         "containerlab": "sros-evpn-bng-lab01"
       },
       "port-bindings": [
-        {
-          "host-ip": "",
-          "host-port": 0,
-          "port": 443,
-          "protocol": "tcp"
-        },
-        {
-          "host-ip": "",
-          "host-port": 0,
-          "port": 80,
-          "protocol": "tcp"
-        }
+      ]
+    },
+    "bng1": {
+      "index": "1",
+      "shortname": "bng1",
+      "longname": "clab-sros-evpn-bng-lab01-bng1",
+      "fqdn": "bng1.sros-evpn-bng-lab01.io",
+      "group": "",
+      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/bng1",
+      "kind": "vr-sros",
+      "image": "jeradkups/vr-sros:24.10.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.80.80.11",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-773d2a189d0c",
+        "clab-node-group": "",
+        "clab-node-kind": "vr-sros",
+        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/bng1",
+        "clab-node-longname": "clab-sros-evpn-bng-lab01-bng1",
+        "clab-node-name": "bng1",
+        "clab-node-type": "sr-2s",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
+        "containerlab": "sros-evpn-bng-lab01"
+      },
+      "port-bindings": [
+      ]
+    },
+    "bng2": {
+      "index": "2",
+      "shortname": "bng2",
+      "longname": "clab-sros-evpn-bng-lab01-bng2",
+      "fqdn": "bng2.sros-evpn-bng-lab01.io",
+      "group": "",
+      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/bng2",
+      "kind": "vr-sros",
+      "image": "jeradkups/vr-sros:24.10.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.80.80.13",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-773d2a189d0c",
+        "clab-node-group": "",
+        "clab-node-kind": "vr-sros",
+        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/bng2",
+        "clab-node-longname": "clab-sros-evpn-bng-lab01-bng2",
+        "clab-node-name": "bng2",
+        "clab-node-type": "sr-2s",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
+        "containerlab": "sros-evpn-bng-lab01"
+      },
+      "port-bindings": [
+      ]
+    },
+    "clab-internal": {
+      "index": "3",
+      "shortname": "clab-internal",
+      "longname": "clab-sros-evpn-bng-lab01-clab-internal",
+      "fqdn": "clab-internal.sros-evpn-bng-lab01.io",
+      "group": "",
+      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/clab-internal",
+      "kind": "ovs-bridge",
+      "image": "",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-773d2a189d0c",
+        "clab-node-group": "",
+        "clab-node-kind": "ovs-bridge",
+        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/clab-internal",
+        "clab-node-longname": "clab-sros-evpn-bng-lab01-clab-internal",
+        "clab-node-name": "clab-internal",
+        "clab-node-type": "",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
+        "containerlab": "sros-evpn-bng-lab01"
+      },
+      "port-bindings": [
       ]
     },
     "client2": {
-      "index": "1",
+      "index": "4",
       "shortname": "client2",
       "longname": "clab-sros-evpn-bng-lab01-client2",
       "fqdn": "client2.sros-evpn-bng-lab01.io",
@@ -102,18 +183,18 @@
         }
       ]
     },
-    "client3": {
-      "index": "2",
-      "shortname": "client3",
-      "longname": "clab-sros-evpn-bng-lab01-client3",
-      "fqdn": "client3.sros-evpn-bng-lab01.io",
+    "dhcp1": {
+      "index": "5",
+      "shortname": "dhcp1",
+      "longname": "clab-sros-evpn-bng-lab01-dhcp1",
+      "fqdn": "dhcp1.sros-evpn-bng-lab01.io",
       "group": "",
-      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/client3",
+      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/dhcp1",
       "kind": "linux",
-      "image": "jeradkups/network-multitool",
+      "image": "alpine:3.20",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.80.80.53",
+      "mgmt-ipv4-address": "172.80.80.41",
       "mgmt-ipv4-prefix-length": 24,
       "mgmt-ipv6-address": "",
       "mgmt-ipv6-prefix-length": 0,
@@ -122,31 +203,19 @@
         "clab-mgmt-net-bridge": "br-773d2a189d0c",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/client3",
-        "clab-node-longname": "clab-sros-evpn-bng-lab01-client3",
-        "clab-node-name": "client3",
+        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/dhcp1",
+        "clab-node-longname": "clab-sros-evpn-bng-lab01-dhcp1",
+        "clab-node-name": "dhcp1",
         "clab-node-type": "",
         "clab-owner": "root",
         "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
         "containerlab": "sros-evpn-bng-lab01"
       },
       "port-bindings": [
-        {
-          "host-ip": "",
-          "host-port": 0,
-          "port": 443,
-          "protocol": "tcp"
-        },
-        {
-          "host-ip": "",
-          "host-port": 0,
-          "port": 80,
-          "protocol": "tcp"
-        }
       ]
     },
     "hub1": {
-      "index": "3",
+      "index": "6",
       "shortname": "hub1",
       "longname": "clab-sros-evpn-bng-lab01-hub1",
       "fqdn": "hub1.sros-evpn-bng-lab01.io",
@@ -176,39 +245,8 @@
       "port-bindings": [
       ]
     },
-    "hub2": {
-      "index": "4",
-      "shortname": "hub2",
-      "longname": "clab-sros-evpn-bng-lab01-hub2",
-      "fqdn": "hub2.sros-evpn-bng-lab01.io",
-      "group": "",
-      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/hub2",
-      "kind": "vr-sros",
-      "image": "jeradkups/vr-sros:24.10.R2",
-      "mgmt-net": "",
-      "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.80.80.36",
-      "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "",
-      "mgmt-ipv6-prefix-length": 0,
-      "mac-address": "",
-      "labels": {
-        "clab-mgmt-net-bridge": "br-773d2a189d0c",
-        "clab-node-group": "",
-        "clab-node-kind": "vr-sros",
-        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/hub2",
-        "clab-node-longname": "clab-sros-evpn-bng-lab01-hub2",
-        "clab-node-name": "hub2",
-        "clab-node-type": "ixr-e2",
-        "clab-owner": "root",
-        "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
-        "containerlab": "sros-evpn-bng-lab01"
-      },
-      "port-bindings": [
-      ]
-    },
     "leaf1": {
-      "index": "5",
+      "index": "7",
       "shortname": "leaf1",
       "longname": "clab-sros-evpn-bng-lab01-leaf1",
       "fqdn": "leaf1.sros-evpn-bng-lab01.io",
@@ -239,7 +277,7 @@
       ]
     },
     "leaf2": {
-      "index": "6",
+      "index": "8",
       "shortname": "leaf2",
       "longname": "clab-sros-evpn-bng-lab01-leaf2",
       "fqdn": "leaf2.sros-evpn-bng-lab01.io",
@@ -269,80 +307,18 @@
       "port-bindings": [
       ]
     },
-    "leaf3": {
-      "index": "7",
-      "shortname": "leaf3",
-      "longname": "clab-sros-evpn-bng-lab01-leaf3",
-      "fqdn": "leaf3.sros-evpn-bng-lab01.io",
-      "group": "",
-      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/leaf3",
-      "kind": "vr-sros",
-      "image": "jeradkups/vr-sros:24.10.R2",
-      "mgmt-net": "",
-      "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.80.80.33",
-      "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "",
-      "mgmt-ipv6-prefix-length": 0,
-      "mac-address": "",
-      "labels": {
-        "clab-mgmt-net-bridge": "br-773d2a189d0c",
-        "clab-node-group": "",
-        "clab-node-kind": "vr-sros",
-        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/leaf3",
-        "clab-node-longname": "clab-sros-evpn-bng-lab01-leaf3",
-        "clab-node-name": "leaf3",
-        "clab-node-type": "ixr-x1",
-        "clab-owner": "root",
-        "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
-        "containerlab": "sros-evpn-bng-lab01"
-      },
-      "port-bindings": [
-      ]
-    },
-    "leaf4": {
-      "index": "8",
-      "shortname": "leaf4",
-      "longname": "clab-sros-evpn-bng-lab01-leaf4",
-      "fqdn": "leaf4.sros-evpn-bng-lab01.io",
-      "group": "",
-      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/leaf4",
-      "kind": "vr-sros",
-      "image": "jeradkups/vr-sros:24.10.R2",
-      "mgmt-net": "",
-      "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.80.80.34",
-      "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "",
-      "mgmt-ipv6-prefix-length": 0,
-      "mac-address": "",
-      "labels": {
-        "clab-mgmt-net-bridge": "br-773d2a189d0c",
-        "clab-node-group": "",
-        "clab-node-kind": "vr-sros",
-        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/leaf4",
-        "clab-node-longname": "clab-sros-evpn-bng-lab01-leaf4",
-        "clab-node-name": "leaf4",
-        "clab-node-type": "ixr-x1",
-        "clab-owner": "root",
-        "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
-        "containerlab": "sros-evpn-bng-lab01"
-      },
-      "port-bindings": [
-      ]
-    },
-    "pim1": {
+    "peer1": {
       "index": "9",
-      "shortname": "pim1",
-      "longname": "clab-sros-evpn-bng-lab01-pim1",
-      "fqdn": "pim1.sros-evpn-bng-lab01.io",
+      "shortname": "peer1",
+      "longname": "clab-sros-evpn-bng-lab01-peer1",
+      "fqdn": "peer1.sros-evpn-bng-lab01.io",
       "group": "",
-      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/pim1",
+      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/peer1",
       "kind": "vr-sros",
       "image": "jeradkups/vr-sros:24.10.R2",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.80.80.37",
+      "mgmt-ipv4-address": "172.80.80.12",
       "mgmt-ipv4-prefix-length": 24,
       "mgmt-ipv6-address": "",
       "mgmt-ipv6-prefix-length": 0,
@@ -351,19 +327,68 @@
         "clab-mgmt-net-bridge": "br-773d2a189d0c",
         "clab-node-group": "",
         "clab-node-kind": "vr-sros",
-        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/pim1",
-        "clab-node-longname": "clab-sros-evpn-bng-lab01-pim1",
-        "clab-node-name": "pim1",
-        "clab-node-type": "ixr-e2",
+        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/peer1",
+        "clab-node-longname": "clab-sros-evpn-bng-lab01-peer1",
+        "clab-node-name": "peer1",
+        "clab-node-type": "sr-1",
         "clab-owner": "root",
         "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
         "containerlab": "sros-evpn-bng-lab01"
       },
       "port-bindings": [
+      ]
+    },
+    "radius1": {
+      "index": "10",
+      "shortname": "radius1",
+      "longname": "clab-sros-evpn-bng-lab01-radius1",
+      "fqdn": "radius1.sros-evpn-bng-lab01.io",
+      "group": "",
+      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/radius1",
+      "kind": "linux",
+      "image": "jeradkups/freeradius-server:1.2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.80.80.42",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-773d2a189d0c",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/radius1",
+        "clab-node-longname": "clab-sros-evpn-bng-lab01-radius1",
+        "clab-node-name": "radius1",
+        "clab-node-type": "",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
+        "containerlab": "sros-evpn-bng-lab01"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 1812,
+          "protocol": "udp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 1813,
+          "protocol": "udp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 22,
+          "protocol": "tcp"
+        }
       ]
     },
     "rr1": {
-      "index": "10",
+      "index": "11",
       "shortname": "rr1",
       "longname": "clab-sros-evpn-bng-lab01-rr1",
       "fqdn": "rr1.sros-evpn-bng-lab01.io",
@@ -385,37 +410,6 @@
         "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/rr1",
         "clab-node-longname": "clab-sros-evpn-bng-lab01-rr1",
         "clab-node-name": "rr1",
-        "clab-node-type": "vsr-i",
-        "clab-owner": "root",
-        "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
-        "containerlab": "sros-evpn-bng-lab01"
-      },
-      "port-bindings": [
-      ]
-    },
-    "rr2": {
-      "index": "11",
-      "shortname": "rr2",
-      "longname": "clab-sros-evpn-bng-lab01-rr2",
-      "fqdn": "rr2.sros-evpn-bng-lab01.io",
-      "group": "",
-      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/rr2",
-      "kind": "vr-sros",
-      "image": "jeradkups/vr-sros:24.10.R2",
-      "mgmt-net": "",
-      "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.80.80.15",
-      "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "",
-      "mgmt-ipv6-prefix-length": 0,
-      "mac-address": "",
-      "labels": {
-        "clab-mgmt-net-bridge": "br-773d2a189d0c",
-        "clab-node-group": "",
-        "clab-node-kind": "vr-sros",
-        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/rr2",
-        "clab-node-longname": "clab-sros-evpn-bng-lab01-rr2",
-        "clab-node-name": "rr2",
         "clab-node-type": "vsr-i",
         "clab-owner": "root",
         "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
@@ -516,51 +510,90 @@
       },
       "port-bindings": [
       ]
-    },
-    "spine4": {
-      "index": "15",
-      "shortname": "spine4",
-      "longname": "clab-sros-evpn-bng-lab01-spine4",
-      "fqdn": "spine4.sros-evpn-bng-lab01.io",
-      "group": "",
-      "labdir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/spine4",
-      "kind": "vr-sros",
-      "image": "jeradkups/vr-sros:24.10.R2",
-      "mgmt-net": "",
-      "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.80.80.24",
-      "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "",
-      "mgmt-ipv6-prefix-length": 0,
-      "mac-address": "",
-      "labels": {
-        "clab-mgmt-net-bridge": "br-773d2a189d0c",
-        "clab-node-group": "",
-        "clab-node-kind": "vr-sros",
-        "clab-node-lab-dir": "/root/clab/sros-evpn-bng-lab01/clab-sros-evpn-bng-lab01/spine4",
-        "clab-node-longname": "clab-sros-evpn-bng-lab01-spine4",
-        "clab-node-name": "spine4",
-        "clab-node-type": "ixr-x3",
-        "clab-owner": "root",
-        "clab-topo-file": "/root/clab/sros-evpn-bng-lab01/sros-evpn-bng-lab01.clab.yml",
-        "containerlab": "sros-evpn-bng-lab01"
-      },
-      "port-bindings": [
-      ]
     }
   },
-  "links": [,
+  "links": [
+    {
+      "a": {
+        "node": "bng1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:c1:8d:36",
+        "peer": "z"
+      },
+      "z": {
+        "node": "spine1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:a3:2d:45",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "bng1",
+        "interface": "eth4",
+        "mac": "aa:c1:ab:a7:0b:b4",
+        "peer": "z"
+      },
+      "z": {
+        "node": "spine2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:b3:54:a1",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "bng1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:8f:aa:25",
+        "peer": "z"
+      },
+      "z": {
+        "node": "peer1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:7a:82:29",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "bng2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:68:07:9e",
+        "peer": "z"
+      },
+      "z": {
+        "node": "spine3",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:f8:ee:16",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "bng2",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:5d:e4:43",
+        "peer": "z"
+      },
+      "z": {
+        "node": "peer1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:f2:96:87",
+        "peer": "a"
+      }
+    },
     {
       "a": {
         "node": "spine2",
         "interface": "eth4",
-        "mac": "aa:c1:ab:bf:53:30",
+        "mac": "aa:c1:ab:11:4c:11",
         "peer": "z"
       },
       "z": {
         "node": "spine3",
         "interface": "eth4",
-        "mac": "aa:c1:ab:1d:e0:12",
+        "mac": "aa:c1:ab:44:a0:c2",
         "peer": "a"
       }
     },
@@ -568,13 +601,13 @@
       "a": {
         "node": "leaf1",
         "interface": "eth1",
-        "mac": "aa:c1:ab:35:2b:1f",
+        "mac": "aa:c1:ab:2f:7c:48",
         "peer": "z"
       },
       "z": {
         "node": "spine1",
         "interface": "eth3",
-        "mac": "aa:c1:ab:73:c3:97",
+        "mac": "aa:c1:ab:ff:14:a9",
         "peer": "a"
       }
     },
@@ -582,13 +615,13 @@
       "a": {
         "node": "leaf1",
         "interface": "eth2",
-        "mac": "aa:c1:ab:f2:e1:e2",
+        "mac": "aa:c1:ab:6a:49:b1",
         "peer": "z"
       },
       "z": {
         "node": "spine2",
         "interface": "eth3",
-        "mac": "aa:c1:ab:96:46:6c",
+        "mac": "aa:c1:ab:51:8b:26",
         "peer": "a"
       }
     },
@@ -596,13 +629,13 @@
       "a": {
         "node": "leaf2",
         "interface": "eth1",
-        "mac": "aa:c1:ab:81:9f:a3",
+        "mac": "aa:c1:ab:6f:eb:8a",
         "peer": "z"
       },
       "z": {
         "node": "spine1",
         "interface": "eth5",
-        "mac": "aa:c1:ab:87:54:9c",
+        "mac": "aa:c1:ab:91:8f:ea",
         "peer": "a"
       }
     },
@@ -610,83 +643,13 @@
       "a": {
         "node": "leaf2",
         "interface": "eth2",
-        "mac": "aa:c1:ab:5c:0c:f9",
+        "mac": "aa:c1:ab:6f:da:96",
         "peer": "z"
       },
       "z": {
         "node": "spine2",
         "interface": "eth5",
-        "mac": "aa:c1:ab:56:56:05",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "leaf3",
-        "interface": "eth1",
-        "mac": "aa:c1:ab:e7:9a:51",
-        "peer": "z"
-      },
-      "z": {
-        "node": "spine3",
-        "interface": "eth3",
-        "mac": "aa:c1:ab:e8:ca:bf",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "leaf3",
-        "interface": "eth2",
-        "mac": "aa:c1:ab:49:5f:1e",
-        "peer": "z"
-      },
-      "z": {
-        "node": "spine4",
-        "interface": "eth3",
-        "mac": "aa:c1:ab:3d:87:a6",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "leaf4",
-        "interface": "eth1",
-        "mac": "aa:c1:ab:bd:51:c9",
-        "peer": "z"
-      },
-      "z": {
-        "node": "spine3",
-        "interface": "eth5",
-        "mac": "aa:c1:ab:7b:3e:08",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "leaf4",
-        "interface": "eth2",
-        "mac": "aa:c1:ab:ec:a3:68",
-        "peer": "z"
-      },
-      "z": {
-        "node": "spine4",
-        "interface": "eth5",
-        "mac": "aa:c1:ab:5b:65:00",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "leaf4",
-        "interface": "eth5",
-        "mac": "aa:c1:ab:c2:dd:74",
-        "peer": "z"
-      },
-      "z": {
-        "node": "leaf3",
-        "interface": "eth5",
-        "mac": "aa:c1:ab:43:09:10",
+        "mac": "aa:c1:ab:6b:63:a6",
         "peer": "a"
       }
     },
@@ -694,27 +657,13 @@
       "a": {
         "node": "rr1",
         "interface": "eth1",
-        "mac": "aa:c1:ab:5a:8f:12",
+        "mac": "aa:c1:ab:f5:f5:5a",
         "peer": "z"
       },
       "z": {
         "node": "spine1",
         "interface": "eth4",
-        "mac": "aa:c1:ab:ea:a9:6a",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "rr2",
-        "interface": "eth1",
-        "mac": "aa:c1:ab:08:5f:4a",
-        "peer": "z"
-      },
-      "z": {
-        "node": "spine4",
-        "interface": "eth4",
-        "mac": "aa:c1:ab:f4:fb:59",
+        "mac": "aa:c1:ab:8e:62:9e",
         "peer": "a"
       }
     },
@@ -722,27 +671,13 @@
       "a": {
         "node": "spine1",
         "interface": "eth2",
-        "mac": "aa:c1:ab:aa:37:ae",
+        "mac": "aa:c1:ab:e8:89:2a",
         "peer": "z"
       },
       "z": {
         "node": "spine2",
         "interface": "eth2",
-        "mac": "aa:c1:ab:75:77:f0",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "spine3",
-        "interface": "eth2",
-        "mac": "aa:c1:ab:4c:49:a1",
-        "peer": "z"
-      },
-      "z": {
-        "node": "spine4",
-        "interface": "eth2",
-        "mac": "aa:c1:ab:72:79:2d",
+        "mac": "aa:c1:ab:17:38:5e",
         "peer": "a"
       }
     },
@@ -750,13 +685,13 @@
       "a": {
         "node": "hub1",
         "interface": "eth1",
-        "mac": "aa:c1:ab:40:8d:bf",
+        "mac": "aa:c1:ab:d6:d8:99",
         "peer": "z"
       },
       "z": {
         "node": "leaf1",
         "interface": "eth3",
-        "mac": "aa:c1:ab:7d:22:c1",
+        "mac": "aa:c1:ab:f9:dc:de",
         "peer": "a"
       }
     },
@@ -764,69 +699,13 @@
       "a": {
         "node": "hub1",
         "interface": "eth2",
-        "mac": "aa:c1:ab:b2:e3:86",
+        "mac": "aa:c1:ab:28:df:ff",
         "peer": "z"
       },
       "z": {
         "node": "leaf2",
         "interface": "eth3",
-        "mac": "aa:c1:ab:c0:38:d7",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "hub2",
-        "interface": "eth1",
-        "mac": "aa:c1:ab:00:a5:41",
-        "peer": "z"
-      },
-      "z": {
-        "node": "leaf1",
-        "interface": "eth4",
-        "mac": "aa:c1:ab:78:9c:53",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "hub2",
-        "interface": "eth2",
-        "mac": "aa:c1:ab:2b:21:c9",
-        "peer": "z"
-      },
-      "z": {
-        "node": "leaf2",
-        "interface": "eth4",
-        "mac": "aa:c1:ab:49:05:76",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "pim1",
-        "interface": "eth1",
-        "mac": "aa:c1:ab:43:6b:4d",
-        "peer": "z"
-      },
-      "z": {
-        "node": "leaf3",
-        "interface": "eth4",
-        "mac": "aa:c1:ab:28:1b:0e",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "pim1",
-        "interface": "eth2",
-        "mac": "aa:c1:ab:cb:3e:8d",
-        "peer": "z"
-      },
-      "z": {
-        "node": "leaf4",
-        "interface": "eth4",
-        "mac": "aa:c1:ab:54:12:a3",
+        "mac": "aa:c1:ab:28:c9:be",
         "peer": "a"
       }
     },
@@ -834,13 +713,13 @@
       "a": {
         "node": "hub1",
         "interface": "eth5",
-        "mac": "aa:c1:ab:ae:5a:da",
+        "mac": "aa:c1:ab:af:60:64",
         "peer": "z"
       },
       "z": {
         "node": "leaf1",
         "interface": "eth5",
-        "mac": "aa:c1:ab:c8:f4:ae",
+        "mac": "aa:c1:ab:3e:00:1b",
         "peer": "a"
       }
     },
@@ -848,55 +727,83 @@
       "a": {
         "node": "hub1",
         "interface": "eth6",
-        "mac": "aa:c1:ab:ea:d3:b9",
+        "mac": "aa:c1:ab:fc:56:b0",
         "peer": "z"
       },
       "z": {
         "node": "leaf2",
         "interface": "eth5",
-        "mac": "aa:c1:ab:58:84:2d",
+        "mac": "aa:c1:ab:80:57:f2",
         "peer": "a"
       }
     },
     {
       "a": {
-        "node": "pim1",
-        "interface": "eth5",
-        "mac": "aa:c1:ab:78:9a:2c",
-        "peer": "z"
-      },
-      "z": {
-        "node": "leaf3",
-        "interface": "eth6",
-        "mac": "aa:c1:ab:d6:3d:ef",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "pim1",
-        "interface": "eth6",
-        "mac": "aa:c1:ab:0b:b4:e1",
-        "peer": "z"
-      },
-      "z": {
-        "node": "leaf4",
-        "interface": "eth6",
-        "mac": "aa:c1:ab:90:a5:2c",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "client3",
+        "node": "dhcp1",
         "interface": "eth1",
-        "mac": "aa:c1:ab:66:92:80",
+        "mac": "aa:c1:ab:64:33:92",
         "peer": "z"
       },
       "z": {
-        "node": "hub2",
+        "node": "clab-internal",
+        "interface": "ovsp3",
+        "mac": "aa:c1:ab:55:d6:38",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "radius1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:92:5f:20",
+        "peer": "z"
+      },
+      "z": {
+        "node": "clab-internal",
+        "interface": "ovsp2",
+        "mac": "aa:c1:ab:67:83:0f",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "clab-internal",
+        "interface": "ovsp1",
+        "mac": "aa:c1:ab:64:da:48",
+        "peer": "z"
+      },
+      "z": {
+        "node": "peer1",
         "interface": "eth4",
-        "mac": "aa:c1:ab:05:33:e3",
+        "mac": "aa:c1:ab:21:e3:9f",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "bng-host1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:9a:8c:e3",
+        "peer": "z"
+      },
+      "z": {
+        "node": "hub1",
+        "interface": "eth3",
+        "mac": "aa:c1:ab:c6:98:2e",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "bng-host1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:e0:75:56",
+        "peer": "z"
+      },
+      "z": {
+        "node": "peer1",
+        "interface": "eth3",
+        "mac": "aa:c1:ab:68:25:17",
         "peer": "a"
       }
     },
@@ -904,27 +811,13 @@
       "a": {
         "node": "client2",
         "interface": "eth1",
-        "mac": "aa:c1:ab:87:09:f6",
+        "mac": "aa:c1:ab:93:a3:40",
         "peer": "z"
       },
       "z": {
         "node": "hub1",
         "interface": "eth4",
-        "mac": "aa:c1:ab:86:ea:20",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "client1",
-        "interface": "eth1",
-        "mac": "aa:c1:ab:30:80:92",
-        "peer": "z"
-      },
-      "z": {
-        "node": "pim1",
-        "interface": "eth3",
-        "mac": "aa:c1:ab:bc:e4:78",
+        "mac": "aa:c1:ab:c6:12:63",
         "peer": "a"
       }
     }

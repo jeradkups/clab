@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Backing up the config to main directory"
+
+cp ./clab-sros-bng-l2-lab01/bng1/tftpboot/config.txt ./CONFIGS/config-bng1.txt
+cp ./clab-sros-bng-l2-lab01/bng2/tftpboot/config.txt ./CONFIGS/config-bng2.txt
+cp ./clab-sros-bng-l2-lab01/peer1/tftpboot/config.txt ./CONFIGS/config-peer1.txt
+cp ./clab-sros-bng-l2-lab01/leaf1/tftpboot/config.txt ./CONFIGS/config-leaf1.txt
+cp ./clab-sros-bng-l2-lab01/hub1/tftpboot/config.txt ./CONFIGS/config-hub1.txt
+
+echo "Copy completed"
+

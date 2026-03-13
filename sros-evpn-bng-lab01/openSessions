@@ -51,7 +51,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Get container data for vr-sros containers ONLY (CRUCIAL CHANGE HERE)
-container_data=$(parse_json "$json_data" '.containers[] | select(.kind == "vr-sros") | {name, ipv4: (.ipv4_address | split("/")[0])} | @json')
+container_data=$(parse_json "$json_data" '.[][] | select(.kind == "vr-sros") | {name, ipv4: (.ipv4_address | split("/")[0])} | @json')
 #container_data=$(parse_json "$json_data" '.containers[] | select(.kind == "vr-sros") | {name, ipv4: .ipv4_address} | @json')
 if [[ $? -eq 1 ]]; then exit 1; fi
 

@@ -1,11 +1,11 @@
-# TiMOS-C-24.10.R2 cpm/x86_64 Nokia 7250 IXR Copyright (c) 2000-2024 Nokia.
+# TiMOS-B-25.7.R2 both/x86_64 Nokia 7250 IXR Copyright (c) 2000-2025 Nokia.
 # All rights reserved. All use subject to applicable license agreements.
-# Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
-# Configuration format version 24.10 revision 0
+# Built on Wed Sep 3 21:54:28 UTC 2025 by builder in /builds/257B/R2/panos
+# Configuration format version 25.7 revision 0
 
-# Generated 2025-04-30T03:32:04.4Z by system from Console
-# Commit ID 2
-#   Committed 2025-04-30T03:32:04.2Z by admin (MD-CLI) from Console
+# Generated 2025-10-31T23:34:54.8Z by admin from 172.81.80.1
+# Commit ID 4
+#   Committed 2025-10-31T23:34:28.1Z by admin (MD-CLI) from 172.81.80.1
 
 configure {
     log {
@@ -52,9 +52,6 @@ configure {
     }
     port 1/1/c1/1 {
         admin-state enable
-        ethernet {
-            mode network
-        }
     }
     port 1/1/c2 {
         admin-state enable
@@ -64,9 +61,6 @@ configure {
     }
     port 1/1/c2/1 {
         admin-state enable
-        ethernet {
-            mode network
-        }
     }
     port 1/1/c3 {
         admin-state enable
@@ -76,9 +70,6 @@ configure {
     }
     port 1/1/c3/1 {
         admin-state enable
-        ethernet {
-            mode network
-        }
     }
     port 1/1/c4 {
         admin-state enable
@@ -88,21 +79,8 @@ configure {
     }
     port 1/1/c4/1 {
         admin-state enable
-        ethernet {
-            mode network
-        }
     }
     port 1/1/c5 {
-        admin-state enable
-        connector {
-            breakout c1-100g
-        }
-    }
-    port 1/1/c5/1 {
-        admin-state enable
-        ethernet {
-            mode network
-        }
     }
     port 1/1/c6 {
     }
@@ -150,79 +128,48 @@ configure {
     }
     port 1/1/c28 {
     }
-    port 1/1/c29 {
-    }
-    port 1/1/c30 {
-    }
-    port 1/1/c31 {
-    }
-    port 1/1/c32 {
-    }
-    port 1/1/c33 {
-    }
-    port 1/1/c34 {
-    }
-    port 1/1/c35 {
-    }
-    port 1/1/c36 {
-        admin-state enable
-        connector {
-            breakout c4-10g
-        }
-    }
     router "Base" {
-        autonomous-system 65100
-        ecmp 4
-        interface "To_bng2" {
-            admin-state enable
-            port 1/1/c1/1
-            ipv4 {
-                unnumbered {
-                    system
-                }
-            }
-        }
-        interface "To_leaf2" {
-            admin-state enable
-            port 1/1/c3/1
-            ipv4 {
-                unnumbered {
-                    system
-                }
-            }
-        }
-        interface "To_leaf3" {
-            admin-state enable
-            port 1/1/c5/1
-            ipv4 {
-                unnumbered {
-                    system
-                }
-            }
-        }
-        interface "To_spine2" {
-            admin-state enable
-            port 1/1/c4/1
-            ipv4 {
-                unnumbered {
-                    system
-                }
-            }
-        }
-        interface "To_spine4" {
-            admin-state enable
-            port 1/1/c2/1
-            ipv4 {
-                unnumbered {
-                    system
-                }
-            }
-        }
         interface "system" {
             ipv4 {
                 primary {
-                    address 1.1.2.3
+                    address 10.1.1.2
                     prefix-length 32
+                }
+            }
+        }
+        interface "to_MF2" {
+            port 1/1/c4/1
+            ipv4 {
+                primary {
+                    address 10.69.131.1
+                    prefix-length 31
+                }
+            }
+        }
+        interface "to_PE1" {
+            port 1/1/c1/1
+            ipv4 {
+                primary {
+                    address 1.1.1.1
+                    prefix-length 31
+                }
+            }
+        }
+        interface "to_PE2" {
+            port 1/1/c2/1
+            ipv4 {
+                primary {
+                    address 1.1.1.2
+                    prefix-length 31
+                }
+            }
+        }
+        interface "to_PE3" {
+            port 1/1/c3/1
+            ipv4 {
+                primary {
+                    address 1.1.1.4
+                    prefix-length 31
                 }
             }
         }
@@ -235,104 +182,99 @@ configure {
         isis 0 {
             admin-state enable
             advertise-router-capability as
+            ldp-sync true
             level-capability 2
-            router-id 1.1.2.3
+            router-id 10.1.1.2
+            system-id 1000.0100.0102
             traffic-engineering true
             area-address [49.01]
-            entropy-label {
-                override-tunnel-elc true
-            }
-            loopfree-alternate {
-            }
-            segment-routing {
-                admin-state enable
-                prefix-sid-range {
-                    global
-                }
-            }
-            interface "To_bng2" {
-                admin-state enable
-                interface-type point-to-point
-            }
-            interface "To_leaf2" {
-                admin-state enable
-                interface-type point-to-point
-            }
-            interface "To_leaf3" {
-                admin-state enable
-                interface-type point-to-point
-            }
-            interface "To_spine2" {
-                admin-state enable
-                interface-type point-to-point
-            }
-            interface "To_spine4" {
-                admin-state enable
-                interface-type point-to-point
-            }
             interface "system" {
                 admin-state enable
                 passive true
-                ipv4-node-sid {
-                    index 23
-                }
+            }
+            interface "to_MF2" {
+                admin-state enable
+                interface-type point-to-point
+            }
+            interface "to_PE1" {
+                admin-state enable
+                interface-type point-to-point
+            }
+            interface "to_PE2" {
+                admin-state enable
+                interface-type point-to-point
+            }
+            interface "to_PE3" {
+                admin-state enable
+                interface-type point-to-point
             }
             level 2 {
                 wide-metrics-only true
             }
         }
         ldp {
+            implicit-null-label true
+            interface-parameters {
+                interface "to_MF2" {
+                    admin-state enable
+                    ipv4 {
+                    }
+                }
+                interface "to_PE1" {
+                    admin-state enable
+                    ipv4 {
+                    }
+                }
+                interface "to_PE2" {
+                    admin-state enable
+                    ipv4 {
+                    }
+                }
+                interface "to_PE3" {
+                    admin-state enable
+                    ipv4 {
+                    }
+                }
+            }
         }
         mpls {
             admin-state enable
-            interface "To_bng2" {
-                admin-state enable
+            interface "to_MF2" {
             }
-            interface "To_leaf2" {
-                admin-state enable
+            interface "to_PE1" {
             }
-            interface "To_leaf3" {
-                admin-state enable
+            interface "to_PE2" {
             }
-            interface "To_spine2" {
-                admin-state enable
-            }
-            interface "To_spine4" {
-                admin-state enable
-            }
-            interface "system" {
-                admin-state enable
+            interface "to_PE3" {
             }
         }
         rsvp {
             admin-state disable
-            interface "To_bng2" {
-                admin-state disable
+            interface "to_MF2" {
             }
-            interface "To_leaf2" {
-                admin-state disable
+            interface "to_PE1" {
             }
-            interface "To_leaf3" {
-                admin-state disable
+            interface "to_PE2" {
             }
-            interface "To_spine2" {
-                admin-state disable
-            }
-            interface "To_spine4" {
-                admin-state disable
-            }
-            interface "system" {
-                admin-state disable
+            interface "to_PE3" {
             }
         }
     }
     system {
-        name "spine3"
+        name "lab_P1"
         management-interface {
+            cli {
+                md-cli {
+                    environment {
+                        console {
+                            length 100
+                        }
+                    }
+                }
+            }
             netconf {
                 listen {
                     admin-state enable
-                    port 830
                 }
             }
         }
@@ -551,26 +493,15 @@ configure {
                 }
             }
             user-params {
-                attempts {
-                    count 64
-                }
                 local-user {
                     user "admin" {
                         password "$2y$10$TQrZlpBDra86.qoexZUzQeBXDY1FcdDhGWdD9lLxMuFyPVSm0OGy6"
                         restricted-to-home false
                         access {
                             console true
-                            netconf true
                         }
                         console {
                             member ["administrative"]
-                        }
-                        public-keys {
-                            rsa {
-                                rsa-key 32 {
-                                    key-value "AAAAB3NzaC1yc2EAAAADAQABAAACAQCi7ZX+JGFqblwNpSho6J+0W/Dls5dIBiU92JaoyTsKzGy69qExyxM0RaQp49G7m8X30fzuz4MxsLkdna9+AroW9pnZ2MiGgTa5u9oO/URitJRAm9BzI+QKhhs8V8riueOy0lHVapfAuswDEB9gxq4t4PnClY4ZIfL+Msr50fnv7wp6s2IF8q3uq22gSZ4w7sVLZ8iwuRSWVshrhYSN/ZNb+mbf+PbozCjCxXpP+b1Y85UjHwVioieMkLMyJHT8JPEMgwsfr9DwVdZcVVELDRo/Rxt+XOkiJZWng7lE61uKx/lD5GHolirYb1HPdmnbnM9se4Lvvv5iOkSb2aA5kMbNGfcTA1INb+JQfoBwqI86cCYMS31IKDhD6AE/1BFxw87D6T3/WzhQsOCwLxiq+z8uSYYcwWVVmqEwVwvFHutNL7jnPjnz6FepSyyl6unpYRjmRo0ybwk1FN7WihjqPRdN5AcUvpaPrX7vlCArPkAdDUS1924iLXDZCnELa0ehK3E6XXeUF0vHdZFw+znijE0e7zw0DbEWVVhcVp0o4AIFzCmGF3da5BUcOsUmz6AvRhyagRAOY5y5Sw1nKyQmWQ/5VpY+x1p2ELraPGNO5Fi0ZrtpnE4mXPqoA78gjNJNn1Lt3sTOM1SQRvmixab7Uz4EpS4ex/hn6qpV0ceHvEfonQ=="
-                                }
-                            }
                         }
                     }
                 }
@@ -582,12 +513,11 @@ configure {
 persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
     vrtr-if-id {
-        router-name "Base" interface-name "To_bng2" vrtr-id 1 if-index 9
-        router-name "Base" interface-name "To_leaf2" vrtr-id 1 if-index 3
-        router-name "Base" interface-name "To_leaf3" vrtr-id 1 if-index 2
-        router-name "Base" interface-name "To_spine2" vrtr-id 1 if-index 5
-        router-name "Base" interface-name "To_spine4" vrtr-id 1 if-index 11
+        router-name "Base" interface-name "to_MF2" vrtr-id 1 if-index 2
+        router-name "Base" interface-name "to_PE1" vrtr-id 1 if-index 3
+        router-name "Base" interface-name "to_PE2" vrtr-id 1 if-index 4
+        router-name "Base" interface-name "to_PE3" vrtr-id 1 if-index 5
     }
 }
 
-# Finished 2025-04-30T03:32:04.6Z
+# Finished 2025-10-31T23:34:54.8Z

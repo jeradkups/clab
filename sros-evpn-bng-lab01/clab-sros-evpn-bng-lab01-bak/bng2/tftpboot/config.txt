@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-05-08T23:51:18.4Z by admin from 172.31.255.29
-# Commit ID 14
-#   Committed 2025-05-05T22:23:57.9Z by admin (MD-CLI) from Console
+# Generated 2025-05-13T22:33:04.9Z by admin from 172.31.255.29
+# Commit ID 6
+#   Committed 2025-05-13T15:48:40.2Z by admin (MD-CLI) from Console
 
 configure {
     aaa {
@@ -179,6 +179,14 @@ configure {
                 start-length 32
                 end-length 32
             }
+            prefix 1.0.0.0/8 type range {
+                start-length 32
+                end-length 32
+            }
+            prefix 20.0.0.0/8 type range {
+                start-length 32
+                end-length 32
+            }
         }
         prefix-list "BNG-Subscribers" {
             prefix 99.0.0.0/24 type exact {
@@ -311,6 +319,14 @@ configure {
                     community {
                         add ["RT:BNG-SUBSCRIBERS" "RT:PEERING"]
                     }
+                }
+            }
+            entry 15 {
+                from {
+                    prefix-list ["ESM_Host"]
+                }
+                action {
+                    action-type reject
                 }
             }
             entry 100 {
@@ -957,6 +973,7 @@ configure {
                     }
                     dhcp {
                         gi-address 172.100.0.3
+                        src-ip-addr auto
                     }
                 }
                 hold-time {
@@ -1006,7 +1023,7 @@ configure {
                         sap-session-limit 1000
                     }
                     data-trigger {
-                        admin-state enable
+                        admin-state disable
                     }
                     srrp 10 {
                         admin-state enable
@@ -1457,4 +1474,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-05-08T23:51:18.5Z
+# Finished 2025-05-13T22:33:05.0Z

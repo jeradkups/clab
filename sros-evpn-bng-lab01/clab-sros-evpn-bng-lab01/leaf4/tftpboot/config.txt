@@ -3,9 +3,10 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-05-12T23:48:35.7Z by admin from 172.31.255.29
-# Commit ID 3
-#   Committed 2025-05-12T23:07:32.8Z by admin (MD-CLI) from Console
+# Generated 2025-07-07T22:11:47.0Z by admin from 172.31.255.29
+# Commit ID 1
+#   Committed 2025-07-07T22:11:41.7Z by system (MD-CLI) from Console
+#   Log       "System booted version C-24.10.R2."
 
 configure {
     lag "lag-1" {
@@ -973,8 +974,8 @@ persistent-indices {
         router-name "voice" interface-name "bd-900" vrtr-id 3 if-index 7
     }
     chassis-mac {
-        client lag index 1 pool 1 offset 1026
+        client lag index 1 pool 1 offset 1025
     }
 }
 
-# Finished 2025-05-12T23:48:35.8Z
+# Finished 2025-07-07T22:11:47.0Z

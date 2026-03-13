@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-05-22T18:34:52.8Z by admin from 172.31.255.29
-# Commit ID 13
-#   Committed 2025-05-20T03:07:25.0Z by admin (MD-CLI) from Console
+# Generated 2025-05-25T02:33:28.7Z by admin from 172.31.255.29
+# Commit ID 17
+#   Committed 2025-05-25T02:21:36.3Z by admin (MD-CLI) from Console
 
 configure {
     aaa {
@@ -834,7 +834,83 @@ configure {
                         priority 10
                         one-garp-per-sap true
                     }
+                    sap 1/x1/1/c1/1:3801 {
+                        admin-state enable
+                        sub-sla-mgmt {
+                            admin-state enable
+                            sub-ident-policy "BNG1"
+                            subscriber-limit no-limit
+                            defaults {
+                                subscriber-id {
+                                    auto-id
+                                }
+                            }
+                        }
+                    }
                     sap 1/x1/1/c1/1:4080 {
+                        admin-state enable
+                        sub-sla-mgmt {
+                            admin-state disable
+                        }
+                    }
+                }
+                group-interface "legacy_bng_2" {
+                    admin-state enable
+                    radius-auth-policy "IPOE Auth"
+                    oper-up-while-empty true
+                    redundant-interface "redundant-to-bng1"
+                    dynamic-routes-track-srrp {
+                        hold-time 10
+                    }
+                    ipv4 {
+                        urpf-check {
+                            mode loose
+                        }
+                        neighbor-discovery {
+                            local-proxy-arp true
+                            populate true
+                        }
+                        dhcp {
+                            admin-state enable
+                            server [10.10.1.3]
+                            trusted true
+                            gi-address 172.100.0.2
+                            src-ip-addr gi-address
+                            lease-populate {
+                                max-leases 1000
+                            }
+                        }
+                    }
+                    ipoe-session {
+                        admin-state enable
+                        ipoe-session-policy "IPOE Auth"
+                        sap-session-limit 1000
+                    }
+                    data-trigger {
+                        admin-state enable
+                    }
+                    srrp 11 {
+                        admin-state enable
+                        gw-mac 00:00:5e:00:00:01
+                        keep-alive-interval 10
+                        message-path 1/x1/1/c1/1:4081
+                        priority 100
+                        one-garp-per-sap true
+                    }
+                    sap 1/x1/1/c1/1:3802 {
+                        admin-state enable
+                        sub-sla-mgmt {
+                            admin-state enable
+                            sub-ident-policy "BNG1"
+                            subscriber-limit no-limit
+                            defaults {
+                                subscriber-id {
+                                    auto-id
+                                }
+                            }
+                        }
+                    }
+                    sap 1/x1/1/c1/1:4081 {
                         admin-state enable
                         sub-sla-mgmt {
                             admin-state disable
@@ -1202,6 +1278,7 @@ persistent-indices {
         router-name "bng_1" interface-name "Sub1" vrtr-id 2 if-index 4
         router-name "bng_1" interface-name "default" vrtr-id 2 if-index 5
         router-name "bng_1" interface-name "legacy_bng" vrtr-id 2 if-index 9
+        router-name "bng_1" interface-name "legacy_bng_2" vrtr-id 2 if-index 6
         router-name "bng_1" interface-name "redundant-to-bng1" vrtr-id 2 if-index 8
     }
     msap-policy-id {
@@ -1218,4 +1295,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-05-22T18:34:52.9Z
+# Finished 2025-05-25T02:33:28.7Z

@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-05-11T02:27:14.6Z by system from Console
-# Commit ID 3
-#   Committed 2025-05-11T02:27:14.5Z by admin (MD-CLI) from Console
+# Generated 2025-05-12T22:57:41.7Z by system from Console
+# Commit ID 2
+#   Committed 2025-05-12T22:57:41.1Z by admin (MD-CLI) from Console
 
 configure {
     card 1 {
@@ -152,6 +152,10 @@ configure {
                 group "iBGP"
             }
             neighbor "1.1.3.3" {
+                admin-state enable
+                group "iBGP"
+            }
+            neighbor "1.1.3.4" {
                 admin-state enable
                 group "iBGP"
             }
@@ -443,4 +447,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-05-11T02:27:14.8Z
+# Finished 2025-05-12T22:57:41.8Z

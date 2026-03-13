@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-05-13T15:03:43.1Z by system from Console
-# Commit ID 3
-#   Committed 2025-05-13T15:03:42.7Z by admin (MD-CLI) from Console
+# Generated 2025-07-07T23:35:45.0Z by system from Console
+# Commit ID 4
+#   Committed 2025-07-07T23:35:44.5Z by admin (MD-CLI) from Console
 
 configure {
     lag "lag-1" {
@@ -417,6 +417,10 @@ configure {
                 }
             }
             bgp 1 {
+                route-target {
+                    export "target:65100:202"
+                    import "target:65100:202"
+                }
             }
             igmp-snooping {
                 admin-state enable
@@ -429,6 +433,7 @@ configure {
                     }
                     ip-prefix {
                         advertise true
+                        domain-id "65100:200"
                     }
                     sel-mcast {
                         advertise true
@@ -926,4 +931,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-05-13T15:03:43.2Z
+# Finished 2025-07-07T23:35:45.1Z

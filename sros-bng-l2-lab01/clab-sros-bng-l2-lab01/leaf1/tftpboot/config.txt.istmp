@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-05-20T03:05:39.9Z by system from Console
-# Commit ID 17
-#   Committed 2025-05-20T03:05:39.3Z by admin (MD-CLI) from Console
+# Generated 2025-05-25T02:11:48.1Z by system from Console
+# Commit ID 20
+#   Committed 2025-05-25T02:11:47.7Z by admin (MD-CLI) from Console
 
 configure {
     log {
@@ -190,6 +190,38 @@ configure {
                 }
             }
         }
+        vpls "VLAN3802" {
+            admin-state enable
+            service-id 3802
+            customer "1"
+            sap 1/1/c1/1:3802 {
+                admin-state enable
+                egress {
+                    vlan-manipulation {
+                        action translate-1-to-1
+                        tag use-sap-vlan
+                    }
+                }
+            }
+            sap 1/1/c2/1:3802 {
+                admin-state enable
+                egress {
+                    vlan-manipulation {
+                        action translate-1-to-1
+                        tag use-sap-vlan
+                    }
+                }
+            }
+            sap 1/1/c3/1:3802 {
+                admin-state enable
+                egress {
+                    vlan-manipulation {
+                        action translate-1-to-1
+                        tag use-sap-vlan
+                    }
+                }
+            }
+        }
         vpls "VLAN4080" {
             admin-state enable
             service-id 4080
@@ -204,6 +236,29 @@ configure {
                 }
             }
             sap 1/1/c2/1:4080 {
+                admin-state enable
+                egress {
+                    vlan-manipulation {
+                        action translate-1-to-1
+                        tag use-sap-vlan
+                    }
+                }
+            }
+        }
+        vpls "VLAN4081" {
+            admin-state enable
+            service-id 4081
+            customer "1"
+            sap 1/1/c1/1:4081 {
+                admin-state enable
+                egress {
+                    vlan-manipulation {
+                        action translate-1-to-1
+                        tag use-sap-vlan
+                    }
+                }
+            }
+            sap 1/1/c2/1:4081 {
                 admin-state enable
                 egress {
                     vlan-manipulation {
@@ -471,4 +526,4 @@ persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
 }
 
-# Finished 2025-05-20T03:05:39.9Z
+# Finished 2025-05-25T02:11:48.2Z

@@ -3,9 +3,9 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-05-12T23:07:33.1Z by system from Console
-# Commit ID 3
-#   Committed 2025-05-12T23:07:32.8Z by admin (MD-CLI) from Console
+# Generated 2025-07-07T23:52:09.5Z by system from Console
+# Commit ID 7
+#   Committed 2025-07-07T23:52:09.2Z by admin (MD-CLI) from Console
 
 configure {
     lag "lag-1" {
@@ -61,12 +61,29 @@ configure {
         community "IPTV" {
             member "target:65100:200" { }
         }
+        community "IPTV-EVPN" {
+            member "target:65100:202" { }
+            member "target:65100:202202" { }
+        }
         prefix-list "IPTV-Subscribers" {
             prefix 1.1.85.4/32 type exact {
             }
             prefix 1.1.85.5/32 type exact {
             }
             prefix 10.85.0.0/16 type longer {
+            }
+        }
+        policy-statement "EVPN:IPTV:OUT" {
+            entry 10 {
+                action {
+                    action-type accept
+                    community {
+                        replace ["IPTV-EVPN"]
+                    }
+                }
+            }
+            default-action {
+                action-type accept
             }
         }
         policy-statement "RI:POLICY:IPTV:IN" {
@@ -504,11 +521,15 @@ configure {
                     evpn-gateway {
                         admin-state enable
                         advertise pim-only
-                        non-dr-attract-traffic from-evpn-pim-mvpn
+                        non-dr-attract-traffic from-pim-mvpn
                     }
                 }
             }
             bgp 1 {
+                route-target {
+                    export "target:65100:202"
+                    import "target:65100:202"
+                }
             }
             igmp-snooping {
                 admin-state enable
@@ -973,8 +994,8 @@ persistent-indices {
         router-name "voice" interface-name "bd-900" vrtr-id 3 if-index 7
     }
     chassis-mac {
-        client lag index 1 pool 1 offset 1026
+        client lag index 1 pool 1 offset 1025
     }
 }
 
-# Finished 2025-05-12T23:07:33.2Z
+# Finished 2025-07-07T23:52:09.6Z

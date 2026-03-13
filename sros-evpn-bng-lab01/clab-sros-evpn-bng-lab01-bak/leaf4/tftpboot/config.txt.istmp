@@ -1,13 +1,26 @@
-# TiMOS-B-24.10.R2 both/x86_64 Nokia 7250 IXR Copyright (c) 2000-2024 Nokia.
+# TiMOS-C-24.10.R2 cpm/x86_64 Nokia 7250 IXR Copyright (c) 2000-2024 Nokia.
 # All rights reserved. All use subject to applicable license agreements.
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-05-09T18:42:52.9Z by system from Console
-# Commit ID 2
-#   Committed 2025-05-09T18:42:52.3Z by admin (MD-CLI) from Console
+# Generated 2025-05-12T23:07:33.1Z by system from Console
+# Commit ID 3
+#   Committed 2025-05-12T23:07:32.8Z by admin (MD-CLI) from Console
 
 configure {
+    lag "lag-1" {
+        admin-state enable
+        description "To legacy Core"
+        encap-type dot1q
+        mode access
+        lacp {
+            mode active
+            system-id 0c:00:c5:d4:40:00
+            administrative-key 1
+        }
+        port 1/1/c6/1 {
+        }
+    }
     log {
         filter "1001" {
             named-entry "10" {
@@ -44,6 +57,60 @@ configure {
             }
         }
     }
+    policy-options {
+        community "IPTV" {
+            member "target:65100:200" { }
+        }
+        prefix-list "IPTV-Subscribers" {
+            prefix 1.1.85.4/32 type exact {
+            }
+            prefix 1.1.85.5/32 type exact {
+            }
+            prefix 10.85.0.0/16 type longer {
+            }
+        }
+        policy-statement "RI:POLICY:IPTV:IN" {
+            entry-type numbered
+            entry 5 {
+                from {
+                    prefix-list ["IPTV-Subscribers"]
+                }
+                action {
+                    action-type reject
+                }
+            }
+            entry 100 {
+                action {
+                    action-type accept
+                }
+            }
+            default-action {
+                action-type accept
+            }
+        }
+        policy-statement "RI:POLICY:IPTV:OUT" {
+            default-action {
+                action-type accept
+            }
+        }
+        policy-statement "mvpn-iptv" {
+            entry-type numbered
+            entry 1 {
+                from {
+                    community {
+                        name "IPTV"
+                    }
+                }
+                action {
+                    action-type accept
+                    preference 100
+                    metric {
+                        set 100
+                    }
+                }
+            }
+        }
+    }
     port 1/1/c1 {
         admin-state enable
         connector {
@@ -63,7 +130,7 @@ configure {
         }
     }
     port 1/1/c2/1 {
-        admin-state disable
+        admin-state enable
         ethernet {
             mode network
         }
@@ -77,8 +144,7 @@ configure {
     port 1/1/c3/1 {
         admin-state enable
         ethernet {
-            mode access
-            encap-type dot1q
+            mode network
         }
     }
     port 1/1/c4 {
@@ -97,17 +163,28 @@ configure {
     port 1/1/c5 {
         admin-state enable
         connector {
-            breakout c1-10g
+            breakout c1-100g
         }
     }
     port 1/1/c5/1 {
         admin-state enable
         ethernet {
-            mode access
+            mode hybrid
             encap-type dot1q
         }
     }
     port 1/1/c6 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c6/1 {
+        admin-state enable
+        ethernet {
+            mode access
+            encap-type dot1q
+        }
     }
     port 1/1/c7 {
     }
@@ -153,10 +230,34 @@ configure {
     }
     port 1/1/c28 {
     }
+    port 1/1/c29 {
+    }
+    port 1/1/c30 {
+    }
+    port 1/1/c31 {
+    }
+    port 1/1/c32 {
+    }
+    port 1/1/c33 {
+    }
+    port 1/1/c34 {
+    }
+    port 1/1/c35 {
+    }
+    port 1/1/c36 {
+    }
+    redundancy {
+        bgp-evpn {
+            ethernet-segment {
+                boot-timer 120
+                activation-timer 10
+            }
+        }
+    }
     router "Base" {
         autonomous-system 65100
         ecmp 4
-        interface "To_leaf1" {
+        interface "To_spine3" {
             admin-state enable
             port 1/1/c1/1
             ipv4 {
@@ -171,8 +272,8 @@ configure {
                 }
             }
         }
-        interface "To_leaf2" {
-            admin-state disable
+        interface "To_spine4" {
+            admin-state enable
             port 1/1/c2/1
             ipv4 {
                 unnumbered {
@@ -189,7 +290,7 @@ configure {
         interface "system" {
             ipv4 {
                 primary {
-                    address 1.1.4.2
+                    address 1.1.3.4
                     prefix-length 32
                 }
             }
@@ -200,17 +301,17 @@ configure {
                 end 524000
             }
             reserved-label-block "IR-BUM" {
-                start-label 552000
-                end-label 552999
+                start-label 551000
+                end-label 551999
             }
         }
         bgp {
             admin-state enable
             min-route-advertisement 1
-            vpn-apply-export true
-            vpn-apply-import true
+            vpn-apply-export false
+            vpn-apply-import false
             asn-4-byte true
-            router-id 1.1.4.2
+            router-id 1.1.3.4
             rapid-withdrawal true
             peer-ip-tracking true
             split-horizon true
@@ -248,7 +349,7 @@ configure {
             admin-state enable
             advertise-router-capability as
             level-capability 2
-            router-id 1.1.4.2
+            router-id 1.1.3.4
             traffic-engineering true
             area-address [49.01]
             entropy-label {
@@ -262,7 +363,7 @@ configure {
                     global
                 }
             }
-            interface "To_leaf1" {
+            interface "To_spine3" {
                 admin-state enable
                 interface-type point-to-point
                 bfd-liveness {
@@ -271,7 +372,7 @@ configure {
                     }
                 }
             }
-            interface "To_leaf2" {
+            interface "To_spine4" {
                 admin-state enable
                 interface-type point-to-point
                 bfd-liveness {
@@ -284,7 +385,7 @@ configure {
                 admin-state enable
                 passive true
                 ipv4-node-sid {
-                    index 42
+                    index 34
                 }
             }
             level 2 {
@@ -292,16 +393,26 @@ configure {
             }
         }
         ldp {
+            admin-state enable
+            targeted-session {
+                auto-tx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+                auto-rx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+            }
         }
         mpls {
             admin-state enable
-            entropy-label {
-                sr-te true
-            }
-            interface "To_leaf1" {
+            interface "To_spine3" {
                 admin-state enable
             }
-            interface "To_leaf2" {
+            interface "To_spine4" {
                 admin-state enable
             }
             interface "system" {
@@ -310,10 +421,10 @@ configure {
         }
         rsvp {
             admin-state disable
-            interface "To_leaf1" {
+            interface "To_spine3" {
                 admin-state disable
             }
-            interface "To_leaf2" {
+            interface "To_spine4" {
                 admin-state disable
             }
             interface "system" {
@@ -325,128 +436,41 @@ configure {
         system {
             bgp {
                 evpn {
+                    route-distinguisher "1.1.3.4:0"
                     ingress-replication-bum-label-block "IR-BUM"
+                    ethernet-segment "legacy-core-1" {
+                        admin-state enable
+                        multi-homing-mode all-active
+                        auto-esi type-1
+                        df-election {
+                            es-activation-timer 10
+                            service-carving-mode auto
+                        }
+                        association {
+                            lag "lag-1" {
+                            }
+                        }
+                    }
                 }
             }
         }
-        epipe "bng-epipe" {
+        epipe "legacy-hub" {
             admin-state enable
-            description "flexible cross connect epipe"
-            service-id 10
+            service-id 8585
             customer "1"
-            flexible-cross-connect true
-            bgp 1 {
-            }
-            sap 1/1/c3/1:100 {
+            sap lag-1:0 {
                 admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 110
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:100 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 100
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:101 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 101
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:102 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 102
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:103 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 103
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:104 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 104
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:105 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 105
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:106 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 106
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:107 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 107
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:108 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 108
-                        s-tag 75
-                    }
-                }
-            }
-            sap 1/1/c5/1:109 {
-                admin-state enable
-                qtag-normalization {
-                    double-tag {
-                        c-tag 109
-                        s-tag 75
-                    }
-                }
             }
             bgp-evpn {
-                evi 11
-                local-attachment-circuit "AC-2" {
-                    eth-tag 75
+                evi 8585
+                local-attachment-circuit "Core-1" {
+                    eth-tag 852
                 }
-                remote-attachment-circuit "AC-1" {
-                    eth-tag 75
+                remote-attachment-circuit "Hub-1" {
+                    eth-tag 851
                 }
                 mpls 1 {
                     admin-state enable
-                    ecmp 2
                     auto-bind-tunnel {
                         resolution filter
                         ecmp 2
@@ -457,15 +481,30 @@ configure {
                 }
             }
         }
+        sdp 1 {
+            admin-state enable
+            delivery-type mpls
+            signaling tldp
+            ldp false
+            sr-isis true
+            far-end {
+                ip-address 1.1.3.3
+            }
+        }
         vpls "iptv-vpls-bd202" {
             admin-state enable
-            description "SDB VPLS"
+            description "SBD VPLS - OISM"
             service-id 202
             customer "1"
             routed-vpls {
                 multicast {
                     ipv4 {
                         forward-to-ip-interface true
+                    }
+                    evpn-gateway {
+                        admin-state enable
+                        advertise pim-only
+                        non-dr-attract-traffic from-evpn-pim-mvpn
                     }
                 }
             }
@@ -490,6 +529,7 @@ configure {
                 mpls 1 {
                     admin-state enable
                     ingress-replication-bum-label true
+                    ecmp 2
                     auto-bind-tunnel {
                         resolution filter
                         resolution-filter {
@@ -497,68 +537,6 @@ configure {
                         }
                     }
                 }
-            }
-        }
-        vpls "iptv-vpls-bd204" {
-            admin-state enable
-            service-id 204
-            customer "1"
-            routed-vpls {
-                multicast {
-                    ipv4 {
-                        forward-to-ip-interface true
-                    }
-                }
-            }
-            igmp-snooping {
-                admin-state enable
-                query-interval 60
-                query-source-address 0.0.0.0
-            }
-            bgp-evpn {
-                evi 204
-                routes {
-                    mac-ip {
-                        advertise false
-                    }
-                }
-                mpls 1 {
-                    admin-state disable
-                    auto-bind-tunnel {
-                        resolution filter
-                        resolution-filter {
-                            sr-isis true
-                        }
-                    }
-                }
-            }
-            split-horizon-group "IPTV" {
-                fdb {
-                    saps {
-                        auto-learn-mac-protect true
-                    }
-                }
-            }
-            sap 1/1/c4/1:85 {
-                admin-state enable
-                collect-stats true
-                split-horizon-group "IPTV"
-                igmp-snooping {
-                    query-interval 60
-                    query-response-interval 10
-                    fast-leave true
-                    send-queries true
-                }
-            }
-        }
-        vpls "voice-vpls-bd90" {
-            admin-state enable
-            service-id 90090
-            customer "1"
-            routed-vpls {
-            }
-            sap 1/1/c4/1:90 {
-                admin-state enable
             }
         }
         vpls "voice-vpls-bd900" {
@@ -598,65 +576,104 @@ configure {
             customer "1"
             igmp {
                 admin-state enable
-                query-interval 125
-                query-last-member-interval 1
-                query-response-interval 10
-                robust-count 2
                 interface "Default" {
                     admin-state enable
                 }
-                interface "bd-204" {
+                interface "bd-202" {
                     admin-state enable
                 }
             }
             pim {
                 admin-state enable
                 apply-to all
+                non-dr-attract-traffic true
+                interface "Default" {
+                    admin-state enable
+                }
+                interface "To_IPTV_Core" {
+                    admin-state enable
+                }
+                interface "To_leaf3" {
+                    admin-state enable
+                }
                 interface "bd-202" {
                     admin-state enable
                     multicast-senders always
                 }
-                interface "bd-204" {
-                    admin-state enable
+                rp {
+                    ipv4 {
+                        static {
+                            address 10.200.0.1 {
+                                group-prefix 239.0.0.0/8 { }
+                            }
+                        }
+                    }
                 }
-            }
-            bgp {
-                admin-state enable
             }
             interface "Default" {
                 admin-state enable
+                description "local loopback"
                 loopback true
                 ipv4 {
                     primary {
-                        address 1.1.85.5
+                        address 1.1.85.4
                         prefix-length 32
                     }
                 }
             }
+            interface "To_IPTV_Core" {
+                admin-state enable
+                description "L3 PIM to IPTV Core"
+                ipv4 {
+                    primary {
+                        address 100.1.1.2
+                        prefix-length 31
+                    }
+                }
+                sap 1/1/c4/1:0 {
+                    admin-state enable
+                }
+            }
+            interface "To_leaf3" {
+                admin-state enable
+                ipv4 {
+                    primary {
+                        address 100.1.1.5
+                        prefix-length 31
+                    }
+                }
+                spoke-sdp 1:85 {
+                    admin-state enable
+                }
+            }
             interface "bd-202" {
                 admin-state enable
+                description "SBD interface"
                 vpls "iptv-vpls-bd202" {
                     evpn-tunnel {
                         supplementary-broadcast-domain true
                     }
                 }
             }
-            interface "bd-204" {
+            isis 1 {
                 admin-state enable
-                ipv4 {
-                    primary {
-                        address 10.85.2.1
-                        prefix-length 24
-                    }
-                    dhcp {
-                        admin-state enable
-                        server [1.1.10.1]
-                        trusted true
-                        gi-address 10.85.2.1
-                        src-ip-addr auto
-                    }
+                advertise-router-capability as
+                level-capability 2
+                router-id 1.1.85.4
+                export-policy ["RI:POLICY:IPTV:OUT"]
+                import-policy ["RI:POLICY:IPTV:IN"]
+                area-address [49.01]
+                interface "Default" {
+                    admin-state enable
+                    passive true
                 }
-                vpls "iptv-vpls-bd204" {
+                interface "To_IPTV_Core" {
+                    admin-state enable
+                    interface-type point-to-point
+                }
+                interface "To_leaf3" {
+                    admin-state enable
+                    interface-type point-to-point
                 }
             }
         }
@@ -671,27 +688,9 @@ configure {
                 loopback true
                 ipv4 {
                     primary {
-                        address 1.1.90.5
+                        address 1.1.90.4
                         prefix-length 32
                     }
-                }
-            }
-            interface "bd-90" {
-                admin-state enable
-                ipv4 {
-                    primary {
-                        address 10.90.2.1
-                        prefix-length 24
-                    }
-                    dhcp {
-                        admin-state enable
-                        server [1.1.10.1]
-                        trusted true
-                        gi-address 10.90.2.1
-                        src-ip-addr auto
-                    }
-                }
-                vpls "voice-vpls-bd90" {
                 }
             }
             interface "bd-900" {
@@ -705,7 +704,7 @@ configure {
         }
     }
     system {
-        name "hub2"
+        name "leaf4"
         management-interface {
             netconf {
                 listen {
@@ -964,15 +963,18 @@ persistent-indices {
         router-name "voice" vrtr-id 3
     }
     vrtr-if-id {
-        router-name "Base" interface-name "To_leaf1" vrtr-id 1 if-index 2
-        router-name "Base" interface-name "To_leaf2" vrtr-id 1 if-index 3
+        router-name "Base" interface-name "To_spine3" vrtr-id 1 if-index 2
+        router-name "Base" interface-name "To_spine4" vrtr-id 1 if-index 3
         router-name "iptv" interface-name "Default" vrtr-id 2 if-index 4
+        router-name "iptv" interface-name "To_IPTV_Core" vrtr-id 2 if-index 6
+        router-name "iptv" interface-name "To_leaf3" vrtr-id 2 if-index 9
         router-name "iptv" interface-name "bd-202" vrtr-id 2 if-index 5
-        router-name "iptv" interface-name "bd-204" vrtr-id 2 if-index 10
         router-name "voice" interface-name "Default" vrtr-id 3 if-index 8
-        router-name "voice" interface-name "bd-90" vrtr-id 3 if-index 9
         router-name "voice" interface-name "bd-900" vrtr-id 3 if-index 7
+    }
+    chassis-mac {
+        client lag index 1 pool 1 offset 1026
     }
 }
 
-# Finished 2025-05-09T18:42:53.0Z
+# Finished 2025-05-12T23:07:33.2Z

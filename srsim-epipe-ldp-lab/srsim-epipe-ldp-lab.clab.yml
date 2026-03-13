@@ -1,0 +1,67 @@
+name: srsim-epipe-ldp-lab01
+
+mgmt:
+  network: srsim-epipe-ldp-lab01
+  ipv4-subnet: 172.81.80.0/24
+
+topology:
+  kinds:
+    nokia_srsim:
+      image: jeradkups/nokia_srsim:25.7.R2
+      license: license-sros.txt
+  nodes:
+    pe1:
+      kind: nokia_srsim
+      type: ixr-e2
+      startup-config: config_pe1.txt 
+
+    p1:
+      kind: nokia_srsim
+      type: ixr-e2
+      startup-config: config_p1.txt
+
+    pe2:
+      kind: nokia_srsim
+      type: ixr-e2
+      startup-config: config_pe2.txt
+
+    ### CLIENTS ###
+    client1:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool
+      exec:
+        - apk add vlan
+        - ip link add link eth1 name eth1.10 type vlan id 10
+        - ip address add 192.168.10.1/24 dev eth1.10
+        - ip link set dev eth1.10 up
+        - ip link add link eth1 name eth1.11 type vlan id 11
+        - ip address add 192.168.11.1/24 dev eth1.11
+        - ip link set dev eth1.11 up
+        - ip link add link eth1 name eth1.12 type vlan id 12
+        - ip address add 192.168.12.1/24 dev eth1.12
+        - ip link set dev eth1.12 up          
+
+
+    client2:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool
+      exec:
+        - apk add vlan
+        - ip link add link eth1 name eth1.10 type vlan id 10
+        - ip address add 192.168.10.2/24 dev eth1.10
+        - ip link set dev eth1.10 up
+        - ip link add link eth2 name eth2.11 type vlan id 11
+        - ip address add 192.168.11.2/24 dev eth2.11
+        - ip link set dev eth2.11 up
+        - ip link add link eth2 name eth2.12 type vlan id 12
+        - ip address add 192.168.12.2/24 dev eth2.12
+        - ip link set dev eth2.12 up
+
+
+  links:
+    - endpoints: ["pe1:1/1/c1/1", "p1:1/1/c1/1"]
+    - endpoints: ["pe2:1/1/c1/1", "p1:1/1/c2/1"]
+    - endpoints: ["pe1:1/1/c2/1", "client1:eth1"]
+    - endpoints: ["pe2:1/1/c2/1", "client2:eth1"]
+
+

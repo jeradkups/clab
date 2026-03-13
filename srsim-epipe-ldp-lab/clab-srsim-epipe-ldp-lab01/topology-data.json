@@ -1,0 +1,264 @@
+{
+  "name": "srsim-epipe-ldp-lab01",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "srsim-epipe-ldp-lab01",
+        "bridge": "br-ae4117ce9f8e",
+        "ipv4-subnet": "172.81.80.0/24",
+        "ipv4-gw": "172.81.80.1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC2CjEGZtFhizjeUSjyTpgTlW5DsGdBlgE1Y9xQA6PYPVtS7FMeS1qyGDZlkzNUJaS7dta1ey4GxSHO/1QzkCVIx7T1UH2RprvmdX8IMtEgpqZeAmHs/emyWvajoL1kKWWvId6a8xo82wJOJZ16CMKDOJu0uUdPLLnitDDSiLmpFj9Ei4+EtpcATVLWTfRtOBLrO4uLKfd8Fulob8K7ya5hB/Am3Bl/Xv6zT98tDJ7w9KqLM8pbMQzRD9ISXXJz6fYXa2gzHWvrNhurTyC6XLmLk02fdf9fI6OXnPA19YGROos5JzIfeDa/4vl295QYuot8Hf0MrKzOFzIFaNyuwgafTpxEc99BtFvgnDGkmOYnSHDyGyf5JynQFEXRPT2zgR/uiK0TZ0zXAh01fpKjFDUS7f/7Ipugig01Fqa1Jv2g89C5gPd++0S9sSos5Wwl1sqvKq54DJK77lc4n/1PgOoWG4Qv18J67b2SmXn/WxYzlUHtRlmQzLl4nN4LmQdJ/Y8=","ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC63M1WngMH9c7ZH5IhpqqwDywquT6jRFbAwZxHHZE01WJ9Gk1u0AM8WDjn8nT55WgYCrhgMcwVSA97KbG13QYzIFumIPCfgOuQRL5gRQqQ2EJcwCWPNkFKO3H9/bpMlJ/uZHKk3VTpWDVc1QADR4WinqunU7nvImNTFBf8AMtkHg9vCzLlvVSThhEOzAR0+FW9LcWWMi+KrpDnyWH8/ZZrLkIFAk09tGTzQO7GHSaqs1gVZJXhq0mHIudQT1M+WXntsYu3tZjoi4zwc0PsvK6JaTeyhJ4mGlMpKSIZtA+RsnFcHdWZZ07o1emcg0+zQPvEwFW0TS7IVYF1EgCaOjsh6UgV2apa9W6WpDNoO6MI+rfRAIRCcRu04tMEWO+G+Q/dGkyENZyZVOZG+qWjONawXkNTYal7ICEPdHsC3hpMPLafHsZmc3VDtBLh7mbEeOMiFSq0RDJvJD7gxr3bnKZ1Kq14yHv8NXvnq53cgLpSFvyhu217y9JsDmXzETLycDs="],
+  "nodes": {
+    "client1": {
+      "index": "0",
+      "shortname": "client1",
+      "longname": "clab-srsim-epipe-ldp-lab01-client1",
+      "fqdn": "client1.srsim-epipe-ldp-lab01.io",
+      "group": "",
+      "labdir": "/root/clab/srsim-epipe-ldp-lab/clab-srsim-epipe-ldp-lab01/client1",
+      "kind": "linux",
+      "image": "ghcr.io/hellt/network-multitool",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.81.80.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-ae4117ce9f8e",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/root/clab/srsim-epipe-ldp-lab/clab-srsim-epipe-ldp-lab01/client1",
+        "clab-node-longname": "clab-srsim-epipe-ldp-lab01-client1",
+        "clab-node-name": "client1",
+        "clab-node-type": "",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/srsim-epipe-ldp-lab/srsim-epipe-ldp-lab.clab.yml",
+        "containerlab": "srsim-epipe-ldp-lab01"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 80,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "client2": {
+      "index": "1",
+      "shortname": "client2",
+      "longname": "clab-srsim-epipe-ldp-lab01-client2",
+      "fqdn": "client2.srsim-epipe-ldp-lab01.io",
+      "group": "",
+      "labdir": "/root/clab/srsim-epipe-ldp-lab/clab-srsim-epipe-ldp-lab01/client2",
+      "kind": "linux",
+      "image": "ghcr.io/hellt/network-multitool",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.81.80.5",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-ae4117ce9f8e",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/root/clab/srsim-epipe-ldp-lab/clab-srsim-epipe-ldp-lab01/client2",
+        "clab-node-longname": "clab-srsim-epipe-ldp-lab01-client2",
+        "clab-node-name": "client2",
+        "clab-node-type": "",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/srsim-epipe-ldp-lab/srsim-epipe-ldp-lab.clab.yml",
+        "containerlab": "srsim-epipe-ldp-lab01"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 80,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "p1": {
+      "index": "2",
+      "shortname": "p1",
+      "longname": "clab-srsim-epipe-ldp-lab01-p1",
+      "fqdn": "p1.srsim-epipe-ldp-lab01.io",
+      "group": "",
+      "labdir": "/root/clab/srsim-epipe-ldp-lab/clab-srsim-epipe-ldp-lab01/p1",
+      "kind": "nokia_srsim",
+      "image": "jeradkups/nokia_srsim:25.7.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.81.80.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "1c:18:02:00:00:00",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-ae4117ce9f8e",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_srsim",
+        "clab-node-lab-dir": "/root/clab/srsim-epipe-ldp-lab/clab-srsim-epipe-ldp-lab01/p1",
+        "clab-node-longname": "clab-srsim-epipe-ldp-lab01-p1",
+        "clab-node-name": "p1",
+        "clab-node-type": "ixr-e2",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/srsim-epipe-ldp-lab/srsim-epipe-ldp-lab.clab.yml",
+        "containerlab": "srsim-epipe-ldp-lab01"
+      },
+      "port-bindings": [
+      ]
+    },
+    "pe1": {
+      "index": "3",
+      "shortname": "pe1",
+      "longname": "clab-srsim-epipe-ldp-lab01-pe1",
+      "fqdn": "pe1.srsim-epipe-ldp-lab01.io",
+      "group": "",
+      "labdir": "/root/clab/srsim-epipe-ldp-lab/clab-srsim-epipe-ldp-lab01/pe1",
+      "kind": "nokia_srsim",
+      "image": "jeradkups/nokia_srsim:25.7.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.81.80.6",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "1c:a8:03:00:00:00",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-ae4117ce9f8e",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_srsim",
+        "clab-node-lab-dir": "/root/clab/srsim-epipe-ldp-lab/clab-srsim-epipe-ldp-lab01/pe1",
+        "clab-node-longname": "clab-srsim-epipe-ldp-lab01-pe1",
+        "clab-node-name": "pe1",
+        "clab-node-type": "ixr-e2",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/srsim-epipe-ldp-lab/srsim-epipe-ldp-lab.clab.yml",
+        "containerlab": "srsim-epipe-ldp-lab01"
+      },
+      "port-bindings": [
+      ]
+    },
+    "pe2": {
+      "index": "4",
+      "shortname": "pe2",
+      "longname": "clab-srsim-epipe-ldp-lab01-pe2",
+      "fqdn": "pe2.srsim-epipe-ldp-lab01.io",
+      "group": "",
+      "labdir": "/root/clab/srsim-epipe-ldp-lab/clab-srsim-epipe-ldp-lab01/pe2",
+      "kind": "nokia_srsim",
+      "image": "jeradkups/nokia_srsim:25.7.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.81.80.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "1c:2e:04:00:00:00",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-ae4117ce9f8e",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_srsim",
+        "clab-node-lab-dir": "/root/clab/srsim-epipe-ldp-lab/clab-srsim-epipe-ldp-lab01/pe2",
+        "clab-node-longname": "clab-srsim-epipe-ldp-lab01-pe2",
+        "clab-node-name": "pe2",
+        "clab-node-type": "ixr-e2",
+        "clab-owner": "root",
+        "clab-topo-file": "/root/clab/srsim-epipe-ldp-lab/srsim-epipe-ldp-lab.clab.yml",
+        "containerlab": "srsim-epipe-ldp-lab01"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "pe1",
+          "interface": "e1-1-c1-1",
+          "mac": "aa:c1:ab:a0:2d:51",
+          "peer": "z"
+        },
+        "z": {
+          "node": "p1",
+          "interface": "e1-1-c1-1",
+          "mac": "aa:c1:ab:cb:7f:f6",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "pe2",
+          "interface": "e1-1-c1-1",
+          "mac": "aa:c1:ab:68:44:bc",
+          "peer": "z"
+        },
+        "z": {
+          "node": "p1",
+          "interface": "e1-1-c2-1",
+          "mac": "aa:c1:ab:ff:8f:b9",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "pe1",
+          "interface": "e1-1-c2-1",
+          "mac": "aa:c1:ab:b8:a7:fb",
+          "peer": "z"
+        },
+        "z": {
+          "node": "client1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:97:c8:79",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "pe2",
+          "interface": "e1-1-c2-1",
+          "mac": "aa:c1:ab:fa:b5:68",
+          "peer": "z"
+        },
+        "z": {
+          "node": "client2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:92:c5:03",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}

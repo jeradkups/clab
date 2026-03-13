@@ -1,0 +1,6 @@
+---
+node1:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.11

@@ -1,0 +1,324 @@
+Boot log started
+Warning: Cgroup memory limit not set or cgroups not present.
+
+Looking for cf3:/bof.cfg ... OK, reading
+
+Total Memory: 70653MB  Chassis Type: 0x38   [ ref: 7b6a11a52ebf; ]  Feature Flags: 00000800
+*** Runtime feature override: STORE_DEBUG_BACKTRACE = OFF
+TiMOS-B-25.7.R2 both/x86_64 Nokia 7250 IXR Copyright (c) 2000-2025 Nokia.
+All rights reserved. All use subject to applicable license agreements.
+Built on Wed Sep 3 21:54:28 UTC 2025 by builder in /builds/257B/R2/panos
+
+Scheduler: using fair scheduler policy
+
+
+   ___                    ___           ___           ___
+  /\  \                  /\__\         /\  \         /\  \
+  \:\  \        ___     /::|  |       /::\  \       /::\  \
+   \:\  \      /\__\   /:|:|  |      /:/\:\  \     /:/\:\  \
+   /::\  \    _\/__/  /:/|:|__|__   /:/  \:\  \   _\:\~\:\  \
+  /:/\:\__\  /\__\   /:/ |::::\__\ /:/__/ \:\__\ /\ \:\ \:\__\
+ /:/  \/__/ /:/  /   \/__/~~/:/  / \:\  \ /:/  / \:\ \:\ \/__/
+/:/  /     /:/  /          /:/  /   \:\  /:/  /   \:\ \:\__\
+\/__/      \/__/          /:/  /     \:\/:/  /     \:\/:/  /
+                         /:/  /       \::/  /       \::/  /
+                         \/__/         \/__/         \/__/
+
+Running 64 bit architecture
+
+Time from clock is Fri Oct 31 23:22:54 2025 UTC
+Trace memory initialised
+Initial DNS resolving preference is ipv4-only
+
+Looking for cf3:/bof.cfg ... OK, reading
+
+Current Time: Fri Oct 31 23:22:59 UTC 2025
+Loading TiMOS License for 'TiMOS-B-25.7.R2' from location:
+   'cf3:\license.txt' ... OK
+
+Loading primary configuration file "cf3:\config.cfg"
+ 512 linesLoaded 540 lines in 0.1 seconds from file "cf3:\config.cfg"
+Committing configuration MINOR: MGMT_CORE #2203: configure port 1/1/2 ethernet - Invalid element - ethernet capabilities not supported - configure port 1/1/2
+
+CRITICAL: MGMT_CORE #2508: Configuration load failed - using default configuration
+
+Login: 
+Starting BCM sdk-6.5.32-dnx - PLISIM Build
+pcid: opt_chip 70, chip 8, pci_ver_id:dev_id:rev_id 0x14e4:0x8480:0x11, chip name:'BCM88480_B0'
+
+[SIM] Initializing CMICx simulation...
+[SIM] successfully init'd "common schan 0  ".
+[SIM] successfully init'd "common schan 1  ".
+[SIM] successfully init'd "common schan 2  ".
+[SIM] successfully init'd "common schan 3  ".
+[SIM] successfully init'd "common schan 4  ".
+[SIM] successfully init'd "cmc0 sbus dma ch0  ".
+[SIM] successfully init'd "cmc0 sbus dma ch1  ".
+[SIM] successfully init'd "cmc0 sbus dma ch2  ".
+[SIM] successfully init'd "cmc0 sbus dma ch3  ".
+[SIM] successfully init'd "cmc1 sbus dma ch0  ".
+[SIM] successfully init'd "cmc1 sbus dma ch1  ".
+[SIM] successfully init'd "cmc1 sbus dma ch2  ".
+[SIM] successfully init'd "cmc1 sbus dma ch3  ".
+[SIM] successfully init'd "cmc0 packet dma ch0  ".
+[SIM] successfully init'd "cmc0 packet dma ch1  ".
+[SIM] successfully init'd "cmc0 packet dma ch2  ".
+[SIM] successfully init'd "cmc0 packet dma ch3  ".
+[SIM] successfully init'd "cmc0 packet dma ch4  ".
+[SIM] successfully init'd "cmc0 packet dma ch5  ".
+[SIM] successfully init'd "cmc0 packet dma ch6  ".
+[SIM] successfully init'd "cmc0 packet dma ch7  ".
+[SIM] successfully init'd "cmc1 packet dma ch0  ".
+[SIM] successfully init'd "cmc1 packet dma ch1  ".
+[SIM] successfully init'd "cmc1 packet dma ch2  ".
+[SIM] successfully init'd "cmc1 packet dma ch3  ".
+[SIM] successfully init'd "cmc1 packet dma ch4  ".
+[SIM] successfully init'd "cmc1 packet dma ch5  ".
+[SIM] successfully init'd "cmc1 packet dma ch6  ".
+[SIM] successfully init'd "cmc1 packet dma ch7  ".
+[SIM] CMICx simulation successfully initialized.
+[SIM] [BCMSDK]    0: BCM Init: Soc Flags
+[BCMSDK]    0: BCM Init: Legacy Soc
+[BCMSDK]    0: BCM Init:     - Info Config
+[BCMSDK]    0: BCM Init: Layer State
+[BCMSDK]    0: BCM Init: DNX Data
+[BCMSDK]    0: BCM Init: Mem SW Init Values
+[BCMSDK]    0: BCM Init: SW State
+[BCMSDK]    0: BCM Init:     - SW State General
+[BCMSDK]    0: BCM Init: Error Recovery
+[BCMSDK]    0: BCM Init:     - Error Recovery General
+[BCMSDK]    0: BCM Init: Utilities
+[BCMSDK]    0: BCM Init:     - Feature
+[BCMSDK]    0: BCM Init:     - Family
+[BCMSDK]    0: BCM Init:     - Mutexes
+[BCMSDK]    0: BCM Init: DBAL
+[BCMSDK]    0: BCM Init:     - DBAL General
+[BCMSDK]    0: BCM Init:     - Fields
+[BCMSDK]    0: BCM Init:     - Tables
+[BCMSDK]    0: BCM Init:     - DBAL Access
+[BCMSDK]    0: BCM Init:     - Post operations
+[BCMSDK]    0: BCM Init: Access
+[BCMSDK]    0: BCM Init:     - IRPOC_PAXB
+[BCMSDK]    0: BCM Init:     - Hard reset
+[BCMSDK]    0: BCM Init:     - Interrupt
+[BCMSDK]    0: BCM Init:     - EDK
+[BCMSDK]    0: BCM Init:     - SBUS
+[BCMSDK]    0: BCM Init:     -     - Schan
+[BCMSDK]    0: BCM Init:     -     - Endianness configuration
+[BCMSDK]    0: BCM Init:     -     - Sbus ring Config
+[BCMSDK]    0: BCM Init:     -     - MDIO
+[BCMSDK]    0: BCM Init:     - Core Clock Verify
+[BCMSDK]    0: BCM Init:     - Pre Reset PLL
+[BCMSDK]    0: BCM Init:     - Soft Reset
+[BCMSDK]    0: BCM Init:     - Cacheable
+[BCMSDK]    0: BCM Init:     - DMA
+[BCMSDK]    0: BCM Init: Pre-Soft Init
+[BCMSDK]    0: BCM Init:     - Post Reset PLL
+[BCMSDK]    0: BCM Init:     - Blocks enable
+[BCMSDK]    0: BCM Init:     - DRAM initial config
+[BCMSDK]    0: BCM Init:     - BIST tests
+[BCMSDK]    0: BCM Init:     - Traffic Disable
+[BCMSDK]    0: BCM Init:     -     - Disable data traffic
+[BCMSDK]    0: BCM Init:     - Broadcast config
+[BCMSDK]    0: BCM Init:     - Memories Config
+[BCMSDK]    0: BCM Init:     - Shadow memory
+[BCMSDK]    0: BCM Init:     - Memories
+[BCMSDK]    0: BCM Init:     - Clock power down
+[BCMSDK]    0: BCM Init: Soft Init
+[BCMSDK]    0: BCM Init: SBUSDMA DESC
+[BCMSDK]    0: BCM Init: MDB
+[BCMSDK]    0: BCM Init: Algo
+[BCMSDK]    0: BCM Init:     - consistent hashing manager algo
+[BCMSDK]    0: BCM Init:     - Algo Lane Map
+[BCMSDK]    0: BCM Init:     - Algo Stat PP
+[BCMSDK]    0: BCM Init:     - Algo Ptp
+[BCMSDK]    0: BCM Init:     - Algo Port
+[BCMSDK]    0: BCM Init:     - Algo Port IMB
+[BCMSDK]    0: BCM Init:     - Algo Port PP
+[BCMSDK]    0: BCM Init:     - Algo Switch
+[BCMSDK]    0: BCM Init:     - Algo Lif
+[BCMSDK]    0: BCM Init:     - Algo LIF Table Mngr
+[BCMSDK]    0: BCM Init:     - Algo Flow
+[BCMSDK]    0: BCM Init:     - Algo Vlan Res
+[BCMSDK]    0: BCM Init:     - Algo Stg
+[BCMSDK]    0: BCM Init:     - Algo IN_LIF_PROFILE
+[BCMSDK]    0: BCM Init:     - Algo OUT_LIF_PROFILE
+[BCMSDK]    0: BCM Init:     - Algo L2
+[BCMSDK]    0: BCM Init:     - Algo L3
+[BCMSDK]    0: BCM Init:     - Algo ESEM
+[BCMSDK]    0: BCM Init:     - Algo MPLS
+[BCMSDK]    0: BCM Init:     - Algo VLAN
+[BCMSDK]    0: BCM Init:     - Algo Rx
+[BCMSDK]    0: BCM Init:     - Algo QOS
+[BCMSDK]    0: BCM Init:     - Algo PPMC
+[BCMSDK]    0: BCM Init:     - Algo Field
+[BCMSDK]    0: BCM Init:     - Algo TDM
+[BCMSDK]    0: BCM Init:     - Algo SAT
+[BCMSDK]    0: BCM Init:     - Algo BFD
+[BCMSDK]    0: BCM Init:     - Algo OAM
+[BCMSDK]    0: BCM Init:     - Algo OAMP
+[BCMSDK]    0: BCM Init:     - Algo Failover
+[BCMSDK]    0: BCM Init:     - Algo Tunnel
+[BCMSDK]    0: BCM Init:     - Algo Instru
+[BCMSDK]    0: BCM Init:     - Algo SyncE
+[BCMSDK]    0: BCM Init:     - Algo MIB
+[BCMSDK]    0: BCM Init:     - Algo FlexE General
+[BCMSDK]    0: BCM Init: Common Modules
+[BCMSDK]    0: BCM Init:     - PEMLA
+[BCMSDK]    0: BCM Init:     - Signals&Aux
+[BCMSDK]    0: BCM Init:     - RX
+[BCMSDK]    0: BCM Init:     - TX
+[BCMSDK]    0: BCM Init:     - RCPU
+[BCMSDK]    0: BCM Init:     - PVT mon
+[BCMSDK]    0: BCM Init:     - KBP manager
+[BCMSDK]    0: BCM Init: FP modules
+[BCMSDK]    0: BCM Init:     - FP SwState
+[BCMSDK]    0: BCM Init:     - FP Mapping
+[BCMSDK]    0: BCM Init:     - FP Tables
+[BCMSDK]    0: BCM Init:     - FP Range
+[BCMSDK]    0: BCM Init:     - FP TCAMFW
+[BCMSDK]    0: BCM Init:     - FP TCAM
+[BCMSDK]    0: BCM Init:     - FP Context
+[BCMSDK]    0: BCM Init:     - FP Group
+[BCMSDK]    0: BCM Init:     - FP Presel
+[BCMSDK]    0: BCM Init:     - FP UDH
+[BCMSDK]    0: BCM Init:     - FP SysHdrs
+[BCMSDK]    0: BCM Init: TM Modules
+[BCMSDK]    0: BCM Init:     - Stk Sys
+[BCMSDK]    0: BCM Init:     - Ipq
+[BCMSDK]    0: BCM Init:     - Iqs
+[BCMSDK]    0: BCM Init:     - Dram
+[BCMSDK]    0: BCM Init:     - Dram Buffers
+[BCMSDK]    0: BCM Init:     - Spb
+[BCMSDK]    0: BCM Init:     - Multicast
+[BCMSDK]    0: BCM Init:     - TDM
+[BCMSDK]    0: BCM Init:     - Ingress Port
+[BCMSDK]    0: BCM Init:     - Mirror
+[BCMSDK]    0: BCM Init:     - Ecgm
+[BCMSDK]    0: BCM Init:     - EGR queuing
+[BCMSDK]    0: BCM Init:     - OFP rates
+[BCMSDK]    0: BCM Init:     - Stat
+[BCMSDK]    0: BCM Init:     - Crps
+[BCMSDK]    0: BCM Init:     - Policer
+[BCMSDK]    0: BCM Init:     - Stif
+[BCMSDK]    0: BCM Init:     - Trunk
+[BCMSDK]    0: BCM Init:     - PORT
+[BCMSDK]    0: BCM Init:     - COSQ Ingress
+[BCMSDK]    0: BCM Init:     - COSQ AQM
+[BCMSDK]    0: BCM Init:     - COSQ Latency
+[BCMSDK]    0: BCM Init:     - Flow Control
+[BCMSDK]    0: BCM Init:     - E2E scheduler
+[BCMSDK]    0: BCM Init:     - Fabric transmit
+[BCMSDK]    0: BCM Init:     - MIB
+[BCMSDK]    0: BCM Init:     - SER
+[BCMSDK]    0: BCM Init:     - PFC Deadlock
+[BCMSDK]    0: BCM Init:     - PORT Interrupts
+[BCMSDK]    0: BCM Init:     - SAT
+[BCMSDK]    0: BCM Init:     - LINKSCAN
+[BCMSDK]    0: BCM Init:     - Framer
+[BCMSDK]    0: BCM Init: PP Modules
+[BCMSDK]    0: BCM Init:     - ARR
+[BCMSDK]    0: BCM Init:     - PP General
+[BCMSDK]    0: BCM Init:     - iKleap info
+[BCMSDK]    0: BCM Init:     - HW Overwrites
+[BCMSDK]    0: BCM Init:     - Lif
+[BCMSDK]    0: BCM Init:     - Failover
+[BCMSDK]    0: BCM Init:     - InLIF Profile
+[BCMSDK]    0: BCM Init:     - OutLIF Profile
+[BCMSDK]    0: BCM Init:     - flow
+[BCMSDK]    0: BCM Init:     - L2
+[BCMSDK]    0: BCM Init:     - L3
+[BCMSDK]    0: BCM Init:     - Qos
+[BCMSDK]    0: BCM Init:     - switch
+[BCMSDK]    0: BCM Init:     - Mpls
+[BCMSDK]    0: BCM Init:     - Port
+[BCMSDK]    0: BCM Init:     - Stg
+[BCMSDK]    0: BCM Init:     - SRv6
+[BCMSDK]    0: BCM Init:     - Vlan
+[BCMSDK]    0: BCM Init:     - Time
+[BCMSDK]    0: BCM Init:     - Ptp
+[BCMSDK]    0: BCM Init:     - OAM
+[BCMSDK]    0: BCM Init:     - BFD
+[BCMSDK]    0: BCM Init:     - Stat pp
+[BCMSDK]    0: BCM Init:     - Instrumentation
+[BCMSDK]    0: BCM Init:     - Reflector
+[BCMSDK]    0: BCM Init:     - Eventor
+[BCMSDK]    0: BCM Init:     - bier
+[BCMSDK]    0: BCM Init:     - Vxlan
+[BCMSDK]    0: BCM Init: Appl Properties
+[BCMSDK]    0: BCM Init:     - Setting lane map
+[BCMSDK]    0: BCM Init:     - Configure visibility
+[BCMSDK]    0: BCM Init:     - Adding ports
+[BCMSDK]    0: BCM Init:     - Setting port properties
+[BCMSDK]    0: BCM Init:     - Configure SyncE
+[BCMSDK]    0: BCM Init:     - Configure mem monitor mask
+[BCMSDK]    0: BCM Init: Tune
+[BCMSDK]    0: BCM Init: Clear counter and interrupts
+[BCMSDK]    0: BCM Init: Init Done
+[BCMSDK]    0: BCM Init: Threads
+[BCMSDK]    0: BCM Init:     - Dram Temperature Monitor
+[BCMSDK]    0: BCM Init:     - CRPS Eviction
+[BCMSDK]    0: BCM Init:     - Mib thread
+[BCMSDK]    0: BCM Init:     - L2 Flush Traverse thread
+[BCMSDK]    0: BCM Init:     - L2 CPU learn thread
+[BCMSDK]    0: BCM Init:     - Fabric load balance thread
+[BCMSDK]    0: BCM Init:     - Interrupt event thread
+[BCMSDK]    0: BCM Init:     - Oamp event fifodma thread
+[BCMSDK]    0: BCM Init:     - CGM Delete Counter thread
+[BCMSDK]    0: BCM Init:     - SPB sorter fifo monitor
+====================================================================================
+|                                        Port status                               |
+====================================================================================
+| Port        | Ena/Link | Configured | Linkscan | Autoneg | FEC        | Loopback |
+|             |          | Speed      |          |         |            |          |
+====================================================================================
+| eth1(1)     | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth2(2)     | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth3(3)     | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth4(4)     | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth5(5)     | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth6(6)     | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth7(7)     | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth8(8)     | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth9(9)     | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth10(10)   | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth11(11)   | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth12(12)   | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth13(13)   | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth14(14)   | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth15(15)   | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth16(16)   | down     |  50G       | None     | No      | RS-544-1xN | NONE     |
+| eth17(17)   | up       |  25G       | None     | No      | NONE       | NONE     |
+| eth18(18)   | up       |  25G       | None     | No      | NONE       | NONE     |
+| eth19(19)   | up       |  25G       | None     | No      | NONE       | NONE     |
+| eth20(20)   | up       |  25G       | None     | No      | NONE       | NONE     |
+| eth21(21)   | up       |  25G       | None     | No      | NONE       | NONE     |
+| eth22(22)   | up       |  25G       | None     | No      | NONE       | NONE     |
+| eth23(23)   | up       |  25G       | None     | No      | NONE       | NONE     |
+| eth24(24)   | up       |  25G       | None     | No      | NONE       | NONE     |
+| eth25(25)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth26(26)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth27(27)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth28(28)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth29(29)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth30(30)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth31(31)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth32(32)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth33(33)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth34(34)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth35(35)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth36(36)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth37(37)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth38(38)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth39(39)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth40(40)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth41(41)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth42(42)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth43(43)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth44(44)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth45(45)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth46(46)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth47(47)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth48(48)   | up       |  10G       | None     | No      | NONE       | NONE     |
+| eth251(251) | up       |  10G       | None     | Yes     | NONE       | NONE     |
+====================================================================================

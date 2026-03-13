@@ -1,0 +1,26 @@
+---
+client1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.81.80.2
+client2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.81.80.5
+p1:
+    username: admin
+    password: NokiaSros1!
+    platform: nokia_srsim
+    hostname: 172.81.80.4
+pe1:
+    username: admin
+    password: NokiaSros1!
+    platform: nokia_srsim
+    hostname: 172.81.80.6
+pe2:
+    username: admin
+    password: NokiaSros1!
+    platform: nokia_srsim
+    hostname: 172.81.80.3

@@ -1,0 +1,81 @@
+---
+client1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.80.80.51
+client2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.80.80.52
+client3:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.80.80.53
+hub1:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.35
+hub2:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.36
+leaf1:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.31
+leaf2:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.32
+leaf3:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.33
+leaf4:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.34
+pim1:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.37
+rr1:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.14
+rr2:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.15
+spine1:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.21
+spine2:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.22
+spine3:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.23
+spine4:
+    username: admin
+    password: admin
+    platform: vr-sros
+    hostname: 172.80.80.24

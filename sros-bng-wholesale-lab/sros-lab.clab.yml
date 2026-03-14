@@ -6,37 +6,26 @@ mgmt:
 
 topology:
   kinds:
-    vr-sros:
-      image: jeradkups/vr-sros:24.10.R2
+    nokia_srsim:
+      image: jeradkups/nokia_srsim:25.10.R3
       license: license-sros.txt
   nodes:
     clab-internal:
       kind: ovs-bridge
     bng1:
-      kind: vr-sros
+      kind: nokia_srsim
         #startup-config: CONFIGS/config-bng1.txt
       type: sr-1
-      env:
-        CPU: "4"
-        MEMORY: "7" 
-      mgmt-ipv4: 172.80.80.51
 
     bng2:
-      kind: vr-sros
+      kind: nokia_srsim
         #startup-config: CONFIGS/config-bng2.txt        
       type: sr-1
-      env:
-        CPU: "4"
-        MEMORY: "7"
-      mgmt-ipv4: 172.80.80.52
 
     agg1:
-      kind: vr-sros
+      kind: nokia_srsim
         #startup-config: CONFIGS/config-agg1.txt        
-      type: ixr-x1
-      env:
-        #CPU: "4"
-        #MEMORY: "6"
+      type: ixr-x
       mgmt-ipv4: 172.80.80.21
       stages:
         create:
@@ -47,12 +36,9 @@ topology:
               stage: healthy
 
     agg2:
-      kind: vr-sros
+      kind: nokia_srsim
         #startup-config: CONFIGS/config-agg2.txt      
-      type: ixr-x1
-      env:
-        #CPU: "4"
-        #MEMORY: "6"
+      type: ixr-x
       mgmt-ipv4: 172.80.80.22
       stages:
         create:
@@ -63,12 +49,9 @@ topology:
               stage: healthy
 
     agg3:
-      kind: vr-sros
+      kind: nokia_srsim
         #startup-config: CONFIGS/config-agg3.txt        
-      type: ixr-x1
-      env:
-        #CPU: "4"
-        #MEMORY: "6"
+      type: ixr-x
       mgmt-ipv4: 172.80.80.23
       stages:
         create:
@@ -83,13 +66,7 @@ topology:
       kind: linux
       image: alpine:3.20
       mgmt-ipv4: 172.80.80.30
-        #stages:
-        #create:
-        #  wait-for:
-        #    - node: agg1
-        #      stage: healthy
-        #    - node: agg3
-        #      stage: healthy
+
       binds:
         - CLIENT_CFG/DHCP1/dhcpd.conf:/etc/dhcp/dhcpd.conf
       exec:

@@ -1,18 +1,18 @@
-# TiMOS-B-24.10.R2 both/x86_64 Nokia 7750 SR Copyright (c) 2000-2024 Nokia.
+# TiMOS-C-24.10.R2 cpm/x86_64 Nokia 7250 IXR Copyright (c) 2000-2024 Nokia.
 # All rights reserved. All use subject to applicable license agreements.
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-02-27T23:53:48.5Z by admin from 172.31.255.29
+# Generated 2025-04-28T15:15:28.9Z by admin from 172.31.255.29
 # Commit ID 1
-#   Committed 2025-02-27T23:53:41.0Z by system (MD-CLI) from Console
-#   Log       "System booted version B-24.10.R2."
+#   Committed 2025-04-28T15:15:23.2Z by system (MD-CLI) from Console
+#   Log       "System booted version C-24.10.R2."
 
 configure {
     card 1 {
-        card-type iom-1
+        card-type imm32-qsfp28+4-qsfpdd
         mda 1 {
-            mda-type me12-100gb-qsfp28
+            mda-type m32-qsfp28+4-qsfpdd
         }
     }
     log {
@@ -51,16 +51,219 @@ configure {
             }
         }
     }
+    port 1/1/c1 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c1/1 {
+        admin-state enable
+    }
+    port 1/1/c2 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c2/1 {
+        admin-state enable
+    }
+    port 1/1/c3 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c3/1 {
+        admin-state enable
+    }
+    port 1/1/c4 {
+    }
+    port 1/1/c5 {
+    }
+    port 1/1/c6 {
+    }
+    port 1/1/c7 {
+    }
+    port 1/1/c8 {
+    }
+    port 1/1/c9 {
+    }
+    port 1/1/c10 {
+    }
+    port 1/1/c11 {
+    }
+    port 1/1/c12 {
+    }
+    port 1/1/c13 {
+    }
+    port 1/1/c14 {
+    }
+    port 1/1/c15 {
+    }
+    port 1/1/c16 {
+    }
+    port 1/1/c17 {
+    }
+    port 1/1/c18 {
+    }
+    port 1/1/c19 {
+    }
+    port 1/1/c20 {
+    }
+    port 1/1/c21 {
+    }
+    port 1/1/c22 {
+    }
+    port 1/1/c23 {
+    }
+    port 1/1/c24 {
+    }
+    port 1/1/c25 {
+    }
+    port 1/1/c26 {
+    }
+    port 1/1/c27 {
+    }
+    port 1/1/c28 {
+    }
+    port 1/1/c29 {
+    }
+    port 1/1/c30 {
+    }
+    port 1/1/c31 {
+    }
+    port 1/1/c32 {
+    }
+    port 1/1/c33 {
+    }
+    port 1/1/c34 {
+    }
+    port 1/1/c35 {
+    }
+    port 1/1/c36 {
+    }
+    router "Base" {
+        autonomous-system 65100
+        router-id 1.1.1.3
+        interface "system" {
+            admin-state enable
+            ipv4 {
+                primary {
+                    address 1.1.1.3
+                    prefix-length 32
+                }
+            }
+        }
+        interface "to_agg2" {
+            admin-state enable
+            port 1/1/c3/1
+            ipv4 {
+                unnumbered {
+                    system
+                }
+            }
+        }
+        interface "to_bng1" {
+            admin-state enable
+            port 1/1/c1/1
+            ipv4 {
+                unnumbered {
+                    system
+                }
+            }
+        }
+        interface "to_bng2" {
+            admin-state enable
+            port 1/1/c2/1
+            ipv4 {
+                unnumbered {
+                    system
+                }
+            }
+        }
+        mpls-labels {
+            sr-labels {
+                start 519000
+                end 524000
+            }
+        }
+        isis 0 {
+            admin-state enable
+            advertise-router-capability as
+            level-capability 2
+            router-id 1.1.1.3
+            traffic-engineering true
+            area-address [49.01]
+            entropy-label {
+                override-tunnel-elc true
+            }
+            loopfree-alternate {
+            }
+            segment-routing {
+                admin-state enable
+                prefix-sid-range {
+                    global
+                }
+            }
+            interface "system" {
+                admin-state enable
+                passive true
+                ipv4-node-sid {
+                    index 3
+                }
+            }
+            interface "to_agg2" {
+                admin-state enable
+                interface-type point-to-point
+            }
+            interface "to_bng1" {
+                admin-state enable
+                interface-type point-to-point
+            }
+            interface "to_bng2" {
+                admin-state enable
+                interface-type point-to-point
+            }
+            level 2 {
+                wide-metrics-only true
+            }
+        }
+        mpls {
+            admin-state enable
+            interface "system" {
+                admin-state enable
+            }
+            interface "to_agg2" {
+                admin-state enable
+            }
+            interface "to_bng1" {
+                admin-state enable
+            }
+            interface "to_bng2" {
+                admin-state enable
+            }
+        }
+        rsvp {
+            admin-state disable
+            interface "system" {
+            }
+            interface "to_agg2" {
+            }
+            interface "to_bng1" {
+            }
+            interface "to_bng2" {
+            }
+        }
+    }
     system {
-        name "bng2"
+        name "agg1"
         grpc {
             admin-state enable
             allow-unsecure-connection
             gnmi {
                 auto-config-save true
-            }
-            rib-api {
-                admin-state enable
             }
         }
         management-interface {
@@ -80,9 +283,6 @@ configure {
                     admin-state enable
                 }
             }
-        }
-        bluetooth {
-            advertising-timeout 30
         }
         login-control {
             ssh {
@@ -190,10 +390,6 @@ configure {
                         }
                         entry 67 {
                             match "tools dump li"
-                            action deny
-                        }
-                        entry 68 {
-                            match "state li"
                             action deny
                         }
                         entry 70 {
@@ -346,6 +542,11 @@ configure {
 
 persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
+    vrtr-if-id {
+        router-name "Base" interface-name "to_agg2" vrtr-id 1 if-index 4
+        router-name "Base" interface-name "to_bng1" vrtr-id 1 if-index 2
+        router-name "Base" interface-name "to_bng2" vrtr-id 1 if-index 3
+    }
 }
 
-# Finished 2025-02-27T23:53:48.5Z
+# Finished 2025-04-28T15:15:28.9Z

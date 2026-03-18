@@ -1,0 +1,87 @@
+{
+  "freeTextAnnotations": [],
+  "freeShapeAnnotations": [],
+  "trafficRateAnnotations": [],
+  "groupStyleAnnotations": [],
+  "networkNodeAnnotations": [],
+  "nodeAnnotations": [
+    {
+      "id": "bng1",
+      "interfacePattern": "1/1/c{n}/1",
+      "position": {
+        "x": 600,
+        "y": 120
+      }
+    },
+    {
+      "id": "bng2",
+      "interfacePattern": "1/1/c{n}/1",
+      "position": {
+        "x": 380,
+        "y": 120
+      }
+    },
+    {
+      "id": "agg1",
+      "interfacePattern": "1/1/c{n}/1",
+      "position": {
+        "x": 500,
+        "y": 300
+      }
+    },
+    {
+      "id": "agg2",
+      "interfacePattern": "1/1/c{n}/1",
+      "position": {
+        "x": 500,
+        "y": 460
+      }
+    },
+    {
+      "id": "agg3",
+      "interfacePattern": "1/1/c{n}/1",
+      "position": {
+        "x": 680,
+        "y": -140
+      }
+    },
+    {
+      "id": "clab-internal",
+      "position": {
+        "x": 320,
+        "y": -140
+      }
+    },
+    {
+      "id": "dhcp1",
+      "position": {
+        "x": 140,
+        "y": -140
+      }
+    },
+    {
+      "id": "dhcp2",
+      "position": {
+        "x": 140,
+        "y": -40
+      }
+    },
+    {
+      "id": "radius",
+      "position": {
+        "x": 140,
+        "y": 80
+      }
+    },
+    {
+      "id": "bng-host",
+      "position": {
+        "x": 680,
+        "y": 460
+      }
+    }
+  ],
+  "edgeAnnotations": [],
+  "aliasEndpointAnnotations": [],
+  "viewerSettings": {}
+}

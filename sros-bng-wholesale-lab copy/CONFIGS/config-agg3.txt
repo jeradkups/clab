@@ -1,21 +1,23 @@
-# TiMOS-B-24.10.R2 both/x86_64 Nokia 7250 IXR Copyright (c) 2000-2024 Nokia.
+# TiMOS-C-24.10.R2 cpm/x86_64 Nokia 7250 IXR Copyright (c) 2000-2024 Nokia.
 # All rights reserved. All use subject to applicable license agreements.
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-02-27T23:54:04.4Z by admin from 172.31.255.29
+# Generated 2025-04-28T15:20:17.8Z by admin from 172.31.255.29
 # Commit ID 1
-#   Committed 2025-02-27T23:54:00.0Z by system (MD-CLI) from Console
-#   Log       "System booted version B-24.10.R2."
+#   Committed 2025-04-28T15:20:09.8Z by system (MD-CLI) from Console
+#   Log       "System booted version C-24.10.R2."
 
 configure {
     card 1 {
-        card-type iom-ixr-r6
+        card-type imm32-qsfp28+4-qsfpdd
         mda 1 {
-            mda-type m6-10g-sfp++1-100g-qsfp28
+            mda-type m32-qsfp28+4-qsfpdd
         }
     }
     log {
+        file "log-10" {
+        }
         filter "1001" {
             named-entry "10" {
                 description "Collect only events of major severity or higher"
@@ -25,6 +27,15 @@ configure {
                         gte major
                     }
                 }
+            }
+        }
+        log-id "10" {
+            admin-state enable
+            source {
+                debug true
+            }
+            destination {
+                file "log-10"
             }
         }
         log-id "99" {
@@ -51,42 +62,146 @@ configure {
             }
         }
     }
-    port 1/1/1 {
+    port 1/1/c1 {
         admin-state enable
-        ethernet {
-            mtu 9212
+        connector {
+            breakout c1-100g
         }
     }
-    port 1/1/2 {
+    port 1/1/c1/1 {
         admin-state enable
         ethernet {
             mode access
             encap-type dot1q
-            mtu 9212
         }
     }
+    port 1/1/c2 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c2/1 {
+        admin-state enable
+        ethernet {
+            mode hybrid
+        }
+    }
+    port 1/1/c3 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c3/1 {
+        admin-state enable
+        ethernet {
+            mode hybrid
+        }
+    }
+    port 1/1/c4 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c4/1 {
+        admin-state enable
+        ethernet {
+            mode access
+            encap-type dot1q
+        }
+    }
+    port 1/1/c5 {
+    }
+    port 1/1/c6 {
+    }
+    port 1/1/c7 {
+    }
+    port 1/1/c8 {
+    }
+    port 1/1/c9 {
+    }
+    port 1/1/c10 {
+    }
+    port 1/1/c11 {
+    }
+    port 1/1/c12 {
+    }
+    port 1/1/c13 {
+    }
+    port 1/1/c14 {
+    }
+    port 1/1/c15 {
+    }
+    port 1/1/c16 {
+    }
+    port 1/1/c17 {
+    }
+    port 1/1/c18 {
+    }
+    port 1/1/c19 {
+    }
+    port 1/1/c20 {
+    }
+    port 1/1/c21 {
+    }
+    port 1/1/c22 {
+    }
+    port 1/1/c23 {
+    }
+    port 1/1/c24 {
+    }
+    port 1/1/c25 {
+    }
+    port 1/1/c26 {
+    }
+    port 1/1/c27 {
+    }
+    port 1/1/c28 {
+    }
+    port 1/1/c29 {
+    }
+    port 1/1/c30 {
+    }
+    port 1/1/c31 {
+    }
+    port 1/1/c32 {
+    }
+    port 1/1/c33 {
+    }
+    port 1/1/c34 {
+    }
+    port 1/1/c35 {
+    }
+    port 1/1/c36 {
+    }
     router "Base" {
-        autonomous-system 64512
-        router-id 1.1.1.4
+        autonomous-system 65100
+        router-id 1.1.1.5
         interface "system" {
+            admin-state enable
             ipv4 {
                 primary {
-                    address 1.1.1.4
+                    address 1.1.1.5
                     prefix-length 32
                 }
             }
         }
-        interface "to_agg1" {
-            port 1/1/1
+        interface "to_bng1" {
+            admin-state enable
+            port 1/1/c2/1:0
             ipv4 {
                 unnumbered {
                     system
                 }
-                bfd {
-                    admin-state enable
-                    transmit-interval 1000
-                    receive 1000
-                    multiplier 3
+            }
+        }
+        interface "to_bng2" {
+            admin-state disable
+            ipv4 {
+                unnumbered {
+                    system
                 }
             }
         }
@@ -97,38 +212,43 @@ configure {
             }
         }
         bgp {
-            admin-state disable
+            admin-state enable
             min-route-advertisement 1
-            vpn-apply-export true
-            vpn-apply-import true
+            vpn-apply-export false
+            vpn-apply-import false
+            asn-4-byte true
+            router-id 1.1.1.5
             rapid-withdrawal true
-            peer-ip-tracking true
+            mp-bgp-keep true
             split-horizon true
-            ebgp-default-reject-policy {
-                import false
-                export false
-            }
-            local-as {
-                as-number 64512
+            family {
+                ipv4 true
+                vpn-ipv4 true
+                mvpn-ipv4 true
+                evpn true
             }
             rapid-update {
                 evpn true
             }
             group "iBGP" {
+                next-hop-self true
                 type internal
-                peer-as 64512
-                local-address 1.1.1.4
+                peer-as 65100
                 family {
+                    vpn-ipv4 true
+                    mvpn-ipv4 true
                     evpn true
                 }
                 local-as {
-                    as-number 64512
+                    as-number 65100
                 }
             }
             neighbor "1.1.1.1" {
+                admin-state enable
                 group "iBGP"
             }
             neighbor "1.1.1.2" {
+                admin-state enable
                 group "iBGP"
             }
         }
@@ -136,9 +256,12 @@ configure {
             admin-state enable
             advertise-router-capability as
             level-capability 2
-            router-id 1.1.1.4
+            router-id 1.1.1.5
             traffic-engineering true
             area-address [49.01]
+            entropy-label {
+                override-tunnel-elc true
+            }
             loopfree-alternate {
             }
             segment-routing {
@@ -150,41 +273,71 @@ configure {
             interface "system" {
                 admin-state enable
                 passive true
+                ipv4-node-sid {
+                    index 5
+                }
             }
-            interface "to_agg1" {
+            interface "to_bng1" {
                 admin-state enable
+                interface-type point-to-point
+            }
+            interface "to_bng2" {
+                admin-state disable
                 interface-type point-to-point
             }
             level 2 {
                 wide-metrics-only true
             }
         }
-        mpls {
+        ldp {
             admin-state enable
-            interface "to_agg1" {
-            }
-        }
-        rsvp {
-            admin-state disable
-            interface "system" {
-                admin-state enable
-            }
-            interface "to_agg1" {
-                admin-state enable
+            targeted-session {
+                auto-tx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
+                auto-rx {
+                    ipv4 {
+                        admin-state enable
+                    }
+                }
             }
         }
     }
     service {
-        vpls "internet" {
+        epipe "test" {
+            admin-state enable
+            service-id 99
+            customer "1"
+            spoke-sdp 99:99 {
+                admin-state enable
+            }
+            sap 1/1/c1/1:99 {
+                admin-state enable
+            }
+        }
+        sdp 99 {
+            admin-state enable
+            delivery-type gre
+            far-end {
+                ip-address 1.1.1.4
+            }
+        }
+        vprn "bng_core" {
             admin-state enable
             service-id 300
             customer "1"
-            service-mtu 9182
-            bgp-evpn {
-                evi 300
-                mpls 1 {
+            ecmp 4
+            bgp-ipvpn {
+                mpls {
                     admin-state enable
+                    route-distinguisher "1.1.1.5:300"
+                    vrf-target {
+                        community "target:65100:300"
+                    }
                     auto-bind-tunnel {
+                        ecmp 2
                         resolution filter
                         resolution-filter {
                             sr-isis true
@@ -192,22 +345,260 @@ configure {
                     }
                 }
             }
-            sap 1/1/2:200 {
-                ingress {
-                    vlan-manipulation {
-                        action preserve
+            interface "To_radius" {
+                admin-state enable
+                description "to radius server"
+                ipv4 {
+                    primary {
+                        address 10.10.10.1
+                        prefix-length 24
                     }
                 }
-                egress {
-                    vlan-manipulation {
-                        action preserve
+                sap 1/1/c1/1:300 {
+                    admin-state enable
+                }
+            }
+        }
+        vprn "retailer-1" {
+            admin-state enable
+            service-id 301
+            customer "1"
+            autonomous-system 65200
+            ecmp 4
+            bgp {
+                admin-state enable
+                min-route-advertisement 1
+                asn-4-byte true
+                router-id 1.1.99.3
+                rapid-withdrawal true
+                peer-ip-tracking true
+                split-horizon true
+                family {
+                    ipv4 true
+                }
+                local-as {
+                    as-number 65200
+                }
+                group "retailer" {
+                    next-hop-self true
+                    type internal
+                    peer-as 65200
+                    family {
+                        ipv4 true
+                    }
+                    local-as {
+                        as-number 65200
+                    }
+                }
+                neighbor "1.1.99.1" {
+                    admin-state enable
+                    group "retailer"
+                }
+                neighbor "1.1.99.2" {
+                    admin-state enable
+                    group "retailer"
+                }
+            }
+            interface "To_bng-host" {
+                admin-state enable
+                description "network side of bng-host tester"
+                ipv4 {
+                    primary {
+                        address 10.10.1.5
+                        prefix-length 30
+                    }
+                }
+                sap 1/1/c4/1:301 {
+                    admin-state enable
+                }
+            }
+            interface "To_dhcp" {
+                admin-state enable
+                description "dhcp server"
+                ipv4 {
+                    primary {
+                        address 10.10.10.1
+                        prefix-length 24
+                    }
+                }
+                sap 1/1/c1/1:301 {
+                    admin-state enable
+                }
+            }
+            interface "loopback" {
+                loopback true
+                ipv4 {
+                    primary {
+                        address 1.1.99.3
+                        prefix-length 32
+                    }
+                    dhcp {
+                        trusted true
+                    }
+                }
+            }
+            interface "to_bng1" {
+                admin-state enable
+                ipv4 {
+                    primary {
+                        address 10.1.1.1
+                        prefix-length 31
+                    }
+                    dhcp {
+                        admin-state enable
+                        trusted true
+                    }
+                }
+                sap 1/1/c2/1:301 {
+                    admin-state enable
+                    collect-stats true
+                }
+            }
+            interface "to_bng2" {
+                admin-state enable
+                ipv4 {
+                    primary {
+                        address 10.2.1.1
+                        prefix-length 31
+                    }
+                }
+                sap 1/1/c3/1:301 {
+                    admin-state enable
+                }
+            }
+            static-routes {
+                route 1.1.99.1/32 route-type unicast {
+                    next-hop "10.1.1.0" {
+                        admin-state enable
+                    }
+                }
+                route 1.1.99.2/32 route-type unicast {
+                    next-hop "10.2.1.0" {
+                        admin-state enable
+                    }
+                }
+            }
+        }
+        vprn "retailer-2" {
+            admin-state enable
+            service-id 302
+            customer "1"
+            autonomous-system 65300
+            ecmp 4
+            bgp {
+                admin-state enable
+                min-route-advertisement 1
+                asn-4-byte true
+                router-id 1.1.99.3
+                rapid-withdrawal true
+                peer-ip-tracking true
+                split-horizon true
+                family {
+                    ipv4 true
+                }
+                local-as {
+                    as-number 65300
+                }
+                group "retailer" {
+                    next-hop-self true
+                    type internal
+                    peer-as 65300
+                    family {
+                        ipv4 true
+                    }
+                    local-as {
+                        as-number 65300
+                    }
+                }
+                neighbor "1.1.99.1" {
+                    admin-state enable
+                    group "retailer"
+                }
+                neighbor "1.1.99.2" {
+                    admin-state enable
+                    group "retailer"
+                }
+            }
+            interface "To_bng-host" {
+                admin-state enable
+                description "network side of bng-host tester"
+                ipv4 {
+                    primary {
+                        address 10.10.1.9
+                        prefix-length 30
+                    }
+                }
+                sap 1/1/c4/1:302 {
+                    admin-state enable
+                }
+            }
+            interface "To_dhcp" {
+                admin-state enable
+                description "dhcp server"
+                ipv4 {
+                    primary {
+                        address 10.10.10.1
+                        prefix-length 24
+                    }
+                }
+                sap 1/1/c1/1:302 {
+                    admin-state enable
+                }
+            }
+            interface "loopback" {
+                loopback true
+                ipv4 {
+                    primary {
+                        address 1.1.99.3
+                        prefix-length 32
+                    }
+                }
+            }
+            interface "to_bng1" {
+                admin-state enable
+                ipv4 {
+                    primary {
+                        address 10.1.1.1
+                        prefix-length 31
+                    }
+                    dhcp {
+                        admin-state enable
+                        trusted true
+                    }
+                }
+                sap 1/1/c2/1:302 {
+                    admin-state enable
+                    collect-stats true
+                }
+            }
+            interface "to_bng2" {
+                admin-state enable
+                ipv4 {
+                    primary {
+                        address 10.2.1.1
+                        prefix-length 31
+                    }
+                }
+                sap 1/1/c3/1:302 {
+                    admin-state enable
+                }
+            }
+            static-routes {
+                route 1.1.99.1/32 route-type unicast {
+                    next-hop "10.1.1.0" {
+                        admin-state enable
+                    }
+                }
+                route 1.1.99.2/32 route-type unicast {
+                    next-hop "10.2.1.0" {
+                        admin-state enable
                     }
                 }
             }
         }
     }
     system {
-        name "agg2"
+        name "agg3"
         grpc {
             admin-state enable
             allow-unsecure-connection
@@ -216,21 +607,6 @@ configure {
             }
         }
         management-interface {
-            cli {
-                md-cli {
-                    environment {
-                        more true
-                        console {
-                            length 512
-                        }
-                        info-output {
-                            always-display {
-                                admin-state true
-                            }
-                        }
-                    }
-                }
-            }
             configuration-save {
                 configuration-backups 5
                 incremental-saves false
@@ -272,6 +648,10 @@ configure {
                         }
                         entry 40 {
                             match "tools dump security"
+                            action permit
+                        }
+                        entry 42 {
+                            match "tools dump system security"
                             action permit
                         }
                         entry 50 {
@@ -502,9 +882,32 @@ configure {
 
 persistent-indices {
     description "Persistent indices are maintained by the system and must not be modified."
+    vrtr-id {
+        router-name "bng_core" vrtr-id 3
+        router-name "retailer-1" vrtr-id 2
+        router-name "retailer-2" vrtr-id 4
+    }
     vrtr-if-id {
-        router-name "Base" interface-name "to_agg1" vrtr-id 1 if-index 2
+        router-name "Base" interface-name "to_bng1" vrtr-id 1 if-index 2
+        router-name "Base" interface-name "to_bng2" vrtr-id 1 if-index 3
+        router-name "bng_core" interface-name "To_radius" vrtr-id 3 if-index 7
+        router-name "retailer-1" interface-name "To_bng-host" vrtr-id 2 if-index 5
+        router-name "retailer-1" interface-name "To_dhcp" vrtr-id 2 if-index 11
+        router-name "retailer-1" interface-name "loopback" vrtr-id 2 if-index 4
+        router-name "retailer-1" interface-name "to_bng1" vrtr-id 2 if-index 9
+        router-name "retailer-1" interface-name "to_bng2" vrtr-id 2 if-index 10
+        router-name "retailer-2" interface-name "To_bng-host" vrtr-id 4 if-index 6
+        router-name "retailer-2" interface-name "To_dhcp" vrtr-id 4 if-index 12
+        router-name "retailer-2" interface-name "loopback" vrtr-id 4 if-index 8
+        router-name "retailer-2" interface-name "to_bng1" vrtr-id 4 if-index 13
+        router-name "retailer-2" interface-name "to_bng2" vrtr-id 4 if-index 14
+    }
+    log-name-id {
+        log-name "10" log-id 10 context 1 vrtr-id 1
+    }
+    log-file-name-id {
+        log-file-name "log-10" log-file-id 1
     }
 }
 
-# Finished 2025-02-27T23:54:04.5Z
+# Finished 2025-04-28T15:20:17.9Z

@@ -3,9 +3,10 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated 2025-03-29T01:27:13.2Z by admin from 172.31.255.29
-# Commit ID 2
-#   Committed 2025-03-28T17:56:28.2Z by admin (MD-CLI) from Console
+# Generated 2025-04-28T15:17:56.8Z by admin from 172.31.255.29
+# Commit ID 1
+#   Committed 2025-04-28T15:17:48.7Z by system (MD-CLI) from Console
+#   Log       "System booted version C-24.10.R2."
 
 configure {
     card 1 {
@@ -682,4 +683,4 @@ persistent-indices {
     }
 }
 
-# Finished 2025-03-29T01:27:13.3Z
+# Finished 2025-04-28T15:17:56.9Z
